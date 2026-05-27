@@ -1,0 +1,66 @@
+{
+    "module": "helpers.py",
+    "timestamp": "2026-05-20T15:56:42.951313",
+    "llm_info": {
+        "model": "sonnet",
+        "version": "functions",
+        "temperature": 1.0,
+        "prompt_style": "combined"
+    },
+    "run_number": 2,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": -4,
+        "diff_failing_tests": 4,
+        "diff_coverage": -12.12,
+        "dan_score_diff": 0.038732
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 7, 'pass': 4, 'fail': 2, 'error': 0}",
+        "Refactored Test Results": "{'total': 7, 'pass': 0, 'fail': 6, 'error': 0}",
+        "total_tests_before": 7,
+        "total_tests_after": 7
+    },
+    "coverage": {
+        "before_refactoring": 45.45,
+        "after_refactoring": 33.33
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "pass",
+            "test_case_1": "pass",
+            "test_case_2": "pass",
+            "test_case_3": "fail",
+            "test_case_4": "pass",
+            "test_case_5": "fail"
+        },
+        "after_refactoring": {
+            "test_timer_purge_result_can_be_debugged": "fail",
+            "test_variables_generator_instantiates_successfully": "fail",
+            "test_eager_accepts_variables_generator": "fail",
+            "test_module_utilities_accept_integer_and_callable_inputs": "fail",
+            "test_warn_with_proxy_handler_returns_none": "fail",
+            "test_eager_callable_invoked_with_none_module_and_self_as_start": "fail"
+        },
+        "dan_score_before": {
+            "__main__": 0.641155481338501,
+            "test_case_0": 0.4384838342666626,
+            "test_case_1": 0.5822873711585999,
+            "test_case_2": 0.3548617362976074,
+            "test_case_3": 0.2686479926109314,
+            "test_case_4": 0.5192355513572693,
+            "test_case_5": 0.4185090512037277
+        },
+        "dan_score_after": {
+            "__main__": 0.6536620855331421,
+            "test_timer_purge_result_can_be_debugged": 0.41606655716896057,
+            "test_variables_generator_instantiates_successfully": 0.43238550424575806,
+            "test_eager_accepts_variables_generator": 0.3038666844367981,
+            "test_module_utilities_accept_integer_and_callable_inputs": 0.24644930362701417,
+            "test_warn_with_proxy_handler_returns_none": 0.5376889109611511,
+            "test_eager_callable_invoked_with_none_module_and_self_as_start": 0.3619377315044403
+        },
+        "avg_dan_score_before": 0.460454,
+        "avg_dan_score_after": 0.421722
+    }
+}

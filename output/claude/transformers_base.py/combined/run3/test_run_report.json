@@ -1,0 +1,61 @@
+{
+    "module": "base.py",
+    "timestamp": "2026-03-26T14:03:25.457093",
+    "llm_info": {
+        "model": "sonnet",
+        "version": "functions",
+        "temperature": 0.2,
+        "prompt_style": "combined"
+    },
+    "run_number": 3,
+    "test_summary": {
+        "Original Test Results": "{'total': 6, 'pass': 2, 'fail': 3, 'error': 0}",
+        "Refactored Test Results": "{'total': 6, 'pass': 2, 'fail': 3, 'error': 0}",
+        "total_tests_before": 6,
+        "total_tests_after": 6
+    },
+    "coverage": {
+        "before_refactoring": 36.7,
+        "after_refactoring": 26.36
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "pass",
+            "test_case_1": "fail",
+            "test_case_2": "fail",
+            "test_case_3": "fail",
+            "test_case_4": "pass"
+        },
+        "after_refactoring": {
+            "test_base_node_transformer_instantiation_with_none": "pass",
+            "test_visit_import_from_with_mat_mult_and_rewrite_args": "fail",
+            "test_visit_import_from_with_none_module_and_mat_mult_names": "fail",
+            "test_visit_import_from_with_dict_unpacked_args_does_not_raise": "fail",
+            "test_visit_import_from_with_edge_case_string_arguments": "pass"
+        },
+        "dan_score_before": {
+            "test_case_0": 0.6931780576705933,
+            "test_case_1": 0.30872895816961926,
+            "test_case_2": 0.2389588483742305,
+            "test_case_3": 0.22579866151014963,
+            "test_case_4": 0.20197581127285957
+        },
+        "dan_score_after": {
+            "test_base_node_transformer_instantiation_with_none": 0.4349701702594757,
+            "test_visit_import_from_with_mat_mult_and_rewrite_args": 0.33111584186553955,
+            "test_visit_import_from_with_none_module_and_mat_mult_names": 0.19220611453056335,
+            "test_visit_import_from_with_dict_unpacked_args_does_not_raise": 0.2513564775387446,
+            "test_visit_import_from_with_edge_case_string_arguments": 0.327989362180233
+        },
+        "avg_dan_score_before": 0.333728,
+        "avg_dan_score_after": 0.307528
+    },
+    "diff_metrics": {
+        "dan_score_diff": 0.0262,
+        "diff_coverage": -10.34,
+        "diff_total_tests": 0,
+        "diff_passing_tests": 0,
+        "diff_failing_tests": 0
+    },
+    "prompt_style": "combined"
+}

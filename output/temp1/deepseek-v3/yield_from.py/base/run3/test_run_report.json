@@ -1,0 +1,58 @@
+{
+    "module": "yield_from.py",
+    "timestamp": "2026-05-21T23:44:46.403511",
+    "llm_info": {
+        "model": "deepseek-v3",
+        "version": "functions",
+        "temperature": 1.0,
+        "prompt_style": "base"
+    },
+    "run_number": 3,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": 0,
+        "diff_failing_tests": 0,
+        "diff_coverage": -0.48,
+        "dan_score_diff": 0.088127
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 5, 'pass': 3, 'fail': 1, 'error': 0}",
+        "Refactored Test Results": "{'total': 5, 'pass': 3, 'fail': 1, 'error': 0}",
+        "total_tests_before": 5,
+        "total_tests_after": 5
+    },
+    "coverage": {
+        "before_refactoring": 40.24,
+        "after_refactoring": 39.76
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "fail",
+            "test_case_1": "pass",
+            "test_case_2": "pass",
+            "test_case_3": "pass"
+        },
+        "after_refactoring": {
+            "test_yield_from_transformer_accepts_none": "fail",
+            "test_yield_from_transformer_initialization_with_none": "pass",
+            "test_yield_from_transformer_visits_while_loop_with_none_lists": "pass",
+            "test_yield_from_transformer_visits_while_with_none_types": "pass"
+        },
+        "dan_score_before": {
+            "__main__": 0.5017807483673096,
+            "test_case_0": 0.4216117411851883,
+            "test_case_1": 0.5275294184684753,
+            "test_case_2": 0.2692404597997665,
+            "test_case_3": 0.2445650522907575
+        },
+        "dan_score_after": {
+            "__main__": 0.4551944434642792,
+            "test_yield_from_transformer_accepts_none": 0.30187611281871796,
+            "test_yield_from_transformer_initialization_with_none": 0.30669140815734863,
+            "test_yield_from_transformer_visits_while_loop_with_none_lists": 0.26741770207881926,
+            "test_yield_from_transformer_visits_while_with_none_types": 0.19291085998217264
+        },
+        "avg_dan_score_before": 0.392945,
+        "avg_dan_score_after": 0.304818
+    }
+}

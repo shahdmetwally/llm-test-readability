@@ -1,0 +1,35 @@
+/var/spool/slurmd/job212801/slurm_script: line 22: llm-test-readability/slurm_logs#: No such file or directory
+<unknown>:24: SyntaxWarning: invalid escape sequence '\['
+<unknown>:25: SyntaxWarning: invalid escape sequence '\['
+<unknown>:26: SyntaxWarning: invalid escape sequence '\('
+<unknown>:27: SyntaxWarning: invalid escape sequence '\('
+<unknown>:28: SyntaxWarning: invalid escape sequence '\e'
+2026-05-19 17:34:10,687 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:34:13,536 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:34:15,145 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:34:17,926 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:34:19,573 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:34:22,384 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:34:23,827 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:34:26,471 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:34:28,367 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:34:31,416 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:34:32,789 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:34:35,050 - INFO - Loading model: microsoft/codebert-base-mlm
+/data/users/eliassam/miniforge3/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Some weights of the model checkpoint at microsoft/codebert-base-mlm were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+2026-05-19 17:34:36,595 - INFO - Processed __main__.dot: Score=0.7173 (1 paths)
+2026-05-19 17:34:36,651 - INFO - Processed test_case_0.dot: Score=0.9371 (1 paths)
+2026-05-19 17:34:36,788 - INFO - Processed test_case_1.dot: Score=0.3863 (2 paths)
+2026-05-19 17:34:36,856 - INFO - Processed test_case_2.dot: Score=0.4633 (1 paths)
+2026-05-19 17:34:36,963 - INFO - Processed test_case_3.dot: Score=0.2332 (1 paths)
+2026-05-19 17:34:37,089 - INFO - Processed test_case_4.dot: Score=0.4287 (2 paths)
+2026-05-19 17:34:37,176 - INFO - Processed __main__.dot: Score=0.6240 (1 paths)
+2026-05-19 17:34:37,247 - INFO - Processed test_formatter_plugin_default_instantiation.dot: Score=0.4022 (1 paths)
+2026-05-19 17:34:37,406 - INFO - Processed test_auth_plugin_multiline_password_special_chars.dot: Score=0.3126 (2 paths)
+2026-05-19 17:34:37,488 - INFO - Processed test_transport_plugin_get_adapter_defaults_to_none.dot: Score=0.2812 (1 paths)
+2026-05-19 17:34:37,613 - INFO - Processed test_converter_plugin_accepts_bytes_and_transport_plugin_gets_adapter.dot: Score=0.1482 (1 paths)
+2026-05-19 17:34:37,757 - INFO - Processed test_converter_plugin_convert_with_none_input.dot: Score=0.3651 (2 paths)

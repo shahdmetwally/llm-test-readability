@@ -1,0 +1,18 @@
+Starting job on callisto
+Python: /data/users/eliassam/miniforge3/bin/python3
+Already up to date.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/data/users/eliassam/Thesis/llm_readability/llm-test-readability/src/main.py", line 84, in <module>
+    refactor_manager = refactoring_manager.RefactorManager(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users/eliassam/Thesis/llm_readability/llm-test-readability/src/util/refactoring_manager.py", line 68, in __init__
+    raise ValueError(
+ValueError: Missing Hugging Face token. Set HF_TOKEN environment variable.
+Copied data/codetiming/codetiming_timer.py to ./output/deepseek-coder/job/functions/mix/0.2/2026_02_05_170749/codetiming_timer.py/codetiming_timer.py
+Copied /data/users/eliassam/Thesis/llm_readability/llm-test-readability/data/codetiming/test_codetiming__timer.py to ./output/deepseek-coder/job/functions/mix/0.2/2026_02_05_170749/codetiming_timer.py/test_codetiming__timer.py
+Output directory: ./output/deepseek-coder/job/functions/mix/0.2/2026_02_05_170749/codetiming_timer.py/
+
+Pulling latest for codetiming
+Job finished

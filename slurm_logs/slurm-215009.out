@@ -1,0 +1,78 @@
+============================================
+Job running on io
+Date: Thu May 21 11:05:01 PM CEST 2026
+Temperature: 1
+Prompt type: combined
+Version:     functions
+Models:      deepseek-v3
+Runs:        1 2 3
+============================================
+Failed to initialize NVML: Driver/library version mismatch
+NVML library version: 595.71
+CUDA_VISIBLE_DEVICES: 4
+SLURM_JOB_GPUS: 4
+Torch sees 1 GPUs
+
+Discovered 18 modules:
+  [0] codetiming
+       module: data/codetiming/codetiming_timer.py
+       test:   data/codetiming/test_codetiming__timer.py
+  [1] flutils.decorators
+       module: data/flutils.decorators/decorators.py
+       test:   data/flutils.decorators/test_flutils_decorators.py
+  [2] flutils.namedtupleutils
+       module: data/flutils.namedtupleutils/namedtupleutils.py
+       test:   data/flutils.namedtupleutils/test_flutils_namedtupleutils.py
+  [3] flutils.packages
+       module: data/flutils.packages/packages.py
+       test:   data/flutils.packages/test_flutils_packages.py
+  [4] flutils.setuputils.cmd
+       module: data/flutils.setuputils.cmd/cmd.py
+       test:   data/flutils.setuputils.cmd/test_flutils_setuputils_cmd.py
+  [5] httpie.output.formatters.headers
+       module: data/httpie.output.formatters.headers/headers.py
+       test:   data/httpie.output.formatters.headers/test_httpie_output_formatters_headers.py
+  [6] httpie.plugins.base
+       module: data/httpie.plugins.base/base.py
+       test:   data/httpie.plugins.base/test_httpie_plugins_base.py
+  [7] py_backwards.transformers.base
+       module: data/py_backwards.transformers.base/base.py
+       test:   data/py_backwards.transformers.base/test_py_backwards_transformers_base.py
+  [8] py_backwards.transformers.dict_unpacking
+       module: data/py_backwards.transformers.dict_unpacking/dict_unpacking.py
+       test:   data/py_backwards.transformers.dict_unpacking/test_py_backwards_transformers_dict_unpacking.py
+  [9] py_backwards.transformers.return_from_generator
+       module: data/py_backwards.transformers.return_from_generator/return_from_generator.py
+       test:   data/py_backwards.transformers.return_from_generator/test_py_backwards_transformers_return_from_generator.py
+  [10] py_backwards.transformers.yield_from
+       module: data/py_backwards.transformers.yield_from/yield_from.py
+       test:   data/py_backwards.transformers.yield_from/test_py_backwards_transformers_yield_from.py
+  [11] py_backwards.utils.helpers
+       module: data/py_backwards.utils.helpers/helpers.py
+       test:   data/py_backwards.utils.helpers/test_py_backwards_utils_helpers.py
+  [12] pymonet.immutable_list
+       module: data/pymonet.immutable_list/immutable_list.py
+       test:   data/pymonet.immutable_list/test_pymonet_immutable_list.py
+  [13] pymonet.maybe
+       module: data/pymonet.maybe/maybe.py
+       test:   data/pymonet.maybe/test_pymonet_maybe.py
+  [14] pymonet.validation
+       module: data/pymonet.validation/validation.py
+       test:   data/pymonet.validation/test_pymonet_validation.py
+  [15] pypara.accounting.journaling
+       module: data/pypara.accounting.journaling/journaling.py
+       test:   data/pypara.accounting.journaling/test_pypara_accounting_journaling.py
+  [16] pytutils.lazy.lazy_import
+       module: data/pytutils.lazy.lazy_import/lazy_import.py
+       test:   data/pytutils.lazy.lazy_import/test_pytutils_lazy_lazy_import.py
+  [17] pytutils.python
+       module: data/pytutils.python/python.py
+       test:   data/pytutils.python/test_pytutils_python.py
+
+
+================================================================
+[1] Model: deepseek-v3 | Module: codetiming | Run: 1
+    module_path: data/codetiming/codetiming_timer.py
+    test_path:   data/codetiming/test_codetiming__timer.py
+    temperature: 1 | prompt: combined | version: functions
+================================================================

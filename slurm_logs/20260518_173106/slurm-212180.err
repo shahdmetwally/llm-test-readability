@@ -1,0 +1,37 @@
+<unknown>:24: SyntaxWarning: invalid escape sequence '\['
+<unknown>:25: SyntaxWarning: invalid escape sequence '\['
+<unknown>:26: SyntaxWarning: invalid escape sequence '\('
+<unknown>:27: SyntaxWarning: invalid escape sequence '\('
+<unknown>:28: SyntaxWarning: invalid escape sequence '\e'
+Unrecognized keys in `rope_scaling` for 'rope_type'='linear': {'type'}
+Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:33<03:20, 33.49s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [01:09<02:54, 34.96s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [01:45<02:21, 35.49s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [02:21<01:46, 35.56s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [02:53<01:08, 34.35s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [03:43<00:39, 39.64s/it]Loading checkpoint shards: 100%|██████████| 7/7 [04:21<00:00, 39.01s/it]Loading checkpoint shards: 100%|██████████| 7/7 [04:21<00:00, 37.30s/it]
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+2026-05-18 17:45:40,267 - INFO - Loading model: microsoft/codebert-base-mlm
+/data/users/eliassam/miniforge3/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Some weights of the model checkpoint at microsoft/codebert-base-mlm were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+2026-05-18 17:45:41,449 - INFO - Processed __main__.dot: Score=0.6247 (1 paths)
+2026-05-18 17:45:41,507 - INFO - Processed test_case_0.dot: Score=0.5517 (1 paths)
+2026-05-18 17:45:41,717 - INFO - Processed test_case_1.dot: Score=0.2750 (3 paths)
+2026-05-18 17:45:41,803 - INFO - Processed test_case_2.dot: Score=0.2332 (1 paths)
+2026-05-18 17:45:41,870 - INFO - Processed test_case_3.dot: Score=0.3506 (1 paths)
+2026-05-18 17:45:41,930 - INFO - Processed test_case_4.dot: Score=0.4858 (1 paths)
+2026-05-18 17:45:43,274 - INFO - Processed test_case_5.dot: Score=0.1792 (7 paths)
+2026-05-18 17:45:43,387 - INFO - Processed test_case_6.dot: Score=0.1989 (1 paths)
+2026-05-18 17:45:43,470 - INFO - Processed test_case_7.dot: Score=0.2615 (1 paths)
+2026-05-18 17:45:49,971 - INFO - Processed test_case_8.dot: Score=0.1112 (15 paths)
+2026-05-18 17:45:51,605 - INFO - Processed test_case_9.dot: Score=0.1418 (3 paths)
+2026-05-18 17:45:51,693 - INFO - Processed test_case_10.dot: Score=0.2798 (1 paths)
+2026-05-18 17:45:51,813 - INFO - Processed __main__.dot: Score=0.5513 (1 paths)
+2026-05-18 17:45:51,861 - INFO - Processed test_to_namedtuple_float_to_namedtuple.dot: Score=0.7184 (1 paths)
+2026-05-18 17:45:52,226 - INFO - Processed test_namedtuple_conversion.dot: Score=0.3236 (6 paths)
+2026-05-18 17:45:52,272 - INFO - Processed test_namedtuple_conversion_2.dot: Score=0.9770 (1 paths)
+2026-05-18 17:45:52,653 - INFO - Processed test_namedtuple_conversion_on_bytes.dot: Score=0.2834 (6 paths)
+2026-05-18 17:45:52,867 - INFO - Processed test_to_namedtuple_of_empty_tuple_should_return_namedtuple.dot: Score=0.2993 (3 paths)
+2026-05-18 17:45:53,797 - INFO - Processed test_named_tuple_conversion_from_ordered_dict.dot: Score=0.1491 (7 paths)
+2026-05-18 17:45:53,971 - INFO - Processed test_to_namedtuple_handles_empty_container_inputs.dot: Score=0.2241 (2 paths)
+2026-05-18 17:46:03,236 - INFO - Processed test_to_namedtuple_complex_data_types.dot: Score=0.1602 (15 paths)
+2026-05-18 17:46:08,266 - INFO - Processed test_handling_multiple_consecutive_conversions_of_the_same_object.dot: Score=0.1656 (3 paths)
+2026-05-18 17:46:08,554 - INFO - Processed test_to_namedtuple_creates_namedtuple.dot: Score=0.2544 (3 paths)

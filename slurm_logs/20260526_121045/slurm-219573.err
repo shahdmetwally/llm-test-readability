@@ -1,0 +1,84 @@
+/data/users/eliassam/miniforge3/lib/python3.12/site-packages/torch/cuda/__init__.py:628: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+<unknown>:24: SyntaxWarning: invalid escape sequence '\['
+<unknown>:25: SyntaxWarning: invalid escape sequence '\['
+<unknown>:26: SyntaxWarning: invalid escape sequence '\('
+<unknown>:27: SyntaxWarning: invalid escape sequence '\('
+<unknown>:28: SyntaxWarning: invalid escape sequence '\e'
+2026-05-26 12:11:15,324 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:11:31,918 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:11:34,810 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:11:46,902 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:11:49,131 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:12:05,703 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:12:10,486 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:12:28,750 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:12:31,313 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:12:46,753 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:12:50,897 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:13:03,451 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:13:06,323 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:13:20,363 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:13:23,394 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:13:40,415 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:13:44,745 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:13:57,374 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:13:59,365 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:14:15,829 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:14:19,467 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:14:35,158 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:14:38,874 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:14:56,185 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:15:00,328 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:15:16,728 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:15:20,865 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:15:35,297 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:15:38,873 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:15:54,182 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:15:58,073 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:16:10,513 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:16:13,249 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:16:31,603 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:16:37,320 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:16:56,799 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:17:02,443 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:17:02,490 - INFO - server error, backing off for 1s
+2026-05-26 12:17:03,520 - INFO - server error, backing off for 2s
+2026-05-26 12:17:05,549 - INFO - server error, backing off for 4s
+2026-05-26 12:17:09,578 - INFO - server error, backing off for 8s
+2026-05-26 12:17:17,606 - INFO - server error, backing off for 16s
+2026-05-26 12:17:33,673 - INFO - server error, backing off for 1s
+2026-05-26 12:17:34,703 - INFO - server error, backing off for 2s
+2026-05-26 12:17:36,734 - INFO - server error, backing off for 4s
+2026-05-26 12:17:53,806 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:17:57,938 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:18:27,243 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-26 12:19:08,357 - INFO - Loading model: microsoft/codebert-base-mlm
+/data/users/eliassam/miniforge3/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Some weights of the model checkpoint at microsoft/codebert-base-mlm were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+2026-05-26 12:19:12,916 - INFO - Processed __main__.dot: Score=0.8692 (1 paths)
+2026-05-26 12:19:13,021 - INFO - Processed test_case_0.dot: Score=0.3918 (1 paths)
+2026-05-26 12:19:13,096 - INFO - Processed test_case_1.dot: Score=0.4033 (1 paths)
+2026-05-26 12:19:19,787 - INFO - Processed test_case_2.dot: Score=0.1618 (50 paths)
+2026-05-26 12:19:19,942 - INFO - Processed test_case_3.dot: Score=0.3069 (2 paths)
+2026-05-26 12:19:20,331 - INFO - Processed test_case_4.dot: Score=0.2873 (5 paths)
+2026-05-26 12:19:20,516 - INFO - Processed test_case_5.dot: Score=0.4323 (3 paths)
+2026-05-26 12:19:20,741 - INFO - Processed test_case_6.dot: Score=0.2701 (3 paths)
+2026-05-26 12:19:30,720 - INFO - Processed test_case_7.dot: Score=0.1339 (38 paths)
+2026-05-26 12:19:30,893 - INFO - Processed test_case_8.dot: Score=0.4911 (3 paths)
+2026-05-26 12:19:31,790 - INFO - Processed test_case_9.dot: Score=0.2056 (12 paths)
+2026-05-26 12:19:32,274 - INFO - Processed test_case_10.dot: Score=0.2094 (6 paths)
+2026-05-26 12:19:34,303 - INFO - Processed test_case_11.dot: Score=0.1839 (24 paths)
+2026-05-26 12:19:37,306 - INFO - Processed test_case_12.dot: Score=0.1645 (34 paths)
+2026-05-26 12:19:37,917 - INFO - Processed test_case_13.dot: Score=0.1918 (10 paths)
+2026-05-26 12:19:39,039 - INFO - Processed test_case_14.dot: Score=0.1790 (18 paths)
+2026-05-26 12:19:39,151 - INFO - Processed test_case_15.dot: Score=0.2980 (2 paths)
+2026-05-26 12:19:42,030 - INFO - Processed test_case_16.dot: Score=0.1663 (40 paths)
+2026-05-26 12:19:47,681 - INFO - Processed test_case_17.dot: Score=0.1025 (50 paths)
+2026-05-26 12:19:48,443 - INFO - Processed test_case_18.dot: Score=0.2135 (13 paths)
+2026-05-26 12:19:48,561 - INFO - Processed test_case_19.dot: Score=0.2928 (2 paths)
+2026-05-26 12:19:48,579 - ERROR - Failed to parse or build PDG: expected '(' (<unknown>, line 353)
+2026-05-26 12:19:48,579 - WARNING - No functions found in ./output/temp1/sonnet/maybe.py/base/run3/test_pymonet_maybe_functions_refactored.py to generate PDGs for.

@@ -1,0 +1,62 @@
+{
+    "module": "transformers_base.py",
+    "timestamp": "2026-05-21T23:37:41.340142",
+    "llm_info": {
+        "model": "deepseek-v3",
+        "version": "functions",
+        "temperature": 1.0,
+        "prompt_style": "base"
+    },
+    "run_number": 3,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": 0,
+        "diff_failing_tests": 0,
+        "diff_coverage": -0.34,
+        "dan_score_diff": 0.06402
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 6, 'pass': 2, 'fail': 3, 'error': 0}",
+        "Refactored Test Results": "{'total': 6, 'pass': 2, 'fail': 3, 'error': 0}",
+        "total_tests_before": 6,
+        "total_tests_after": 6
+    },
+    "coverage": {
+        "before_refactoring": 36.7,
+        "after_refactoring": 36.36
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "pass",
+            "test_case_1": "fail",
+            "test_case_2": "fail",
+            "test_case_3": "fail",
+            "test_case_4": "pass"
+        },
+        "after_refactoring": {
+            "test_base_node_transformer_initialization_with_none_attr": "pass",
+            "test_base_import_rewrite_visits_import_from_correctly": "fail",
+            "test_visit_import_from_rewrites_module_imports": "fail",
+            "test_visit_import_from_handles_invalid_characters_gracefully": "fail",
+            "test_base_import_rewrite_visit_import_from_with_multiple_duplicate_aliases": "pass"
+        },
+        "dan_score_before": {
+            "__main__": 0.5496261119842529,
+            "test_case_0": 0.6931780576705933,
+            "test_case_1": 0.30872895816961926,
+            "test_case_2": 0.2389588483742305,
+            "test_case_3": 0.22579866151014963,
+            "test_case_4": 0.20197581127285957
+        },
+        "dan_score_after": {
+            "__main__": 0.48705869913101196,
+            "test_base_node_transformer_initialization_with_none_attr": 0.40674787759780884,
+            "test_base_import_rewrite_visits_import_from_correctly": 0.24452389776706696,
+            "test_visit_import_from_rewrites_module_imports": 0.29428098031452726,
+            "test_visit_import_from_handles_invalid_characters_gracefully": 0.22508661448955536,
+            "test_base_import_rewrite_visit_import_from_with_multiple_duplicate_aliases": 0.17644928768277168
+        },
+        "avg_dan_score_before": 0.369711,
+        "avg_dan_score_after": 0.305691
+    }
+}

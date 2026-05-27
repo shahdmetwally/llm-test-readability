@@ -1,0 +1,56 @@
+/var/spool/slurmd/job212792/slurm_script: line 22: llm-test-readability/slurm_logs#: No such file or directory
+<unknown>:24: SyntaxWarning: invalid escape sequence '\['
+<unknown>:25: SyntaxWarning: invalid escape sequence '\['
+<unknown>:26: SyntaxWarning: invalid escape sequence '\('
+<unknown>:27: SyntaxWarning: invalid escape sequence '\('
+<unknown>:28: SyntaxWarning: invalid escape sequence '\e'
+2026-05-19 16:57:42,562 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:57:55,202 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:57:56,701 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:58:07,764 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:58:10,004 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:58:21,237 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:58:23,196 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:58:34,443 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:58:36,158 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:58:47,293 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:58:50,508 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:59:02,399 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:59:06,954 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:59:19,212 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:59:22,746 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:59:35,041 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:59:38,770 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:59:51,004 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:59:54,988 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:00:09,717 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:00:12,443 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:00:17,049 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:00:30,482 - INFO - Loading model: microsoft/codebert-base-mlm
+/data/users/eliassam/miniforge3/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Some weights of the model checkpoint at microsoft/codebert-base-mlm were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+2026-05-19 17:00:32,498 - INFO - Processed __main__.dot: Score=0.7027 (1 paths)
+2026-05-19 17:00:32,570 - INFO - Processed test_case_0.dot: Score=0.7557 (1 paths)
+2026-05-19 17:00:32,888 - INFO - Processed test_case_1.dot: Score=0.4087 (4 paths)
+2026-05-19 17:00:33,041 - INFO - Processed test_case_2.dot: Score=0.4158 (2 paths)
+2026-05-19 17:00:33,140 - INFO - Processed test_case_3.dot: Score=0.3199 (1 paths)
+2026-05-19 17:00:33,376 - INFO - Processed test_case_4.dot: Score=0.2098 (2 paths)
+2026-05-19 17:00:36,754 - INFO - Processed test_case_5.dot: Score=0.2289 (31 paths)
+2026-05-19 17:00:40,462 - INFO - Processed test_case_6.dot: Score=0.2354 (34 paths)
+2026-05-19 17:00:41,082 - INFO - Processed test_case_7.dot: Score=0.1935 (8 paths)
+2026-05-19 17:00:41,745 - INFO - Processed test_case_8.dot: Score=0.3195 (9 paths)
+2026-05-19 17:00:41,995 - INFO - Processed test_case_9.dot: Score=0.3653 (4 paths)
+2026-05-19 17:00:42,099 - INFO - Processed __main__.dot: Score=0.6514 (1 paths)
+2026-05-19 17:00:42,158 - INFO - Processed test_TimerError_instantiation_without_arguments.dot: Score=0.4750 (1 paths)
+2026-05-19 17:00:42,436 - INFO - Processed test_timer_restart_after_context_manager_raises_timer_error.dot: Score=0.3922 (4 paths)
+2026-05-19 17:00:42,568 - INFO - Processed test_timer_context_manager_enters_and_exits.dot: Score=0.3481 (2 paths)
+2026-05-19 17:00:42,652 - INFO - Processed test_timer_exit_without_start.dot: Score=0.3109 (1 paths)
+2026-05-19 17:00:42,833 - INFO - Processed test_timer_with_none_logger_does_not_fail_on_restart.dot: Score=0.2615 (2 paths)
+2026-05-19 17:00:49,225 - INFO - Processed test_timer_context_manager_with_invalid_initial_text_and_equality_check.dot: Score=0.2053 (50 paths)
+2026-05-19 17:00:53,339 - INFO - Processed test_timer_context_manager_with_repr_as_initial_text_and_equality_to_int.dot: Score=0.1309 (34 paths)
+2026-05-19 17:00:54,030 - INFO - Processed test_timer_start_with_none_logger_and_dict_operations.dot: Score=0.1842 (6 paths)
+2026-05-19 17:00:55,148 - INFO - Processed test_timer_equality_and_start_with_invalid_arguments.dot: Score=0.2443 (11 paths)
+2026-05-19 17:00:55,419 - INFO - Processed test_timer_start_stop_and_context_manager_flow.dot: Score=0.2877 (4 paths)

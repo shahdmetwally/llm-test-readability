@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+#SBATCH -A NAISS2024-22-570 -p alvis
+#SBATCH --gpus-per-node=A100:4 # 
+#SBATCH -t 0-06:00:00
+#SBATCH -o jobs/out/llama_sumFunc.log  
+
+model=llama
+temperatures=(0.1 0.2 0.5 0.7)
+
+job=Job-sum_functions
+
+# Arrays to store sessions, test paths, and module paths
+sessions=(
+    "job-2l-sum_func-queue"
+    "job-2l-sum_func-stringVal"
+    "job-2l-sum_func-httpie"
+)
+
+test_paths=(
+    "/cephyr/NOBACKUP/groups/llm-readability/readability/data/queue_example/test_queue_example.py"
+    "/cephyr/NOBACKUP/groups/llm-readability/readability/data/string_utils_validation/test_string_utils_validation.py"
+    "/cephyr/NOBACKUP/groups/llm-readability/readability/data/httpie_sessions/test_httpie_sessions.py"
+)
+
+module_paths=(
+    "/cephyr/NOBACKUP/groups/llm-readability/readability/data/queue_example/queue_example.py"
+    "/cephyr/NOBACKUP/groups/llm-readability/readability/data/string_utils_validation/validation.py"
+    "/cephyr/NOBACKUP/groups/llm-readability/readability/data/httpie_sessions/sessions.py /cephyr/NOBACKUP/groups/llm-readability/readability/data/httpie_sessions/dicts.py"
+)
+
+ml purge
+
+# Loop through each configuration
+for i in "${!sessions[@]}"; do
+    session="${sessions[$i]}"
+    test_path="${test_paths[$i]}"
+    module_path="${module_paths[$i]}"
+    
+    for temperature in "${temperatures[@]}"; do
+        echo "Running with session $session, temperature $temperature"
+        # Running test
+        apptainer exec /cephyr/NOBACKUP/groups/llm-readability/setup/mixtral.sif python -m src.summarize_functions \
+        -m $model -s $session -t $temperature -p $module_path -tp $test_path -j $job
+        
+        # PUSHING TO REPO
+        
+        # Define the path to the repository's root
+        REPO_DIR="/cephyr/NOBACKUP/groups/llm-readability/readability"
+        
+        # Change to the repository directory
+        cd $REPO_DIR
+        
+        # Check if the directory change was successful
+        if [ $? -ne 0 ]; then
+            echo "Failed to change directory to $REPO_DIR. Exiting script."
+            exit 1
+        fi
+        
+        # Pull the latest changes from the remote repository
+        echo "Pulling the latest changes from the repository..."
+        git pull origin main
+        
+        # Check if the pull was successful
+        if [ $? -ne 0 ]; then
+            echo "Failed to pull the latest changes. Exiting script."
+            exit 1
+        fi
+        
+        # Add changes only in the 'output' folder
+        git add output/
+        
+        # Commit the changes
+        COMMIT_MESSAGE="From Loop Job: Update output folder after model: $model session: $session temp: $temperature"
+        COMMIT_STATUS=$(git commit -m "$COMMIT_MESSAGE")
+        
+        # Check if the commit was successful
+        if [[ $COMMIT_STATUS == *"nothing to commit"* ]]; then
+            echo "No changes to commit for temperature $temperature."
+        else
+            echo "Changes committed. Pushing to repository..."
+            # Push the changes
+            git push origin main
+            echo "Changes pushed successfully for temperature $temperature."
+        fi
+    done
+done

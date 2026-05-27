@@ -1,0 +1,60 @@
+{
+    "module": "base.py",
+    "timestamp": "2026-03-24T13:44:38.804926",
+    "llm_info": {
+        "model": "deepseek-v3",
+        "version": "functions",
+        "temperature": 0.2,
+        "prompt_style": "base"
+    },
+    "run_number": 1,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": 0,
+        "diff_failing_tests": 0,
+        "diff_coverage": -0.92,
+        "dan_score_diff": 0.059273
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 6, 'pass': 2, 'fail': 3, 'error': 0}",
+        "Refactored Test Results": "{'total': 6, 'pass': 2, 'fail': 3, 'error': 0}",
+        "total_tests_before": 6,
+        "total_tests_after": 6
+    },
+    "coverage": {
+        "before_refactoring": 36.7,
+        "after_refactoring": 35.78
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "pass",
+            "test_case_1": "fail",
+            "test_case_2": "fail",
+            "test_case_3": "fail",
+            "test_case_4": "pass"
+        },
+        "after_refactoring": {
+            "test_base_node_transformer_initializes_with_none_argument": "pass",
+            "test_base_import_rewrite_visits_import_from_with_matmult_node": "fail",
+            "test_visit_importfrom_handles_matmult_and_none_in_names": "fail",
+            "test_visit_importfrom_with_dict_arguments": "fail",
+            "test_visit_importfrom_with_duplicate_keys_and_empty_strings": "pass"
+        },
+        "dan_score_before": {
+            "test_case_0": 0.6931780576705933,
+            "test_case_1": 0.3087288985649745,
+            "test_case_2": 0.23895881644317082,
+            "test_case_3": 0.2257987062136332,
+            "test_case_4": 0.2019755057990551
+        },
+        "dan_score_after": {
+            "test_base_node_transformer_initializes_with_none_argument": 0.40581101179122925,
+            "test_base_import_rewrite_visits_import_from_with_matmult_node": 0.26897139350573224,
+            "test_visit_importfrom_handles_matmult_and_none_in_names": 0.21915604472160338,
+            "test_visit_importfrom_with_dict_arguments": 0.22266844908396402,
+            "test_visit_importfrom_with_duplicate_keys_and_empty_strings": 0.25566761940717697
+        },
+        "avg_dan_score_before": 0.333728,
+        "avg_dan_score_after": 0.274455
+    }
+}

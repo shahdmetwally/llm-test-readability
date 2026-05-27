@@ -1,0 +1,38 @@
+<unknown>:24: SyntaxWarning: invalid escape sequence '\['
+<unknown>:25: SyntaxWarning: invalid escape sequence '\['
+<unknown>:26: SyntaxWarning: invalid escape sequence '\('
+<unknown>:27: SyntaxWarning: invalid escape sequence '\('
+<unknown>:28: SyntaxWarning: invalid escape sequence '\e'
+From https://github.com/scottgasch/pyutils
+   27db6f4..a703acd  main       -> origin/main
+Unrecognized keys in `rope_scaling` for 'rope_type'='linear': {'type'}
+Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:04<00:29,  4.87s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:09<00:22,  4.59s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:13<00:18,  4.56s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:18<00:13,  4.63s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [00:22<00:09,  4.55s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [00:27<00:04,  4.48s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:30<00:00,  4.08s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:30<00:00,  4.36s/it]
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+2026-05-19 12:28:06,317 - INFO - Loading model: microsoft/codebert-base-mlm
+/data/users/eliassam/miniforge3/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Some weights of the model checkpoint at microsoft/codebert-base-mlm were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+2026-05-19 12:28:08,143 - INFO - Processed __main__.dot: Score=0.6247 (1 paths)
+2026-05-19 12:28:08,459 - INFO - Processed test_case_0.dot: Score=0.5517 (1 paths)
+2026-05-19 12:28:08,858 - INFO - Processed test_case_1.dot: Score=0.2750 (3 paths)
+2026-05-19 12:28:08,943 - INFO - Processed test_case_2.dot: Score=0.2332 (1 paths)
+2026-05-19 12:28:09,007 - INFO - Processed test_case_3.dot: Score=0.3506 (1 paths)
+2026-05-19 12:28:09,063 - INFO - Processed test_case_4.dot: Score=0.4858 (1 paths)
+2026-05-19 12:28:09,817 - INFO - Processed test_case_5.dot: Score=0.1792 (7 paths)
+2026-05-19 12:28:09,930 - INFO - Processed test_case_6.dot: Score=0.1989 (1 paths)
+2026-05-19 12:28:10,010 - INFO - Processed test_case_7.dot: Score=0.2615 (1 paths)
+2026-05-19 12:28:11,937 - INFO - Processed test_case_8.dot: Score=0.1112 (15 paths)
+2026-05-19 12:28:12,258 - INFO - Processed test_case_9.dot: Score=0.1418 (3 paths)
+2026-05-19 12:28:12,342 - INFO - Processed test_case_10.dot: Score=0.2798 (1 paths)
+2026-05-19 12:28:26,459 - INFO - Processed __main__.dot: Score=0.0818 (50 paths)
+2026-05-19 12:28:26,657 - INFO - Processed test_to_namedtuple_with_float.dot: Score=0.3386 (3 paths)
+2026-05-19 12:28:27,493 - INFO - Processed test_transform_tuple_to_typed_namedtuple.dot: Score=0.1944 (10 paths)
+2026-05-19 12:28:27,654 - INFO - Processed test_creating_namedtuple_from_dictionary.dot: Score=0.3668 (2 paths)
+2026-05-19 12:28:27,737 - INFO - Processed test_byte_to_namedtuple_conversion.dot: Score=0.2662 (1 paths)
+2026-05-19 12:28:27,920 - INFO - Processed test_to_namedtuple_with_empty_input.dot: Score=0.3195 (3 paths)
+2026-05-19 12:28:28,551 - INFO - Processed test_namedtupleutils_to_namedtuple_duplicate.dot: Score=0.2438 (6 paths)
+2026-05-19 12:28:31,450 - INFO - Processed test_namedtuple_creation_from_list.dot: Score=0.2165 (4 paths)
+2026-05-19 12:28:40,738 - INFO - Processed test_namedtupleutils_to_namedtuple_updated.dot: Score=0.1890 (35 paths)
+2026-05-19 12:28:40,848 - INFO - Processed test_namedtuple_creation_from_byte_dict.dot: Score=0.1575 (1 paths)

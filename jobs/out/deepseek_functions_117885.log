@@ -1,0 +1,5 @@
+/var/spool/slurmd/job117885/slurm_script: line 8: module: command not found
+/var/spool/slurmd/job117885/slurm_script: line 9: module: command not found
+Starting job on uranus
+FATAL:   While checking container encryption: could not open image /cephyr/NOBACKUP/groups/llm-readability/setup/mixtral.sif: failed to retrieve path for /cephyr/NOBACKUP/groups/llm-readability/setup/mixtral.sif: lstat /cephyr: no such file or directory
+Job finished

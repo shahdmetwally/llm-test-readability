@@ -1,0 +1,60 @@
+{
+    "module": "base.py",
+    "timestamp": "2026-03-04T15:14:21.045246",
+    "llm_info": {
+        "model": "deepseek-coder",
+        "version": "functions",
+        "temperature": 0.2,
+        "prompt_style": "combined"
+    },
+    "run_number": 2,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": 0,
+        "diff_failing_tests": 0,
+        "diff_coverage": -3.42,
+        "dan_score_diff": 0.169573
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 6, 'pass': 0, 'fail': 5, 'error': 0}",
+        "Refactored Test Results": "{'total': 6, 'pass': 0, 'fail': 5, 'error': 0}",
+        "total_tests_before": 6,
+        "total_tests_after": 6
+    },
+    "coverage": {
+        "before_refactoring": 68.42,
+        "after_refactoring": 65.0
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "fail",
+            "test_case_1": "fail",
+            "test_case_2": "fail",
+            "test_case_3": "fail",
+            "test_case_4": "fail"
+        },
+        "after_refactoring": {
+            "test_formatter_plugin_is_instantiated": "fail",
+            "test_auth_plugin_get_auth": "fail",
+            "test_transport_plugin_get_adapter": "fail",
+            "test_converter_transport_plugin_creation": "fail",
+            "test_converter_plugin_converts_none_type_correctly": "fail"
+        },
+        "dan_score_before": {
+            "test_case_0": 0.9371200799942017,
+            "test_case_1": 0.38626839220523834,
+            "test_case_2": 0.46328005194664,
+            "test_case_3": 0.23319034278392792,
+            "test_case_4": 0.42865827679634094
+        },
+        "dan_score_after": {
+            "test_formatter_plugin_is_instantiated": 0.3635064661502838,
+            "test_auth_plugin_get_auth": 0.30178721249103546,
+            "test_transport_plugin_get_adapter": 0.3583563268184662,
+            "test_converter_transport_plugin_creation": 0.2332664132118225,
+            "test_converter_plugin_converts_none_type_correctly": 0.3437358886003494
+        },
+        "avg_dan_score_before": 0.489703,
+        "avg_dan_score_after": 0.32013
+    }
+}

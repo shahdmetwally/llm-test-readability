@@ -1,0 +1,48 @@
+{
+    "module": "dict_unpacking.py",
+    "timestamp": "2026-03-28T15:20:32.127409",
+    "llm_info": {
+        "model": "deepseek-v3",
+        "version": "functions",
+        "temperature": 0.2,
+        "prompt_style": "base"
+    },
+    "run_number": 3,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": 0,
+        "diff_failing_tests": 0,
+        "diff_coverage": -0.32,
+        "dan_score_diff": -0.2014
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 3, 'pass': 2, 'fail': 0, 'error': 0}",
+        "Refactored Test Results": "{'total': 3, 'pass': 2, 'fail': 0, 'error': 0}",
+        "total_tests_before": 3,
+        "total_tests_after": 3
+    },
+    "coverage": {
+        "before_refactoring": 18.18,
+        "after_refactoring": 17.86
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "pass",
+            "test_case_1": "pass"
+        },
+        "after_refactoring": {
+            "test_dict_unpacking_transformer_initialization": "pass",
+            "test_dict_unpacking_transformer_visits_module_without_error": "pass"
+        },
+        "dan_score_before": {
+            "test_case_0": 0.4130252003669739,
+            "test_case_1": 0.2662591487169266
+        },
+        "dan_score_after": {
+            "test_dict_unpacking_transformer_initialization": 0.6028933525085449,
+            "test_dict_unpacking_transformer_visits_module_without_error": 0.4791911542415619
+        },
+        "avg_dan_score_before": 0.339642,
+        "avg_dan_score_after": 0.541042
+    }
+}

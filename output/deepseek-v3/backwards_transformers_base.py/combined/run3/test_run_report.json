@@ -1,0 +1,58 @@
+{
+    "module": "base.py",
+    "timestamp": "2026-03-26T14:34:22.784358",
+    "llm_info": {
+        "model": "deepseek-v3",
+        "version": "functions",
+        "temperature": 0.2,
+        "prompt_style": "combined"
+    },
+    "run_number": 3,
+    "diff_metrics": {
+        "diff_total_tests": -1,
+        "diff_passing_tests": -2,
+        "diff_failing_tests": 1,
+        "diff_coverage": -10.74,
+        "dan_score_diff": 0.055395
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 6, 'pass': 2, 'fail': 3, 'error': 0}",
+        "Refactored Test Results": "{'total': 5, 'pass': 0, 'fail': 4, 'error': 0}",
+        "total_tests_before": 6,
+        "total_tests_after": 5
+    },
+    "coverage": {
+        "before_refactoring": 36.7,
+        "after_refactoring": 25.96
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "pass",
+            "test_case_1": "fail",
+            "test_case_2": "fail",
+            "test_case_3": "fail",
+            "test_case_4": "pass"
+        },
+        "after_refactoring": {
+            "test_base_node_transformer_instantiation_with_none": "fail",
+            "test_visit_import_from_with_none_module_and_matmult_level": "fail",
+            "test_visit_import_from_with_dict_arguments": "fail",
+            "test_visit_import_from_with_duplicate_keys_and_empty_strings": "fail"
+        },
+        "dan_score_before": {
+            "test_case_0": 0.6931780576705933,
+            "test_case_1": 0.3087288985649745,
+            "test_case_2": 0.23895881644317082,
+            "test_case_3": 0.2257987062136332,
+            "test_case_4": 0.2019755057990551
+        },
+        "dan_score_after": {
+            "test_base_node_transformer_instantiation_with_none": 0.3878571093082428,
+            "test_visit_import_from_with_none_module_and_matmult_level": 0.29239613456385477,
+            "test_visit_import_from_with_dict_arguments": 0.25131567815939587,
+            "test_visit_import_from_with_duplicate_keys_and_empty_strings": 0.18176190555095673
+        },
+        "avg_dan_score_before": 0.333728,
+        "avg_dan_score_after": 0.278333
+    }
+}

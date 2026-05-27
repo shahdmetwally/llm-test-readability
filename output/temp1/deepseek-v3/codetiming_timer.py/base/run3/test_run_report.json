@@ -1,0 +1,82 @@
+{
+    "module": "codetiming_timer.py",
+    "timestamp": "2026-05-21T23:16:02.047589",
+    "llm_info": {
+        "model": "deepseek-v3",
+        "version": "functions",
+        "temperature": 1.0,
+        "prompt_style": "base"
+    },
+    "run_number": 3,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": 0,
+        "diff_failing_tests": 0,
+        "diff_coverage": -21.8,
+        "dan_score_diff": 0.060591
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 11, 'pass': 3, 'fail': 7, 'error': 0}",
+        "Refactored Test Results": "{'total': 11, 'pass': 3, 'fail': 7, 'error': 0}",
+        "total_tests_before": 11,
+        "total_tests_after": 11
+    },
+    "coverage": {
+        "before_refactoring": 69.92,
+        "after_refactoring": 48.12
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "pass",
+            "test_case_1": "fail",
+            "test_case_2": "pass",
+            "test_case_3": "fail",
+            "test_case_4": "fail",
+            "test_case_5": "pass",
+            "test_case_6": "fail",
+            "test_case_7": "fail",
+            "test_case_8": "fail",
+            "test_case_9": "fail"
+        },
+        "after_refactoring": {
+            "test_timer_error_instantiation": "pass",
+            "test_restarting_an_active_timer_raises_error": "fail",
+            "test_timer_context_manager_enters_and_exits": "pass",
+            "test_exit_without_starting_timer_should_not_raise": "fail",
+            "test_timer_with_logger_none_and_context_manager_on_setitem_result": "fail",
+            "test_timer_context_manager_with_initial_text_and_various_operations": "pass",
+            "test_timer_context_manager_with_repr_and_eq_and_mixed_timers": "fail",
+            "test_timer_exit_without_stop_and_setitem_on_none": "fail",
+            "test_explicit_timer_with_initial_text_set_to_timer_and_logger_from_eq_result": "fail",
+            "test_timer_with_initial_text_and_explicit_start_stop_and_context_manager": "fail"
+        },
+        "dan_score_before": {
+            "__main__": 0.7026676535606384,
+            "test_case_0": 0.7556875944137573,
+            "test_case_1": 0.4087132140994072,
+            "test_case_2": 0.415790319442749,
+            "test_case_3": 0.3198978006839752,
+            "test_case_4": 0.20976607501506805,
+            "test_case_5": 0.2288596745460264,
+            "test_case_6": 0.23542607225039425,
+            "test_case_7": 0.1934603601694107,
+            "test_case_8": 0.31953396565384334,
+            "test_case_9": 0.36531470715999603
+        },
+        "dan_score_after": {
+            "__main__": 0.6514099836349487,
+            "test_timer_error_instantiation": 0.5272150635719299,
+            "test_restarting_an_active_timer_raises_error": 0.5371065735816956,
+            "test_timer_context_manager_enters_and_exits": 0.314827099442482,
+            "test_exit_without_starting_timer_should_not_raise": 0.25679606199264526,
+            "test_timer_with_logger_none_and_context_manager_on_setitem_result": 0.21142367273569107,
+            "test_timer_context_manager_with_initial_text_and_various_operations": 0.1301842721239213,
+            "test_timer_context_manager_with_repr_and_eq_and_mixed_timers": 0.14093046306687243,
+            "test_timer_exit_without_stop_and_setitem_on_none": 0.1845675576478243,
+            "test_explicit_timer_with_initial_text_set_to_timer_and_logger_from_eq_result": 0.27126891414324444,
+            "test_timer_with_initial_text_and_explicit_start_stop_and_context_manager": 0.2628827132284641
+        },
+        "avg_dan_score_before": 0.377738,
+        "avg_dan_score_after": 0.317147
+    }
+}

@@ -1,0 +1,1413 @@
+Job running on neptune
+Date: Tue May 19 01:40:27 PM CEST 2026
+Running debug checks...
+Tue May 19 13:40:27 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 595.58.03              Driver Version: 595.58.03      CUDA Version: 13.2     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:4A:00.0 Off |                    0 |
+| N/A   36C    P0             77W /  350W |   20375MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    On  |   00000000:61:00.0 Off |                    0 |
+| N/A   23C    P8             31W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA L40S                    On  |   00000000:CA:00.0 Off |                    0 |
+| N/A   23C    P8             31W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   3  NVIDIA L40S                    On  |   00000000:E1:00.0 Off |                    0 |
+| N/A   63C    P0            284W /  350W |   15195MiB /  46068MiB |     98%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A          576861      C   python3                               20366MiB |
+|    3   N/A  N/A          517918      C   python3                               15186MiB |
++-----------------------------------------------------------------------------------------+
+CUDA_VISIBLE_DEVICES: 1
+SLURM_JOB_GPUS: 1
+SLURM_GPUS_ON_NODE: 1
+Torch sees 1 GPUs
+Starting execution...
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Copied data/flutils.namedtupleutils/namedtupleutils.py to ./output/deepseek-coder/namedtupleutils.py/base/run1/namedtupleutils.py
+Copied /data/users/eliassam/Thesis/llm_readability/llm-test-readability/data/flutils.namedtupleutils/test_flutils_namedtupleutils.py to ./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils.py
+Output directory: ./output/deepseek-coder/namedtupleutils.py/base/run1
+
+Pulling latest for codetiming in /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/codetiming
+Ingested 8 files from codetiming at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/codetiming
+Ingested 1 external docs for codetiming
+Created 75 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/codetiming
+Pulling latest for flutils in /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/flutils
+Ingested 88 files from flutils at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/flutils
+Ingested 1 external docs for flutils
+Created 1454 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/flutils
+Pulling latest for httpie in /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/httpie
+Ingested 150 files from httpie at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/httpie
+Ingested 1 external docs for httpie
+Created 1460 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/httpie
+Pulling latest for py-backwards in /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/py-backwards
+Ingested 55 files from py-backwards at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/py-backwards
+Ingested 1 external docs for py-backwards
+Created 273 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/py-backwards
+Pulling latest for pymonet in /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/pymonet
+Ingested 44 files from pymonet at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/pymonet
+Ingested 1 external docs for pymonet
+Created 422 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/pymonet
+Pulling latest for pyutils in /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/pyutils
+Ingested 111 files from pyutils at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/pyutils
+Ingested 1 external docs for pyutils
+Created 1908 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/pyutils
+Loading local model: deepseek-ai/deepseek-coder-33b-instruct...
+Usage of bitsandbytes detected: Enabling 4-bit quantization for memory efficiency.
+DEBUG: Found 1 GPUs.
+DEBUG: Single GPU detected. Setting device_map={'': 0}
+
+        Model created: 
+        Model name: deepseek-coder
+        Model path: deepseek-ai/deepseek-coder-33b-instruct
+        Model temperature: 1.0
+        Model system prompt: You are a helpful AI assistant that will help improve the readability of the test cases.
+        Version: functions
+        Context window: 16384
+        Directory: ./output/deepseek-coder/namedtupleutils.py/base/run1
+        Log directory: ./output/deepseek-coder/namedtupleutils.py/base/run1/Log
+        Modules paths: ['/data/users/eliassam/Thesis/llm_readability/llm-test-readability/data/flutils.namedtupleutils/namedtupleutils.py']
+        Test path: /data/users/eliassam/Thesis/llm_readability/llm-test-readability/data/flutils.namedtupleutils/test_flutils_namedtupleutils.py
+        
+Saving text file in:  ./output/deepseek-coder/namedtupleutils.py/base/run1/Log/test_case_logs.txt
+Create python file in directory:  ./output/deepseek-coder/namedtupleutils.py/base/run1
+Saving file in:  ./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py
+" 
+        
+ 
+        ***********************
+
+        ** New imports saved **
+
+        ***********************
+
+        Previous imports:  # Test cases automatically generated by Pynguin (https://www.pynguin.eu).
+# Please check them before you use them.
+import namedtupleutils as module_0
+import collections as module_1
+        New imports:  import namedtupleutils as namedtuple_utils
+import collections as py_collections
+        
+
+        Directory:  ./output/deepseek-coder/namedtupleutils.py/base/run1
+        Refactored file path:  ./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py
+        Log directory:  ./output/deepseek-coder/namedtupleutils.py/base/run1/Log
+        Log file path:  ./output/deepseek-coder/namedtupleutils.py/base/run1/Log/test_case_logs.txt
+        *******************************************************        
+        
+
+
+
+        
+Running functions script
+
+Running RAG-based refactoring (Functions mode)...
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: pyutils:src/pyutils/config.py | kind=code | chunk_type=header | symbol=__module__ | lines=1-144
+search_document: FILE: pyutils:src/pyutils/config.py
+KIND: code
+
+if not config.config['dry_run']:
+            module.do_the_thing()
+
+    Using :py:mod:`pyutils.config` allows you to "save" and "load" whole
+    sets of commandline arguments using the `--config_savefile` and the
+    `--config_loadfile` arguments.  The former saves all arguments (other than
+    itself) to an ascii file whose path you provide.  The latter reads all
+    arguments from an ascii file whose path you provide.
+
+    Saving and loading sets of arguments can make complex operations easier
+    to set up.  They also allows for dynamic arguments.
+
+    If you use Apache Zookeeper, you can prefix paths to
+    `--config_savefile` and `--config_loadfile` with the string "zk:"
+    to cause the path to be interpreted as a Zookeeper path rather
+    than one on the local filesystem.  When loading arguments from
+    Zookeeker,...
+(Total chars: 8533)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_namedtupleutils_to_namedtuple_functionality():
+    # given
+    float_value = -476.66
+
+    # when
+    result = namedtuple_utils.to_namedtuple(float_value)
+
+    # then
+    expected_result_tuple = py_collections.namedtuple('Float', 'float')(float_value)
+    assert result == expected_result_tuple   
+
+
+        Refactored file path:  ['./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: pyutils:src/pyutils/config.py | kind=code | chunk_type=header | symbol=__module__ | lines=1-144
+search_document: FILE: pyutils:src/pyutils/config.py
+KIND: code
+
+if not config.config['dry_run']:
+            module.do_the_thing()
+
+    Using :py:mod:`pyutils.config` allows you to "save" and "load" whole
+    sets of commandline arguments using the `--config_savefile` and the
+    `--config_loadfile` arguments.  The former saves all arguments (other than
+    itself) to an ascii file whose path you provide.  The latter reads all
+    arguments from an ascii file whose path you provide.
+
+    Saving and loading sets of arguments can make complex operations easier
+    to set up.  They also allows for dynamic arguments.
+
+    If you use Apache Zookeeper, you can prefix paths to
+    `--config_savefile` and `--config_loadfile` with the string "zk:"
+    to cause the path to be interpreted as a Zookeeper path rather
+    than one on the local filesystem.  When loading arguments from
+    Zookeeker,...
+(Total chars: 8533)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_namedtuple_creation_from_valid_data():
+    unique_float = -67.0
+    unique_float_set = {unique_float, unique_float, unique_float, unique_float}
+    test_input = (unique_float, unique_float_set)
+    generated_namedtuple = namedtuple_utils.to_namedtuple(test_input)
+    assert isinstance(generated_namedtuple, py_collections.namedtuple), \
+        "Generated object is not a namedtuple"
+    module_0.to_namedtuple(unique_float_set)   
+
+
+        Refactored file path:  ['./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: pyutils:src/pyutils/config.py | kind=code | chunk_type=header | symbol=__module__ | lines=1-144
+search_document: FILE: pyutils:src/pyutils/config.py
+KIND: code
+
+if not config.config['dry_run']:
+            module.do_the_thing()
+
+    Using :py:mod:`pyutils.config` allows you to "save" and "load" whole
+    sets of commandline arguments using the `--config_savefile` and the
+    `--config_loadfile` arguments.  The former saves all arguments (other than
+    itself) to an ascii file whose path you provide.  The latter reads all
+    arguments from an ascii file whose path you provide.
+
+    Saving and loading sets of arguments can make complex operations easier
+    to set up.  They also allows for dynamic arguments.
+
+    If you use Apache Zookeeper, you can prefix paths to
+    `--config_savefile` and `--config_loadfile` with the string "zk:"
+    to cause the path to be interpreted as a Zookeeper path rather
+    than one on the local filesystem.  When loading arguments from
+    Zookeeker,...
+(Total chars: 8533)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_transforming_dictionary_to_namedtuple_and_namedtuple_to_namedtuple():
+    author = "author"
+    authors_dict = {author: author, author: author, author: author}
+    authors_namedtuple = namedtuple_utils.to_namedtuple(authors_dict)
+    another_authors_namedtuple = namedtuple_utils.to_namedtuple(authors_namedtuple)   
+
+
+        Refactored file path:  ['./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: pyutils:src/pyutils/config.py | kind=code | chunk_type=header | symbol=__module__ | lines=1-144
+search_document: FILE: pyutils:src/pyutils/config.py
+KIND: code
+
+if not config.config['dry_run']:
+            module.do_the_thing()
+
+    Using :py:mod:`pyutils.config` allows you to "save" and "load" whole
+    sets of commandline arguments using the `--config_savefile` and the
+    `--config_loadfile` arguments.  The former saves all arguments (other than
+    itself) to an ascii file whose path you provide.  The latter reads all
+    arguments from an ascii file whose path you provide.
+
+    Saving and loading sets of arguments can make complex operations easier
+    to set up.  They also allows for dynamic arguments.
+
+    If you use Apache Zookeeper, you can prefix paths to
+    `--config_savefile` and `--config_loadfile` with the string "zk:"
+    to cause the path to be interpreted as a Zookeeper path rather
+    than one on the local filesystem.  When loading arguments from
+    Zookeeker,...
+(Total chars: 8533)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_to_namedtuple_conversion_for_bytes_from_namedtuple_utils():
+    """Test behaviour of to_namedtuple function with bytes input"""
+    
+    # Setup test data
+    bytes_data = b"xs&,\x9b\xc2\xf1\x80\xb3y"
+
+    # Execute actual test
+    result = namedtuple_utils.to_namedtuple(bytes_data)
+
+    # Check expected result
+    assert isinstance(result, py_collections.namedtuple)   
+
+
+        Refactored file path:  ['./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: pyutils:src/pyutils/config.py | kind=code | chunk_type=header | symbol=__module__ | lines=1-144
+search_document: FILE: pyutils:src/pyutils/config.py
+KIND: code
+
+if not config.config['dry_run']:
+            module.do_the_thing()
+
+    Using :py:mod:`pyutils.config` allows you to "save" and "load" whole
+    sets of commandline arguments using the `--config_savefile` and the
+    `--config_loadfile` arguments.  The former saves all arguments (other than
+    itself) to an ascii file whose path you provide.  The latter reads all
+    arguments from an ascii file whose path you provide.
+
+    Saving and loading sets of arguments can make complex operations easier
+    to set up.  They also allows for dynamic arguments.
+
+    If you use Apache Zookeeper, you can prefix paths to
+    `--config_savefile` and `--config_loadfile` with the string "zk:"
+    to cause the path to be interpreted as a Zookeeper path rather
+    than one on the local filesystem.  When loading arguments from
+    Zookeeker,...
+(Total chars: 8533)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_to_namedtuple_conversion_on_empty_tuple_different_name():
+    """
+    Test that to_namedtuple returns an empty tuple unchanged.
+    """
+    # Given an empty tuple 'tuple_0' and 'module_0'
+    tuple_0 = ()
+
+    # When 'to_namedtuple' is called with 'tuple_0'
+    var_0 = namedtuple_utils.to_namedtuple(tuple_0)
+
+    # Then 'var_0' should be equal to the empty tuple
+    assert var_0 == tuple_0   
+
+
+        Refactored file path:  ['./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: pyutils:src/pyutils/config.py | kind=code | chunk_type=header | symbol=__module__ | lines=1-144
+search_document: FILE: pyutils:src/pyutils/config.py
+KIND: code
+
+if not config.config['dry_run']:
+            module.do_the_thing()
+
+    Using :py:mod:`pyutils.config` allows you to "save" and "load" whole
+    sets of commandline arguments using the `--config_savefile` and the
+    `--config_loadfile` arguments.  The former saves all arguments (other than
+    itself) to an ascii file whose path you provide.  The latter reads all
+    arguments from an ascii file whose path you provide.
+
+    Saving and loading sets of arguments can make complex operations easier
+    to set up.  They also allows for dynamic arguments.
+
+    If you use Apache Zookeeper, you can prefix paths to
+    `--config_savefile` and `--config_loadfile` with the string "zk:"
+    to cause the path to be interpreted as a Zookeeper path rather
+    than one on the local filesystem.  When loading arguments from
+    Zookeeker,...
+(Total chars: 10203)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_multiple_namedtuples_creation():
+    """
+    This test check the creation of namedtuples from various types of inputs.
+    """
+
+    # Initialize OrderedDict
+    ordered_dict = py_collections.OrderedDict()
+
+    # Convert OrderedDict to namedtuple
+    first_namedtuple = namedtuple_utils.to_namedtuple(ordered_dict)
+
+    # Convert the first namedtuple to another namedtuple
+    second_namedtuple = namedtuple_utils.to_namedtuple(first_namedtuple)
+
+    # Convert the OrderedDict to another namedtuple
+    third_namedtuple = namedtuple_utils.to_namedtuple(ordered_dict)
+
+    # Convert the third namedtuple to another namedtuple
+    fourth_namedtuple = namedtuple_utils.to_namedtuple(third_namedtuple)
+
+    # Define a bytes value
+    raw_bytes = b"\xe2\xf8\xb9\x01\x8c\xa5\xed\xb1\x0e&rdHE"
+
+    # Convert the OrderedDict to a fifth namedtuple
+    fifth_namedtuple = namedtuple_utils.to_namedtuple(ordered_dict)
+
+    # Create a tuple with the second and raw_bytes
+    tuple_input = (second_namedtuple, raw_bytes)
+
+    # Convert the tuple to a namedtuple
+    sixth_namedtuple = namedtuple_utils.to_namedtuple(tuple_input)
+
+    # Convert the OrderedDict to a seventh namedtuple
+    seventh_namedtuple = namedtuple_utils.to_namedtuple(ordered_dict)   
+
+
+        Refactored file path:  ['./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: pyutils:src/pyutils/config.py | kind=code | chunk_type=header | symbol=__module__ | lines=1-144
+search_document: FILE: pyutils:src/pyutils/config.py
+KIND: code
+
+if not config.config['dry_run']:
+            module.do_the_thing()
+
+    Using :py:mod:`pyutils.config` allows you to "save" and "load" whole
+    sets of commandline arguments using the `--config_savefile` and the
+    `--config_loadfile` arguments.  The former saves all arguments (other than
+    itself) to an ascii file whose path you provide.  The latter reads all
+    arguments from an ascii file whose path you provide.
+
+    Saving and loading sets of arguments can make complex operations easier
+    to set up.  They also allows for dynamic arguments.
+
+    If you use Apache Zookeeper, you can prefix paths to
+    `--config_savefile` and `--config_loadfile` with the string "zk:"
+    to cause the path to be interpreted as a Zookeeper path rather
+    than one on the local filesystem.  When loading arguments from
+    Zookeeker,...
+(Total chars: 8533)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_create_namedtuple_from_large_dictionary():
+    # Prepare input data
+    key = "wm=-g\ry#\x0b#:*"
+    dict_data = {key: key, key: key}
+    ordered_dict = py_collections.OrderedDict(**dict_data)
+
+    # Create namedtuple
+    name = 'Test'
+    namedtuple = namedtuple_utils.to_namedtuple(namedtuple_name=name, ordered_dict=ordered_dict)
+
+    # Assert that namedtuple has expected data
+    assert namedtuple._asdict() == dict_data
+
+    # Create an ordered dict with no data 
+    empty_list = [None]
+    empty_dict = py_collections.OrderedDict(*empty_list)
+
+    # Create namedtuple
+    another_name = "AnotherTest"
+    empty_namedtuple = namedtuple_utils.to_namedtuple(namedtuple_name=another_name, ordered_dict=empty_dict)
+
+    # Assert that namedtuple is empty
+    assert len(empty_namedtuple._asdict()) == 0   
+
+
+        Refactored file path:  ['./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: pyutils:src/pyutils/config.py | kind=code | chunk_type=header | symbol=__module__ | lines=1-144
+search_document: FILE: pyutils:src/pyutils/config.py
+KIND: code
+
+if not config.config['dry_run']:
+            module.do_the_thing()
+
+    Using :py:mod:`pyutils.config` allows you to "save" and "load" whole
+    sets of commandline arguments using the `--config_savefile` and the
+    `--config_loadfile` arguments.  The former saves all arguments (other than
+    itself) to an ascii file whose path you provide.  The latter reads all
+    arguments from an ascii file whose path you provide.
+
+    Saving and loading sets of arguments can make complex operations easier
+    to set up.  They also allows for dynamic arguments.
+
+    If you use Apache Zookeeper, you can prefix paths to
+    `--config_savefile` and `--config_loadfile` with the string "zk:"
+    to cause the path to be interpreted as a Zookeeper path rather
+    than one on the local filesystem.  When loading arguments from
+    Zookeeker,...
+(Total chars: 8533)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_namedtuple_creation_from_valid_data():
+    '''Checks if namedtuple can be created from valid data'''
+    data = {'a': 1, 'b': 2}
+    assert NamedTuple('foo', fields=tuple(data.keys())).from_data(data) == NamedTuple('foo', (('a', 1), ('b', 2)))
+
+def test_transform_dictionary_to_namedtuple():
+    '''Checks if namedtuple can be created from a dictionary and if it can be transformed back to a dictionary'''
+    data = {'a': 1, 'b': 2}
+    named_tuple = NamedTuple('foo', fields=tuple(data.keys())).from_data(data)
+    assert dict(named_tuple._asdict()) == data
+
+def test_namedtuple_creation_from_bytes():
+    '''Checks if namedtuple can be created from bytes'''
+    data = {'a': 1, 'b': 2}
+    named_tuple = NamedTuple('foo', fields=tuple(data.keys())).from_data(data)
+    assert NamedTuple.from_bytes(named_tuple.to_bytes()) == named_tuple
+
+def test_namedtuple_creation_from_empty_tuple():
+    '''Checks if namedtuple can be created from an empty tuple with a different name'''
+    data = {}
+    assert NamedTuple('bar', fields=tuple(data.keys())).from_data(data) == NamedTuple('bar', tuple()) 
+
+def test_multiple_namedtuple_creation():
+    '''Checks if multiple namedtuples can be created from different valid data'''
+    data1 = {'a': 1, 'b': 2}
+    data2 = {'c': 3, 'd': 4}
+    named_tuple1 = NamedTuple('foo', fields=tuple(data1.keys())).from_data(data1)
+    named_tuple2 = NamedTuple('bar', fields=tuple(data2.keys())).from_data(data2)
+    assert named_tuple1 == NamedTuple('foo', (('a', 1), ('b', 2)))
+    assert named_tuple2 == NamedTuple('bar', (('c', 3), ('d', 4)))
+
+def test_namedtuple_creation_from_large_dictionary():
+    '''Checks if namedtuple can be created from a large dictionary'''
+    data = {chr(i): i for i in range(1000)}
+    named_tuple = NamedTuple('foo', fields=tuple(data.keys())).from_data(data)
+    assert dict(named_tuple._asdict()) == data   
+
+
+        Refactored file path:  ['./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: pyutils:src/pyutils/config.py | kind=code | chunk_type=header | symbol=__module__ | lines=1-144
+search_document: FILE: pyutils:src/pyutils/config.py
+KIND: code
+
+if not config.config['dry_run']:
+            module.do_the_thing()
+
+    Using :py:mod:`pyutils.config` allows you to "save" and "load" whole
+    sets of commandline arguments using the `--config_savefile` and the
+    `--config_loadfile` arguments.  The former saves all arguments (other than
+    itself) to an ascii file whose path you provide.  The latter reads all
+    arguments from an ascii file whose path you provide.
+
+    Saving and loading sets of arguments can make complex operations easier
+    to set up.  They also allows for dynamic arguments.
+
+    If you use Apache Zookeeper, you can prefix paths to
+    `--config_savefile` and `--config_loadfile` with the string "zk:"
+    to cause the path to be interpreted as a Zookeeper path rather
+    than one on the local filesystem.  When loading arguments from
+    Zookeeker,...
+(Total chars: 8533)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_to_namedtuple_normalize_path_normalize_values():
+    """Test the to_namedtuple function, where the input values are dictionary or other collection types."""
+ 
+    # given 
+    str_input = "Normalize a given path."
+    dict_input = {str_input: str_input, str_input: str_input, str_input: str_input}
+
+    # when
+    normal_named_tuple = namedtuple_utils.to_namedtuple(dict_input)
+    bool_result = False
+    normal_named_tuple_copy = namedtuple_utils.to_namedtuple(dict_input)
+    tuple_wrapper = (normal_named_tuple_copy,)
+    modified_dict = {normal_named_tuple_copy: normal_named_tuple, bool_result: normal_named_tuple_copy}
+    named_tuple_of_dict = namedtuple_utils.to_namedtuple(modified_dict)
+    named_tuple_copy = namedtuple_utils.to_namedtuple(named_tuple_of_dict)
+    bool_modify = False
+    named_tuple_of_modified_dict = namedtuple_utils.to_namedtuple(modified_dict)
+    namedtuple_utils.to_namedtuple(bool_modify)
+    
+    # then
+    assert normal_named_tuple == normal_named_tuple_copy
+    assert named_tuple_of_dict == named_tuple_of_modified_dict
+    assert named_tuple_copy == named_tuple_of_dict   
+
+
+        Refactored file path:  ['./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: pyutils:src/pyutils/config.py | kind=code | chunk_type=header | symbol=__module__ | lines=1-144
+search_document: FILE: pyutils:src/pyutils/config.py
+KIND: code
+
+if not config.config['dry_run']:
+            module.do_the_thing()
+
+    Using :py:mod:`pyutils.config` allows you to "save" and "load" whole
+    sets of commandline arguments using the `--config_savefile` and the
+    `--config_loadfile` arguments.  The former saves all arguments (other than
+    itself) to an ascii file whose path you provide.  The latter reads all
+    arguments from an ascii file whose path you provide.
+
+    Saving and loading sets of arguments can make complex operations easier
+    to set up.  They also allows for dynamic arguments.
+
+    If you use Apache Zookeeper, you can prefix paths to
+    `--config_savefile` and `--config_loadfile` with the string "zk:"
+    to cause the path to be interpreted as a Zookeeper path rather
+    than one on the local filesystem.  When loading arguments from
+    Zookeeker,...
+(Total chars: 8533)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  """Tests the to_namedtuple function handling of nested tuples of varying data"""
+
+complex_string = "\x0cMv"
+empty_tuple = tuple()
+dict_sample = {complex_string: empty_tuple, empty_tuple: complex_string, empty_tuple: empty_tuple}
+
+tuple_sample = (complex_string, dict_sample)
+list_sample = [tuple_sample]
+
+namedtuple_sample = namedtuple_utils.to_namedtuple(list_sample)
+repeated_namedtuple = namedtuple_utils.to_namedtuple(namedtuple_sample)
+
+integer = 2
+
+assert namedtuple_utils.to_namedtuple(integer) is False   
+
+
+        Refactored file path:  ['./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: pyutils:src/pyutils/config.py | kind=code | chunk_type=header | symbol=__module__ | lines=1-144
+search_document: FILE: pyutils:src/pyutils/config.py
+KIND: code
+
+if not config.config['dry_run']:
+            module.do_the_thing()
+
+    Using :py:mod:`pyutils.config` allows you to "save" and "load" whole
+    sets of commandline arguments using the `--config_savefile` and the
+    `--config_loadfile` arguments.  The former saves all arguments (other than
+    itself) to an ascii file whose path you provide.  The latter reads all
+    arguments from an ascii file whose path you provide.
+
+    Saving and loading sets of arguments can make complex operations easier
+    to set up.  They also allows for dynamic arguments.
+
+    If you use Apache Zookeeper, you can prefix paths to
+    `--config_savefile` and `--config_loadfile` with the string "zk:"
+    to cause the path to be interpreted as a Zookeeper path rather
+    than one on the local filesystem.  When loading arguments from
+    Zookeeker,...
+(Total chars: 8533)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_namedtupleutils_to_namedtuple_functionality_1():
+    """
+    Test that to_namedtuple function 
+    correctly creates a namedtuple from a dictionary.
+    """
+    
+    # Input bytes
+    bytes_0 = b"F\xdb\xfdf\x8a\xe4\n\xa2\x1d[\xdc*\xa3\xba\xf6s}"
+
+    # Dictionary using above bytes
+    test_dict = {bytes_0: bytes_0, 
+                 bytes_0: bytes_0, 
+                 bytes_0: bytes_0}
+
+    # Call the function under test
+    result = namedtuple_utils.to_namedtuple(test_dict)
+    
+    # Assertions for testing
+    assert len(result._fields) == 3, "Failed to create correct number of fields."
+    assert all([field in result._fields for field in test_dict.keys()]), "Missing fields in namedtuple."   
+
+
+        Refactored file path:  ['./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+============================= test session starts ==============================
+platform linux -- Python 3.12.9, pytest-8.3.2, pluggy-1.5.0
+rootdir: /data/users/eliassam/Thesis/llm_readability/llm-test-readability
+plugins: anyio-4.3.0, mimesis-18.0.0, langsmith-0.6.6, typeguard-4.3.0
+collected 11 items
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py FF.F..FFFFF [100%]
+
+=================================== FAILURES ===================================
+_________________________________ test_case_0 __________________________________
+
+    def test_case_0():
+        float_0 = -476.66
+>       module_0.to_namedtuple(float_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:9: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = -476.66, _started = False
+
+    @singledispatch
+    def _to_namedtuple(
+            obj: Any,
+            _started: bool = False
+    ) -> Any:
+        if _started is False:
+>           raise TypeError(
+                "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                "got: (%r) %s" % (type(obj).__name__, obj)
+            )
+E           TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('float') -476.66
+
+data/flutils.namedtupleutils/namedtupleutils.py:104: TypeError
+_________________________________ test_case_1 __________________________________
+
+    def test_case_1():
+        float_0 = -67.0
+        set_0 = {float_0, float_0, float_0, float_0}
+        tuple_0 = (float_0, set_0)
+        var_0 = module_0.to_namedtuple(tuple_0)
+>       module_0.to_namedtuple(set_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = {-67.0}, _started = False
+
+    @singledispatch
+    def _to_namedtuple(
+            obj: Any,
+            _started: bool = False
+    ) -> Any:
+        if _started is False:
+>           raise TypeError(
+                "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                "got: (%r) %s" % (type(obj).__name__, obj)
+            )
+E           TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('set') {-67.0}
+
+data/flutils.namedtupleutils/namedtupleutils.py:104: TypeError
+_________________________________ test_case_3 __________________________________
+
+    def test_case_3():
+        bytes_0 = b"xs&,\x9b\xc2\xf1\x80\xb3y"
+>       module_0.to_namedtuple(bytes_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = b'xs&,\x9b\xc2\xf1\x80\xb3y', _started = False
+
+    @_to_namedtuple.register(Sequence)  # type: ignore[no-redef]
+    def _(
+            obj: Sequence,
+            _started: bool = False
+    ) -> Union[List[Any], Tuple[Any, ...], NamedTuple, str]:
+        if hasattr(obj, 'capitalize'):
+            obj = cast(str, obj)
+            if _started is False:
+>               raise TypeError(
+                    "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                    "got: (%r) %s" % (type(obj).__name__, obj)
+                )
+E               TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('bytes') b'xs&,\x9b\xc2\xf1\x80\xb3y'
+
+data/flutils.namedtupleutils/namedtupleutils.py:154: TypeError
+_________________________________ test_case_6 __________________________________
+
+    def test_case_6():
+        str_0 = "wm=-g\ry#\x0b#:*"
+        dict_0 = {str_0: str_0, str_0: str_0}
+        ordered_dict_0 = module_1.OrderedDict(**dict_0)
+        var_0 = module_0.to_namedtuple(ordered_dict_0)
+        none_type_0 = None
+        list_0 = [none_type_0]
+>       module_1.OrderedDict(*list_0)
+E       TypeError: 'NoneType' object is not iterable
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:57: TypeError
+_________________________________ test_case_7 __________________________________
+
+    def test_case_7():
+        list_0 = []
+        list_1 = [list_0]
+        var_0 = module_0.to_namedtuple(list_1)
+        none_type_0 = None
+>       module_0.to_namedtuple(none_type_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = None, _started = False
+
+    @singledispatch
+    def _to_namedtuple(
+            obj: Any,
+            _started: bool = False
+    ) -> Any:
+        if _started is False:
+>           raise TypeError(
+                "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                "got: (%r) %s" % (type(obj).__name__, obj)
+            )
+E           TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('NoneType') None
+
+data/flutils.namedtupleutils/namedtupleutils.py:104: TypeError
+_________________________________ test_case_8 __________________________________
+
+    def test_case_8():
+        str_0 = "Normalize a given path.\n\n    The given ``path`` will be normalized in the following process.\n\n    #. :obj:`bytes` will be converted to a :obj:`str` using the encoding\n       given by :obj:`getfilesystemencoding() <sys.getfilesystemencoding>`.\n    #. :obj:`PosixPath <pathlib.PosixPath>` and\n       :obj:`WindowsPath <pathlib.WindowsPath>` will be converted\n       to a :obj:`str` using the :obj:`as_posix() <pathlib.PurePath.as_posix>`\n       method.\n    #. An initial component of ``~`` will be replaced by that user’s\n       home directory.\n    #. Any environment variables will be expanded.\n    #. Non absolute paths will have the current working directory from\n       :obj:`os.getcwd() <os.cwd>`prepended.  If needed, use\n       :obj:`os.chdir() <os.chdir>` to change the current working directory\n       before calling this function.\n    #. Redundant separators and up-level references will be normalized, so\n       that ``A//B``, ``A/B/``, ``A/./B`` and ``A/foo/../B`` all become\n       ``A/B``.\n\n    Args:\n        path (:obj:`str`, :obj:`bytes` or :obj:`Path <pathlib.Path>`):\n            The path to be normalized.\n\n    :rtype:\n        :obj:`Path <pathlib.Path>`\n\n        * :obj:`PosixPath <pathlib.PosixPath>` or\n          :obj:`WindowsPath <pathlib.WindowsPath>` depending on the system.\n\n        .. Note:: :obj:`Path <pathlib.Path>` objects are immutable. Therefore,\n           any given ``path`` of type :obj:`Path <pathlib.Path>` will not be\n           the same object returned.\n\n    Example:\n\n        >>> from flutils.pathutils import normalize_path\n        >>> normalize_path('~/tmp/foo/../bar')\n        PosixPath('/home/test_user/tmp/bar')\n\n    "
+        dict_0 = {str_0: str_0, str_0: str_0, str_0: str_0}
+        var_0 = module_0.to_namedtuple(dict_0)
+        bool_0 = False
+        var_1 = module_0.to_namedtuple(dict_0)
+        tuple_0 = (var_1,)
+        var_2 = module_0.to_namedtuple(tuple_0)
+        dict_1 = {var_2: var_1, bool_0: var_1}
+        var_3 = module_0.to_namedtuple(dict_1)
+        var_4 = module_0.to_namedtuple(var_3)
+        bool_1 = False
+        var_5 = module_0.to_namedtuple(var_3)
+>       module_0.to_namedtuple(bool_1)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:81: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = False, _started = False
+
+    @singledispatch
+    def _to_namedtuple(
+            obj: Any,
+            _started: bool = False
+    ) -> Any:
+        if _started is False:
+>           raise TypeError(
+                "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                "got: (%r) %s" % (type(obj).__name__, obj)
+            )
+E           TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('bool') False
+
+data/flutils.namedtupleutils/namedtupleutils.py:104: TypeError
+_________________________________ test_case_9 __________________________________
+
+    def test_case_9():
+        str_0 = "\x0cMv"
+        tuple_0 = ()
+        dict_0 = {str_0: tuple_0, tuple_0: str_0, tuple_0: tuple_0}
+        tuple_1 = (str_0, dict_0)
+        list_0 = [tuple_1]
+        var_0 = module_0.to_namedtuple(list_0)
+        var_1 = module_0.to_namedtuple(var_0)
+        var_2 = module_0.to_namedtuple(var_1)
+        int_0 = 2
+>       module_0.to_namedtuple(int_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = 2, _started = False
+
+    @singledispatch
+    def _to_namedtuple(
+            obj: Any,
+            _started: bool = False
+    ) -> Any:
+        if _started is False:
+>           raise TypeError(
+                "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                "got: (%r) %s" % (type(obj).__name__, obj)
+            )
+E           TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('int') 2
+
+data/flutils.namedtupleutils/namedtupleutils.py:104: TypeError
+_________________________________ test_case_10 _________________________________
+
+    def test_case_10():
+        bytes_0 = b"F\xdb\xfdf\x8a\xe4\n\xa2\x1d[\xdc*\xa3\xba\xf6s}"
+        dict_0 = {bytes_0: bytes_0, bytes_0: bytes_0, bytes_0: bytes_0}
+>       module_0.to_namedtuple(dict_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:100: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+data/flutils.namedtupleutils/namedtupleutils.py:122: in _
+    validate_identifier(key, allow_underscore=False)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = b'F\xdb\xfdf\x8a\xe4\n\xa2\x1d[\xdc*\xa3\xba\xf6s}'
+allow_underscore = False
+
+    def validate_identifier(name: str, allow_underscore: bool = False):
+>       if not name.isidentifier():
+E       AttributeError: 'bytes' object has no attribute 'isidentifier'
+
+data/flutils.namedtupleutils/namedtupleutils.py:21: AttributeError
+=============================== warnings summary ===============================
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: anyio
+    self._mark_plugins_for_rewrite(hook)
+
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: langsmith
+    self._mark_plugins_for_rewrite(hook)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_0
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_1
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_3
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_6
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_7
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_8
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_9
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_10
+=================== 8 failed, 3 passed, 2 warnings in 0.19s ====================
+============================= test session starts ==============================
+platform linux -- Python 3.12.9, pytest-8.3.2, pluggy-1.5.0
+rootdir: /data/users/eliassam/Thesis/llm_readability/llm-test-readability
+plugins: anyio-4.3.0, mimesis-18.0.0, langsmith-0.6.6, typeguard-4.3.0
+collected 0 items / 1 error
+
+==================================== ERRORS ====================================
+_ ERROR collecting output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py _
+output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py:189: in <module>
+    assert namedtuple_utils.to_namedtuple(integer) is False
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+data/flutils.namedtupleutils/namedtupleutils.py:104: in _to_namedtuple
+    raise TypeError(
+E   TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('int') 2
+=============================== warnings summary ===============================
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: anyio
+    self._mark_plugins_for_rewrite(hook)
+
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: langsmith
+    self._mark_plugins_for_rewrite(hook)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+ERROR output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+========================= 2 warnings, 1 error in 0.21s =========================
+Failed tests: {'Original Test Results': {'test_case_0': 'fail', 'test_case_1': 'fail', 'test_case_3': 'fail', 'test_case_6': 'fail', 'test_case_7': 'fail', 'test_case_8': 'fail', 'test_case_9': 'fail', 'test_case_10': 'fail'}, 'Refactored Test Results': {}}
+
+Collecting data for module: ['data/flutils.namedtupleutils/namedtupleutils.py']
+
+
+============================================================
+COLLECTION ERROR DETECTED — Retrying with base_retry prompt
+============================================================
+
+Fixed code written to: ./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py
+============================= test session starts ==============================
+platform linux -- Python 3.12.9, pytest-8.3.2, pluggy-1.5.0
+rootdir: /data/users/eliassam/Thesis/llm_readability/llm-test-readability
+plugins: anyio-4.3.0, mimesis-18.0.0, langsmith-0.6.6, typeguard-4.3.0
+collected 11 items
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py FF.F..FFFFF [100%]
+
+=================================== FAILURES ===================================
+_________________________________ test_case_0 __________________________________
+
+    def test_case_0():
+        float_0 = -476.66
+>       module_0.to_namedtuple(float_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:9: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = -476.66, _started = False
+
+    @singledispatch
+    def _to_namedtuple(
+            obj: Any,
+            _started: bool = False
+    ) -> Any:
+        if _started is False:
+>           raise TypeError(
+                "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                "got: (%r) %s" % (type(obj).__name__, obj)
+            )
+E           TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('float') -476.66
+
+data/flutils.namedtupleutils/namedtupleutils.py:104: TypeError
+_________________________________ test_case_1 __________________________________
+
+    def test_case_1():
+        float_0 = -67.0
+        set_0 = {float_0, float_0, float_0, float_0}
+        tuple_0 = (float_0, set_0)
+        var_0 = module_0.to_namedtuple(tuple_0)
+>       module_0.to_namedtuple(set_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = {-67.0}, _started = False
+
+    @singledispatch
+    def _to_namedtuple(
+            obj: Any,
+            _started: bool = False
+    ) -> Any:
+        if _started is False:
+>           raise TypeError(
+                "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                "got: (%r) %s" % (type(obj).__name__, obj)
+            )
+E           TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('set') {-67.0}
+
+data/flutils.namedtupleutils/namedtupleutils.py:104: TypeError
+_________________________________ test_case_3 __________________________________
+
+    def test_case_3():
+        bytes_0 = b"xs&,\x9b\xc2\xf1\x80\xb3y"
+>       module_0.to_namedtuple(bytes_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = b'xs&,\x9b\xc2\xf1\x80\xb3y', _started = False
+
+    @_to_namedtuple.register(Sequence)  # type: ignore[no-redef]
+    def _(
+            obj: Sequence,
+            _started: bool = False
+    ) -> Union[List[Any], Tuple[Any, ...], NamedTuple, str]:
+        if hasattr(obj, 'capitalize'):
+            obj = cast(str, obj)
+            if _started is False:
+>               raise TypeError(
+                    "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                    "got: (%r) %s" % (type(obj).__name__, obj)
+                )
+E               TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('bytes') b'xs&,\x9b\xc2\xf1\x80\xb3y'
+
+data/flutils.namedtupleutils/namedtupleutils.py:154: TypeError
+_________________________________ test_case_6 __________________________________
+
+    def test_case_6():
+        str_0 = "wm=-g\ry#\x0b#:*"
+        dict_0 = {str_0: str_0, str_0: str_0}
+        ordered_dict_0 = module_1.OrderedDict(**dict_0)
+        var_0 = module_0.to_namedtuple(ordered_dict_0)
+        none_type_0 = None
+        list_0 = [none_type_0]
+>       module_1.OrderedDict(*list_0)
+E       TypeError: 'NoneType' object is not iterable
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:57: TypeError
+_________________________________ test_case_7 __________________________________
+
+    def test_case_7():
+        list_0 = []
+        list_1 = [list_0]
+        var_0 = module_0.to_namedtuple(list_1)
+        none_type_0 = None
+>       module_0.to_namedtuple(none_type_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = None, _started = False
+
+    @singledispatch
+    def _to_namedtuple(
+            obj: Any,
+            _started: bool = False
+    ) -> Any:
+        if _started is False:
+>           raise TypeError(
+                "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                "got: (%r) %s" % (type(obj).__name__, obj)
+            )
+E           TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('NoneType') None
+
+data/flutils.namedtupleutils/namedtupleutils.py:104: TypeError
+_________________________________ test_case_8 __________________________________
+
+    def test_case_8():
+        str_0 = "Normalize a given path.\n\n    The given ``path`` will be normalized in the following process.\n\n    #. :obj:`bytes` will be converted to a :obj:`str` using the encoding\n       given by :obj:`getfilesystemencoding() <sys.getfilesystemencoding>`.\n    #. :obj:`PosixPath <pathlib.PosixPath>` and\n       :obj:`WindowsPath <pathlib.WindowsPath>` will be converted\n       to a :obj:`str` using the :obj:`as_posix() <pathlib.PurePath.as_posix>`\n       method.\n    #. An initial component of ``~`` will be replaced by that user’s\n       home directory.\n    #. Any environment variables will be expanded.\n    #. Non absolute paths will have the current working directory from\n       :obj:`os.getcwd() <os.cwd>`prepended.  If needed, use\n       :obj:`os.chdir() <os.chdir>` to change the current working directory\n       before calling this function.\n    #. Redundant separators and up-level references will be normalized, so\n       that ``A//B``, ``A/B/``, ``A/./B`` and ``A/foo/../B`` all become\n       ``A/B``.\n\n    Args:\n        path (:obj:`str`, :obj:`bytes` or :obj:`Path <pathlib.Path>`):\n            The path to be normalized.\n\n    :rtype:\n        :obj:`Path <pathlib.Path>`\n\n        * :obj:`PosixPath <pathlib.PosixPath>` or\n          :obj:`WindowsPath <pathlib.WindowsPath>` depending on the system.\n\n        .. Note:: :obj:`Path <pathlib.Path>` objects are immutable. Therefore,\n           any given ``path`` of type :obj:`Path <pathlib.Path>` will not be\n           the same object returned.\n\n    Example:\n\n        >>> from flutils.pathutils import normalize_path\n        >>> normalize_path('~/tmp/foo/../bar')\n        PosixPath('/home/test_user/tmp/bar')\n\n    "
+        dict_0 = {str_0: str_0, str_0: str_0, str_0: str_0}
+        var_0 = module_0.to_namedtuple(dict_0)
+        bool_0 = False
+        var_1 = module_0.to_namedtuple(dict_0)
+        tuple_0 = (var_1,)
+        var_2 = module_0.to_namedtuple(tuple_0)
+        dict_1 = {var_2: var_1, bool_0: var_1}
+        var_3 = module_0.to_namedtuple(dict_1)
+        var_4 = module_0.to_namedtuple(var_3)
+        bool_1 = False
+        var_5 = module_0.to_namedtuple(var_3)
+>       module_0.to_namedtuple(bool_1)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:81: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = False, _started = False
+
+    @singledispatch
+    def _to_namedtuple(
+            obj: Any,
+            _started: bool = False
+    ) -> Any:
+        if _started is False:
+>           raise TypeError(
+                "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                "got: (%r) %s" % (type(obj).__name__, obj)
+            )
+E           TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('bool') False
+
+data/flutils.namedtupleutils/namedtupleutils.py:104: TypeError
+_________________________________ test_case_9 __________________________________
+
+    def test_case_9():
+        str_0 = "\x0cMv"
+        tuple_0 = ()
+        dict_0 = {str_0: tuple_0, tuple_0: str_0, tuple_0: tuple_0}
+        tuple_1 = (str_0, dict_0)
+        list_0 = [tuple_1]
+        var_0 = module_0.to_namedtuple(list_0)
+        var_1 = module_0.to_namedtuple(var_0)
+        var_2 = module_0.to_namedtuple(var_1)
+        int_0 = 2
+>       module_0.to_namedtuple(int_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = 2, _started = False
+
+    @singledispatch
+    def _to_namedtuple(
+            obj: Any,
+            _started: bool = False
+    ) -> Any:
+        if _started is False:
+>           raise TypeError(
+                "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                "got: (%r) %s" % (type(obj).__name__, obj)
+            )
+E           TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('int') 2
+
+data/flutils.namedtupleutils/namedtupleutils.py:104: TypeError
+_________________________________ test_case_10 _________________________________
+
+    def test_case_10():
+        bytes_0 = b"F\xdb\xfdf\x8a\xe4\n\xa2\x1d[\xdc*\xa3\xba\xf6s}"
+        dict_0 = {bytes_0: bytes_0, bytes_0: bytes_0, bytes_0: bytes_0}
+>       module_0.to_namedtuple(dict_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:100: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+data/flutils.namedtupleutils/namedtupleutils.py:122: in _
+    validate_identifier(key, allow_underscore=False)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = b'F\xdb\xfdf\x8a\xe4\n\xa2\x1d[\xdc*\xa3\xba\xf6s}'
+allow_underscore = False
+
+    def validate_identifier(name: str, allow_underscore: bool = False):
+>       if not name.isidentifier():
+E       AttributeError: 'bytes' object has no attribute 'isidentifier'
+
+data/flutils.namedtupleutils/namedtupleutils.py:21: AttributeError
+=============================== warnings summary ===============================
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: anyio
+    self._mark_plugins_for_rewrite(hook)
+
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: langsmith
+    self._mark_plugins_for_rewrite(hook)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_0
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_1
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_3
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_6
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_7
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_8
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_9
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_10
+=================== 8 failed, 3 passed, 2 warnings in 0.24s ====================
+============================= test session starts ==============================
+platform linux -- Python 3.12.9, pytest-8.3.2, pluggy-1.5.0
+rootdir: /data/users/eliassam/Thesis/llm_readability/llm-test-readability
+plugins: anyio-4.3.0, mimesis-18.0.0, langsmith-0.6.6, typeguard-4.3.0
+collected 14 items
+
+output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py . [  7%]
+.............                                                            [100%]
+
+=============================== warnings summary ===============================
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: anyio
+    self._mark_plugins_for_rewrite(hook)
+
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: langsmith
+    self._mark_plugins_for_rewrite(hook)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 14 passed, 2 warnings in 0.09s ========================
+Retry pytest results: {'Original Test Results': {'total': 12, 'pass': 3, 'fail': 8, 'error': 0}, 'Refactored Test Results': {'total': 15, 'pass': 14, 'fail': 0, 'error': 0}}
+
+Computing DAN Scores...
+DAN Score Before: {'__main__': 0.6246724128723145, 'test_case_0': 0.5516640543937683, 'test_case_1': 0.27500101427237195, 'test_case_2': 0.2332385927438736, 'test_case_3': 0.3505854308605194, 'test_case_4': 0.4857760965824127, 'test_case_5': 0.17917802504130773, 'test_case_6': 0.19892653822898865, 'test_case_7': 0.2615009546279907, 'test_case_8': 0.11122143467267355, 'test_case_9': 0.1418453703324, 'test_case_10': 0.2797536551952362}
+DAN Score After: {'__main__': 0.5703417062759399, 'test_namedtupleutils_to_namedtuple_functionality': 0.8281744718551636, 'test_namedtuple_creation_from_valid_data': 0.9638596773147583, 'test_transforming_dictionary_to_namedtuple_and_namedtuple_to_namedtuple': 0.5517294406890869, 'test_to_namedtuple_conversion_for_bytes_from_namedtuple_utils': 0.5819529294967651, 'test_to_namedtuple_conversion_on_empty_tuple_different_name': 0.5852471590042114, 'test_multiple_namedtuples_creation': 0.9959635734558105, 'test_create_namedtuple_from_large_dictionary': 0.868244469165802, 'test_transform_dictionary_to_namedtuple': 0.9092878103256226, 'test_namedtuple_creation_from_bytes': 1.0454884767532349, 'test_namedtuple_creation_from_empty_tuple': 0.9337630867958069, 'test_multiple_namedtuple_creation': 0.9952239990234375, 'test_namedtuple_creation_from_large_dictionary': 0.869022011756897, 'test_to_namedtuple_normalize_path_normalize_values': 0.7128788828849792, 'test_namedtupleutils_to_namedtuple_functionality_1': 0.7736528515815735}
+Test run data saved to: ./output/deepseek-coder/namedtupleutils.py/base/run1/test_run_report.csv
+Test run JSON data saved to: ./output/deepseek-coder/namedtupleutils.py/base/run1/test_run_report.json
+Execution finished at Tue May 19 01:49:53 PM CEST 2026
+Moving SLURM logs to slurm_logs/20260519_134027

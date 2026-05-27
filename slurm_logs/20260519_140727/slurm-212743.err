@@ -1,0 +1,26 @@
+<unknown>:24: SyntaxWarning: invalid escape sequence '\['
+<unknown>:25: SyntaxWarning: invalid escape sequence '\['
+<unknown>:26: SyntaxWarning: invalid escape sequence '\('
+<unknown>:27: SyntaxWarning: invalid escape sequence '\('
+<unknown>:28: SyntaxWarning: invalid escape sequence '\e'
+Unrecognized keys in `rope_scaling` for 'rope_type'='linear': {'type'}
+Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:05<00:30,  5.07s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:09<00:23,  4.66s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:13<00:18,  4.53s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:18<00:13,  4.46s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [00:22<00:08,  4.47s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [00:27<00:04,  4.45s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:30<00:00,  4.06s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:30<00:00,  4.33s/it]
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+2026-05-19 14:10:16,095 - INFO - Loading model: microsoft/codebert-base-mlm
+/data/users/eliassam/miniforge3/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Some weights of the model checkpoint at microsoft/codebert-base-mlm were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+2026-05-19 14:10:17,108 - INFO - Processed __main__.dot: Score=0.7173 (1 paths)
+2026-05-19 14:10:17,152 - INFO - Processed test_case_0.dot: Score=0.9371 (1 paths)
+2026-05-19 14:10:17,274 - INFO - Processed test_case_1.dot: Score=0.3863 (2 paths)
+2026-05-19 14:10:17,332 - INFO - Processed test_case_2.dot: Score=0.4633 (1 paths)
+2026-05-19 14:10:17,429 - INFO - Processed test_case_3.dot: Score=0.2332 (1 paths)
+2026-05-19 14:10:17,547 - INFO - Processed test_case_4.dot: Score=0.4287 (2 paths)
+2026-05-19 14:10:17,615 - INFO - Processed __main__.dot: Score=0.7433 (1 paths)
+2026-05-19 14:10:17,685 - INFO - Processed test_base_formatter_plugin_instance_creation.dot: Score=0.3468 (1 paths)
+2026-05-19 14:10:17,962 - INFO - Processed test_valid_password_authentication.dot: Score=0.3873 (4 paths)
+2026-05-19 14:10:18,123 - INFO - Processed test_get_adapter_from_transport_plugin_no_args.dot: Score=0.2532 (2 paths)
+2026-05-19 14:10:18,213 - INFO - Processed test_http_integration.dot: Score=0.2486 (1 paths)
+2026-05-19 14:10:18,344 - INFO - Processed test_none_type_input_for_converter_plugin.dot: Score=0.4636 (2 paths)

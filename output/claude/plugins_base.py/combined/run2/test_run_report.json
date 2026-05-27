@@ -1,0 +1,61 @@
+{
+    "module": "base.py",
+    "timestamp": "2026-03-26T13:51:06.825363",
+    "llm_info": {
+        "model": "sonnet",
+        "version": "functions",
+        "temperature": 0.2,
+        "prompt_style": "combined"
+    },
+    "run_number": 2,
+    "test_summary": {
+        "Original Test Results": "{'total': 6, 'pass': 0, 'fail': 5, 'error': 0}",
+        "Refactored Test Results": "{'total': 6, 'pass': 0, 'fail': 5, 'error': 0}",
+        "total_tests_before": 6,
+        "total_tests_after": 6
+    },
+    "coverage": {
+        "before_refactoring": 68.42,
+        "after_refactoring": 65.0
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "fail",
+            "test_case_1": "fail",
+            "test_case_2": "fail",
+            "test_case_3": "fail",
+            "test_case_4": "fail"
+        },
+        "after_refactoring": {
+            "test_formatter_plugin_can_be_instantiated": "fail",
+            "test_auth_plugin_get_auth_with_password_only_does_not_raise": "fail",
+            "test_transport_plugin_get_adapter_does_not_raise": "fail",
+            "test_converter_plugin_accepts_bytes_and_transport_plugin_get_adapter": "fail",
+            "test_converter_plugin_instantiation_and_convert_with_none": "fail"
+        },
+        "dan_score_before": {
+            "test_case_0": 0.9371200799942017,
+            "test_case_1": 0.38626839220523834,
+            "test_case_2": 0.46328005194664,
+            "test_case_3": 0.23319034278392792,
+            "test_case_4": 0.42865827679634094
+        },
+        "dan_score_after": {
+            "test_formatter_plugin_can_be_instantiated": 0.5815461874008179,
+            "test_auth_plugin_get_auth_with_password_only_does_not_raise": 0.2972975969314575,
+            "test_transport_plugin_get_adapter_does_not_raise": 0.37080973386764526,
+            "test_converter_plugin_accepts_bytes_and_transport_plugin_get_adapter": 0.26720455288887024,
+            "test_converter_plugin_instantiation_and_convert_with_none": 0.39745019376277924
+        },
+        "avg_dan_score_before": 0.489703,
+        "avg_dan_score_after": 0.382862
+    },
+    "diff_metrics": {
+        "dan_score_diff": 0.106841,
+        "diff_coverage": -3.42,
+        "diff_total_tests": 0,
+        "diff_passing_tests": 0,
+        "diff_failing_tests": 0
+    },
+    "prompt_style": "combined"
+}

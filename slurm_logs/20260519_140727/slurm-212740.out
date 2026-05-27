@@ -1,0 +1,939 @@
+Job running on ganymede
+Date: Tue May 19 02:07:27 PM CEST 2026
+Running debug checks...
+Tue May 19 14:07:27 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 595.58.03              Driver Version: 595.58.03      CUDA Version: 13.2     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L4                      Off |   00000000:0D:00.0 Off |                    0 |
+| N/A   71C    P0             70W /   72W |   18714MiB /  23034MiB |    100%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L4                      Off |   00000000:37:00.0 Off |                    0 |
+| N/A   34C    P8             15W /   72W |       3MiB /  23034MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA L4                      Off |   00000000:4A:00.0 Off |                    0 |
+| N/A   51C    P0             71W /   72W |   21127MiB /  23034MiB |     99%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   3  NVIDIA L4                      Off |   00000000:61:00.0 Off |                    0 |
+| N/A   47C    P0             71W /   72W |   21179MiB /  23034MiB |     99%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   4  NVIDIA L4                      Off |   00000000:A0:00.0 Off |                    0 |
+| N/A   60C    P0             72W /   72W |   20675MiB /  23034MiB |     99%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   5  NVIDIA L4                      Off |   00000000:B5:00.0 Off |                    0 |
+| N/A   31C    P8             16W /   72W |       3MiB /  23034MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   6  NVIDIA L4                      Off |   00000000:CA:00.0 Off |                    0 |
+| N/A   23C    P8             15W /   72W |       3MiB /  23034MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   7  NVIDIA L4                      Off |   00000000:E1:00.0 Off |                    0 |
+| N/A   23C    P8             15W /   72W |       3MiB /  23034MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A         3329356      C   /opt/conda/bin/python                 18514MiB |
+|    0   N/A  N/A         3450763      C   ...d-single-gpu/tiled-single-gpu        186MiB |
+|    2   N/A  N/A         3452319      C   python3                               21118MiB |
+|    3   N/A  N/A         3452318      C   python3                               21170MiB |
+|    4   N/A  N/A         3452450      C   python3                               20666MiB |
++-----------------------------------------------------------------------------------------+
+CUDA_VISIBLE_DEVICES: 7
+SLURM_JOB_GPUS: 7
+SLURM_GPUS_ON_NODE: 1
+Torch sees 1 GPUs
+Starting execution...
+Copied data/httpie.plugins.base/base.py to ./output/sonnet/base.py/base/run3/base.py
+Copied /data/users/eliassam/Thesis/llm_readability/llm-test-readability/data/httpie.plugins.base/test_httpie_plugins_base.py to ./output/sonnet/base.py/base/run3/test_httpie_plugins_base.py
+Output directory: ./output/sonnet/base.py/base/run3
+
+Repo codetiming already local at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/codetiming. Skipping pull (set RAG_FORCE_PULL=1 to force).
+Ingested 8 files from codetiming at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/codetiming
+Ingested 1 external docs for codetiming
+Created 75 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/codetiming
+Repo flutils already local at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/flutils. Skipping pull (set RAG_FORCE_PULL=1 to force).
+Ingested 88 files from flutils at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/flutils
+Ingested 1 external docs for flutils
+Created 1454 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/flutils
+Repo httpie already local at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/httpie. Skipping pull (set RAG_FORCE_PULL=1 to force).
+Ingested 150 files from httpie at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/httpie
+Ingested 1 external docs for httpie
+Created 1460 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/httpie
+Repo py-backwards already local at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/py-backwards. Skipping pull (set RAG_FORCE_PULL=1 to force).
+Ingested 55 files from py-backwards at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/py-backwards
+Ingested 1 external docs for py-backwards
+Created 273 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/py-backwards
+Repo pymonet already local at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/pymonet. Skipping pull (set RAG_FORCE_PULL=1 to force).
+Ingested 44 files from pymonet at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/pymonet
+Ingested 1 external docs for pymonet
+Created 422 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/pymonet
+Repo pyutils already local at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/pyutils. Skipping pull (set RAG_FORCE_PULL=1 to force).
+Ingested 111 files from pyutils at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/pyutils
+Ingested 1 external docs for pyutils
+Created 1908 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/pyutils
+
+        Model created: 
+        Model name: sonnet
+        Model path: sonnet
+        Model temperature: 1.0
+        Model system prompt: You are a helpful AI assistant that will help improve the readability of the test cases.
+        Version: functions
+        Context window: 200000
+        Directory: ./output/sonnet/base.py/base/run3
+        Log directory: ./output/sonnet/base.py/base/run3/Log
+        Modules paths: ['/data/users/eliassam/Thesis/llm_readability/llm-test-readability/data/httpie.plugins.base/base.py']
+        Test path: /data/users/eliassam/Thesis/llm_readability/llm-test-readability/data/httpie.plugins.base/test_httpie_plugins_base.py
+        
+Calling Chalmers API for model: claude-sonnet-4-6...
+Receiving stream (attempt 1): ```python
+import pytest
+import httpie.plugins.base as base_plugin
+```
+Stream finished.
+Saving text file in:  ./output/sonnet/base.py/base/run3/Log/test_case_logs.txt
+Create python file in directory:  ./output/sonnet/base.py/base/run3
+Saving file in:  ./output/sonnet/base.py/base/run3/test_httpie_plugins_base_functions_refactored.py
+" 
+        
+ 
+        ***********************
+
+        ** New imports saved **
+
+        ***********************
+
+        Previous imports:  # Test cases automatically generated by Pynguin (https://www.pynguin.eu).
+# Please check them before you use them.
+import httpie.plugins.base as module_0
+        New imports:  import pytest
+import httpie.plugins.base as base_plugin
+        
+
+        Directory:  ./output/sonnet/base.py/base/run3
+        Refactored file path:  ./output/sonnet/base.py/base/run3/test_httpie_plugins_base_functions_refactored.py
+        Log directory:  ./output/sonnet/base.py/base/run3/Log
+        Log file path:  ./output/sonnet/base.py/base/run3/Log/test_case_logs.txt
+        *******************************************************        
+        
+
+
+
+        
+Running functions script
+
+Running RAG-based refactoring (Functions mode)...
+[retrieval] restrict_repos=['httpie'] | searching repos=['httpie']
+
+[DEBUG] Retrieved Context for test:
+FILE: httpie:tests/test_cli_ui.py | kind=code | chunk_type=header | symbol=__module__ | lines=1-34
+search_document: FILE: httpie:tests/test_cli_ui.py
+KIND: code
+
+# CHUNK_TYPE: header
+# FILE: httpie:tests/test_cli_ui.py
+
+import pytest
+import shutil
+import os
+from tests.utils import http
+
+NAKED_BASE_TEMPLATE = """\
+usage:
+    http {extra_args}[METHOD] URL [REQUEST_ITEM ...]
+
+error:
+    {error_msg}
+
+for more information:
+    run 'http --help' or visit https://httpie.io/docs/cli
+
+"""
+
+NAKED_HELP_MESSAGE = NAKED_BASE_TEMPLATE.format(
+    extra_args="",
+    error_msg="the following arguments are required: URL"
+)
+
+NAKED_HELP_MESSAGE_PRETTY_WITH_NO_ARG = NAKED_BASE_TEMPLATE.format(
+    extra_args="--pretty {all, colors, format, none} ",
+    error_msg="argument --pretty: expected one argument"
+)
+
+NAKED_HELP_MESSAGE_PRETTY_WITH_INVALID_ARG = NAKED_BASE_TEMPLATE.format(
+    extra_args="--pretty {all, colors, format, none} ",
+    error_msg="argument --pretty: invalid choice: '$invalid' (choose fro...
+(Total chars: 5710)
+Calling Chalmers API for model: claude-sonnet-4-6...
+Receiving stream (attempt 1): ```python
+def test_formatter_plugin_default_instantiation():
+    """Test that FormatterPlugin can be instantiated with default arguments."""
+    # Verify that the base FormatterPlugin class can be constructed without error
+    base_plugin.FormatterPlugin()
+```
+Stream finished.
+Calling Chalmers API for model: claude-sonnet-4-6...
+Receiving stream (attempt 1): ```Python
+def test_formatter_plugin_default_instantiation():
+    """Test that FormatterPlugin can be instantiated with default arguments."""
+    # Verify that the base FormatterPlugin class can be constructed without error
+    base_plugin.FormatterPlugin()
+```
+Stream finished.
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_formatter_plugin_default_instantiation():
+    """Test that FormatterPlugin can be instantiated with default arguments."""
+    # Verify that the base FormatterPlugin class can be constructed without error
+    base_plugin.FormatterPlugin()   
+
+
+        Refactored file path:  ['./output/sonnet/base.py/base/run3/test_httpie_plugins_base_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=['httpie'] | searching repos=['httpie']
+
+[DEBUG] Retrieved Context for test:
+FILE: httpie:tests/test_cli_ui.py | kind=code | chunk_type=header | symbol=__module__ | lines=1-34
+search_document: FILE: httpie:tests/test_cli_ui.py
+KIND: code
+
+# CHUNK_TYPE: header
+# FILE: httpie:tests/test_cli_ui.py
+
+import pytest
+import shutil
+import os
+from tests.utils import http
+
+NAKED_BASE_TEMPLATE = """\
+usage:
+    http {extra_args}[METHOD] URL [REQUEST_ITEM ...]
+
+error:
+    {error_msg}
+
+for more information:
+    run 'http --help' or visit https://httpie.io/docs/cli
+
+"""
+
+NAKED_HELP_MESSAGE = NAKED_BASE_TEMPLATE.format(
+    extra_args="",
+    error_msg="the following arguments are required: URL"
+)
+
+NAKED_HELP_MESSAGE_PRETTY_WITH_NO_ARG = NAKED_BASE_TEMPLATE.format(
+    extra_args="--pretty {all, colors, format, none} ",
+    error_msg="argument --pretty: expected one argument"
+)
+
+NAKED_HELP_MESSAGE_PRETTY_WITH_INVALID_ARG = NAKED_BASE_TEMPLATE.format(
+    extra_args="--pretty {all, colors, format, none} ",
+    error_msg="argument --pretty: invalid choice: '$invalid' (choose fro...
+(Total chars: 5710)
+Calling Chalmers API for model: claude-sonnet-4-6...
+Receiving stream (attempt 1): ```python
+def test_auth_plugin_get_auth_with_password_only():
+    """Test that AuthPlugin.get_auth can be called with only a password argument (no username)."""
+    # Use a password string that includes special characters and whitespace
+    password = "xzOB\n\n.wP|P-l"
+
+    auth_plugin = base_plugin.AuthPlugin()
+
+    # Invoke get_auth with keyword argument; no username is provided
+    auth_plugin.get_auth(password=password)
+```
+Stream finished.
+Calling Chalmers API for model: claude-sonnet-4-6...
+Receiving stream (attempt 1): ```Python
+def test_auth_plugin_get_auth_with_password_only():
+    """Test that AuthPlugin.get_auth can be called with only a password argument (no username)."""
+    # Use a password string that includes special characters and whitespace
+    password = "xzOB\n\n.wP|P-l"
+
+    auth_plugin = base_plugin.AuthPlugin()
+
+    # Invoke get_auth with keyword argument; no username is provided
+    auth_plugin.get_auth(password=password)
+```
+Stream finished.
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_auth_plugin_get_auth_with_password_only():
+    """Test that AuthPlugin.get_auth can be called with only a password argument (no username)."""
+    # Use a password string that includes special characters and whitespace
+    password = "xzOB\n\n.wP|P-l"
+
+    auth_plugin = base_plugin.AuthPlugin()
+
+    # Invoke get_auth with keyword argument; no username is provided
+    auth_plugin.get_auth(password=password)   
+
+
+        Refactored file path:  ['./output/sonnet/base.py/base/run3/test_httpie_plugins_base_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=['httpie'] | searching repos=['httpie']
+
+[DEBUG] Retrieved Context for test:
+FILE: httpie:tests/test_cli_ui.py | kind=code | chunk_type=header | symbol=__module__ | lines=1-34
+search_document: FILE: httpie:tests/test_cli_ui.py
+KIND: code
+
+# CHUNK_TYPE: header
+# FILE: httpie:tests/test_cli_ui.py
+
+import pytest
+import shutil
+import os
+from tests.utils import http
+
+NAKED_BASE_TEMPLATE = """\
+usage:
+    http {extra_args}[METHOD] URL [REQUEST_ITEM ...]
+
+error:
+    {error_msg}
+
+for more information:
+    run 'http --help' or visit https://httpie.io/docs/cli
+
+"""
+
+NAKED_HELP_MESSAGE = NAKED_BASE_TEMPLATE.format(
+    extra_args="",
+    error_msg="the following arguments are required: URL"
+)
+
+NAKED_HELP_MESSAGE_PRETTY_WITH_NO_ARG = NAKED_BASE_TEMPLATE.format(
+    extra_args="--pretty {all, colors, format, none} ",
+    error_msg="argument --pretty: expected one argument"
+)
+
+NAKED_HELP_MESSAGE_PRETTY_WITH_INVALID_ARG = NAKED_BASE_TEMPLATE.format(
+    extra_args="--pretty {all, colors, format, none} ",
+    error_msg="argument --pretty: invalid choice: '$invalid' (choose fro...
+(Total chars: 6715)
+Calling Chalmers API for model: claude-sonnet-4-6...
+Receiving stream (attempt 1): ```python
+def test_transport_plugin_get_adapter_returns_default():
+    """Test that TransportPlugin.get_adapter() can be called on a default instance without error."""
+    transport_plugin = base_plugin.TransportPlugin()
+    transport_plugin.get_adapter()
+```
+Stream finished.
+Calling Chalmers API for model: claude-sonnet-4-6...
+Receiving stream (attempt 1): ```Python
+def test_transport_plugin_get_adapter_returns_default():
+    """Test that TransportPlugin.get_adapter() can be called on a default instance without error."""
+    transport_plugin = base_plugin.TransportPlugin()
+    transport_plugin.get_adapter()
+```
+Stream finished.
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_transport_plugin_get_adapter_returns_default():
+    """Test that TransportPlugin.get_adapter() can be called on a default instance without error."""
+    transport_plugin = base_plugin.TransportPlugin()
+    transport_plugin.get_adapter()   
+
+
+        Refactored file path:  ['./output/sonnet/base.py/base/run3/test_httpie_plugins_base_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=['httpie'] | searching repos=['httpie']
+
+[DEBUG] Retrieved Context for test:
+FILE: httpie:tests/test_cli_ui.py | kind=code | chunk_type=header | symbol=__module__ | lines=1-34
+search_document: FILE: httpie:tests/test_cli_ui.py
+KIND: code
+
+# CHUNK_TYPE: header
+# FILE: httpie:tests/test_cli_ui.py
+
+import pytest
+import shutil
+import os
+from tests.utils import http
+
+NAKED_BASE_TEMPLATE = """\
+usage:
+    http {extra_args}[METHOD] URL [REQUEST_ITEM ...]
+
+error:
+    {error_msg}
+
+for more information:
+    run 'http --help' or visit https://httpie.io/docs/cli
+
+"""
+
+NAKED_HELP_MESSAGE = NAKED_BASE_TEMPLATE.format(
+    extra_args="",
+    error_msg="the following arguments are required: URL"
+)
+
+NAKED_HELP_MESSAGE_PRETTY_WITH_NO_ARG = NAKED_BASE_TEMPLATE.format(
+    extra_args="--pretty {all, colors, format, none} ",
+    error_msg="argument --pretty: expected one argument"
+)
+
+NAKED_HELP_MESSAGE_PRETTY_WITH_INVALID_ARG = NAKED_BASE_TEMPLATE.format(
+    extra_args="--pretty {all, colors, format, none} ",
+    error_msg="argument --pretty: invalid choice: '$invalid' (choose fro...
+(Total chars: 5710)
+Calling Chalmers API for model: claude-sonnet-4-6...
+Receiving stream (attempt 1): ```python
+def test_converter_plugin_instantiation_and_transport_plugin_default_adapter():
+    """
+    Verify that ConverterPlugin can be instantiated with raw bytes,
+    and that TransportPlugin can be instantiated and its default
+    adapter retrieved without raising an error.
+    """
+    raw_bytes = b"\xec\xdb\xe5\\V\xe1\xbb \xfd2\x80z\xf9\x96`-\xa1y"
+
+    # Instantiate ConverterPlugin with arbitrary byte data
+    converter_plugin = base_plugin.ConverterPlugin(raw_bytes)
+
+    # Instantiate TransportPlugin and retrieve its default adapter
+    transport_plugin = base_plugin.TransportPlugin()
+    transport_plugin.get_adapter()
+```
+Stream finished.
+Calling Chalmers API for model: claude-sonnet-4-6...
+Receiving stream (attempt 1): ```Python
+def test_converter_plugin_instantiation_and_transport_plugin_default_adapter():
+    """
+    Verify that ConverterPlugin can be instantiated with raw bytes,
+    and that TransportPlugin can be instantiated and its default
+    adapter retrieved without raising an error.
+    """
+    raw_bytes = b"\xec\xdb\xe5\\V\xe1\xbb \xfd2\x80z\xf9\x96`-\xa1y"
+
+    # Instantiate ConverterPlugin with arbitrary byte data
+    converter_plugin = base_plugin.ConverterPlugin(raw_bytes)
+
+    # Instantiate TransportPlugin and retrieve its default adapter
+    transport_plugin = base_plugin.TransportPlugin()
+    transport_plugin.get_adapter()
+```
+Stream finished.
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_converter_plugin_instantiation_and_transport_plugin_default_adapter():
+    """
+    Verify that ConverterPlugin can be instantiated with raw bytes,
+    and that TransportPlugin can be instantiated and its default
+    adapter retrieved without raising an error.
+    """
+    raw_bytes = b"\xec\xdb\xe5\\V\xe1\xbb \xfd2\x80z\xf9\x96`-\xa1y"
+
+    # Instantiate ConverterPlugin with arbitrary byte data
+    converter_plugin = base_plugin.ConverterPlugin(raw_bytes)
+
+    # Instantiate TransportPlugin and retrieve its default adapter
+    transport_plugin = base_plugin.TransportPlugin()
+    transport_plugin.get_adapter()   
+
+
+        Refactored file path:  ['./output/sonnet/base.py/base/run3/test_httpie_plugins_base_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=['httpie'] | searching repos=['httpie']
+
+[DEBUG] Retrieved Context for test:
+FILE: httpie:tests/test_cli_ui.py | kind=code | chunk_type=header | symbol=__module__ | lines=1-34
+search_document: FILE: httpie:tests/test_cli_ui.py
+KIND: code
+
+# CHUNK_TYPE: header
+# FILE: httpie:tests/test_cli_ui.py
+
+import pytest
+import shutil
+import os
+from tests.utils import http
+
+NAKED_BASE_TEMPLATE = """\
+usage:
+    http {extra_args}[METHOD] URL [REQUEST_ITEM ...]
+
+error:
+    {error_msg}
+
+for more information:
+    run 'http --help' or visit https://httpie.io/docs/cli
+
+"""
+
+NAKED_HELP_MESSAGE = NAKED_BASE_TEMPLATE.format(
+    extra_args="",
+    error_msg="the following arguments are required: URL"
+)
+
+NAKED_HELP_MESSAGE_PRETTY_WITH_NO_ARG = NAKED_BASE_TEMPLATE.format(
+    extra_args="--pretty {all, colors, format, none} ",
+    error_msg="argument --pretty: expected one argument"
+)
+
+NAKED_HELP_MESSAGE_PRETTY_WITH_INVALID_ARG = NAKED_BASE_TEMPLATE.format(
+    extra_args="--pretty {all, colors, format, none} ",
+    error_msg="argument --pretty: invalid choice: '$invalid' (choose fro...
+(Total chars: 5121)
+Calling Chalmers API for model: claude-sonnet-4-6...
+Receiving stream (attempt 1): ```python
+def test_converter_plugin_convert_with_none_input():
+    """Test that ConverterPlugin.convert() can be called with None as both the
+    constructor argument and the value to convert, without raising an error."""
+
+    # Initialize the plugin with no specific format/type
+    none_value = None
+    converter_plugin = base_plugin.ConverterPlugin(none_value)
+
+    # Attempt conversion with a None value
+    converter_plugin.convert(none_value)
+```
+Stream finished.
+Calling Chalmers API for model: claude-sonnet-4-6...
+Receiving stream (attempt 1): ```Python
+def test_converter_plugin_convert_with_none_input():
+    """Test that ConverterPlugin.convert() can be called with None as both the
+    constructor argument and the value to convert, without raising an error."""
+
+    # Initialize the plugin with no specific format/type
+    none_value = None
+    converter_plugin = base_plugin.ConverterPlugin(none_value)
+
+    # Attempt conversion with a None value
+    converter_plugin.convert(none_value)
+```
+Stream finished.
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_converter_plugin_convert_with_none_input():
+    """Test that ConverterPlugin.convert() can be called with None as both the
+    constructor argument and the value to convert, without raising an error."""
+
+    # Initialize the plugin with no specific format/type
+    none_value = None
+    converter_plugin = base_plugin.ConverterPlugin(none_value)
+
+    # Attempt conversion with a None value
+    converter_plugin.convert(none_value)   
+
+
+        Refactored file path:  ['./output/sonnet/base.py/base/run3/test_httpie_plugins_base_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+============================= test session starts ==============================
+platform linux -- Python 3.12.9, pytest-8.3.2, pluggy-1.5.0
+rootdir: /data/users/eliassam/Thesis/llm_readability/llm-test-readability
+plugins: anyio-4.3.0, mimesis-18.0.0, langsmith-0.6.6
+collected 5 items
+
+data/httpie.plugins.base/test_httpie_plugins_base.py FFFFF               [100%]
+
+=================================== FAILURES ===================================
+_________________________________ test_case_0 __________________________________
+
+    def test_case_0():
+>       module_0.FormatterPlugin()
+
+data/httpie.plugins.base/test_httpie_plugins_base.py:7: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <httpie.plugins.base.FormatterPlugin object at 0x716210ff5ee0>
+kwargs = {}
+
+    def __init__(self, **kwargs):
+        """
+        :param env: an class:`Environment` instance
+        :param kwargs: additional keyword argument that some
+                       formatters might require.
+    
+        """
+        self.enabled = True
+        self.kwargs = kwargs
+>       self.format_options = kwargs['format_options']
+E       KeyError: 'format_options'
+
+../../../miniforge3/lib/python3.12/site-packages/httpie/plugins/base.py:140: KeyError
+_________________________________ test_case_1 __________________________________
+
+    def test_case_1():
+        str_0 = "xzOB\n\n.wP|P-l"
+        auth_plugin_0 = module_0.AuthPlugin()
+>       auth_plugin_0.get_auth(password=str_0)
+
+data/httpie.plugins.base/test_httpie_plugins_base.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <httpie.plugins.base.AuthPlugin object at 0x71621100c530>
+username = None, password = 'xzOB\n\n.wP|P-l'
+
+    def get_auth(self, username: str = None, password: str = None):
+        """
+        If `auth_parse` is set to `True`, then `username`
+        and `password` contain the parsed credentials.
+    
+        Use `self.raw_auth` to access the raw value passed through
+        `--auth, -a`.
+    
+        Return a ``requests.auth.AuthBase`` subclass instance.
+    
+        """
+>       raise NotImplementedError()
+E       NotImplementedError
+
+../../../miniforge3/lib/python3.12/site-packages/httpie/plugins/base.py:69: NotImplementedError
+_________________________________ test_case_2 __________________________________
+
+    def test_case_2():
+        transport_plugin_0 = module_0.TransportPlugin()
+>       transport_plugin_0.get_adapter()
+
+data/httpie.plugins.base/test_httpie_plugins_base.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <httpie.plugins.base.TransportPlugin object at 0x716210ff6030>
+
+    def get_adapter(self):
+        """
+        Return a ``requests.adapters.BaseAdapter`` subclass instance to be
+        mounted to ``self.prefix``.
+    
+        """
+>       raise NotImplementedError()
+E       NotImplementedError
+
+../../../miniforge3/lib/python3.12/site-packages/httpie/plugins/base.py:93: NotImplementedError
+_________________________________ test_case_3 __________________________________
+
+    def test_case_3():
+        bytes_0 = b"\xec\xdb\xe5\\V\xe1\xbb \xfd2\x80z\xf9\x96`-\xa1y"
+        converter_plugin_0 = module_0.ConverterPlugin(bytes_0)
+        transport_plugin_0 = module_0.TransportPlugin()
+>       transport_plugin_0.get_adapter()
+
+data/httpie.plugins.base/test_httpie_plugins_base.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <httpie.plugins.base.TransportPlugin object at 0x716210ff4890>
+
+    def get_adapter(self):
+        """
+        Return a ``requests.adapters.BaseAdapter`` subclass instance to be
+        mounted to ``self.prefix``.
+    
+        """
+>       raise NotImplementedError()
+E       NotImplementedError
+
+../../../miniforge3/lib/python3.12/site-packages/httpie/plugins/base.py:93: NotImplementedError
+_________________________________ test_case_4 __________________________________
+
+    def test_case_4():
+        none_type_0 = None
+        converter_plugin_0 = module_0.ConverterPlugin(none_type_0)
+>       converter_plugin_0.convert(none_type_0)
+
+data/httpie.plugins.base/test_httpie_plugins_base.py:31: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <httpie.plugins.base.ConverterPlugin object at 0x7162200d4110>
+body = None
+
+    def convert(self, body: bytes) -> Tuple[str, str]:
+        """
+        Convert a binary body to a textual representation for the terminal
+        and return a tuple containing the new Content-Type and content, e.g.:
+    
+        ('application/json', '{}')
+    
+        """
+>       raise NotImplementedError
+E       NotImplementedError
+
+../../../miniforge3/lib/python3.12/site-packages/httpie/plugins/base.py:117: NotImplementedError
+=============================== warnings summary ===============================
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: anyio
+    self._mark_plugins_for_rewrite(hook)
+
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: langsmith
+    self._mark_plugins_for_rewrite(hook)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED data/httpie.plugins.base/test_httpie_plugins_base.py::test_case_0 - Ke...
+FAILED data/httpie.plugins.base/test_httpie_plugins_base.py::test_case_1 - No...
+FAILED data/httpie.plugins.base/test_httpie_plugins_base.py::test_case_2 - No...
+FAILED data/httpie.plugins.base/test_httpie_plugins_base.py::test_case_3 - No...
+FAILED data/httpie.plugins.base/test_httpie_plugins_base.py::test_case_4 - No...
+======================== 5 failed, 2 warnings in 0.09s =========================
+============================= test session starts ==============================
+platform linux -- Python 3.12.9, pytest-8.3.2, pluggy-1.5.0
+rootdir: /data/users/eliassam/Thesis/llm_readability/llm-test-readability
+plugins: anyio-4.3.0, mimesis-18.0.0, langsmith-0.6.6
+collected 5 items
+
+output/sonnet/base.py/base/run3/test_httpie_plugins_base_functions_refactored.py F [ 20%]
+FFFF                                                                     [100%]
+
+=================================== FAILURES ===================================
+_________________ test_formatter_plugin_default_instantiation __________________
+
+    def test_formatter_plugin_default_instantiation():
+        """Test that FormatterPlugin can be instantiated with default arguments."""
+        # Verify that the base FormatterPlugin class can be constructed without error
+>       base_plugin.FormatterPlugin()
+
+output/sonnet/base.py/base/run3/test_httpie_plugins_base_functions_refactored.py:7: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <httpie.plugins.base.FormatterPlugin object at 0x7162110ceab0>
+kwargs = {}
+
+    def __init__(self, **kwargs):
+        """
+        :param env: an class:`Environment` instance
+        :param kwargs: additional keyword argument that some
+                       formatters might require.
+    
+        """
+        self.enabled = True
+        self.kwargs = kwargs
+>       self.format_options = kwargs['format_options']
+E       KeyError: 'format_options'
+
+../../../miniforge3/lib/python3.12/site-packages/httpie/plugins/base.py:140: KeyError
+_________________ test_auth_plugin_get_auth_with_password_only _________________
+
+    def test_auth_plugin_get_auth_with_password_only():
+        """Test that AuthPlugin.get_auth can be called with only a password argument (no username)."""
+        # Use a password string that includes special characters and whitespace
+        password = "xzOB\n\n.wP|P-l"
+    
+        auth_plugin = base_plugin.AuthPlugin()
+    
+        # Invoke get_auth with keyword argument; no username is provided
+>       auth_plugin.get_auth(password=password)
+
+output/sonnet/base.py/base/run3/test_httpie_plugins_base_functions_refactored.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <httpie.plugins.base.AuthPlugin object at 0x7162200db9e0>
+username = None, password = 'xzOB\n\n.wP|P-l'
+
+    def get_auth(self, username: str = None, password: str = None):
+        """
+        If `auth_parse` is set to `True`, then `username`
+        and `password` contain the parsed credentials.
+    
+        Use `self.raw_auth` to access the raw value passed through
+        `--auth, -a`.
+    
+        Return a ``requests.auth.AuthBase`` subclass instance.
+    
+        """
+>       raise NotImplementedError()
+E       NotImplementedError
+
+../../../miniforge3/lib/python3.12/site-packages/httpie/plugins/base.py:69: NotImplementedError
+______________ test_transport_plugin_get_adapter_returns_default _______________
+
+    def test_transport_plugin_get_adapter_returns_default():
+        """Test that TransportPlugin.get_adapter() can be called on a default instance without error."""
+        transport_plugin = base_plugin.TransportPlugin()
+>       transport_plugin.get_adapter()
+
+output/sonnet/base.py/base/run3/test_httpie_plugins_base_functions_refactored.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <httpie.plugins.base.TransportPlugin object at 0x7162110cf6b0>
+
+    def get_adapter(self):
+        """
+        Return a ``requests.adapters.BaseAdapter`` subclass instance to be
+        mounted to ``self.prefix``.
+    
+        """
+>       raise NotImplementedError()
+E       NotImplementedError
+
+../../../miniforge3/lib/python3.12/site-packages/httpie/plugins/base.py:93: NotImplementedError
+___ test_converter_plugin_instantiation_and_transport_plugin_default_adapter ___
+
+    def test_converter_plugin_instantiation_and_transport_plugin_default_adapter():
+        """
+        Verify that ConverterPlugin can be instantiated with raw bytes,
+        and that TransportPlugin can be instantiated and its default
+        adapter retrieved without raising an error.
+        """
+        raw_bytes = b"\xec\xdb\xe5\\V\xe1\xbb \xfd2\x80z\xf9\x96`-\xa1y"
+    
+        # Instantiate ConverterPlugin with arbitrary byte data
+        converter_plugin = base_plugin.ConverterPlugin(raw_bytes)
+    
+        # Instantiate TransportPlugin and retrieve its default adapter
+        transport_plugin = base_plugin.TransportPlugin()
+>       transport_plugin.get_adapter()
+
+output/sonnet/base.py/base/run3/test_httpie_plugins_base_functions_refactored.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <httpie.plugins.base.TransportPlugin object at 0x7162200d4aa0>
+
+    def get_adapter(self):
+        """
+        Return a ``requests.adapters.BaseAdapter`` subclass instance to be
+        mounted to ``self.prefix``.
+    
+        """
+>       raise NotImplementedError()
+E       NotImplementedError
+
+../../../miniforge3/lib/python3.12/site-packages/httpie/plugins/base.py:93: NotImplementedError
+________________ test_converter_plugin_convert_with_none_input _________________
+
+    def test_converter_plugin_convert_with_none_input():
+        """Test that ConverterPlugin.convert() can be called with None as both the
+        constructor argument and the value to convert, without raising an error."""
+    
+        # Initialize the plugin with no specific format/type
+        none_value = None
+        converter_plugin = base_plugin.ConverterPlugin(none_value)
+    
+        # Attempt conversion with a None value
+>       converter_plugin.convert(none_value)
+
+output/sonnet/base.py/base/run3/test_httpie_plugins_base_functions_refactored.py:48: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <httpie.plugins.base.ConverterPlugin object at 0x716210ff4ef0>
+body = None
+
+    def convert(self, body: bytes) -> Tuple[str, str]:
+        """
+        Convert a binary body to a textual representation for the terminal
+        and return a tuple containing the new Content-Type and content, e.g.:
+    
+        ('application/json', '{}')
+    
+        """
+>       raise NotImplementedError
+E       NotImplementedError
+
+../../../miniforge3/lib/python3.12/site-packages/httpie/plugins/base.py:117: NotImplementedError
+=============================== warnings summary ===============================
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: anyio
+    self._mark_plugins_for_rewrite(hook)
+
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: langsmith
+    self._mark_plugins_for_rewrite(hook)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED output/sonnet/base.py/base/run3/test_httpie_plugins_base_functions_refactored.py::test_formatter_plugin_default_instantiation
+FAILED output/sonnet/base.py/base/run3/test_httpie_plugins_base_functions_refactored.py::test_auth_plugin_get_auth_with_password_only
+FAILED output/sonnet/base.py/base/run3/test_httpie_plugins_base_functions_refactored.py::test_transport_plugin_get_adapter_returns_default
+FAILED output/sonnet/base.py/base/run3/test_httpie_plugins_base_functions_refactored.py::test_converter_plugin_instantiation_and_transport_plugin_default_adapter
+FAILED output/sonnet/base.py/base/run3/test_httpie_plugins_base_functions_refactored.py::test_converter_plugin_convert_with_none_input
+======================== 5 failed, 2 warnings in 0.09s =========================
+Failed tests: {'Original Test Results': {'test_case_0': 'fail', 'test_case_1': 'fail', 'test_case_2': 'fail', 'test_case_3': 'fail', 'test_case_4': 'fail'}, 'Refactored Test Results': {'test_formatter_plugin_default_instantiation': 'fail', 'test_auth_plugin_get_auth_with_password_only': 'fail', 'test_transport_plugin_get_adapter_returns_default': 'fail', 'test_converter_plugin_instantiation_and_transport_plugin_default_adapter': 'fail', 'test_converter_plugin_convert_with_none_input': 'fail'}}
+
+Collecting data for module: ['data/httpie.plugins.base/base.py']
+
+
+Computing DAN Scores...
+DAN Score Before: {'__main__': 0.7173104882240295, 'test_case_0': 0.9371200799942017, 'test_case_1': 0.38626839220523834, 'test_case_2': 0.46328005194664, 'test_case_3': 0.23319034278392792, 'test_case_4': 0.42865827679634094}
+DAN Score After: {'__main__': 0.6239796876907349, 'test_formatter_plugin_default_instantiation': 0.49262532591819763, 'test_auth_plugin_get_auth_with_password_only': 0.39432545006275177, 'test_transport_plugin_get_adapter_returns_default': 0.3358372449874878, 'test_converter_plugin_instantiation_and_transport_plugin_default_adapter': 0.2392520010471344, 'test_converter_plugin_convert_with_none_input': 0.35259371995925903}
+Test run data saved to: ./output/sonnet/base.py/base/run3/test_run_report.csv
+Test run JSON data saved to: ./output/sonnet/base.py/base/run3/test_run_report.json
+Execution finished at Tue May 19 02:09:08 PM CEST 2026
+Moving SLURM logs to slurm_logs/20260519_140727

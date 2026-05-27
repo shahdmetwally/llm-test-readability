@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+#SBATCH -A NAISS2024-22-570 -p alvis
+#SBATCH --gpus-per-node=T4:1 # 
+#SBATCH -t 0-00:10:00
+#SBATCH -o jobs/out/test_v2.log  
+
+ml purge
+
+
+echo "Testing github push using $var"
+
+# Create a dummy .log file in the test directory
+echo test > test/dummy_test2.log
+
+# Define the path to the repository's root
+REPO_DIR="/cephyr/NOBACKUP/groups/llm-readability/readability"
+
+# Change to the repository directory
+cd $REPO_DIR
+
+# Check if the directory change was successful
+if [ $? -ne 0 ]; then
+    echo "Failed to change directory to $REPO_DIR. Exiting script."
+    exit 1
+fi
+
+# Pull the latest changes from the remote repository
+echo "Pulling the latest changes from the repository..."
+git pull origin main
+
+# Check if the pull was successful
+if [ $? -ne 0 ]; then
+    echo "Failed to pull the latest changes. Exiting script."
+    exit 1
+fi
+
+# Add changes only in the 'test' folder
+git add test/
+
+# Commit the changes
+COMMIT_MESSAGE="Add test folder using job- using $var "
+COMMIT_STATUS=$(git commit -m "$COMMIT_MESSAGE")
+
+# Check if the commit was successful
+if [[ $COMMIT_STATUS == *"nothing to commit"* ]]; then
+    echo "No changes to commit."
+else
+    echo "Changes committed. Pushing to repository..."
+    # Push the changes
+    git push origin main
+    echo "Changes pushed successfully."
+fi

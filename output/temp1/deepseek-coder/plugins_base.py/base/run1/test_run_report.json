@@ -1,0 +1,62 @@
+{
+    "module": "plugins_base.py",
+    "timestamp": "2026-05-21T01:57:59.327291",
+    "llm_info": {
+        "model": "deepseek-coder",
+        "version": "functions",
+        "temperature": 1.0,
+        "prompt_style": "base"
+    },
+    "run_number": 1,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": 0,
+        "diff_failing_tests": 0,
+        "diff_coverage": -3.42,
+        "dan_score_diff": 0.130912
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 6, 'pass': 0, 'fail': 5, 'error': 0}",
+        "Refactored Test Results": "{'total': 6, 'pass': 0, 'fail': 5, 'error': 0}",
+        "total_tests_before": 6,
+        "total_tests_after": 6
+    },
+    "coverage": {
+        "before_refactoring": 68.42,
+        "after_refactoring": 65.0
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "fail",
+            "test_case_1": "fail",
+            "test_case_2": "fail",
+            "test_case_3": "fail",
+            "test_case_4": "fail"
+        },
+        "after_refactoring": {
+            "test_formatter_plugin_instantiation": "fail",
+            "test_auth_plugin_get_auth": "fail",
+            "test_transport_plugin_adapter_is_retrieved": "fail",
+            "test_converter_plugin_initialization_and_adapter_retrieval": "fail",
+            "test_converter_plugin_convert_none": "fail"
+        },
+        "dan_score_before": {
+            "__main__": 0.7173104882240295,
+            "test_case_0": 0.9371200799942017,
+            "test_case_1": 0.38626839220523834,
+            "test_case_2": 0.46328005194664,
+            "test_case_3": 0.23319034278392792,
+            "test_case_4": 0.42865827679634094
+        },
+        "dan_score_after": {
+            "__main__": 0.7418660521507263,
+            "test_formatter_plugin_instantiation": 0.37456458806991577,
+            "test_auth_plugin_get_auth": 0.372087761759758,
+            "test_transport_plugin_adapter_is_retrieved": 0.3225290775299072,
+            "test_converter_plugin_initialization_and_adapter_retrieval": 0.1557212620973587,
+            "test_converter_plugin_convert_none": 0.413585364818573
+        },
+        "avg_dan_score_before": 0.527638,
+        "avg_dan_score_after": 0.396726
+    }
+}

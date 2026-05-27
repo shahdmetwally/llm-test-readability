@@ -1,0 +1,97 @@
+{
+    "module": "maybe.py",
+    "timestamp": "2026-05-22T00:26:42.927365",
+    "llm_info": {
+        "model": "deepseek-v3",
+        "version": "functions",
+        "temperature": 1.0,
+        "prompt_style": "combined"
+    },
+    "run_number": 1,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": 0,
+        "diff_failing_tests": 0
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 21, 'pass': 3, 'fail': 17, 'error': 0}",
+        "Refactored Test Results": "{'total': 21, 'pass': 3, 'fail': 17, 'error': 0}",
+        "total_tests_before": 21,
+        "total_tests_after": 21
+    },
+    "coverage": {
+        "before_refactoring": 52.85,
+        "after_refactoring": "N/A"
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "pass",
+            "test_case_1": "pass",
+            "test_case_2": "fail",
+            "test_case_3": "pass",
+            "test_case_4": "fail",
+            "test_case_5": "fail",
+            "test_case_6": "fail",
+            "test_case_7": "fail",
+            "test_case_8": "fail",
+            "test_case_9": "fail",
+            "test_case_10": "fail",
+            "test_case_11": "fail",
+            "test_case_12": "fail",
+            "test_case_13": "fail",
+            "test_case_14": "fail",
+            "test_case_15": "fail",
+            "test_case_16": "fail",
+            "test_case_17": "fail",
+            "test_case_18": "fail",
+            "test_case_19": "fail"
+        },
+        "after_refactoring": {
+            "test_maybe_constructor_accepts_bytes_value": "pass",
+            "test_maybe_constructor_accepts_none_value_and_default": "pass",
+            "test_maybe_monad_operations_chain": "fail",
+            "test_maybe_equality_with_set_of_falsy_values": "pass",
+            "test_maybe_bind_map_and_to_box_on_empty_set": "fail",
+            "test_maybe_with_none_and_false_calls_map_successfully": "fail",
+            "test_maybe_bind_works_with_empty_dict": "fail",
+            "test_maybe_monad_operations_with_various_types": "fail",
+            "test_maybe_ap_accepts_single_integer_argument": "fail",
+            "test_maybe_monad_chaining_with_filter_lazy_and_try": "fail",
+            "test_maybe_filter_with_repeated_tuple_values_then_to_lazy": "fail",
+            "test_maybe_filter_after_get_or_else_and_to_box": "fail",
+            "test_maybe_handles_various_data_types_and_methods": "fail",
+            "test_maybe_with_none_and_true_then_set_map_and_either_conversion": "fail",
+            "test_maybe_conversion_between_lazy_either_try_monads": "fail",
+            "test_maybe_to_try_to_box_monad_conversion": "fail",
+            "test_maybe_ap_filter_get_or_else_chaining_with_validation_to_try": "fail",
+            "test_maybe_monad_operations_with_none_and_bytes_values": "fail",
+            "test_maybe_operations_sequence_with_conversion_and_map": "fail",
+            "test_maybe_equality_and_subsequent_conversions": "fail"
+        },
+        "dan_score_before": {
+            "__main__": 0.869159460067749,
+            "test_case_0": 0.39177650213241577,
+            "test_case_1": 0.4033203423023224,
+            "test_case_2": 0.16177101790905,
+            "test_case_3": 0.3068503811955452,
+            "test_case_4": 0.2873412221670151,
+            "test_case_5": 0.4323251048723857,
+            "test_case_6": 0.27006437877813977,
+            "test_case_7": 0.1338642304273028,
+            "test_case_8": 0.4910967747370402,
+            "test_case_9": 0.20555652429660162,
+            "test_case_10": 0.20941989620526633,
+            "test_case_11": 0.18392598256468773,
+            "test_case_12": 0.16452998185859008,
+            "test_case_13": 0.1918022960424423,
+            "test_case_14": 0.17900435047017205,
+            "test_case_15": 0.2980077415704727,
+            "test_case_16": 0.16629311311990022,
+            "test_case_17": 0.10251285761594772,
+            "test_case_18": 0.2135451493354944,
+            "test_case_19": 0.2928418070077896
+        },
+        "dan_score_after": null,
+        "avg_dan_score_before": 0.283572
+    }
+}

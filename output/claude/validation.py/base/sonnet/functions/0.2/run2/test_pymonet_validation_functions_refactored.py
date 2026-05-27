@@ -1,0 +1,259 @@
+import pytest
+import validation as validation
+import builtins as builtins
+
+def test_validation_with_identical_success_and_fail_messages_converts_to_maybe():
+    """
+    Test that a Validation created with identical success and fail messages
+    correctly reports its success/fail status and can be converted to Maybe.
+    """
+    # Use the same string for both success and fail message fields
+    empty_maybe_docstring = "\n        Create empty maybe.\n\n        :returns: Maybe[None]\n        "
+
+    # Create a Validation instance where both arguments are the same string
+    validation_instance = validation.Validation(empty_maybe_docstring, empty_maybe_docstring)
+
+    # Check success status
+    is_success_result = validation_instance.is_success()
+
+    # Check equality of the validation with itself
+    is_equal_to_self = validation_instance.__eq__(validation_instance)
+
+    # Retrieve the fail representation
+    fail_result = validation_instance.is_fail()
+
+    # Convert the fail result to a Maybe value
+    fail_result.to_maybe()
+
+def test_validation_eq_with_none_returns_result_with_is_success():
+    """Test that comparing a Validation instance to None returns a result
+    on which is_success() can be called without error."""
+    none_value = None
+    negative_int = -6891
+    positive_int = 3125
+
+    # Construct a Validation with a negative int and a single-element tuple
+    tuple_arg = (positive_int,)
+    validation_instance = validation.Validation(negative_int, tuple_arg)
+
+    # Compare the Validation instance against None
+    eq_result = validation_instance.__eq__(none_value)
+
+    # Verify the result exposes the is_success interface
+    eq_result.is_success()
+
+def test_validation_str_representation_is_fail_with_empty_dicts():
+    """Test that a Validation instance created with empty dicts returns a result
+    whose string representation exposes an is_fail() method."""
+    empty_dict = {}
+
+    # Create a Validation instance with empty schema and data
+    validation_instance = validation.Validation(empty_dict, empty_dict)
+
+    # Obtain the string representation of the validation result
+    str_result = validation_instance.__str__()
+
+    # Check that the result exposes is_fail() (exercising the method call)
+    str_result.is_fail()
+
+def test_validation_with_empty_sets_converts_to_either_and_maybe():
+    """Test that a Validation built from empty sets can be converted to Either and Maybe,
+    and that chaining to_maybe() on the result is valid."""
+    empty_set = set()
+
+    # Create a Validation instance with no valid and no invalid values
+    val = validation.Validation(empty_set, empty_set)
+
+    # Convert to Either and Maybe representations
+    either_result = val.to_either()
+    maybe_result = val.to_maybe()
+
+    # Verify that the Maybe result itself supports to_maybe() chaining
+    maybe_result.to_maybe()
+
+def test_validation_equality_and_maybe_conversion():
+    """
+    Test that a Validation object created with a failure message
+    supports equality comparison, conversion to Either, and that
+    calling to_maybe() on the is_fail() result executes without error.
+    """
+    # A descriptive message used as both the success and failure value
+    failure_message = "\n        Create empty maybe.\n\n        :returns: Maybe[None]\n        "
+
+    # Create a Validation instance with the same value for both fields
+    validation_instance = validation.Validation(failure_message, failure_message)
+
+    # Convert the validation to an Either type
+    either_result = validation_instance.to_either()
+
+    # Check equality of the validation instance with itself
+    is_equal = validation_instance.__eq__(validation_instance)
+
+    # Check whether the validation represents a failure
+    is_fail_result = validation_instance.is_fail()
+
+    # Attempt to convert the is_fail result to a Maybe type
+    is_fail_result.to_maybe()
+
+def test_validation_with_empty_sets_chained_to_maybe():
+    """Test that a Validation created from empty sets can be converted to Maybe,
+    and that the resulting Maybe can also be converted to Maybe (chaining)."""
+    empty_set = set()
+
+    # Create a Validation with no successes and no failures
+    val = validation.Validation(empty_set, empty_set)
+
+    # Convert the Validation to a Maybe
+    maybe_result = val.to_maybe()
+
+    # Chain another to_maybe() call on the resulting Maybe
+    maybe_result.to_maybe()
+
+def test_validation_initialized_with_none_arguments():
+    """Test that Validation can be instantiated with None for both arguments."""
+    # Use None for both constructor parameters to verify permissive initialization
+    none_value = None
+    validation_instance = validation.Validation(none_value, none_value)
+
+def test_validation_to_maybe_with_none_inputs():
+    """Test that Validation.to_maybe() can be called when both inputs are None."""
+    # Create a Validation instance with None for both arguments
+    none_value = None
+    validation_instance = validation.Validation(none_value, none_value)
+
+    # Convert the Validation to a Maybe type; should not raise an error
+    validation_instance.to_maybe()
+
+def test_validation_is_fail_with_object_as_both_arguments():
+    """Test that Validation.is_fail() can be called when the same object
+    is used for both constructor arguments."""
+    # Use a plain object instance as both arguments to Validation
+    plain_object = builtins.object()
+    validation_instance = validation.Validation(plain_object, plain_object)
+    validation_instance.is_fail()
+
+def test_validation_map_with_none_on_nested_structure():
+    """Test that Validation.map() accepts None when initialized with a nested tuple/dict structure."""
+
+    # Build a nested input: a tuple containing a dict (keyed by a tuple) and an int
+    key = (-895, True)
+    nested_dict = {key: key}
+    nested_tuple = (nested_dict, nested_dict, -895)
+
+    # Instantiate Validation with the nested structure and a truthy flag
+    v = validation.Validation(nested_tuple, True)
+
+    # Call map with None — verifying it does not raise under these inputs
+    v.map(None)
+
+def test_validation_bind_with_none_value():
+    """Test that Validation.bind() accepts None as a value without raising an error."""
+    # Use identical byte sequences for both constructor arguments
+    raw_bytes = b"s\x8flul\xd1p\x86\xe0<q\xd9\xb2\xf6\x17EC\xaf\xd0"
+    validator = validation.Validation(raw_bytes, raw_bytes)
+
+    # Bind None to the validator to verify it handles a missing/null value
+    none_value = None
+    validator.bind(none_value)
+
+def test_validation_ap_with_all_true_list():
+    """Test that Validation.ap() can be called with a list of True values on a Failure instance."""
+    # Create a Failure validation (is_success=False) with a list of True error flags
+    is_success = False
+    all_true = True
+    error_flags = [all_true, all_true, all_true, all_true]
+
+    failure_validation = validation.Validation(is_success, error_flags)
+
+    # Apply the list of True values via ap() to the Failure validation
+    failure_validation.ap(error_flags)
+
+def test_validation_with_both_flags_true_converts_to_box_and_checks_success():
+    """Test that a Validation created with both flags True can be converted to a box
+    and that is_success() can be called on the resulting box."""
+    is_valid = True
+    # Create a Validation instance where both parameters are True (indicating success)
+    valid_validation = validation.Validation(is_valid, is_valid)
+
+    # Convert the validation result to a box representation
+    validation_box = valid_validation.to_box()
+
+    # Verify the box reports a successful outcome
+    validation_box.is_success()
+
+def test_validation_to_lazy_bind_none_then_to_lazy():
+    """Test that a Validation created with empty lists can be converted to lazy,
+    bound with None, and then converted to lazy again without error."""
+
+    # Create an empty validation with no successes and no failures
+    empty_list = []
+    validation_instance = validation.Validation(empty_list, empty_list)
+
+    # Convert the validation to its lazy representation
+    lazy_validation = validation_instance.to_lazy()
+
+    # Bind None to the lazy validation (testing None as a bind argument)
+    bound_result = lazy_validation.bind(None)
+
+    # Convert the bound result back to lazy form
+    bound_result.to_lazy()
+
+def test_validation_lazy_and_try_conversion_with_ap():
+    """
+    Test that a Validation created from an empty dict can be converted to a
+    Lazy, then to a Try, and that applying (ap) another Validation to the
+    Lazy does not raise errors. Verifies is_success() is callable on the Try.
+    """
+    empty_dict = {}
+
+    # Create a Validation instance with empty input and schema
+    val = validation.Validation(empty_dict, empty_dict)
+
+    # Convert the Validation to its Lazy representation
+    lazy_val = val.to_lazy()
+
+    # Convert the Lazy value to a Try
+    try_val = lazy_val.to_try()
+
+    # Apply the original Validation to the Lazy value
+    ap_result = lazy_val.ap(val)
+
+    # Check success state on the Try value
+    try_val.is_success()
+
+def test_validation_with_zero_value_converts_to_try_and_reports_success():
+    """Test that a Validation created with zero and a list containing zero
+    can be converted to a Try and reports success."""
+    zero_value = 0
+    value_list = [zero_value]
+
+    # Create a Validation instance with the zero value and its containing list
+    validation_instance = validation.Validation(zero_value, value_list)
+
+    # Convert to Try and verify the result is successful
+    try_result = validation_instance.to_try()
+    try_result.is_success()
+
+def test_validation_eq_with_mismatched_types_calls_to_box():
+    """Test that comparing two Validation objects with swapped key/value types
+    and calling to_box() on the result does not raise an error."""
+
+    # Arbitrary byte sequence used as a value in the dict and as a key
+    raw_bytes = b"\xcc\xf7\x0e\x04\xc8Y\xc1 N\xbb\xa6\x85\x97\x90\x9e"
+    none_value = None
+
+    # Dict with mixed key types: None -> bytes, bytes -> bytes
+    mixed_dict = {none_value: raw_bytes, raw_bytes: raw_bytes}
+
+    # First Validation: key is None, value is the mixed dict
+    validation_with_none_key = validation.Validation(none_value, mixed_dict)
+
+    # Second Validation: key is bytes, value is None
+    validation_with_bytes_key = validation.Validation(raw_bytes, none_value)
+
+    # Compare the two Validation objects (mismatched key/value types)
+    eq_result = validation_with_none_key.__eq__(validation_with_bytes_key)
+
+    # Call to_box() on the equality result
+    eq_result.to_box()
+

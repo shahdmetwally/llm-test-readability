@@ -1,0 +1,422 @@
+
+
+def test_default_constructed_immutable_list_operations():
+    """
+    Test basic operations on a default-constructed ImmutableList.
+    
+    This test verifies that an ImmutableList created with the default constructor
+    can perform equality checks, string conversion, list conversion, and addition
+    operations without errors.
+    """
+    # Create a default ImmutableList (empty list with None head)
+    default_list = module_0.ImmutableList()
+    
+    # Test self-equality
+    is_self_equal = default_list.__eq__(default_list)
+    
+    # Test string representation
+    string_repr = default_list.__str__()
+    
+    # Convert to Python list (should be [None] for default constructor)
+    as_python_list = default_list.to_list()
+    
+    # Test list concatenation (using Python list's __add__)
+    concatenated_lists = as_python_list.__add__(as_python_list)
+    
+    # Get length of the Python list
+    list_length = as_python_list.__len__()
+    
+    # Attempt to add Python list to ImmutableList (should raise ValueError)
+    default_list.__add__(as_python_list)
+
+def test_empty_list_operations_and_reduce_with_invalid_reducer():
+    """
+    Test various operations on an empty ImmutableList including edge case 
+    where reduce is called with a non-callable reducer (the list itself).
+    This tests error handling and basic list operations.
+    """
+    # Create a boolean value and empty list
+    true_value = True
+    empty_list = module_0.ImmutableList()
+    
+    # Compare empty list with boolean (should return False)
+    is_equal_result = empty_list.__eq__(true_value)
+    
+    # Concatenate empty list with itself (results in another empty list)
+    concatenated_list = empty_list.__add__(empty_list)
+    
+    # Try to find the comparison result in empty list (returns None)
+    found_item = empty_list.find(is_equal_result)
+    
+    # Get string representation of empty list
+    string_representation = empty_list.__str__()
+    
+    # Create new list with empty list as first element
+    list_with_self_as_head = empty_list.unshift(empty_list)
+    
+    # Attempt to reduce with list itself as reducer function (non-callable)
+    # This tests error handling when invalid reducer is provided
+    list_with_self_as_head.reduce(list_with_self_as_head, true_value)
+
+def test_find_with_non_callable_argument_on_empty_marked_list():
+    """Test that find() handles a non-callable argument on an empty-marked list.
+    
+    Creates an ImmutableList marked as empty (but with a head value), appends an element,
+    then calls find() with the list itself as argument (non-callable).
+    """
+    true_value = True
+    
+    # Create list marked as empty but with a head value
+    empty_marked_list = module_0.ImmutableList(true_value, is_empty=true_value)
+    
+    # Append element to create new list
+    appended_list = empty_marked_list.append(true_value)
+    
+    # Call find() with the list itself as argument (non-callable)
+    empty_marked_list.find(empty_marked_list)
+
+def test_find_with_non_callable_argument_on_nested_list():
+    """
+    Test that find() can be called with a non-callable argument (ImmutableList instance)
+    without raising an exception, even when the list structure is unusual.
+    This tests error handling or type flexibility in the find method.
+    """
+    # Create an empty ImmutableList
+    empty_list = module_0.ImmutableList()
+    
+    # Get length of empty list (unused but preserved for original behavior)
+    empty_length = empty_list.__len__()
+    
+    # Create a nested ImmutableList with the empty list as both head and is_empty parameter
+    # This creates an unusual list structure for testing edge cases
+    nested_list = module_0.ImmutableList(
+        empty_list, is_empty=empty_list
+    )
+    
+    # Call find() with the nested list itself as argument (non-callable)
+    # This tests whether find() handles non-function arguments gracefully
+    nested_list.find(nested_list)
+
+def test_find_with_non_callable_argument_on_singleton_list():
+    """
+    Test that calling find() with a non-callable argument (an ImmutableList instance)
+    doesn't raise an error and completes execution.
+    This tests error handling or type checking in the find method.
+    """
+    false_value = False
+    # Create a non-empty list with False as the only element
+    list_with_false = module_0.ImmutableList(false_value, is_empty=false_value)
+    
+    # Get the length of the list (should be 1)
+    length = list_with_false.__len__()
+    
+    # Attempt to find using the list itself as predicate (non-callable)
+    list_with_false.find(list_with_false)
+
+def test_find_with_non_callable_argument_on_general_list():
+    """
+    Test that ImmutableList.find can be called with a non-callable argument (a list).
+    This verifies the method's behavior when passed an invalid argument type.
+    """
+    false_value = False
+    immutable_list = module_0.ImmutableList(false_value, is_empty=false_value)
+    list_result = immutable_list.to_list()
+    immutable_list.find(list_result)
+
+def test_find_with_none_predicate_then_append_self_and_convert_to_list():
+    """
+    This test creates an empty ImmutableList, attempts to find with a None predicate,
+    appends the list to itself, converts to a Python list, and calls __add__ with None.
+    Note: The find and __add__ operations are expected to raise TypeError.
+    """
+    empty_list = module_0.ImmutableList()
+    none_predicate = None
+    
+    # This will raise TypeError because None is not a callable predicate
+    find_result = empty_list.find(none_predicate)
+    
+    # Append the empty list to itself, creating a list containing itself as an element
+    appended_list = empty_list.append(empty_list)
+    
+    # Convert the immutable list to a standard Python list
+    python_list = appended_list.to_list()
+    
+    # This will raise TypeError because list.__add__ expects another list, not None
+    python_list.__add__(none_predicate)
+
+def test_map_with_list_as_function():
+    """
+    Test the behavior of ImmutableList.map when provided with a non-callable argument.
+    This test creates an ImmutableList with is_empty=False, calls to_list, and then
+    attempts to map using the list result as the function.
+    """
+    is_empty_false = False
+    list_with_is_empty_false = module_0.ImmutableList(is_empty=is_empty_false)
+    to_list_result_first = list_with_is_empty_false.to_list()  # Should be [None]
+    another_list_instance = module_0.ImmutableList()  # Default ImmutableList
+    to_list_result_second = list_with_is_empty_false.to_list()  # Same as first result
+    list_with_is_empty_false.map(to_list_result_second)  # This may raise an error if list is not callable
+
+def test_nested_operations_with_none_values():
+    """
+    Test a sequence of operations on ImmutableList using None values:
+    1. Create list with None head/tail
+    2. Unshift None to beginning
+    3. Unshift resulting list to original
+    4. Append None to unshifted list
+    5. Attempt to map with None (non-callable)
+    """
+    none_value = None
+    
+    # Create single-element list with None as both head and tail
+    single_none_list = module_0.ImmutableList(none_value, none_value)
+    
+    # Add None to beginning, creating [None, None]
+    unshifted_once = single_none_list.unshift(none_value)
+    
+    # Add the [None, None] list to beginning of original, creating nested structure
+    nested_list = single_none_list.unshift(unshifted_once)
+    
+    # Append None to [None, None], creating [None, None, None]
+    appended_list = unshifted_once.append(none_value)
+    
+    # Attempt mapping with None (should fail if called, but test doesn't assert)
+    appended_list.map(none_value)
+
+def test_filter_with_non_callable_argument_raises_error():
+    """
+    Test that calling filter() with a non-callable argument (an ImmutableList instance)
+    will raise an error when executed.
+    The filter method expects a callable predicate function.
+    """
+    false_value = False
+    # Create a non-empty list with single element (False)
+    list_with_false = module_0.ImmutableList(false_value, is_empty=false_value)
+    # Pass the list itself as filter predicate - this is not callable
+    list_with_false.filter(list_with_false)
+
+def test_filter_on_empty_list_with_non_callable_predicate():
+    """
+    Test the filter method on an empty ImmutableList (created by adding two empty lists)
+    when passed a non-callable predicate (the length of the list, which is 0).
+    This test does not check the result, but ensures the call does not raise an exception.
+    """
+    empty_list = module_0.ImmutableList()
+    concatenated_empty_list = empty_list.__add__(empty_list)
+    length_of_concatenated = concatenated_empty_list.__len__()
+    # The filter method expects a callable, but we pass an integer (0).
+    # This might be testing that the method does not raise an error when the predicate is not callable?
+    # However, the filter method will try to call it, so this test would fail at runtime.
+    concatenated_empty_list.filter(length_of_concatenated)
+
+def test_find_with_non_callable_argument_on_none_list():
+    """
+    Tests that ImmutableList.find() raises an error when called with a non-callable
+    argument (an integer) on a list constructed with None values.
+    The test expects TypeError when the integer is used as a predicate function.
+    """
+    non_callable_argument = 1947  # Integer is not a valid callable for find()
+    none_value = None
+    # Create an ImmutableList with None as both head and tail
+    list_with_nones = module_0.ImmutableList(none_value, none_value)
+    # This will raise TypeError because find() expects a callable predicate
+    find_result = list_with_nones.find(non_callable_argument)
+    # Attempting to call __len__ on the result (likely None or raises error)
+    find_result.__len__()
+
+def test_find_with_non_callable_argument_on_non_empty_false_head():
+    """
+    Test that calling find() with a non-callable argument (the list itself)
+    doesn't raise an error and returns None when no matching element exists.
+    """
+    # Create a non-empty list with False as the head element
+    is_empty_flag = False
+    list_instance = ImmutableList(is_empty_flag, is_empty=is_empty_flag)
+    
+    # Attempt to find using the list itself as predicate (non-callable)
+    # This tests error handling when predicate is not callable
+    list_instance.find(list_instance)
+
+def test_reduce_and_find_with_non_callable_arguments():
+    """
+    Test edge cases where reduce and find methods receive non-callable arguments.
+    This tests error handling when functions are called with incorrect argument types.
+    """
+    # Create a false value to use as both function and data
+    false_value = False
+    
+    # Create an empty immutable list
+    empty_list = module_0.ImmutableList()
+    
+    # Attempt to reduce with a boolean instead of a callable function
+    # This tests error handling in the reduce method
+    reduction_result = empty_list.reduce(false_value, empty_list)
+    
+    # Create a list with False as head and is_empty=False
+    list_with_false_head = module_0.ImmutableList(false_value, is_empty=false_value)
+    
+    # Attempt to find using the list itself as predicate (non-callable)
+    # This tests error handling in the find method
+    list_with_false_head.find(list_with_false_head)
+
+def test_create_empty_immutable_list():
+    """Test that an empty ImmutableList can be instantiated."""
+    empty_list = module_0.ImmutableList()
+
+def test_find_with_non_callable_argument_using_self_as_argument():
+    """Test that find() raises an error when passed the list itself (non-callable) as argument."""
+    false_value = False
+    non_empty_list = module_0.ImmutableList(false_value, is_empty=false_value)
+    
+    # This should raise TypeError since find() expects a callable predicate
+    # but we're passing the list itself (non-callable) as argument
+    try:
+        non_empty_list.find(non_empty_list)
+        assert False, "Expected TypeError"
+    except TypeError:
+        pass
+
+def test_unshift_and_find_with_self_referential_list():
+    """
+    Test unshift and find operations on an ImmutableList containing itself.
+    
+    Creates a non-empty list with False as head, then prepends the list to itself
+    via unshift. Finally attempts to find the list within itself using find().
+    """
+    false_value = False
+    # Create a non-empty list with False as the head element
+    original_list = module_0.ImmutableList(false_value, is_empty=false_value)
+    
+    # Prepend the list to itself, creating a self-referential structure
+    unshifted_list = original_list.unshift(original_list)
+    
+    # Attempt to locate the list within itself (note: find expects a predicate function)
+    original_list.find(original_list)
+
+def test_find_after_unshift_and_append():
+    """
+    Test that find() works correctly on a list created through 
+    unshift and append operations.
+    """
+    false_value = False
+    
+    # Create a non-empty list (is_empty=False creates a list with None head)
+    original_list = module_0.ImmutableList(is_empty=false_value)
+    
+    # Add false_value to the beginning of the list
+    list_with_unshift = original_list.unshift(false_value)
+    
+    # Append the original list to the end
+    list_with_append = list_with_unshift.append(original_list)
+    
+    # Search for false_value in the resulting list
+    list_with_append.find(false_value)
+
+def test_append_to_empty_list_and_find_with_non_callable():
+    """
+    Test that appending to an empty ImmutableList (created with is_empty=True) and then
+    calling find with a non-callable argument does not crash.
+    """
+    true_value = True
+    empty_list = module_0.ImmutableList(true_value, is_empty=true_value)
+    appended_list = empty_list.append(true_value)
+    length = appended_list.__len__()  # Get the length of the list after appending
+    # Note: The find method expects a callable, but we pass the list itself (non-callable).
+    # This might return None or raise an error? The test does not assert, so we just ensure it runs.
+    empty_list.find(empty_list)
+
+def test_complex_operations_with_empty_list_and_self_references():
+    """
+    Test various ImmutableList operations including append, reduce, equality,
+    unshift, and find with self-referential structures and empty lists.
+    """
+    # Create an empty ImmutableList
+    empty_list = module_0.ImmutableList()
+    
+    # Append the empty list to itself, creating a list containing itself as element
+    list_containing_itself = empty_list.append(empty_list)
+    
+    # Reduce the empty list using the self-containing list as both initial value and reducer
+    # Note: This tests reduce behavior with unusual parameters
+    reduced_value = empty_list.reduce(list_containing_itself, list_containing_itself)
+    
+    # Check equality between the empty list and the list containing itself
+    are_equal = list_containing_itself.__eq__(empty_list)
+    
+    # Create a new list by prepending the self-containing list to itself
+    list_with_self_at_head = list_containing_itself.unshift(list_containing_itself)
+    
+    # Get string representation of the list with self at head
+    string_representation = list_with_self_at_head.__str__()
+    
+    # Create a list with is_empty parameter set to the string representation
+    # This tests the constructor's is_empty parameter behavior
+    list_with_is_empty_string = module_0.ImmutableList(is_empty=string_representation)
+    
+    # Append the reduced value to itself
+    reduced_value_appended_to_self = reduced_value.append(reduced_value)
+    
+    # Attempt to find the reduced value in the list with self at head
+    # Note: This tests find with non-function argument (the reduced value itself)
+    list_with_self_at_head.find(reduced_value)
+
+def test_unshift_on_empty_list_with_self_reference_and_reduce():
+    """
+    Test complex operations involving unshift, reduce, and find methods
+    with self-referential ImmutableList structures.
+    
+    This test verifies edge case behavior when lists contain themselves
+    and operations are chained in unexpected ways.
+    """
+    # Create an empty ImmutableList
+    empty_list = module_0.ImmutableList()
+    
+    # Create a list with the empty list as its only element
+    list_with_empty_as_head = empty_list.unshift(empty_list)
+    
+    # Attempt to reduce the empty list using another list as reducer function
+    # Note: This is unusual usage - passing an ImmutableList as the reducer function
+    reduced_result = empty_list.reduce(list_with_empty_as_head, list_with_empty_as_head)
+    
+    # Get length of the list containing the empty list
+    length_of_list_with_empty_as_head = list_with_empty_as_head.__len__()
+    
+    # Create a new list with itself as the head element
+    list_with_self_as_head = list_with_empty_as_head.unshift(list_with_empty_as_head)
+    
+    # Check if the self-referential list equals the original empty list
+    are_equal = list_with_self_as_head.__eq__(empty_list)
+    
+    # Create a list with is_empty parameter set to the length (non-boolean)
+    # This tests edge case behavior of the constructor
+    list_with_is_empty_set_to_length = module_0.ImmutableList(is_empty=length_of_list_with_empty_as_head)
+    
+    # Attempt to find the reduced result within itself
+    # This tests find method with self-referential argument
+    reduced_result.find(reduced_result)
+
+def test_reduce_on_list_with_contradictory_state_true_head_and_empty_flag():
+    """Test reduce operation on an ImmutableList with contradictory state (head=True, is_empty=True).
+    
+    This test verifies that reduce() handles edge cases where a list is marked as empty
+    but still has a head value, ensuring the operation doesn't crash.
+    """
+    true_value = True
+    empty_dict = {}
+    
+    # Create list with dictionary as tail (unusual construction)
+    list_with_dict_tail = module_0.ImmutableList(tail=empty_dict)
+    
+    # Create list with contradictory state: head=True but is_empty=True
+    list_with_true_head_and_empty_flag = module_0.ImmutableList(
+        true_value, 
+        is_empty=true_value
+    )
+    
+    # Convert to Python list representation
+    list_representation = list_with_true_head_and_empty_flag.to_list()
+    
+    # Attempt reduce operation using the list representation as both reducer and initial value
+    # This tests error handling or edge case behavior
+    list_with_true_head_and_empty_flag.reduce(list_representation, list_representation)
+

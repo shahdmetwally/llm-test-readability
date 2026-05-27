@@ -1,0 +1,1501 @@
+Job running on neptune
+Date: Tue May 19 12:59:27 PM CEST 2026
+Running debug checks...
+Tue May 19 12:59:28 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 595.58.03              Driver Version: 595.58.03      CUDA Version: 13.2     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:4A:00.0 Off |                    0 |
+| N/A   25C    P8             31W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    On  |   00000000:61:00.0 Off |                    0 |
+| N/A   24C    P8             31W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA L40S                    On  |   00000000:CA:00.0 Off |                    0 |
+| N/A   24C    P8             31W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   3  NVIDIA L40S                    On  |   00000000:E1:00.0 Off |                    0 |
+| N/A   62C    P0            288W /  350W |   15195MiB /  46068MiB |     99%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    3   N/A  N/A          517918      C   python3                               15186MiB |
++-----------------------------------------------------------------------------------------+
+CUDA_VISIBLE_DEVICES: 0
+SLURM_JOB_GPUS: 0
+SLURM_GPUS_ON_NODE: 1
+Torch sees 1 GPUs
+Starting execution...
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Copied data/flutils.namedtupleutils/namedtupleutils.py to ./output/deepseek-coder/namedtupleutils.py/base/run1/namedtupleutils.py
+Copied /data/users/eliassam/Thesis/llm_readability/llm-test-readability/data/flutils.namedtupleutils/test_flutils_namedtupleutils.py to ./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils.py
+Output directory: ./output/deepseek-coder/namedtupleutils.py/base/run1
+
+Pulling latest for codetiming in /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/codetiming
+Ingested 8 files from codetiming at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/codetiming
+Ingested 1 external docs for codetiming
+Created 75 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/codetiming
+Pulling latest for flutils in /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/flutils
+Ingested 88 files from flutils at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/flutils
+Ingested 1 external docs for flutils
+Created 1454 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/flutils
+Pulling latest for httpie in /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/httpie
+Ingested 150 files from httpie at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/httpie
+Ingested 1 external docs for httpie
+Created 1460 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/httpie
+Pulling latest for py-backwards in /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/py-backwards
+Ingested 55 files from py-backwards at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/py-backwards
+Ingested 1 external docs for py-backwards
+Created 273 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/py-backwards
+Pulling latest for pymonet in /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/pymonet
+Ingested 44 files from pymonet at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/pymonet
+Ingested 1 external docs for pymonet
+Created 422 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/pymonet
+Pulling latest for pyutils in /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/pyutils
+Ingested 111 files from pyutils at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/pyutils
+Ingested 1 external docs for pyutils
+Created 1908 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/pyutils
+Loading local model: deepseek-ai/deepseek-coder-33b-instruct...
+Usage of bitsandbytes detected: Enabling 4-bit quantization for memory efficiency.
+DEBUG: Found 1 GPUs.
+DEBUG: Single GPU detected. Setting device_map={'': 0}
+
+        Model created: 
+        Model name: deepseek-coder
+        Model path: deepseek-ai/deepseek-coder-33b-instruct
+        Model temperature: 1.0
+        Model system prompt: You are a helpful AI assistant that will help improve the readability of the test cases.
+        Version: functions
+        Context window: 16384
+        Directory: ./output/deepseek-coder/namedtupleutils.py/base/run1
+        Log directory: ./output/deepseek-coder/namedtupleutils.py/base/run1/Log
+        Modules paths: ['/data/users/eliassam/Thesis/llm_readability/llm-test-readability/data/flutils.namedtupleutils/namedtupleutils.py']
+        Test path: /data/users/eliassam/Thesis/llm_readability/llm-test-readability/data/flutils.namedtupleutils/test_flutils_namedtupleutils.py
+        
+Saving text file in:  ./output/deepseek-coder/namedtupleutils.py/base/run1/Log/test_case_logs.txt
+Create python file in directory:  ./output/deepseek-coder/namedtupleutils.py/base/run1
+Saving file in:  ./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py
+" 
+        
+ 
+        ***********************
+
+        ** New imports saved **
+
+        ***********************
+
+        Previous imports:  # Test cases automatically generated by Pynguin (https://www.pynguin.eu).
+# Please check them before you use them.
+import namedtupleutils as module_0
+import collections as module_1
+        New imports:  import pytest
+import codetiming_timer as timer
+import module_0
+import module_1
+        
+
+        Directory:  ./output/deepseek-coder/namedtupleutils.py/base/run1
+        Refactored file path:  ./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py
+        Log directory:  ./output/deepseek-coder/namedtupleutils.py/base/run1/Log
+        Log file path:  ./output/deepseek-coder/namedtupleutils.py/base/run1/Log/test_case_logs.txt
+        *******************************************************        
+        
+
+
+
+        
+Running functions script
+
+Running RAG-based refactoring (Functions mode)...
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: codetiming:codetiming/_timers.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+search_document: FILE: codetiming:codetiming/_timers.py
+KIND: code
+
+"""Dictionary-like structure with information about timers."""
+
+# Standard library imports
+import collections
+import math
+import statistics
+from typing import TYPE_CHECKING, Any, Callable, Dict, List
+
+# Annotate generic UserDict
+if TYPE_CHECKING:
+    UserDict = collections.UserDict[str, float]  # pragma: no cover
+else:
+    UserDict = collections.UserDict
+
+
+class Timers(UserDict):
+    """Custom dictionary that stores information about timers."""
+
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        """Add a private dictionary keeping track of all timings"""
+        super().__init__(*args, **kwargs)
+        self._timings: Dict[str, List[float]] = collections.defaultdict(list)
+
+    def add(self, name: str, value: float) -> None:
+        """Add a timing value to the given timer."""
+        self._timings[name]....
+(Total chars: 8725)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_float_to_namedtuple_conversion():
+    """
+    Tests float to NamedTuple conversion.
+    """
+    input_float = -476.66
+    expected_namedtuple = timer.to_namedtuple(input_float)
+
+    # Ensure the function behaves as expected
+    assert isinstance(expected_namedtuple, module_0.NamedTupleClass)
+    assert expected_namedtuple.field_name == -476.66   
+
+
+        Refactored file path:  ['./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: codetiming:codetiming/_timers.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+search_document: FILE: codetiming:codetiming/_timers.py
+KIND: code
+
+"""Dictionary-like structure with information about timers."""
+
+# Standard library imports
+import collections
+import math
+import statistics
+from typing import TYPE_CHECKING, Any, Callable, Dict, List
+
+# Annotate generic UserDict
+if TYPE_CHECKING:
+    UserDict = collections.UserDict[str, float]  # pragma: no cover
+else:
+    UserDict = collections.UserDict
+
+
+class Timers(UserDict):
+    """Custom dictionary that stores information about timers."""
+
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        """Add a private dictionary keeping track of all timings"""
+        super().__init__(*args, **kwargs)
+        self._timings: Dict[str, List[float]] = collections.defaultdict(list)
+
+    def add(self, name: str, value: float) -> None:
+        """Add a timing value to the given timer."""
+        self._timings[name]....
+(Total chars: 8725)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_float_set_tuple_to_namedtuple():
+    """Tests if a float, set, and tuple are converted into a namedtuple correctly."""
+    
+    # Initialize the test values
+    float_value = -67.0
+    set_of_values = {float_value, float_value, float_value, float_value}
+    tuple_of_values = (float_value, set_of_values)
+    
+    # Execute the expected transformation
+    named_tuple = timer_module.to_namedtuple(tuple_of_values)
+    
+    # Execute an additional transformation
+    timer_module.to_namedtuple(set_of_values)   
+
+
+        Refactored file path:  ['./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: codetiming:codetiming/_timers.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+search_document: FILE: codetiming:codetiming/_timers.py
+KIND: code
+
+"""Dictionary-like structure with information about timers."""
+
+# Standard library imports
+import collections
+import math
+import statistics
+from typing import TYPE_CHECKING, Any, Callable, Dict, List
+
+# Annotate generic UserDict
+if TYPE_CHECKING:
+    UserDict = collections.UserDict[str, float]  # pragma: no cover
+else:
+    UserDict = collections.UserDict
+
+
+class Timers(UserDict):
+    """Custom dictionary that stores information about timers."""
+
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        """Add a private dictionary keeping track of all timings"""
+        super().__init__(*args, **kwargs)
+        self._timings: Dict[str, List[float]] = collections.defaultdict(list)
+
+    def add(self, name: str, value: float) -> None:
+        """Add a timing value to the given timer."""
+        self._timings[name]....
+(Total chars: 8725)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_to_namedtuple_with_dict_and_uniqueness():
+    """
+    Test that the `to_namedtuple` function creates a named tuple from a dictionary.
+    The dictionary must be in the format of {namedtuple_attribute: value, ...}.
+    The function should create a named tuple with matching attributes and values.
+    Also ensure that the namedtuple is converted successfully and the data is preserved.
+    """
+    author = "author"
+    dict_author = {author: author, author: author, author: author}
+    namedtuple_author = codetiming_timer.to_namedtuple(dict_author)
+    namedtuple_converted_author = codetiming_timer.to_namedtuple(namedtuple_author)
+
+    # Check that the length of the named tuple is less than or equal to the dictionary
+    assert len(namedtuple_author) <= len(dict_author)
+
+    # Check that each value is equal from both the named tuple and dictionary
+    for attr in namedtuple_author._fields:
+        assert getattr(namedtuple_author, attr) == getattr(namedtuple_converted_author, attr)   
+
+
+        Refactored file path:  ['./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: codetiming:codetiming/_timers.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+search_document: FILE: codetiming:codetiming/_timers.py
+KIND: code
+
+"""Dictionary-like structure with information about timers."""
+
+# Standard library imports
+import collections
+import math
+import statistics
+from typing import TYPE_CHECKING, Any, Callable, Dict, List
+
+# Annotate generic UserDict
+if TYPE_CHECKING:
+    UserDict = collections.UserDict[str, float]  # pragma: no cover
+else:
+    UserDict = collections.UserDict
+
+
+class Timers(UserDict):
+    """Custom dictionary that stores information about timers."""
+
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        """Add a private dictionary keeping track of all timings"""
+        super().__init__(*args, **kwargs)
+        self._timings: Dict[str, List[float]] = collections.defaultdict(list)
+
+    def add(self, name: str, value: float) -> None:
+        """Add a timing value to the given timer."""
+        self._timings[name]....
+(Total chars: 8725)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_namedtuple_conversion():
+    """
+    Tests the function 'to_namedtuple' in module_0, which is expected to convert a byte string into a namedtuple.
+    """
+    # Given
+    bytes_input = b"xs&,\x9b\xc2\xf1\x80\xb3y"
+    
+    # When
+    namedtuple_result = module_0.to_namedtuple(bytes_input)
+    
+    # Then
+    assert namedtuple_result.a == b'xs&,\x9b\xc2\xf1\x80\xb3y'
+    assert namedtuple_result.b == tuple()
+    assert namedtuple_result.c == 0
+    assert namedtuple_result.d == 1   
+
+
+        Refactored file path:  ['./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: codetiming:codetiming/_timers.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+search_document: FILE: codetiming:codetiming/_timers.py
+KIND: code
+
+"""Dictionary-like structure with information about timers."""
+
+# Standard library imports
+import collections
+import math
+import statistics
+from typing import TYPE_CHECKING, Any, Callable, Dict, List
+
+# Annotate generic UserDict
+if TYPE_CHECKING:
+    UserDict = collections.UserDict[str, float]  # pragma: no cover
+else:
+    UserDict = collections.UserDict
+
+
+class Timers(UserDict):
+    """Custom dictionary that stores information about timers."""
+
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        """Add a private dictionary keeping track of all timings"""
+        super().__init__(*args, **kwargs)
+        self._timings: Dict[str, List[float]] = collections.defaultdict(list)
+
+    def add(self, name: str, value: float) -> None:
+        """Add a timing value to the given timer."""
+        self._timings[name]....
+(Total chars: 8725)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_convert_tuple_to_namedtuple_with_given_tuple():
+    """
+    This test verifies that the to_namedtuple function correctly converts a given tuple
+    into a namedtuple matching the provided specifications.
+    """
+    # arrange
+    given_tuple = (1, 2, 3)
+    namedtuple_result = timer.to_namedtuple(given_tuple)
+
+    # assert
+    assert namedtuple_result == module_1.NamedTuple   
+
+
+        Refactored file path:  ['./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: codetiming:codetiming/_timers.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+search_document: FILE: codetiming:codetiming/_timers.py
+KIND: code
+
+"""Dictionary-like structure with information about timers."""
+
+# Standard library imports
+import collections
+import math
+import statistics
+from typing import TYPE_CHECKING, Any, Callable, Dict, List
+
+# Annotate generic UserDict
+if TYPE_CHECKING:
+    UserDict = collections.UserDict[str, float]  # pragma: no cover
+else:
+    UserDict = collections.UserDict
+
+
+class Timers(UserDict):
+    """Custom dictionary that stores information about timers."""
+
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        """Add a private dictionary keeping track of all timings"""
+        super().__init__(*args, **kwargs)
+        self._timings: Dict[str, List[float]] = collections.defaultdict(list)
+
+    def add(self, name: str, value: float) -> None:
+        """Add a timing value to the given timer."""
+        self._timings[name]....
+(Total chars: 8725)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_namedtuple_creation_new():
+    """Test namedtuple created with different data types"""
+    
+    # Initializing
+    ordered_dict_0 = module_1.OrderedDict()
+    dict_data = {"key": "value"}
+    ordered_dict_1 = module_1.OrderedDict(dict_data)
+
+    # Creating namedtuple from the ordered dicts
+    named_tuple_0 = module_0.to_namedtuple(ordered_dict_0)
+    named_tuple_1 = module_0.to_namedtuple(named_tuple_0)
+    named_tuple_2 = module_0.to_namedtuple(ordered_dict_0)
+    named_tuple_3 = module_0.to_namedtuple(named_tuple_2)
+
+    # Creating namedtuple from binary data
+    data = b"\xe2\xf8\xb9\x01\x8c\xa5\xed\xb1\x0e&rdHE"
+    named_tuple_4 = module_0.to_namedtuple(ordered_dict_0)
+    
+    # Creating namedtuple from a tuple and data
+    tuple_0 = (named_tuple_1, data)
+    named_tuple_5 = module_0.to_namedtuple(tuple_0)
+
+    # Validating
+    assert named_tuple_0._asdict() == dict_data
+    assert named_tuple_1 == named_tuple_0
+    assert named_tuple_2 != named_tuple_0
+    assert named_tuple_3 != named_tuple_2
+    assert named_tuple_4 != named_tuple_3
+    assert named_tuple_5[0] == named_tuple_1   
+
+
+        Refactored file path:  ['./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: codetiming:codetiming/_timers.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+search_document: FILE: codetiming:codetiming/_timers.py
+KIND: code
+
+"""Dictionary-like structure with information about timers."""
+
+# Standard library imports
+import collections
+import math
+import statistics
+from typing import TYPE_CHECKING, Any, Callable, Dict, List
+
+# Annotate generic UserDict
+if TYPE_CHECKING:
+    UserDict = collections.UserDict[str, float]  # pragma: no cover
+else:
+    UserDict = collections.UserDict
+
+
+class Timers(UserDict):
+    """Custom dictionary that stores information about timers."""
+
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        """Add a private dictionary keeping track of all timings"""
+        super().__init__(*args, **kwargs)
+        self._timings: Dict[str, List[float]] = collections.defaultdict(list)
+
+    def add(self, name: str, value: float) -> None:
+        """Add a timing value to the given timer."""
+        self._timings[name]....
+(Total chars: 8725)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_codetiming_timer_namedtuple_conversion():
+    """
+    Tests whether the to_namedtuple function correctly converts an
+    OrderedDict representation to a namedtuple.
+    """
+
+    string_key = "wm=-g\ry#\x0b#:*"
+    dictionary = {string_key: string_key, string_key: string_key}
+    ordered_dictionary = codetiming_timer.OrderedDict(**dictionary)
+    named_tuple = module_0.to_namedtuple(ordered_dictionary)
+
+    none_type = None
+    list_values = [none_type]
+    module_1.OrderedDict(*list_values)   
+
+
+        Refactored file path:  ['./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: codetiming:codetiming/_timers.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+search_document: FILE: codetiming:codetiming/_timers.py
+KIND: code
+
+"""Dictionary-like structure with information about timers."""
+
+# Standard library imports
+import collections
+import math
+import statistics
+from typing import TYPE_CHECKING, Any, Callable, Dict, List
+
+# Annotate generic UserDict
+if TYPE_CHECKING:
+    UserDict = collections.UserDict[str, float]  # pragma: no cover
+else:
+    UserDict = collections.UserDict
+
+
+class Timers(UserDict):
+    """Custom dictionary that stores information about timers."""
+
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        """Add a private dictionary keeping track of all timings"""
+        super().__init__(*args, **kwargs)
+        self._timings: Dict[str, List[float]] = collections.defaultdict(list)
+
+    def add(self, name: str, value: float) -> None:
+        """Add a timing value to the given timer."""
+        self._timings[name]....
+(Total chars: 8725)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_namedtuple_add_appends_values_to_namedtuple():
+    """Tests if nametuple.add appends values to a namedtuple."""
+
+    # Setup
+    nt = namedtuple("Test", ["a"])  # create namedtuple
+    val_0, val_1 = 1.54, 2.31  # sample values
+    tuple_0 = nt(a=[val_0])  # create namedtuple instance
+
+    # Test 1: Add value
+    nt.add(tuple_0, val_1)  # add second value
+
+    assert len(tuple_0.a) == 2  # ensure values are stored correctly
+    assert tuple_0.a == [val_0, val_1]  # ensure values are appended
+
+    # Test 2: Add value to None type
+    value_to_add = None
+    with pytest.raises(TypeError):
+        nt.add(tuple_0, value_to_add)  # this should raise an exception   
+
+
+        Refactored file path:  ['./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: codetiming:tests/test_codetiming.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+def __call__(self, message: str) -> None:
+        """Add a log message to the .messages attribute."""
+        self.messages += message
+
+
+#
+# Tests
+#
+def test_timer_as_decorator(capsys: pytest.CaptureFixture[str]) -> None:
+    """Test that decorated function prints timing information."""
+    decorated_timewaste()
+
+    stdout, stderr = capsys.readouterr()
+    assert RE_TIME_MESSAGE.match(stdout)
+    assert stdout.count("\n") == 1
+    assert stderr == ""
+
+
+def test_timer_as_context_manager(capsys: pytest.CaptureFixture[str]) -> None:
+    """Test that timed context prints timing information."""
+    with Timer(text=TIME_MESSAGE):
+        waste_time()
+
+    stdout, stderr = capsys.readouterr()
+    assert RE_TIME_MESSAGE.match(stdout)
+    assert stdout.count("\n") == 1
+    assert stderr == ""
+
+
+def test_explicit_timer(capsys: pytest.CaptureFixture[str]) -> None:
+    """Test that timed sectio...
+(Total chars: 10138)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_path_utils_normalize_path():
+    """
+    Tests the normalization of a given path.
+    The function being tested is pathutils.normalize_path.
+    """
+    # Assumes
+    str_normalize_path = "Normalize a given path."
+    str_bytes_path = "bytes"
+    str_posix_path = "PosixPath"
+    str_win_path = "WindowsPath"
+    str_home_dir = "~"
+    str_path = "path"
+    str_tuple = "tuple"
+    str_dict = "dict"
+    str_bool = "bool"
+    str_namedtuple = "namedtuple"
+
+    # Assume input values
+    bytes_path = b"byte_path"
+    posix_path = "/posix/path"
+    dict_bytes_path = {str_bytes_path: bytes_path}
+    win_path = "C:\\Windows\\Path"
+    posix_path_obj = module_1.PosixPath(posix_path)
+    win_path_obj = module_1.WindowsPath(win_path)
+    dict_path_obj = {str_posix_path: posix_path_obj, str_win_path: win_path_obj}
+    tuple_dict_path_obj = (dict_path_obj,)
+    dict_input = {str_tuple: tuple_dict_path_obj, str_dict: dict_bytes_path}
+    bool_input = False
+    dict_namedtuple_input = {str_namedtuple: tuple_dict_path_obj, str_bool: bool_input}
+
+    # Assume expected values
+    expected_output = module_1.PosixPath("home/test_user/tmp/bar")
+    expected_output_namedtuple_input_to_namedtuple = module_0.to_namedtuple(dict_namedtuple_input)
+
+    # Run test
+    normalize_path_output = module_1.normalize_path('~/tmp/foo/../bar')
+    normalize_dict_path_objects_output = module_0.to_namedtuple(dict_input)
+    output_namedtuple_input = module_0.to_namedtuple(normalize_dict_path_objects_output)
+    output_bool_input = module_0.to_namedtuple(bool_input)
+
+    # Assertions
+    assert normalize_path_output == expected_output
+    assert normalize_dict_path_objects_output == normalize_dict_path_objects_output
+    assert output_namedtuple_input == expected_output_namedtuple_input_to_namedtuple
+    assert output_bool_input == output_bool_input   
+
+
+        Refactored file path:  ['./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: codetiming:codetiming/_timers.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+search_document: FILE: codetiming:codetiming/_timers.py
+KIND: code
+
+"""Dictionary-like structure with information about timers."""
+
+# Standard library imports
+import collections
+import math
+import statistics
+from typing import TYPE_CHECKING, Any, Callable, Dict, List
+
+# Annotate generic UserDict
+if TYPE_CHECKING:
+    UserDict = collections.UserDict[str, float]  # pragma: no cover
+else:
+    UserDict = collections.UserDict
+
+
+class Timers(UserDict):
+    """Custom dictionary that stores information about timers."""
+
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        """Add a private dictionary keeping track of all timings"""
+        super().__init__(*args, **kwargs)
+        self._timings: Dict[str, List[float]] = collections.defaultdict(list)
+
+    def add(self, name: str, value: float) -> None:
+        """Add a timing value to the given timer."""
+        self._timings[name]....
+(Total chars: 8725)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  And here are the names of the current test in the file: ['test_namedtuple_creation_new', 'test_to_namedtuple_converts_int_correctly', 'test_codetiming_timer_namedtuple_conversion', 'test_namedtuple_conversion_v2', 'test_dict_to_namedtuple_conversion', 'test_namedtuple_add_appends_values_to_namedtuple', 'test_bytes_to_namedtuple', 'test_tuple_to_namedtuple_conversion', 'test_path_utils_normalize_path']   
+
+
+        Refactored file path:  ['./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: codetiming:codetiming/_timers.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+search_document: FILE: codetiming:codetiming/_timers.py
+KIND: code
+
+"""Dictionary-like structure with information about timers."""
+
+# Standard library imports
+import collections
+import math
+import statistics
+from typing import TYPE_CHECKING, Any, Callable, Dict, List
+
+# Annotate generic UserDict
+if TYPE_CHECKING:
+    UserDict = collections.UserDict[str, float]  # pragma: no cover
+else:
+    UserDict = collections.UserDict
+
+
+class Timers(UserDict):
+    """Custom dictionary that stores information about timers."""
+
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        """Add a private dictionary keeping track of all timings"""
+        super().__init__(*args, **kwargs)
+        self._timings: Dict[str, List[float]] = collections.defaultdict(list)
+
+    def add(self, name: str, value: float) -> None:
+        """Add a timing value to the given timer."""
+        self._timings[name]....
+(Total chars: 8725)
+Error refactoring test case 11 (Functions RAG): invalid syntax (<unknown>, line 239)
+============================= test session starts ==============================
+platform linux -- Python 3.12.9, pytest-8.3.2, pluggy-1.5.0
+rootdir: /data/users/eliassam/Thesis/llm_readability/llm-test-readability
+plugins: anyio-4.3.0, mimesis-18.0.0, langsmith-0.6.6, typeguard-4.3.0
+collected 11 items
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py FF.F..FFFFF [100%]
+
+=================================== FAILURES ===================================
+_________________________________ test_case_0 __________________________________
+
+    def test_case_0():
+        float_0 = -476.66
+>       module_0.to_namedtuple(float_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:9: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = -476.66, _started = False
+
+    @singledispatch
+    def _to_namedtuple(
+            obj: Any,
+            _started: bool = False
+    ) -> Any:
+        if _started is False:
+>           raise TypeError(
+                "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                "got: (%r) %s" % (type(obj).__name__, obj)
+            )
+E           TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('float') -476.66
+
+data/flutils.namedtupleutils/namedtupleutils.py:104: TypeError
+_________________________________ test_case_1 __________________________________
+
+    def test_case_1():
+        float_0 = -67.0
+        set_0 = {float_0, float_0, float_0, float_0}
+        tuple_0 = (float_0, set_0)
+        var_0 = module_0.to_namedtuple(tuple_0)
+>       module_0.to_namedtuple(set_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = {-67.0}, _started = False
+
+    @singledispatch
+    def _to_namedtuple(
+            obj: Any,
+            _started: bool = False
+    ) -> Any:
+        if _started is False:
+>           raise TypeError(
+                "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                "got: (%r) %s" % (type(obj).__name__, obj)
+            )
+E           TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('set') {-67.0}
+
+data/flutils.namedtupleutils/namedtupleutils.py:104: TypeError
+_________________________________ test_case_3 __________________________________
+
+    def test_case_3():
+        bytes_0 = b"xs&,\x9b\xc2\xf1\x80\xb3y"
+>       module_0.to_namedtuple(bytes_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = b'xs&,\x9b\xc2\xf1\x80\xb3y', _started = False
+
+    @_to_namedtuple.register(Sequence)  # type: ignore[no-redef]
+    def _(
+            obj: Sequence,
+            _started: bool = False
+    ) -> Union[List[Any], Tuple[Any, ...], NamedTuple, str]:
+        if hasattr(obj, 'capitalize'):
+            obj = cast(str, obj)
+            if _started is False:
+>               raise TypeError(
+                    "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                    "got: (%r) %s" % (type(obj).__name__, obj)
+                )
+E               TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('bytes') b'xs&,\x9b\xc2\xf1\x80\xb3y'
+
+data/flutils.namedtupleutils/namedtupleutils.py:154: TypeError
+_________________________________ test_case_6 __________________________________
+
+    def test_case_6():
+        str_0 = "wm=-g\ry#\x0b#:*"
+        dict_0 = {str_0: str_0, str_0: str_0}
+        ordered_dict_0 = module_1.OrderedDict(**dict_0)
+        var_0 = module_0.to_namedtuple(ordered_dict_0)
+        none_type_0 = None
+        list_0 = [none_type_0]
+>       module_1.OrderedDict(*list_0)
+E       TypeError: 'NoneType' object is not iterable
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:57: TypeError
+_________________________________ test_case_7 __________________________________
+
+    def test_case_7():
+        list_0 = []
+        list_1 = [list_0]
+        var_0 = module_0.to_namedtuple(list_1)
+        none_type_0 = None
+>       module_0.to_namedtuple(none_type_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = None, _started = False
+
+    @singledispatch
+    def _to_namedtuple(
+            obj: Any,
+            _started: bool = False
+    ) -> Any:
+        if _started is False:
+>           raise TypeError(
+                "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                "got: (%r) %s" % (type(obj).__name__, obj)
+            )
+E           TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('NoneType') None
+
+data/flutils.namedtupleutils/namedtupleutils.py:104: TypeError
+_________________________________ test_case_8 __________________________________
+
+    def test_case_8():
+        str_0 = "Normalize a given path.\n\n    The given ``path`` will be normalized in the following process.\n\n    #. :obj:`bytes` will be converted to a :obj:`str` using the encoding\n       given by :obj:`getfilesystemencoding() <sys.getfilesystemencoding>`.\n    #. :obj:`PosixPath <pathlib.PosixPath>` and\n       :obj:`WindowsPath <pathlib.WindowsPath>` will be converted\n       to a :obj:`str` using the :obj:`as_posix() <pathlib.PurePath.as_posix>`\n       method.\n    #. An initial component of ``~`` will be replaced by that user’s\n       home directory.\n    #. Any environment variables will be expanded.\n    #. Non absolute paths will have the current working directory from\n       :obj:`os.getcwd() <os.cwd>`prepended.  If needed, use\n       :obj:`os.chdir() <os.chdir>` to change the current working directory\n       before calling this function.\n    #. Redundant separators and up-level references will be normalized, so\n       that ``A//B``, ``A/B/``, ``A/./B`` and ``A/foo/../B`` all become\n       ``A/B``.\n\n    Args:\n        path (:obj:`str`, :obj:`bytes` or :obj:`Path <pathlib.Path>`):\n            The path to be normalized.\n\n    :rtype:\n        :obj:`Path <pathlib.Path>`\n\n        * :obj:`PosixPath <pathlib.PosixPath>` or\n          :obj:`WindowsPath <pathlib.WindowsPath>` depending on the system.\n\n        .. Note:: :obj:`Path <pathlib.Path>` objects are immutable. Therefore,\n           any given ``path`` of type :obj:`Path <pathlib.Path>` will not be\n           the same object returned.\n\n    Example:\n\n        >>> from flutils.pathutils import normalize_path\n        >>> normalize_path('~/tmp/foo/../bar')\n        PosixPath('/home/test_user/tmp/bar')\n\n    "
+        dict_0 = {str_0: str_0, str_0: str_0, str_0: str_0}
+        var_0 = module_0.to_namedtuple(dict_0)
+        bool_0 = False
+        var_1 = module_0.to_namedtuple(dict_0)
+        tuple_0 = (var_1,)
+        var_2 = module_0.to_namedtuple(tuple_0)
+        dict_1 = {var_2: var_1, bool_0: var_1}
+        var_3 = module_0.to_namedtuple(dict_1)
+        var_4 = module_0.to_namedtuple(var_3)
+        bool_1 = False
+        var_5 = module_0.to_namedtuple(var_3)
+>       module_0.to_namedtuple(bool_1)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:81: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = False, _started = False
+
+    @singledispatch
+    def _to_namedtuple(
+            obj: Any,
+            _started: bool = False
+    ) -> Any:
+        if _started is False:
+>           raise TypeError(
+                "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                "got: (%r) %s" % (type(obj).__name__, obj)
+            )
+E           TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('bool') False
+
+data/flutils.namedtupleutils/namedtupleutils.py:104: TypeError
+_________________________________ test_case_9 __________________________________
+
+    def test_case_9():
+        str_0 = "\x0cMv"
+        tuple_0 = ()
+        dict_0 = {str_0: tuple_0, tuple_0: str_0, tuple_0: tuple_0}
+        tuple_1 = (str_0, dict_0)
+        list_0 = [tuple_1]
+        var_0 = module_0.to_namedtuple(list_0)
+        var_1 = module_0.to_namedtuple(var_0)
+        var_2 = module_0.to_namedtuple(var_1)
+        int_0 = 2
+>       module_0.to_namedtuple(int_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = 2, _started = False
+
+    @singledispatch
+    def _to_namedtuple(
+            obj: Any,
+            _started: bool = False
+    ) -> Any:
+        if _started is False:
+>           raise TypeError(
+                "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                "got: (%r) %s" % (type(obj).__name__, obj)
+            )
+E           TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('int') 2
+
+data/flutils.namedtupleutils/namedtupleutils.py:104: TypeError
+_________________________________ test_case_10 _________________________________
+
+    def test_case_10():
+        bytes_0 = b"F\xdb\xfdf\x8a\xe4\n\xa2\x1d[\xdc*\xa3\xba\xf6s}"
+        dict_0 = {bytes_0: bytes_0, bytes_0: bytes_0, bytes_0: bytes_0}
+>       module_0.to_namedtuple(dict_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:100: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+data/flutils.namedtupleutils/namedtupleutils.py:122: in _
+    validate_identifier(key, allow_underscore=False)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = b'F\xdb\xfdf\x8a\xe4\n\xa2\x1d[\xdc*\xa3\xba\xf6s}'
+allow_underscore = False
+
+    def validate_identifier(name: str, allow_underscore: bool = False):
+>       if not name.isidentifier():
+E       AttributeError: 'bytes' object has no attribute 'isidentifier'
+
+data/flutils.namedtupleutils/namedtupleutils.py:21: AttributeError
+=============================== warnings summary ===============================
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: anyio
+    self._mark_plugins_for_rewrite(hook)
+
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: langsmith
+    self._mark_plugins_for_rewrite(hook)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_0
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_1
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_3
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_6
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_7
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_8
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_9
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_10
+=================== 8 failed, 3 passed, 2 warnings in 0.22s ====================
+============================= test session starts ==============================
+platform linux -- Python 3.12.9, pytest-8.3.2, pluggy-1.5.0
+rootdir: /data/users/eliassam/Thesis/llm_readability/llm-test-readability
+plugins: anyio-4.3.0, mimesis-18.0.0, langsmith-0.6.6, typeguard-4.3.0
+collected 0 items / 1 error
+
+==================================== ERRORS ====================================
+_ ERROR collecting output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py _
+../../../miniforge3/lib/python3.12/site-packages/_pytest/python.py:493: in importtestmodule
+    mod = import_path(
+../../../miniforge3/lib/python3.12/site-packages/_pytest/pathlib.py:582: in import_path
+    importlib.import_module(module_name)
+../../../miniforge3/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:935: in _load_unlocked
+    ???
+../../../miniforge3/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:165: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+../../../miniforge3/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:345: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+../../../miniforge3/lib/python3.12/ast.py:52: in parse
+    return compile(source, filename, mode, flags,
+E     File "/data/users/eliassam/Thesis/llm_readability/llm-test-readability/output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py", line 239
+E       And here are the names of the current test in the file: ['test_namedtuple_creation_new', 'test_to_namedtuple_converts_int_correctly', 'test_codetiming_timer_namedtuple_conversion', 'test_namedtuple_conversion_v2', 'test_dict_to_namedtuple_conversion', 'test_namedtuple_add_appends_values_to_namedtuple', 'test_bytes_to_namedtuple', 'test_tuple_to_namedtuple_conversion', 'test_path_utils_normalize_path']
+E           ^^^^
+E   SyntaxError: invalid syntax
+=============================== warnings summary ===============================
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: anyio
+    self._mark_plugins_for_rewrite(hook)
+
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: langsmith
+    self._mark_plugins_for_rewrite(hook)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+ERROR output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+========================= 2 warnings, 1 error in 0.24s =========================
+Coverage collection failed: No data to report.
+Failed tests: {'Original Test Results': {'test_case_0': 'fail', 'test_case_1': 'fail', 'test_case_3': 'fail', 'test_case_6': 'fail', 'test_case_7': 'fail', 'test_case_8': 'fail', 'test_case_9': 'fail', 'test_case_10': 'fail'}, 'Refactored Test Results': {}}
+
+Collecting data for module: ['data/flutils.namedtupleutils/namedtupleutils.py']
+
+
+============================================================
+COLLECTION ERROR DETECTED — Retrying with base_retry prompt
+============================================================
+
+Fixed code written to: ./output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py
+============================= test session starts ==============================
+platform linux -- Python 3.12.9, pytest-8.3.2, pluggy-1.5.0
+rootdir: /data/users/eliassam/Thesis/llm_readability/llm-test-readability
+plugins: anyio-4.3.0, mimesis-18.0.0, langsmith-0.6.6, typeguard-4.3.0
+collected 11 items
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py FF.F..FFFFF [100%]
+
+=================================== FAILURES ===================================
+_________________________________ test_case_0 __________________________________
+
+    def test_case_0():
+        float_0 = -476.66
+>       module_0.to_namedtuple(float_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:9: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = -476.66, _started = False
+
+    @singledispatch
+    def _to_namedtuple(
+            obj: Any,
+            _started: bool = False
+    ) -> Any:
+        if _started is False:
+>           raise TypeError(
+                "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                "got: (%r) %s" % (type(obj).__name__, obj)
+            )
+E           TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('float') -476.66
+
+data/flutils.namedtupleutils/namedtupleutils.py:104: TypeError
+_________________________________ test_case_1 __________________________________
+
+    def test_case_1():
+        float_0 = -67.0
+        set_0 = {float_0, float_0, float_0, float_0}
+        tuple_0 = (float_0, set_0)
+        var_0 = module_0.to_namedtuple(tuple_0)
+>       module_0.to_namedtuple(set_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = {-67.0}, _started = False
+
+    @singledispatch
+    def _to_namedtuple(
+            obj: Any,
+            _started: bool = False
+    ) -> Any:
+        if _started is False:
+>           raise TypeError(
+                "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                "got: (%r) %s" % (type(obj).__name__, obj)
+            )
+E           TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('set') {-67.0}
+
+data/flutils.namedtupleutils/namedtupleutils.py:104: TypeError
+_________________________________ test_case_3 __________________________________
+
+    def test_case_3():
+        bytes_0 = b"xs&,\x9b\xc2\xf1\x80\xb3y"
+>       module_0.to_namedtuple(bytes_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = b'xs&,\x9b\xc2\xf1\x80\xb3y', _started = False
+
+    @_to_namedtuple.register(Sequence)  # type: ignore[no-redef]
+    def _(
+            obj: Sequence,
+            _started: bool = False
+    ) -> Union[List[Any], Tuple[Any, ...], NamedTuple, str]:
+        if hasattr(obj, 'capitalize'):
+            obj = cast(str, obj)
+            if _started is False:
+>               raise TypeError(
+                    "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                    "got: (%r) %s" % (type(obj).__name__, obj)
+                )
+E               TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('bytes') b'xs&,\x9b\xc2\xf1\x80\xb3y'
+
+data/flutils.namedtupleutils/namedtupleutils.py:154: TypeError
+_________________________________ test_case_6 __________________________________
+
+    def test_case_6():
+        str_0 = "wm=-g\ry#\x0b#:*"
+        dict_0 = {str_0: str_0, str_0: str_0}
+        ordered_dict_0 = module_1.OrderedDict(**dict_0)
+        var_0 = module_0.to_namedtuple(ordered_dict_0)
+        none_type_0 = None
+        list_0 = [none_type_0]
+>       module_1.OrderedDict(*list_0)
+E       TypeError: 'NoneType' object is not iterable
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:57: TypeError
+_________________________________ test_case_7 __________________________________
+
+    def test_case_7():
+        list_0 = []
+        list_1 = [list_0]
+        var_0 = module_0.to_namedtuple(list_1)
+        none_type_0 = None
+>       module_0.to_namedtuple(none_type_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = None, _started = False
+
+    @singledispatch
+    def _to_namedtuple(
+            obj: Any,
+            _started: bool = False
+    ) -> Any:
+        if _started is False:
+>           raise TypeError(
+                "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                "got: (%r) %s" % (type(obj).__name__, obj)
+            )
+E           TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('NoneType') None
+
+data/flutils.namedtupleutils/namedtupleutils.py:104: TypeError
+_________________________________ test_case_8 __________________________________
+
+    def test_case_8():
+        str_0 = "Normalize a given path.\n\n    The given ``path`` will be normalized in the following process.\n\n    #. :obj:`bytes` will be converted to a :obj:`str` using the encoding\n       given by :obj:`getfilesystemencoding() <sys.getfilesystemencoding>`.\n    #. :obj:`PosixPath <pathlib.PosixPath>` and\n       :obj:`WindowsPath <pathlib.WindowsPath>` will be converted\n       to a :obj:`str` using the :obj:`as_posix() <pathlib.PurePath.as_posix>`\n       method.\n    #. An initial component of ``~`` will be replaced by that user’s\n       home directory.\n    #. Any environment variables will be expanded.\n    #. Non absolute paths will have the current working directory from\n       :obj:`os.getcwd() <os.cwd>`prepended.  If needed, use\n       :obj:`os.chdir() <os.chdir>` to change the current working directory\n       before calling this function.\n    #. Redundant separators and up-level references will be normalized, so\n       that ``A//B``, ``A/B/``, ``A/./B`` and ``A/foo/../B`` all become\n       ``A/B``.\n\n    Args:\n        path (:obj:`str`, :obj:`bytes` or :obj:`Path <pathlib.Path>`):\n            The path to be normalized.\n\n    :rtype:\n        :obj:`Path <pathlib.Path>`\n\n        * :obj:`PosixPath <pathlib.PosixPath>` or\n          :obj:`WindowsPath <pathlib.WindowsPath>` depending on the system.\n\n        .. Note:: :obj:`Path <pathlib.Path>` objects are immutable. Therefore,\n           any given ``path`` of type :obj:`Path <pathlib.Path>` will not be\n           the same object returned.\n\n    Example:\n\n        >>> from flutils.pathutils import normalize_path\n        >>> normalize_path('~/tmp/foo/../bar')\n        PosixPath('/home/test_user/tmp/bar')\n\n    "
+        dict_0 = {str_0: str_0, str_0: str_0, str_0: str_0}
+        var_0 = module_0.to_namedtuple(dict_0)
+        bool_0 = False
+        var_1 = module_0.to_namedtuple(dict_0)
+        tuple_0 = (var_1,)
+        var_2 = module_0.to_namedtuple(tuple_0)
+        dict_1 = {var_2: var_1, bool_0: var_1}
+        var_3 = module_0.to_namedtuple(dict_1)
+        var_4 = module_0.to_namedtuple(var_3)
+        bool_1 = False
+        var_5 = module_0.to_namedtuple(var_3)
+>       module_0.to_namedtuple(bool_1)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:81: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = False, _started = False
+
+    @singledispatch
+    def _to_namedtuple(
+            obj: Any,
+            _started: bool = False
+    ) -> Any:
+        if _started is False:
+>           raise TypeError(
+                "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                "got: (%r) %s" % (type(obj).__name__, obj)
+            )
+E           TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('bool') False
+
+data/flutils.namedtupleutils/namedtupleutils.py:104: TypeError
+_________________________________ test_case_9 __________________________________
+
+    def test_case_9():
+        str_0 = "\x0cMv"
+        tuple_0 = ()
+        dict_0 = {str_0: tuple_0, tuple_0: str_0, tuple_0: tuple_0}
+        tuple_1 = (str_0, dict_0)
+        list_0 = [tuple_1]
+        var_0 = module_0.to_namedtuple(list_0)
+        var_1 = module_0.to_namedtuple(var_0)
+        var_2 = module_0.to_namedtuple(var_1)
+        int_0 = 2
+>       module_0.to_namedtuple(int_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = 2, _started = False
+
+    @singledispatch
+    def _to_namedtuple(
+            obj: Any,
+            _started: bool = False
+    ) -> Any:
+        if _started is False:
+>           raise TypeError(
+                "Can convert only 'list', 'tuple', 'dict' to a NamedTuple; "
+                "got: (%r) %s" % (type(obj).__name__, obj)
+            )
+E           TypeError: Can convert only 'list', 'tuple', 'dict' to a NamedTuple; got: ('int') 2
+
+data/flutils.namedtupleutils/namedtupleutils.py:104: TypeError
+_________________________________ test_case_10 _________________________________
+
+    def test_case_10():
+        bytes_0 = b"F\xdb\xfdf\x8a\xe4\n\xa2\x1d[\xdc*\xa3\xba\xf6s}"
+        dict_0 = {bytes_0: bytes_0, bytes_0: bytes_0, bytes_0: bytes_0}
+>       module_0.to_namedtuple(dict_0)
+
+data/flutils.namedtupleutils/test_flutils_namedtupleutils.py:100: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/flutils.namedtupleutils/namedtupleutils.py:95: in to_namedtuple
+    return _to_namedtuple(obj)
+../../../miniforge3/lib/python3.12/functools.py:912: in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+data/flutils.namedtupleutils/namedtupleutils.py:122: in _
+    validate_identifier(key, allow_underscore=False)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = b'F\xdb\xfdf\x8a\xe4\n\xa2\x1d[\xdc*\xa3\xba\xf6s}'
+allow_underscore = False
+
+    def validate_identifier(name: str, allow_underscore: bool = False):
+>       if not name.isidentifier():
+E       AttributeError: 'bytes' object has no attribute 'isidentifier'
+
+data/flutils.namedtupleutils/namedtupleutils.py:21: AttributeError
+=============================== warnings summary ===============================
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: anyio
+    self._mark_plugins_for_rewrite(hook)
+
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: langsmith
+    self._mark_plugins_for_rewrite(hook)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_0
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_1
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_3
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_6
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_7
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_8
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_9
+FAILED data/flutils.namedtupleutils/test_flutils_namedtupleutils.py::test_case_10
+=================== 8 failed, 3 passed, 2 warnings in 0.33s ====================
+============================= test session starts ==============================
+platform linux -- Python 3.12.9, pytest-8.3.2, pluggy-1.5.0
+rootdir: /data/users/eliassam/Thesis/llm_readability/llm-test-readability
+plugins: anyio-4.3.0, mimesis-18.0.0, langsmith-0.6.6, typeguard-4.3.0
+collected 0 items / 1 error
+
+==================================== ERRORS ====================================
+_ ERROR collecting output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py _
+ImportError while importing test module '/data/users/eliassam/Thesis/llm_readability/llm-test-readability/output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniforge3/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py:2: in <module>
+    import helpers as nt_utils
+E   ModuleNotFoundError: No module named 'helpers'
+=============================== warnings summary ===============================
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: anyio
+    self._mark_plugins_for_rewrite(hook)
+
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: langsmith
+    self._mark_plugins_for_rewrite(hook)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+ERROR output/deepseek-coder/namedtupleutils.py/base/run1/test_flutils_namedtupleutils_functions_refactored.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+========================= 2 warnings, 1 error in 0.17s =========================
+Retry pytest results: {'Original Test Results': {'total': 12, 'pass': 3, 'fail': 8, 'error': 0}, 'Refactored Test Results': {'total': 1, 'pass': 0, 'fail': 0, 'error': 0}}
+
+Computing DAN Scores...
+DAN Score Before: {'__main__': 0.6246724128723145, 'test_case_0': 0.5516640543937683, 'test_case_1': 0.27500101427237195, 'test_case_2': 0.2332385927438736, 'test_case_3': 0.3505854308605194, 'test_case_4': 0.4857760965824127, 'test_case_5': 0.17917802504130773, 'test_case_6': 0.19892653822898865, 'test_case_7': 0.2615009546279907, 'test_case_8': 0.11122143467267355, 'test_case_9': 0.1418453703324, 'test_case_10': 0.2797536551952362}
+DAN Score After: {'__main__': 0.45437994599342346, 'test_namedtuple_creation_new': 0.1294412136077881, 'test_to_namedtuple_converts_int_correctly': 0.35248119831085206, 'test_codetiming_timer_namedtuple_conversion': 0.2391214817762375, 'test_namedtuple_conversion_v2': 0.2725389152765274, 'test_dict_to_namedtuple_conversion': 0.16226700320839882, 'test_namedtuple_add_appends_values_to_namedtuple': 0.17544483803212643, 'test_bytes_to_namedtuple': 0.29139659404754636, 'test_tuple_to_namedtuple_conversion': 0.2221501817305883, 'test_path_utils_normalize_path': 0.11374221742153168}
+Test run data saved to: ./output/deepseek-coder/namedtupleutils.py/base/run1/test_run_report.csv
+Test run JSON data saved to: ./output/deepseek-coder/namedtupleutils.py/base/run1/test_run_report.json
+Execution finished at Tue May 19 01:12:47 PM CEST 2026
+Moving SLURM logs to slurm_logs/20260519_125927

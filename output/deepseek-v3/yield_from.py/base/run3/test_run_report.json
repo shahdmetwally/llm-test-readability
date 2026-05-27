@@ -1,0 +1,56 @@
+{
+    "module": "yield_from.py",
+    "timestamp": "2026-04-04T15:17:19.921756",
+    "llm_info": {
+        "model": "deepseek-v3",
+        "version": "functions",
+        "temperature": 0.2,
+        "prompt_style": "base"
+    },
+    "run_number": 3,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": 0,
+        "diff_failing_tests": 0,
+        "diff_coverage": -1.22,
+        "dan_score_diff": -0.028572
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 5, 'pass': 3, 'fail': 1, 'error': 0}",
+        "Refactored Test Results": "{'total': 5, 'pass': 3, 'fail': 1, 'error': 0}",
+        "total_tests_before": 5,
+        "total_tests_after": 5
+    },
+    "coverage": {
+        "before_refactoring": 40.24,
+        "after_refactoring": 39.02
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "fail",
+            "test_case_1": "pass",
+            "test_case_2": "pass",
+            "test_case_3": "pass"
+        },
+        "after_refactoring": {
+            "test_yieldfromtransformer_handles_none_tree": "fail",
+            "test_create_yield_from_transformer_with_none_tree": "pass",
+            "test_yield_from_transformer_visits_while_node_with_none_lists": "pass",
+            "test_visit_while_node_with_yield_from_transformer": "pass"
+        },
+        "dan_score_before": {
+            "test_case_0": 0.42161160707473755,
+            "test_case_1": 0.5275296568870544,
+            "test_case_2": 0.26924046874046326,
+            "test_case_3": 0.24456496040026346
+        },
+        "dan_score_after": {
+            "test_yieldfromtransformer_handles_none_tree": 0.5430746376514435,
+            "test_create_yield_from_transformer_with_none_tree": 0.42016905546188354,
+            "test_yield_from_transformer_visits_while_node_with_none_lists": 0.27332470814387005,
+            "test_visit_while_node_with_yield_from_transformer": 0.34066804746786755
+        },
+        "avg_dan_score_before": 0.365737,
+        "avg_dan_score_after": 0.394309
+    }
+}

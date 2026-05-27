@@ -1,0 +1,66 @@
+{
+    "module": "helpers.py",
+    "timestamp": "2026-05-21T23:49:17.333649",
+    "llm_info": {
+        "model": "deepseek-v3",
+        "version": "functions",
+        "temperature": 1.0,
+        "prompt_style": "base"
+    },
+    "run_number": 3,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": -3,
+        "diff_failing_tests": 3,
+        "diff_coverage": -10.83,
+        "dan_score_diff": 0.069321
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 7, 'pass': 4, 'fail': 2, 'error': 0}",
+        "Refactored Test Results": "{'total': 7, 'pass': 1, 'fail': 5, 'error': 0}",
+        "total_tests_before": 7,
+        "total_tests_after": 7
+    },
+    "coverage": {
+        "before_refactoring": 45.45,
+        "after_refactoring": 34.62
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "pass",
+            "test_case_1": "pass",
+            "test_case_2": "pass",
+            "test_case_3": "fail",
+            "test_case_4": "pass",
+            "test_case_5": "fail"
+        },
+        "after_refactoring": {
+            "test_purge_logs_debug_message": "fail",
+            "test_variables_generator_can_be_created_without_arguments": "pass",
+            "test_variables_generator_initialization_and_eager_execution": "fail",
+            "test_debug_and_warn_with_eager_and_variables_generator": "fail",
+            "test_warn_proxyhandler_suppresses_exception": "fail",
+            "test_eager_function_called_with_self_as_start_parameter": "fail"
+        },
+        "dan_score_before": {
+            "__main__": 0.641155481338501,
+            "test_case_0": 0.4384838342666626,
+            "test_case_1": 0.5822873711585999,
+            "test_case_2": 0.3548617362976074,
+            "test_case_3": 0.2686479926109314,
+            "test_case_4": 0.5192355513572693,
+            "test_case_5": 0.4185090512037277
+        },
+        "dan_score_after": {
+            "__main__": 0.6558263301849365,
+            "test_purge_logs_debug_message": 0.4489351809024811,
+            "test_variables_generator_can_be_created_without_arguments": 0.4206635057926178,
+            "test_variables_generator_initialization_and_eager_execution": 0.408979207277298,
+            "test_debug_and_warn_with_eager_and_variables_generator": 0.22593262493610383,
+            "test_warn_proxyhandler_suppresses_exception": 0.34033238887786865,
+            "test_eager_function_called_with_self_as_start_parameter": 0.23726345598697662
+        },
+        "avg_dan_score_before": 0.460454,
+        "avg_dan_score_after": 0.391133
+    }
+}

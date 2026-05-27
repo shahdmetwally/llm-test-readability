@@ -1,0 +1,62 @@
+{
+    "module": "transformers_base.py",
+    "timestamp": "2026-05-21T02:22:15.050991",
+    "llm_info": {
+        "model": "deepseek-coder",
+        "version": "functions",
+        "temperature": 1.0,
+        "prompt_style": "base"
+    },
+    "run_number": 1,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": -1,
+        "diff_failing_tests": 1,
+        "diff_coverage": -30.56,
+        "dan_score_diff": 0.037068
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 6, 'pass': 2, 'fail': 3, 'error': 0}",
+        "Refactored Test Results": "{'total': 6, 'pass': 1, 'fail': 4, 'error': 0}",
+        "total_tests_before": 6,
+        "total_tests_after": 6
+    },
+    "coverage": {
+        "before_refactoring": 36.7,
+        "after_refactoring": 6.14
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "pass",
+            "test_case_1": "fail",
+            "test_case_2": "fail",
+            "test_case_3": "fail",
+            "test_case_4": "pass"
+        },
+        "after_refactoring": {
+            "test_base_node_transformer_initialization": "pass",
+            "test_import_from_visits_transform": "fail",
+            "test_import_visit": "fail",
+            "test_ast_rewrite_of_imports": "fail",
+            "test_import_from_base_import_rewrite": "fail"
+        },
+        "dan_score_before": {
+            "__main__": 0.5496261119842529,
+            "test_case_0": 0.6931780576705933,
+            "test_case_1": 0.30872895816961926,
+            "test_case_2": 0.2389588483742305,
+            "test_case_3": 0.22579866151014963,
+            "test_case_4": 0.20197581127285957
+        },
+        "dan_score_after": {
+            "__main__": 0.5356005430221558,
+            "test_base_node_transformer_initialization": 0.4197384715080261,
+            "test_import_from_visits_transform": 0.3376818001270294,
+            "test_import_visit": 0.3099326512643269,
+            "test_ast_rewrite_of_imports": 0.1926826275885105,
+            "test_import_from_base_import_rewrite": 0.20022418243544443
+        },
+        "avg_dan_score_before": 0.369711,
+        "avg_dan_score_after": 0.332643
+    }
+}

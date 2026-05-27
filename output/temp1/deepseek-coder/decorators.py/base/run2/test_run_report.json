@@ -1,0 +1,54 @@
+{
+    "module": "decorators.py",
+    "timestamp": "2026-05-21T00:15:42.213992",
+    "llm_info": {
+        "model": "deepseek-coder",
+        "version": "functions",
+        "temperature": 1.0,
+        "prompt_style": "base"
+    },
+    "run_number": 2,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": 0,
+        "diff_failing_tests": 0,
+        "diff_coverage": -22.5,
+        "dan_score_diff": 0.043923
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 4, 'pass': 1, 'fail': 2, 'error': 0}",
+        "Refactored Test Results": "{'total': 4, 'pass': 1, 'fail': 2, 'error': 0}",
+        "total_tests_before": 4,
+        "total_tests_after": 4
+    },
+    "coverage": {
+        "before_refactoring": 44.12,
+        "after_refactoring": 21.62
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "fail",
+            "test_case_1": "fail",
+            "test_case_2": "pass"
+        },
+        "after_refactoring": {
+            "test_cached_property_behavior": "fail",
+            "test_cached_property_functionality": "fail",
+            "test_cached_property_set_caching": "pass"
+        },
+        "dan_score_before": {
+            "__main__": 0.8382363319396973,
+            "test_case_0": 0.4451535443464915,
+            "test_case_1": 0.45151858031749725,
+            "test_case_2": 0.49378684163093567
+        },
+        "dan_score_after": {
+            "__main__": 0.8733795881271362,
+            "test_cached_property_behavior": 0.4155544539292653,
+            "test_cached_property_functionality": 0.37150608499844867,
+            "test_cached_property_set_caching": 0.392563059926033
+        },
+        "avg_dan_score_before": 0.557174,
+        "avg_dan_score_after": 0.513251
+    }
+}

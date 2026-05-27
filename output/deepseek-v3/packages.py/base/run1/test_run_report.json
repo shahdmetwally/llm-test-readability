@@ -1,0 +1,44 @@
+{
+    "module": "packages.py",
+    "timestamp": "2026-03-09T17:37:30.868718",
+    "llm_info": {
+        "model": "deepseek-v3",
+        "version": "functions",
+        "temperature": 0.2,
+        "prompt_style": "base"
+    },
+    "run_number": 1,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": 0,
+        "diff_failing_tests": 0,
+        "diff_coverage": -8.33,
+        "dan_score_diff": 0.280253
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 2, 'pass': 0, 'fail': 1, 'error': 0}",
+        "Refactored Test Results": "{'total': 2, 'pass': 0, 'fail': 1, 'error': 0}",
+        "total_tests_before": 2,
+        "total_tests_after": 2
+    },
+    "coverage": {
+        "before_refactoring": 33.33,
+        "after_refactoring": 25.0
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "fail"
+        },
+        "after_refactoring": {
+            "test_version_part_can_be_instantiated": "fail"
+        },
+        "dan_score_before": {
+            "test_case_0": 0.9319880604743958
+        },
+        "dan_score_after": {
+            "test_version_part_can_be_instantiated": 0.6517350673675537
+        },
+        "avg_dan_score_before": 0.931988,
+        "avg_dan_score_after": 0.651735
+    }
+}

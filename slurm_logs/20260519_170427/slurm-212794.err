@@ -1,0 +1,60 @@
+/var/spool/slurmd/job212794/slurm_script: line 22: llm-test-readability/slurm_logs#: No such file or directory
+<unknown>:24: SyntaxWarning: invalid escape sequence '\['
+<unknown>:25: SyntaxWarning: invalid escape sequence '\['
+<unknown>:26: SyntaxWarning: invalid escape sequence '\('
+<unknown>:27: SyntaxWarning: invalid escape sequence '\('
+<unknown>:28: SyntaxWarning: invalid escape sequence '\e'
+2026-05-19 17:04:46,684 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:04:57,894 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:04:59,519 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:05:10,254 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:05:12,013 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:05:21,609 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:05:23,899 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:05:34,168 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:05:35,601 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:05:45,298 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:05:46,945 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:05:56,287 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:05:59,102 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:06:11,125 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:06:14,003 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:06:24,329 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:06:25,718 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:06:35,222 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:06:43,199 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:06:57,718 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:07:01,356 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:07:11,977 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:07:13,853 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:07:18,938 - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 17:07:35,761 - INFO - Loading model: microsoft/codebert-base-mlm
+/data/users/eliassam/miniforge3/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Some weights of the model checkpoint at microsoft/codebert-base-mlm were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+2026-05-19 17:07:37,363 - INFO - Processed __main__.dot: Score=0.6247 (1 paths)
+2026-05-19 17:07:37,451 - INFO - Processed test_case_0.dot: Score=0.5517 (1 paths)
+2026-05-19 17:07:37,949 - INFO - Processed test_case_1.dot: Score=0.2750 (3 paths)
+2026-05-19 17:07:38,064 - INFO - Processed test_case_2.dot: Score=0.2332 (1 paths)
+2026-05-19 17:07:38,151 - INFO - Processed test_case_3.dot: Score=0.3506 (1 paths)
+2026-05-19 17:07:38,214 - INFO - Processed test_case_4.dot: Score=0.4858 (1 paths)
+2026-05-19 17:07:39,185 - INFO - Processed test_case_5.dot: Score=0.1792 (7 paths)
+2026-05-19 17:07:39,299 - INFO - Processed test_case_6.dot: Score=0.1989 (1 paths)
+2026-05-19 17:07:39,382 - INFO - Processed test_case_7.dot: Score=0.2615 (1 paths)
+2026-05-19 17:07:41,363 - INFO - Processed test_case_8.dot: Score=0.1112 (15 paths)
+2026-05-19 17:07:41,693 - INFO - Processed test_case_9.dot: Score=0.1418 (3 paths)
+2026-05-19 17:07:41,788 - INFO - Processed test_case_10.dot: Score=0.2798 (1 paths)
+2026-05-19 17:07:41,926 - INFO - Processed __main__.dot: Score=0.5169 (1 paths)
+2026-05-19 17:07:42,005 - INFO - Processed test_to_namedtuple_with_negative_float.dot: Score=0.4404 (1 paths)
+2026-05-19 17:07:42,261 - INFO - Processed test_to_namedtuple_with_tuple_containing_set_and_negative_float.dot: Score=0.2505 (3 paths)
+2026-05-19 17:07:42,357 - INFO - Processed test_to_namedtuple_with_repeated_single_key_dict.dot: Score=0.3037 (1 paths)
+2026-05-19 17:07:42,510 - INFO - Processed test_to_namedtuple_rejects_bytes_input.dot: Score=0.2281 (2 paths)
+2026-05-19 17:07:42,589 - INFO - Processed test_to_namedtuple_with_empty_tuple.dot: Score=0.3490 (1 paths)
+2026-05-19 17:07:43,505 - INFO - Processed test_to_namedtuple_with_ordered_dict_and_tuple.dot: Score=0.2155 (7 paths)
+2026-05-19 17:07:43,654 - INFO - Processed test_to_namedtuple_with_invalid_string_keys_to_namedtuple.dot: Score=0.2563 (1 paths)
+2026-05-19 17:07:43,913 - INFO - Processed test_to_namedtuple_with_nested_list_and_none.dot: Score=0.2560 (1 paths)
+2026-05-19 17:07:46,499 - INFO - Processed test_to_namedtuple_with_complex_nested_structures.dot: Score=0.1241 (15 paths)
+2026-05-19 17:07:46,933 - INFO - Processed test_to_namedtuple_with_nested_list_of_dict_and_tuple.dot: Score=0.1282 (3 paths)
+2026-05-19 17:07:47,045 - INFO - Processed test_to_namedtuple_with_same_bytes_key_used_multiple_times.dot: Score=0.1829 (1 paths)

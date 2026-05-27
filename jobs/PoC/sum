@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#SBATCH -A NAISS2024-22-570 -p alvis
+#SBATCH --gpus-per-node=A100:1 # 
+#SBATCH -t 0-05:00:00
+#SBATCH -o jobs/out/mistral_sum.log
+
+
+session=sum-test
+temperature=0.1
+
+
+ml purge
+
+
+# running test
+apptainer exec /cephyr/NOBACKUP/groups/llm-readability/setup/mixtral.sif python -m src.summarize_functions -p /cephyr/NOBACKUP/groups/llm-readability/readability/data/queue_example/queue_example.py -tp /cephyr/NOBACKUP/groups/llm-readability/readability/data/queue_example/test_queue_example.py -s $session -t $temperature 
+
+# pystral -m src.summarize_functions -p /cephyr/NOBACKUP/groups/llm-readability/readability/data/queue_example/queue_example.py -tp /cephyr/NOBACKUP/groups/llm-readability/readability/data/queue_example/test_queue_example.py -s desktop-test -t 0.2 -m mistral

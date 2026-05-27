@@ -1,0 +1,1504 @@
+Job running on ganymede
+Date: Tue May 19 01:53:58 PM CEST 2026
+Running debug checks...
+Tue May 19 13:53:58 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 595.58.03              Driver Version: 595.58.03      CUDA Version: 13.2     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L4                      Off |   00000000:0D:00.0 Off |                    0 |
+| N/A   69C    P0             74W /   72W |   18714MiB /  23034MiB |    100%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L4                      Off |   00000000:37:00.0 Off |                    0 |
+| N/A   32C    P8             15W /   72W |       3MiB /  23034MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA L4                      Off |   00000000:4A:00.0 Off |                    0 |
+| N/A   23C    P8             15W /   72W |       3MiB /  23034MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   3  NVIDIA L4                      Off |   00000000:61:00.0 Off |                    0 |
+| N/A   22C    P8             16W /   72W |       3MiB /  23034MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   4  NVIDIA L4                      Off |   00000000:A0:00.0 Off |                    0 |
+| N/A   29C    P8             15W /   72W |       3MiB /  23034MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   5  NVIDIA L4                      Off |   00000000:B5:00.0 Off |                    0 |
+| N/A   30C    P8             16W /   72W |       3MiB /  23034MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   6  NVIDIA L4                      Off |   00000000:CA:00.0 Off |                    0 |
+| N/A   23C    P8             16W /   72W |       3MiB /  23034MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   7  NVIDIA L4                      Off |   00000000:E1:00.0 Off |                    0 |
+| N/A   24C    P8             15W /   72W |       3MiB /  23034MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A         3329356      C   /opt/conda/bin/python                 18514MiB |
+|    0   N/A  N/A         3450763      C   ...d-single-gpu/tiled-single-gpu        186MiB |
++-----------------------------------------------------------------------------------------+
+CUDA_VISIBLE_DEVICES: 3
+SLURM_JOB_GPUS: 3
+SLURM_GPUS_ON_NODE: 1
+Torch sees 1 GPUs
+Starting execution...
+Copied data/codetiming/codetiming_timer.py to ./output/deepseek-coder/codetiming_timer.py/base/run2/codetiming_timer.py
+Copied /data/users/eliassam/Thesis/llm_readability/llm-test-readability/data/codetiming/test_codetiming__timer.py to ./output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer.py
+Output directory: ./output/deepseek-coder/codetiming_timer.py/base/run2
+
+Repo codetiming already local at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/codetiming. Skipping pull (set RAG_FORCE_PULL=1 to force).
+Ingested 8 files from codetiming at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/codetiming
+Ingested 1 external docs for codetiming
+Created 75 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/codetiming
+Repo flutils already local at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/flutils. Skipping pull (set RAG_FORCE_PULL=1 to force).
+Ingested 88 files from flutils at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/flutils
+Ingested 1 external docs for flutils
+Created 1454 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/flutils
+Repo httpie already local at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/httpie. Skipping pull (set RAG_FORCE_PULL=1 to force).
+Ingested 150 files from httpie at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/httpie
+Ingested 1 external docs for httpie
+Created 1460 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/httpie
+Repo py-backwards already local at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/py-backwards. Skipping pull (set RAG_FORCE_PULL=1 to force).
+Ingested 55 files from py-backwards at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/py-backwards
+Ingested 1 external docs for py-backwards
+Created 273 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/py-backwards
+Repo pymonet already local at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/pymonet. Skipping pull (set RAG_FORCE_PULL=1 to force).
+Ingested 44 files from pymonet at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/pymonet
+Ingested 1 external docs for pymonet
+Created 422 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/pymonet
+Repo pyutils already local at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/pyutils. Skipping pull (set RAG_FORCE_PULL=1 to force).
+Ingested 111 files from pyutils at /data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/pyutils
+Ingested 1 external docs for pyutils
+Created 1908 chunks (structure-aware)
+Chunks missing Nomic header: 0
+Loading existing Chroma DB from ./chroma_indexes/pyutils
+Loading local model: deepseek-ai/deepseek-coder-33b-instruct...
+Usage of bitsandbytes detected: Enabling 4-bit quantization for memory efficiency.
+DEBUG: Found 1 GPUs.
+DEBUG: Single GPU detected. Setting device_map={'': 0}
+
+        Model created: 
+        Model name: deepseek-coder
+        Model path: deepseek-ai/deepseek-coder-33b-instruct
+        Model temperature: 1.0
+        Model system prompt: You are a helpful AI assistant that will help improve the readability of the test cases.
+        Version: functions
+        Context window: 16384
+        Directory: ./output/deepseek-coder/codetiming_timer.py/base/run2
+        Log directory: ./output/deepseek-coder/codetiming_timer.py/base/run2/Log
+        Modules paths: ['/data/users/eliassam/Thesis/llm_readability/llm-test-readability/data/codetiming/codetiming_timer.py']
+        Test path: /data/users/eliassam/Thesis/llm_readability/llm-test-readability/data/codetiming/test_codetiming__timer.py
+        
+Saving text file in:  ./output/deepseek-coder/codetiming_timer.py/base/run2/Log/test_case_logs.txt
+Create python file in directory:  ./output/deepseek-coder/codetiming_timer.py/base/run2
+Saving file in:  ./output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py
+" 
+        
+ 
+        ***********************
+
+        ** New imports saved **
+
+        ***********************
+
+        Previous imports:  # Test cases automatically generated by Pynguin (https://www.pynguin.eu).
+# Please check them before you use them.
+import codetiming_timer as module_0
+        New imports:  import codetiming_timer as timer
+        
+
+        Directory:  ./output/deepseek-coder/codetiming_timer.py/base/run2
+        Refactored file path:  ./output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py
+        Log directory:  ./output/deepseek-coder/codetiming_timer.py/base/run2/Log
+        Log file path:  ./output/deepseek-coder/codetiming_timer.py/base/run2/Log/test_case_logs.txt
+        *******************************************************        
+        
+
+
+
+        
+Running functions script
+
+Running RAG-based refactoring (Functions mode)...
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: codetiming:codetiming/__init__.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+search_document: FILE: codetiming:codetiming/__init__.py
+KIND: code
+
+"""A flexible, customizable timer for your Python code.
+
+You can use `codetiming.Timer` in several different ways:
+
+1. As a **class**:
+
+    t = Timer(name="class")
+    t.start()
+    # Do something
+    t.stop()
+
+2. As a **context manager**:
+
+    with Timer(name="context manager"):
+        # Do something
+
+3. As a **decorator**:
+
+    @Timer(name="decorator")
+    def stuff():
+        # Do something
+"""
+
+# Codetiming imports
+from codetiming._timer import Timer, TimerError
+
+# Use __all__ to let type checkers know what is part of the public API.
+__all__ = ["Timer", "TimerError"]
+
+# Versioning is handled by bump2version
+__version__ = "1.4.0"
+
+---
+
+FILE: codetiming:tests/test_codetiming.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+search_document: FILE: codetiming:tests/test_codetiming.py
+KIND: code
+
+"""Tes...
+(Total chars: 8865)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_timer_error_instance_creation():
+    # given
+    expected_error = timer.TimerError()
+
+    # when
+    actual_error = timer.TimerError()
+
+    # then
+    assert isinstance(actual_error, timer.TimerError)
+    assert type(actual_error) is type(expected_error)   
+
+
+        Refactored file path:  ['./output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: codetiming:tests/test_codetiming.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+search_document: FILE: codetiming:tests/test_codetiming.py
+KIND: code
+
+"""Tests for codetiming.Timer
+
+Based on the Pytest test runner
+"""
+# Standard library imports
+import math
+import re
+import time
+
+# Third party imports
+import pytest
+
+# Codetiming imports
+from codetiming import Timer, TimerError
+
+#
+# Constants, functions, and classes used by tests
+#
+TIME_PREFIX = "Wasted time:"
+TIME_MESSAGE = f"{TIME_PREFIX} {{:.4f}} seconds"
+RE_TIME_MESSAGE = re.compile(TIME_PREFIX + r" 0\.\d{4} seconds")
+RE_TIME_MESSAGE_INITIAL_TEXT_TRUE = re.compile(
+    f"Timer started\n{TIME_PREFIX}" + r" 0\.\d{4} seconds"
+)
+RE_TIME_MESSAGE_INITIAL_TEXT_CUSTOM = re.compile(
+    f"Starting the party\n{TIME_PREFIX}" + r" 0\.\d{4} seconds"
+)
+
+
+def waste_time(num: int = 1000) -> None:
+    """Just waste a little bit of time."""
+    sum(n**2 for n in range(num))
+
+
+@Timer(text=TIME_MESSAGE)
+def decorated_timewaste(nu...
+(Total chars: 9071)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_timer():
+    # Create a Timer instance
+    timer = timer_module.Timer()
+
+    # Timer is not initially running
+    assert timer.start_time is None
+
+    # Enter and exit context manager for the Timer instance
+    timer.__enter__()
+    timer.__exit__()
+
+    # After __exit__, the timer stops, causing start_time to become None
+    assert timer.start_time is None
+
+    # Start the timer
+    timer.start()
+
+    # Check if start_time is not None
+    assert timer.start_time is not None   
+
+
+        Refactored file path:  ['./output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: codetiming:codetiming/__init__.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+search_document: FILE: codetiming:codetiming/__init__.py
+KIND: code
+
+"""A flexible, customizable timer for your Python code.
+
+You can use `codetiming.Timer` in several different ways:
+
+1. As a **class**:
+
+    t = Timer(name="class")
+    t.start()
+    # Do something
+    t.stop()
+
+2. As a **context manager**:
+
+    with Timer(name="context manager"):
+        # Do something
+
+3. As a **decorator**:
+
+    @Timer(name="decorator")
+    def stuff():
+        # Do something
+"""
+
+# Codetiming imports
+from codetiming._timer import Timer, TimerError
+
+# Use __all__ to let type checkers know what is part of the public API.
+__all__ = ["Timer", "TimerError"]
+
+# Versioning is handled by bump2version
+__version__ = "1.4.0"
+
+---
+
+FILE: codetiming:tests/test_codetiming.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+search_document: FILE: codetiming:tests/test_codetiming.py
+KIND: code
+
+"""Tes...
+(Total chars: 8673)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_timer_enters_and_exits() -> None:
+    """
+    This test case verifies that the `__enter__` and `__exit__` methods correctly enter and exit the Timer instance.
+    """
+    from codetiming import Timer
+
+    with Timer() as timer_context:
+        assert type(timer_context) is Timer
+        exit_result = timer_context.__exit__()
+
+    assert exit_result is None   
+
+
+        Refactored file path:  ['./output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: codetiming:tests/test_codetiming.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+def __call__(self, message: str) -> None:
+        """Add a log message to the .messages attribute."""
+        self.messages += message
+
+
+#
+# Tests
+#
+def test_timer_as_decorator(capsys: pytest.CaptureFixture[str]) -> None:
+    """Test that decorated function prints timing information."""
+    decorated_timewaste()
+
+    stdout, stderr = capsys.readouterr()
+    assert RE_TIME_MESSAGE.match(stdout)
+    assert stdout.count("\n") == 1
+    assert stderr == ""
+
+
+def test_timer_as_context_manager(capsys: pytest.CaptureFixture[str]) -> None:
+    """Test that timed context prints timing information."""
+    with Timer(text=TIME_MESSAGE):
+        waste_time()
+
+    stdout, stderr = capsys.readouterr()
+    assert RE_TIME_MESSAGE.match(stdout)
+    assert stdout.count("\n") == 1
+    assert stderr == ""
+
+
+def test_explicit_timer(capsys: pytest.CaptureFixture[str]) -> None:
+    """Test that timed sectio...
+(Total chars: 9999)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_timer_is_initialized_with_numpy_nan():
+    # Given a Timer
+    t = timer.Timer()
+
+    # When initializing a Timer
+    # Then last should be math.nan
+    assert math.isnan(t.last)
+
+def test_timer_sets_last_to_stopped_time():
+    # Given a Timer
+    t = timer.Timer()
+
+    # When Timer is started and time is slept for 0.02 seconds
+    t.start()
+    time.sleep(0.02)
+    t.stop()
+
+    # Then last should be greater than or equal to 0.02
+    assert t.last >= 0.02   
+
+
+        Refactored file path:  ['./output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: codetiming:tests/test_codetiming.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+search_document: FILE: codetiming:tests/test_codetiming.py
+KIND: code
+
+"""Tests for codetiming.Timer
+
+Based on the Pytest test runner
+"""
+# Standard library imports
+import math
+import re
+import time
+
+# Third party imports
+import pytest
+
+# Codetiming imports
+from codetiming import Timer, TimerError
+
+#
+# Constants, functions, and classes used by tests
+#
+TIME_PREFIX = "Wasted time:"
+TIME_MESSAGE = f"{TIME_PREFIX} {{:.4f}} seconds"
+RE_TIME_MESSAGE = re.compile(TIME_PREFIX + r" 0\.\d{4} seconds")
+RE_TIME_MESSAGE_INITIAL_TEXT_TRUE = re.compile(
+    f"Timer started\n{TIME_PREFIX}" + r" 0\.\d{4} seconds"
+)
+RE_TIME_MESSAGE_INITIAL_TEXT_CUSTOM = re.compile(
+    f"Starting the party\n{TIME_PREFIX}" + r" 0\.\d{4} seconds"
+)
+
+
+def waste_time(num: int = 1000) -> None:
+    """Just waste a little bit of time."""
+    sum(n**2 for n in range(num))
+
+
+@Timer(text=TIME_MESSAGE)
+def decorated_timewaste(nu...
+(Total chars: 9178)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_timer_default_parameter_logging_none_type():
+    """ 
+    This test checks that when the `logger` parameter of the `Timer` class is set to `None`, 
+    no action is performed by the timer.
+    """
+
+    none_type_0 = None  # Set up a value of NoneType (this will be the logger)
+    timer_instance = timer.Timer(logger=none_type_0)  # Initialize Timer instance with logger set to None
+
+    timer_started = timer_instance.start()  # Start timer
+    assert timer_started is None  # Assert that no value is returned on start() method
+
+    dummy_dict = {}  # Create a dummy dictionary
+    dummy_key = None  # The dummy_key is None
+    setitem_result = dummy_dict.__setitem__(dummy_key, dummy_dict)  # Set item in the dummy dictionary
+    
+    setitem_entered = setitem_result.__enter__()  # Enter the setitem context
+    assert setitem_entered is setitem_result  # Assert that the result of the __enter__() method is the original setitem object   
+
+
+        Refactored file path:  ['./output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: codetiming:codetiming/_timer.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+def start(self) -> None:
+        """Start a new timer."""
+        if self._start_time is not None:
+            raise TimerError("Timer is running. Use .stop() to stop it")
+
+        # Log initial text when timer starts
+        if self.logger and self.initial_text:
+            if isinstance(self.initial_text, str):
+                initial_text = self.initial_text.format(name=self.name)
+            elif self.name:
+                initial_text = "Timer {name} started".format(name=self.name)
+            else:
+                initial_text = "Timer started"
+            self.logger(initial_text)
+
+        self._start_time = time.perf_counter()
+
+    def stop(self) -> float:
+        """Stop the timer, and report the elapsed time."""
+        if self._start_time is None:
+            raise TimerError("Timer is not running. Use .start() to start it")
+
+        # Calculate elapsed time
+        self.last ...
+(Total chars: 7927)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_timer_enter_and_repr_calls():
+    """Test calling the Timer object's __enter__ and __repr__ method"""
+    timer = Timer()
+    timer_entered = timer.__enter__()
+    timer_entered_repr = timer_entered.__repr__()
+    assert timer == timer_entered
+    assert timer_entered_repr == repr(timer_entered)   
+
+
+        Refactored file path:  ['./output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: codetiming:codetiming/_timer.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+def start(self) -> None:
+        """Start a new timer."""
+        if self._start_time is not None:
+            raise TimerError("Timer is running. Use .stop() to stop it")
+
+        # Log initial text when timer starts
+        if self.logger and self.initial_text:
+            if isinstance(self.initial_text, str):
+                initial_text = self.initial_text.format(name=self.name)
+            elif self.name:
+                initial_text = "Timer {name} started".format(name=self.name)
+            else:
+                initial_text = "Timer started"
+            self.logger(initial_text)
+
+        self._start_time = time.perf_counter()
+
+    def stop(self) -> float:
+        """Stop the timer, and report the elapsed time."""
+        if self._start_time is None:
+            raise TimerError("Timer is not running. Use .start() to start it")
+
+        # Calculate elapsed time
+        self.last ...
+(Total chars: 8754)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_repr_method_of_timer():
+    """
+    This test verifies the behaviour of the __repr__ method of the Timer class.
+    """
+    # ... rest of your test code ...   
+
+
+        Refactored file path:  ['./output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: codetiming:codetiming/__init__.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+search_document: FILE: codetiming:codetiming/__init__.py
+KIND: code
+
+"""A flexible, customizable timer for your Python code.
+
+You can use `codetiming.Timer` in several different ways:
+
+1. As a **class**:
+
+    t = Timer(name="class")
+    t.start()
+    # Do something
+    t.stop()
+
+2. As a **context manager**:
+
+    with Timer(name="context manager"):
+        # Do something
+
+3. As a **decorator**:
+
+    @Timer(name="decorator")
+    def stuff():
+        # Do something
+"""
+
+# Codetiming imports
+from codetiming._timer import Timer, TimerError
+
+# Use __all__ to let type checkers know what is part of the public API.
+__all__ = ["Timer", "TimerError"]
+
+# Versioning is handled by bump2version
+__version__ = "1.4.0"
+
+---
+
+FILE: pyutils:src/pyutils/decorator_utils.py | kind=code | chunk_type=function | symbol=retry_if_none | lines=750-794
+search_document: FILE: pyutils:src/pyutils/decorator_utils.py
+K...
+(Total chars: 8652)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_timer_start_function_correctly():
+    """
+    Test if Timer start function is correctly setting the start time.
+    """
+    mock_logger = None
+    timer = timer.Timer(logger=mock_logger)
+    none_type = timer.start()
+    mock_timer_dict = {}
+    start_time_key = None
+    mock_timer_dict[start_time_key] = mock_timer_dict
+
+    timer_repr = mock_timer_dict[start_time_key].__repr__()
+    mock_timer_dict[start_time_key].start()
+
+    # Check the timer is not running immediately after a start
+    assert none_type is None
+    # Ensure the start time has been set to the current time
+    assert timer._start_time is not None 
+    # Check repr method of the timer works as expected
+    assert 'codetiming.Timer' in timer_repr   
+
+
+        Refactored file path:  ['./output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: codetiming:tests/test_codetiming.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+search_document: FILE: codetiming:tests/test_codetiming.py
+KIND: code
+
+"""Tests for codetiming.Timer
+
+Based on the Pytest test runner
+"""
+# Standard library imports
+import math
+import re
+import time
+
+# Third party imports
+import pytest
+
+# Codetiming imports
+from codetiming import Timer, TimerError
+
+#
+# Constants, functions, and classes used by tests
+#
+TIME_PREFIX = "Wasted time:"
+TIME_MESSAGE = f"{TIME_PREFIX} {{:.4f}} seconds"
+RE_TIME_MESSAGE = re.compile(TIME_PREFIX + r" 0\.\d{4} seconds")
+RE_TIME_MESSAGE_INITIAL_TEXT_TRUE = re.compile(
+    f"Timer started\n{TIME_PREFIX}" + r" 0\.\d{4} seconds"
+)
+RE_TIME_MESSAGE_INITIAL_TEXT_CUSTOM = re.compile(
+    f"Starting the party\n{TIME_PREFIX}" + r" 0\.\d{4} seconds"
+)
+
+
+def waste_time(num: int = 1000) -> None:
+    """Just waste a little bit of time."""
+    sum(n**2 for n in range(num))
+
+
+@Timer(text=TIME_MESSAGE)
+def decorated_timewaste(nu...
+(Total chars: 9071)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_start_stop_time_keeping():
+    """Test start and stop of a Timer and time keeping."""
+    
+    # Initializing a timer
+    t = timer.Timer(logger = None)
+    
+    # Starting the timer
+    t.start()
+    
+    # Wasting some time
+    waste_time()
+    
+    # Stopping the timer and getting the elapsed time
+    elapsed_time = t.stop()
+    
+    # Asserting the elapsed time is positive
+    assert elapsed_time >= 0   
+
+
+        Refactored file path:  ['./output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+[retrieval] restrict_repos=None | searching repos=['codetiming', 'flutils', 'httpie', 'py-backwards', 'pymonet', 'pyutils']
+
+[DEBUG] Retrieved Context for test:
+FILE: codetiming:tests/test_codetiming.py | kind=code | chunk_type=None | symbol=None | lines=None-None
+def __call__(self, message: str) -> None:
+        """Add a log message to the .messages attribute."""
+        self.messages += message
+
+
+#
+# Tests
+#
+def test_timer_as_decorator(capsys: pytest.CaptureFixture[str]) -> None:
+    """Test that decorated function prints timing information."""
+    decorated_timewaste()
+
+    stdout, stderr = capsys.readouterr()
+    assert RE_TIME_MESSAGE.match(stdout)
+    assert stdout.count("\n") == 1
+    assert stderr == ""
+
+
+def test_timer_as_context_manager(capsys: pytest.CaptureFixture[str]) -> None:
+    """Test that timed context prints timing information."""
+    with Timer(text=TIME_MESSAGE):
+        waste_time()
+
+    stdout, stderr = capsys.readouterr()
+    assert RE_TIME_MESSAGE.match(stdout)
+    assert stdout.count("\n") == 1
+    assert stderr == ""
+
+
+def test_explicit_timer(capsys: pytest.CaptureFixture[str]) -> None:
+    """Test that timed sectio...
+(Total chars: 9167)
+"
+
+        ***********************
+
+        ** New test case saved **
+
+        ***********************
+
+        post_process_response:  def test_access_timer_object_in_context_with_custom_logger():
+    """Test access to Timer object inside a 'with' context and referencing the timer object inside a context."""
+    with timer.Timer(text=timer_message, custom_logger=custom_logger) as t:
+        assert isinstance(t, timer.Timer)
+        assert isinstance(t.text, str)
+        assert t.text.startswith(timer_prefix)
+    _, _ = capsys.readouterr()  # Do not print log message to standard output   
+
+
+        Refactored file path:  ['./output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py']   
+
+        *******************************************************
+        
+
+
+
+        
+============================= test session starts ==============================
+platform linux -- Python 3.12.9, pytest-8.3.2, pluggy-1.5.0
+rootdir: /data/users/eliassam/Thesis/llm_readability/llm-test-readability
+plugins: anyio-4.3.0, mimesis-18.0.0, langsmith-0.6.6, typeguard-4.3.0
+collected 10 items
+
+data/codetiming/test_codetiming__timer.py .F.FF.FFFF                     [100%]
+
+=================================== FAILURES ===================================
+_________________________________ test_case_1 __________________________________
+
+    def test_case_1():
+        timer_0 = module_0.Timer()
+        timer_1 = timer_0.__enter__()
+        none_type_0 = timer_0.__exit__()
+        none_type_1 = timer_1.start()
+>       timer_0.start()
+
+data/codetiming/test_codetiming__timer.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Timer(name=None, text='Elapsed time: {:0.4f} seconds', initial_text=False, logger=<built-in function print>)
+
+    def start(self) -> None:
+        """Start a new timer."""
+        if self._start_time is not None:
+>           raise TimerError("Timer is running. Use .stop() to stop it")
+E           codetiming_timer.TimerError: Timer is running. Use .stop() to stop it
+
+data/codetiming/codetiming_timer.py:72: TimerError
+----------------------------- Captured stdout call -----------------------------
+Elapsed time: 0.0000 seconds
+_________________________________ test_case_3 __________________________________
+
+    def test_case_3():
+        float_arg_0 = module_0.FloatArg()
+        timer_error_0 = module_0.TimerError()
+        timer_0 = module_0.Timer()
+>       timer_0.__exit__()
+
+data/codetiming/test_codetiming__timer.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/codetiming/codetiming_timer.py:120: in __exit__
+    self.stop()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Timer(name=None, text='Elapsed time: {:0.4f} seconds', initial_text=False, logger=<built-in function print>)
+
+    def stop(self) -> float:
+        """Stop the timer, and report the elapsed time."""
+        if self._start_time is None:
+>           raise TimerError("Timer is not running. Use .start() to start it")
+E           codetiming_timer.TimerError: Timer is not running. Use .start() to start it
+
+data/codetiming/codetiming_timer.py:89: TimerError
+_________________________________ test_case_4 __________________________________
+
+    def test_case_4():
+        none_type_0 = None
+        timer_0 = module_0.Timer(logger=none_type_0)
+        none_type_1 = timer_0.start()
+        dict_0 = {}
+        none_type_2 = None
+        var_0 = dict_0.__setitem__(none_type_2, dict_0)
+>       var_0.__enter__()
+E       AttributeError: 'NoneType' object has no attribute '__enter__'. Did you mean: '__ne__'?
+
+data/codetiming/test_codetiming__timer.py:38: AttributeError
+_________________________________ test_case_6 __________________________________
+
+    def test_case_6():
+        timer_0 = module_0.Timer()
+        timer_1 = timer_0.__enter__()
+        int_0 = -1092
+        var_0 = timer_1.__repr__()
+        float_arg_0 = module_0.FloatArg()
+        timer_2 = module_0.Timer(initial_text=var_0)
+        float_arg_1 = module_0.FloatArg()
+        var_1 = timer_0.__eq__(int_0)
+        float_0 = timer_1.stop()
+        timer_3 = module_0.Timer(text=float_arg_0, initial_text=var_0)
+        var_2 = timer_0.__repr__()
+        var_3 = timer_3.__repr__()
+>       timer_3.start()
+
+data/codetiming/test_codetiming__timer.py:69: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Timer(name=None, text=<codetiming_timer.FloatArg object at 0x7234970c2600>, initial_text="Timer(name=None, text='Elapsed time: {:0.4f} seconds', initial_text=False, logger=<built-in function print>)", logger=<built-in function print>)
+
+    def start(self) -> None:
+        """Start a new timer."""
+        if self._start_time is not None:
+            raise TimerError("Timer is running. Use .stop() to stop it")
+    
+        # Log initial text when timer starts
+        if self.logger and self.initial_text:
+            if isinstance(self.initial_text, str):
+>               initial_text = self.initial_text.format(name=self.name)
+E               IndexError: Replacement index 0 out of range for positional args tuple
+
+data/codetiming/codetiming_timer.py:77: IndexError
+----------------------------- Captured stdout call -----------------------------
+Elapsed time: 0.0000 seconds
+_________________________________ test_case_7 __________________________________
+
+    def test_case_7():
+        none_type_0 = None
+        timer_0 = module_0.Timer(logger=none_type_0)
+        none_type_1 = timer_0.start()
+        dict_0 = {}
+        none_type_2 = None
+        none_type_3 = timer_0.__exit__()
+        var_0 = dict_0.__setitem__(none_type_2, dict_0)
+        var_1 = var_0.__repr__()
+>       var_0.start()
+E       AttributeError: 'NoneType' object has no attribute 'start'
+
+data/codetiming/test_codetiming__timer.py:81: AttributeError
+_________________________________ test_case_8 __________________________________
+
+    def test_case_8():
+        timer_0 = module_0.Timer()
+        timer_1 = timer_0.__enter__()
+        var_0 = timer_0.__eq__(timer_0)
+        none_type_0 = timer_0.__exit__()
+        timer_2 = module_0.Timer(initial_text=timer_1, logger=var_0)
+        timer_3 = module_0.Timer(timer_1, initial_text=timer_2, logger=var_0)
+>       timer_3.start()
+
+data/codetiming/test_codetiming__timer.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Timer(name=Timer(name=None, text='Elapsed time: {:0.4f} seconds', initial_text=False, logger=<built-in function print>...text='Elapsed time: {:0.4f} seconds', initial_text=False, logger=<built-in function print>), logger=True), logger=True)
+
+    def start(self) -> None:
+        """Start a new timer."""
+        if self._start_time is not None:
+            raise TimerError("Timer is running. Use .stop() to stop it")
+    
+        # Log initial text when timer starts
+        if self.logger and self.initial_text:
+            if isinstance(self.initial_text, str):
+                initial_text = self.initial_text.format(name=self.name)
+            elif self.name:
+                initial_text = "Timer {name} started".format(name=self.name)
+            else:
+                initial_text = "Timer started"
+>           self.logger(initial_text)
+E           TypeError: 'bool' object is not callable
+
+data/codetiming/codetiming_timer.py:82: TypeError
+----------------------------- Captured stdout call -----------------------------
+Elapsed time: 0.0000 seconds
+_________________________________ test_case_9 __________________________________
+
+    def test_case_9():
+        str_0 = "Timer started"
+        timer_0 = module_0.Timer(str_0)
+        none_type_0 = timer_0.start()
+        float_0 = timer_0.stop()
+        timer_1 = timer_0.__enter__()
+>       timer_0.copy()
+E       AttributeError: 'Timer' object has no attribute 'copy'
+
+data/codetiming/test_codetiming__timer.py:100: AttributeError
+----------------------------- Captured stdout call -----------------------------
+Elapsed time: 0.0000 seconds
+=============================== warnings summary ===============================
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: anyio
+    self._mark_plugins_for_rewrite(hook)
+
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: langsmith
+    self._mark_plugins_for_rewrite(hook)
+
+data/codetiming/test_codetiming__timer.py::test_case_5
+  /data/users/eliassam/Thesis/llm_readability/llm-test-readability/data/codetiming/codetiming_timer.py:75: DeprecationWarning: NotImplemented should not be used in a boolean context
+    if self.logger and self.initial_text:
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED data/codetiming/test_codetiming__timer.py::test_case_1 - codetiming_ti...
+FAILED data/codetiming/test_codetiming__timer.py::test_case_3 - codetiming_ti...
+FAILED data/codetiming/test_codetiming__timer.py::test_case_4 - AttributeErro...
+FAILED data/codetiming/test_codetiming__timer.py::test_case_6 - IndexError: R...
+FAILED data/codetiming/test_codetiming__timer.py::test_case_7 - AttributeErro...
+FAILED data/codetiming/test_codetiming__timer.py::test_case_8 - TypeError: 'b...
+FAILED data/codetiming/test_codetiming__timer.py::test_case_9 - AttributeErro...
+=================== 7 failed, 3 passed, 3 warnings in 0.15s ====================
+============================= test session starts ==============================
+platform linux -- Python 3.12.9, pytest-8.3.2, pluggy-1.5.0
+rootdir: /data/users/eliassam/Thesis/llm_readability/llm-test-readability
+plugins: anyio-4.3.0, mimesis-18.0.0, langsmith-0.6.6, typeguard-4.3.0
+collected 11 items
+
+output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py . [  9%]
+FFFFFF.FFF                                                               [100%]
+
+=================================== FAILURES ===================================
+__________________________________ test_timer __________________________________
+
+    def test_timer():
+        # Create a Timer instance
+>       timer = timer_module.Timer()
+E       NameError: name 'timer_module' is not defined
+
+output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py:16: NameError
+_________________________ test_timer_enters_and_exits __________________________
+
+    def test_timer_enters_and_exits() -> None:
+        """
+        This test case verifies that the `__enter__` and `__exit__` methods correctly enter and exit the Timer instance.
+        """
+>       from codetiming import Timer
+E       ModuleNotFoundError: No module named 'codetiming'
+
+output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py:38: ModuleNotFoundError
+___________________ test_timer_is_initialized_with_numpy_nan ___________________
+
+    def test_timer_is_initialized_with_numpy_nan():
+        # Given a Timer
+        t = timer.Timer()
+    
+        # When initializing a Timer
+        # Then last should be math.nan
+>       assert math.isnan(t.last)
+E       NameError: name 'math' is not defined. Did you forget to import 'math'
+
+output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py:52: NameError
+_____________________ test_timer_sets_last_to_stopped_time _____________________
+
+    def test_timer_sets_last_to_stopped_time():
+        # Given a Timer
+        t = timer.Timer()
+    
+        # When Timer is started and time is slept for 0.02 seconds
+        t.start()
+>       time.sleep(0.02)
+E       NameError: name 'time' is not defined. Did you forget to import 'time'
+
+output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py:60: NameError
+________________ test_timer_default_parameter_logging_none_type ________________
+
+    def test_timer_default_parameter_logging_none_type():
+        """
+        This test checks that when the `logger` parameter of the `Timer` class is set to `None`,
+        no action is performed by the timer.
+        """
+    
+        none_type_0 = None  # Set up a value of NoneType (this will be the logger)
+        timer_instance = timer.Timer(logger=none_type_0)  # Initialize Timer instance with logger set to None
+    
+        timer_started = timer_instance.start()  # Start timer
+        assert timer_started is None  # Assert that no value is returned on start() method
+    
+        dummy_dict = {}  # Create a dummy dictionary
+        dummy_key = None  # The dummy_key is None
+        setitem_result = dummy_dict.__setitem__(dummy_key, dummy_dict)  # Set item in the dummy dictionary
+    
+>       setitem_entered = setitem_result.__enter__()  # Enter the setitem context
+E       AttributeError: 'NoneType' object has no attribute '__enter__'. Did you mean: '__ne__'?
+
+output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py:82: AttributeError
+_______________________ test_timer_enter_and_repr_calls ________________________
+
+    def test_timer_enter_and_repr_calls():
+        """Test calling the Timer object's __enter__ and __repr__ method"""
+>       timer = Timer()
+E       NameError: name 'Timer' is not defined
+
+output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py:87: NameError
+_____________________ test_timer_start_function_correctly ______________________
+
+    def test_timer_start_function_correctly():
+        """
+        Test if Timer start function is correctly setting the start time.
+        """
+        mock_logger = None
+>       timer = timer.Timer(logger=mock_logger)
+E       UnboundLocalError: cannot access local variable 'timer' where it is not associated with a value
+
+output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py:104: UnboundLocalError
+_________________________ test_start_stop_time_keeping _________________________
+
+    def test_start_stop_time_keeping():
+        """Test start and stop of a Timer and time keeping."""
+    
+        # Initializing a timer
+        t = timer.Timer(logger = None)
+    
+        # Starting the timer
+        t.start()
+    
+        # Wasting some time
+>       waste_time()
+E       NameError: name 'waste_time' is not defined
+
+output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py:130: NameError
+____________ test_access_timer_object_in_context_with_custom_logger ____________
+
+    def test_access_timer_object_in_context_with_custom_logger():
+        """Test access to Timer object inside a 'with' context and referencing the timer object inside a context."""
+>       with timer.Timer(text=timer_message, custom_logger=custom_logger) as t:
+E       NameError: name 'timer_message' is not defined
+
+output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py:140: NameError
+=============================== warnings summary ===============================
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: anyio
+    self._mark_plugins_for_rewrite(hook)
+
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: langsmith
+    self._mark_plugins_for_rewrite(hook)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py::test_timer
+FAILED output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py::test_timer_enters_and_exits
+FAILED output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py::test_timer_is_initialized_with_numpy_nan
+FAILED output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py::test_timer_sets_last_to_stopped_time
+FAILED output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py::test_timer_default_parameter_logging_none_type
+FAILED output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py::test_timer_enter_and_repr_calls
+FAILED output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py::test_timer_start_function_correctly
+FAILED output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py::test_start_stop_time_keeping
+FAILED output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py::test_access_timer_object_in_context_with_custom_logger
+=================== 9 failed, 2 passed, 2 warnings in 0.09s ====================
+Failed tests: {'Original Test Results': {'test_case_1': 'fail', 'test_case_3': 'fail', 'test_case_4': 'fail', 'test_case_6': 'fail', 'test_case_7': 'fail', 'test_case_8': 'fail', 'test_case_9': 'fail'}, 'Refactored Test Results': {'test_timer': 'fail', 'test_timer_enters_and_exits': 'fail', 'test_timer_is_initialized_with_numpy_nan': 'fail', 'test_timer_sets_last_to_stopped_time': 'fail', 'test_timer_default_parameter_logging_none_type': 'fail', 'test_timer_enter_and_repr_calls': 'fail', 'test_timer_start_function_correctly': 'fail', 'test_start_stop_time_keeping': 'fail', 'test_access_timer_object_in_context_with_custom_logger': 'fail'}}
+
+Collecting data for module: ['data/codetiming/codetiming_timer.py']
+
+
+============================================================
+ALIAS-RELATED RUNTIME FAILURES DETECTED (NameError/AttributeError) — Retrying with base_retry prompt
+============================================================
+
+Fixed code written to: ./output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py
+============================= test session starts ==============================
+platform linux -- Python 3.12.9, pytest-8.3.2, pluggy-1.5.0
+rootdir: /data/users/eliassam/Thesis/llm_readability/llm-test-readability
+plugins: anyio-4.3.0, mimesis-18.0.0, langsmith-0.6.6, typeguard-4.3.0
+collected 10 items
+
+data/codetiming/test_codetiming__timer.py .F.FF.FFFF                     [100%]
+
+=================================== FAILURES ===================================
+_________________________________ test_case_1 __________________________________
+
+    def test_case_1():
+        timer_0 = module_0.Timer()
+        timer_1 = timer_0.__enter__()
+        none_type_0 = timer_0.__exit__()
+        none_type_1 = timer_1.start()
+>       timer_0.start()
+
+data/codetiming/test_codetiming__timer.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Timer(name=None, text='Elapsed time: {:0.4f} seconds', initial_text=False, logger=<built-in function print>)
+
+    def start(self) -> None:
+        """Start a new timer."""
+        if self._start_time is not None:
+>           raise TimerError("Timer is running. Use .stop() to stop it")
+E           codetiming_timer.TimerError: Timer is running. Use .stop() to stop it
+
+data/codetiming/codetiming_timer.py:72: TimerError
+----------------------------- Captured stdout call -----------------------------
+Elapsed time: 0.0000 seconds
+_________________________________ test_case_3 __________________________________
+
+    def test_case_3():
+        float_arg_0 = module_0.FloatArg()
+        timer_error_0 = module_0.TimerError()
+        timer_0 = module_0.Timer()
+>       timer_0.__exit__()
+
+data/codetiming/test_codetiming__timer.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+data/codetiming/codetiming_timer.py:120: in __exit__
+    self.stop()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Timer(name=None, text='Elapsed time: {:0.4f} seconds', initial_text=False, logger=<built-in function print>)
+
+    def stop(self) -> float:
+        """Stop the timer, and report the elapsed time."""
+        if self._start_time is None:
+>           raise TimerError("Timer is not running. Use .start() to start it")
+E           codetiming_timer.TimerError: Timer is not running. Use .start() to start it
+
+data/codetiming/codetiming_timer.py:89: TimerError
+_________________________________ test_case_4 __________________________________
+
+    def test_case_4():
+        none_type_0 = None
+        timer_0 = module_0.Timer(logger=none_type_0)
+        none_type_1 = timer_0.start()
+        dict_0 = {}
+        none_type_2 = None
+        var_0 = dict_0.__setitem__(none_type_2, dict_0)
+>       var_0.__enter__()
+E       AttributeError: 'NoneType' object has no attribute '__enter__'. Did you mean: '__ne__'?
+
+data/codetiming/test_codetiming__timer.py:38: AttributeError
+_________________________________ test_case_6 __________________________________
+
+    def test_case_6():
+        timer_0 = module_0.Timer()
+        timer_1 = timer_0.__enter__()
+        int_0 = -1092
+        var_0 = timer_1.__repr__()
+        float_arg_0 = module_0.FloatArg()
+        timer_2 = module_0.Timer(initial_text=var_0)
+        float_arg_1 = module_0.FloatArg()
+        var_1 = timer_0.__eq__(int_0)
+        float_0 = timer_1.stop()
+        timer_3 = module_0.Timer(text=float_arg_0, initial_text=var_0)
+        var_2 = timer_0.__repr__()
+        var_3 = timer_3.__repr__()
+>       timer_3.start()
+
+data/codetiming/test_codetiming__timer.py:69: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Timer(name=None, text=<codetiming_timer.FloatArg object at 0x7233a3fd3350>, initial_text="Timer(name=None, text='Elapsed time: {:0.4f} seconds', initial_text=False, logger=<built-in function print>)", logger=<built-in function print>)
+
+    def start(self) -> None:
+        """Start a new timer."""
+        if self._start_time is not None:
+            raise TimerError("Timer is running. Use .stop() to stop it")
+    
+        # Log initial text when timer starts
+        if self.logger and self.initial_text:
+            if isinstance(self.initial_text, str):
+>               initial_text = self.initial_text.format(name=self.name)
+E               IndexError: Replacement index 0 out of range for positional args tuple
+
+data/codetiming/codetiming_timer.py:77: IndexError
+----------------------------- Captured stdout call -----------------------------
+Elapsed time: 0.0000 seconds
+_________________________________ test_case_7 __________________________________
+
+    def test_case_7():
+        none_type_0 = None
+        timer_0 = module_0.Timer(logger=none_type_0)
+        none_type_1 = timer_0.start()
+        dict_0 = {}
+        none_type_2 = None
+        none_type_3 = timer_0.__exit__()
+        var_0 = dict_0.__setitem__(none_type_2, dict_0)
+        var_1 = var_0.__repr__()
+>       var_0.start()
+E       AttributeError: 'NoneType' object has no attribute 'start'
+
+data/codetiming/test_codetiming__timer.py:81: AttributeError
+_________________________________ test_case_8 __________________________________
+
+    def test_case_8():
+        timer_0 = module_0.Timer()
+        timer_1 = timer_0.__enter__()
+        var_0 = timer_0.__eq__(timer_0)
+        none_type_0 = timer_0.__exit__()
+        timer_2 = module_0.Timer(initial_text=timer_1, logger=var_0)
+        timer_3 = module_0.Timer(timer_1, initial_text=timer_2, logger=var_0)
+>       timer_3.start()
+
+data/codetiming/test_codetiming__timer.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Timer(name=Timer(name=None, text='Elapsed time: {:0.4f} seconds', initial_text=False, logger=<built-in function print>...text='Elapsed time: {:0.4f} seconds', initial_text=False, logger=<built-in function print>), logger=True), logger=True)
+
+    def start(self) -> None:
+        """Start a new timer."""
+        if self._start_time is not None:
+            raise TimerError("Timer is running. Use .stop() to stop it")
+    
+        # Log initial text when timer starts
+        if self.logger and self.initial_text:
+            if isinstance(self.initial_text, str):
+                initial_text = self.initial_text.format(name=self.name)
+            elif self.name:
+                initial_text = "Timer {name} started".format(name=self.name)
+            else:
+                initial_text = "Timer started"
+>           self.logger(initial_text)
+E           TypeError: 'bool' object is not callable
+
+data/codetiming/codetiming_timer.py:82: TypeError
+----------------------------- Captured stdout call -----------------------------
+Elapsed time: 0.0000 seconds
+_________________________________ test_case_9 __________________________________
+
+    def test_case_9():
+        str_0 = "Timer started"
+        timer_0 = module_0.Timer(str_0)
+        none_type_0 = timer_0.start()
+        float_0 = timer_0.stop()
+        timer_1 = timer_0.__enter__()
+>       timer_0.copy()
+E       AttributeError: 'Timer' object has no attribute 'copy'
+
+data/codetiming/test_codetiming__timer.py:100: AttributeError
+----------------------------- Captured stdout call -----------------------------
+Elapsed time: 0.0000 seconds
+=============================== warnings summary ===============================
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: anyio
+    self._mark_plugins_for_rewrite(hook)
+
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: langsmith
+    self._mark_plugins_for_rewrite(hook)
+
+data/codetiming/test_codetiming__timer.py::test_case_5
+  /data/users/eliassam/Thesis/llm_readability/llm-test-readability/data/codetiming/codetiming_timer.py:75: DeprecationWarning: NotImplemented should not be used in a boolean context
+    if self.logger and self.initial_text:
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED data/codetiming/test_codetiming__timer.py::test_case_1 - codetiming_ti...
+FAILED data/codetiming/test_codetiming__timer.py::test_case_3 - codetiming_ti...
+FAILED data/codetiming/test_codetiming__timer.py::test_case_4 - AttributeErro...
+FAILED data/codetiming/test_codetiming__timer.py::test_case_6 - IndexError: R...
+FAILED data/codetiming/test_codetiming__timer.py::test_case_7 - AttributeErro...
+FAILED data/codetiming/test_codetiming__timer.py::test_case_8 - TypeError: 'b...
+FAILED data/codetiming/test_codetiming__timer.py::test_case_9 - AttributeErro...
+=================== 7 failed, 3 passed, 3 warnings in 0.10s ====================
+============================= test session starts ==============================
+platform linux -- Python 3.12.9, pytest-8.3.2, pluggy-1.5.0
+rootdir: /data/users/eliassam/Thesis/llm_readability/llm-test-readability
+plugins: anyio-4.3.0, mimesis-18.0.0, langsmith-0.6.6, typeguard-4.3.0
+collected 11 items
+
+output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py . [  9%]
+FFFFFF.FFF                                                               [100%]
+
+=================================== FAILURES ===================================
+__________________________________ test_timer __________________________________
+
+    def test_timer():
+        # Create a Timer instance
+>       timer = timer.Timer()
+E       NameError: name 'timer_module' is not defined
+
+output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py:16: NameError
+_________________________ test_timer_enters_and_exits __________________________
+
+    def test_timer_enters_and_exits() -> None:
+        """
+        This test case verifies that the `__enter__` and `__exit__` methods correctly enter and exit the Timer instance.
+        """
+>       from codetiming import Timer
+E       ModuleNotFoundError: No module named 'codetiming'
+
+output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py:38: ModuleNotFoundError
+___________________ test_timer_is_initialized_with_numpy_nan ___________________
+
+>   ???
+E   NameError: name 'math' is not defined. Did you forget to import 'math'
+
+output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py:52: NameError
+_____________________ test_timer_sets_last_to_stopped_time _____________________
+
+    
+    def test_timer_sets_last_to_stopped_time():
+        # Given a Timer
+        t = timer.Timer()
+    
+        # When Timer is started and time is slept for 0.02 seconds
+>       t.start()
+E       NameError: name 'time' is not defined. Did you forget to import 'time'
+
+output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py:60: NameError
+________________ test_timer_default_parameter_logging_none_type ________________
+
+>   ???
+E   AttributeError: 'NoneType' object has no attribute '__enter__'. Did you mean: '__ne__'?
+
+output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py:82: AttributeError
+_______________________ test_timer_enter_and_repr_calls ________________________
+
+    
+    def test_timer_enter_and_repr_calls():
+>       """Test calling the Timer object's __enter__ and __repr__ method"""
+E       NameError: name 'Timer' is not defined
+
+output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py:87: NameError
+_____________________ test_timer_start_function_correctly ______________________
+
+    
+    def test_timer_start_function_correctly():
+        """
+        Test if Timer start function is correctly setting the start time.
+        """
+>       mock_logger = None
+E       UnboundLocalError: cannot access local variable 'timer' where it is not associated with a value
+
+output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py:104: UnboundLocalError
+_________________________ test_start_stop_time_keeping _________________________
+
+>   ???
+E   NameError: name 'waste_time' is not defined
+
+output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py:130: NameError
+____________ test_access_timer_object_in_context_with_custom_logger ____________
+
+    
+    def test_access_timer_object_in_context_with_custom_logger():
+>       """Test access to Timer object inside a 'with' context and referencing the timer object inside a context."""
+E       NameError: name 'timer_message' is not defined
+
+output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py:140: NameError
+=============================== warnings summary ===============================
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: anyio
+    self._mark_plugins_for_rewrite(hook)
+
+../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273
+  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: langsmith
+    self._mark_plugins_for_rewrite(hook)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py::test_timer
+FAILED output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py::test_timer_enters_and_exits
+FAILED output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py::test_timer_is_initialized_with_numpy_nan
+FAILED output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py::test_timer_sets_last_to_stopped_time
+FAILED output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py::test_timer_default_parameter_logging_none_type
+FAILED output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py::test_timer_enter_and_repr_calls
+FAILED output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py::test_timer_start_function_correctly
+FAILED output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py::test_start_stop_time_keeping
+FAILED output/deepseek-coder/codetiming_timer.py/base/run2/test_codetiming__timer_functions_refactored.py::test_access_timer_object_in_context_with_custom_logger
+=================== 9 failed, 2 passed, 2 warnings in 0.13s ====================
+Retry pytest results: {'Original Test Results': {'total': 11, 'pass': 3, 'fail': 7, 'error': 0}, 'Refactored Test Results': {'total': 12, 'pass': 2, 'fail': 9, 'error': 0}}
+
+Computing DAN Scores...
+DAN Score Before: {'__main__': 0.7026676535606384, 'test_case_0': 0.7556875944137573, 'test_case_1': 0.4087132140994072, 'test_case_2': 0.415790319442749, 'test_case_3': 0.3198978006839752, 'test_case_4': 0.20976607501506805, 'test_case_5': 0.2288596745460264, 'test_case_6': 0.23542607225039425, 'test_case_7': 0.1934603601694107, 'test_case_8': 0.31953396565384334, 'test_case_9': 0.36531470715999603}
+DAN Score After: {'__main__': 0.7832081317901611, 'test_timer_error_instance_creation': 0.3991467356681824, 'test_timer': 0.44544970989227295, 'test_timer_enters_and_exits': 0.24842897057533264, 'test_timer_is_initialized_with_numpy_nan': 0.43458792567253113, 'test_timer_sets_last_to_stopped_time': 0.4553445776303609, 'test_timer_default_parameter_logging_none_type': 0.2099539376795292, 'test_timer_enter_and_repr_calls': 0.31093970537185667, 'test_repr_method_of_timer': 0.49387842416763306, 'test_timer_start_function_correctly': 0.17489842077096304, 'test_start_stop_time_keeping': 0.337125301361084, 'test_access_timer_object_in_context_with_custom_logger': 0.4198061227798462}
+Test run data saved to: ./output/deepseek-coder/codetiming_timer.py/base/run2/test_run_report.csv
+Test run JSON data saved to: ./output/deepseek-coder/codetiming_timer.py/base/run2/test_run_report.json
+Execution finished at Tue May 19 02:18:28 PM CEST 2026
+Moving SLURM logs to slurm_logs/20260519_135358

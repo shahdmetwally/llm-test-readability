@@ -1,0 +1,59 @@
+<unknown>:24: SyntaxWarning: invalid escape sequence '\['
+<unknown>:25: SyntaxWarning: invalid escape sequence '\['
+<unknown>:26: SyntaxWarning: invalid escape sequence '\('
+<unknown>:27: SyntaxWarning: invalid escape sequence '\('
+<unknown>:28: SyntaxWarning: invalid escape sequence '\e'
+2026-05-18 17:24:58,120 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:25:11,174 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:25:13,459 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:25:26,461 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:25:29,426 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:25:42,356 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:25:46,019 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:25:56,726 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:25:59,474 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:26:10,488 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:26:12,362 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:26:27,812 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:26:32,179 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:26:46,117 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:26:49,257 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:27:01,107 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:27:04,107 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:27:25,237 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:27:40,289 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:27:55,220 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:27:59,118 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:28:13,203 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:28:15,825 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:28:40,332 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-18 17:28:54,460 - INFO - Loading model: microsoft/codebert-base-mlm
+/data/users/eliassam/miniforge3/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Some weights of the model checkpoint at microsoft/codebert-base-mlm were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+2026-05-18 17:28:56,997 - INFO - Processed __main__.dot: Score=0.6247 (1 paths)
+2026-05-18 17:28:58,015 - INFO - Processed test_case_0.dot: Score=0.5517 (1 paths)
+2026-05-18 17:29:03,449 - INFO - Processed test_case_1.dot: Score=0.2750 (3 paths)
+2026-05-18 17:29:05,216 - INFO - Processed test_case_2.dot: Score=0.2332 (1 paths)
+2026-05-18 17:29:06,081 - INFO - Processed test_case_3.dot: Score=0.3506 (1 paths)
+2026-05-18 17:29:06,808 - INFO - Processed test_case_4.dot: Score=0.4858 (1 paths)
+2026-05-18 17:29:12,308 - INFO - Processed test_case_5.dot: Score=0.1792 (7 paths)
+2026-05-18 17:29:12,734 - INFO - Processed test_case_6.dot: Score=0.1989 (1 paths)
+2026-05-18 17:29:12,805 - INFO - Processed test_case_7.dot: Score=0.2615 (1 paths)
+2026-05-18 17:29:14,289 - INFO - Processed test_case_8.dot: Score=0.1112 (15 paths)
+2026-05-18 17:29:14,548 - INFO - Processed test_case_9.dot: Score=0.1418 (3 paths)
+2026-05-18 17:29:14,654 - INFO - Processed test_case_10.dot: Score=0.2798 (1 paths)
+2026-05-18 17:29:14,757 - INFO - Processed __main__.dot: Score=0.5482 (1 paths)
+2026-05-18 17:29:14,821 - INFO - Processed test_to_namedtuple_with_float_input.dot: Score=0.3301 (1 paths)
+2026-05-18 17:29:15,012 - INFO - Processed test_to_namedtuple_with_nested_tuple_containing_set.dot: Score=0.2822 (3 paths)
+2026-05-18 17:29:15,098 - INFO - Processed test_to_namedtuple_with_duplicate_keys_and_namedtuple_input.dot: Score=0.3425 (1 paths)
+2026-05-18 17:29:15,165 - INFO - Processed test_to_namedtuple_raises_on_bytes_input.dot: Score=0.2493 (1 paths)
+2026-05-18 17:29:15,227 - INFO - Processed test_to_namedtuple_with_empty_tuple.dot: Score=0.4766 (1 paths)
+2026-05-18 17:29:22,361 - INFO - Processed test_to_namedtuple_with_empty_ordered_dict_and_nested_tuple.dot: Score=0.2706 (7 paths)
+2026-05-18 17:29:22,456 - INFO - Processed test_to_namedtuple_with_ordered_dict_containing_special_key.dot: Score=0.2298 (1 paths)
+2026-05-18 17:29:22,537 - INFO - Processed test_to_namedtuple_with_nested_empty_list_and_none.dot: Score=0.2763 (1 paths)
+2026-05-18 17:29:24,391 - INFO - Processed test_to_namedtuple_with_various_input_types.dot: Score=0.1558 (15 paths)
+2026-05-18 17:29:24,699 - INFO - Processed test_to_namedtuple_with_nested_structures_and_repeated_conversion.dot: Score=0.1944 (3 paths)
+2026-05-18 17:29:24,786 - INFO - Processed test_to_namedtuple_with_duplicate_bytes_keys.dot: Score=0.1838 (1 paths)

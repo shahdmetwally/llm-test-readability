@@ -1,0 +1,64 @@
+{
+    "module": "helpers.py",
+    "timestamp": "2026-04-08T15:35:59.301321",
+    "llm_info": {
+        "model": "deepseek-v3",
+        "version": "functions",
+        "temperature": 0.2,
+        "prompt_style": "combined"
+    },
+    "run_number": 2,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": -4,
+        "diff_failing_tests": 4,
+        "diff_coverage": -12.12,
+        "dan_score_diff": 0.124675
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 7, 'pass': 4, 'fail': 2, 'error': 0}",
+        "Refactored Test Results": "{'total': 7, 'pass': 0, 'fail': 6, 'error': 0}",
+        "total_tests_before": 7,
+        "total_tests_after": 7
+    },
+    "coverage": {
+        "before_refactoring": 45.45,
+        "after_refactoring": 33.33
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "pass",
+            "test_case_1": "pass",
+            "test_case_2": "pass",
+            "test_case_3": "fail",
+            "test_case_4": "pass",
+            "test_case_5": "fail"
+        },
+        "after_refactoring": {
+            "test_purge_result_can_be_debugged": "fail",
+            "test_variables_generator_instantiation": "fail",
+            "test_variables_generator_can_be_passed_to_eager": "fail",
+            "test_eager_debug_warn_and_get_source_chain": "fail",
+            "test_warn_with_proxyhandler_string": "fail",
+            "test_eager_callable_self_reference": "fail"
+        },
+        "dan_score_before": {
+            "test_case_0": 0.4384837746620178,
+            "test_case_1": 0.5822875499725342,
+            "test_case_2": 0.3548618257045746,
+            "test_case_3": 0.2686480462551117,
+            "test_case_4": 0.5192356705665588,
+            "test_case_5": 0.418508917093277
+        },
+        "dan_score_after": {
+            "test_purge_result_can_be_debugged": 0.3463149666786194,
+            "test_variables_generator_instantiation": 0.418317586183548,
+            "test_variables_generator_can_be_passed_to_eager": 0.29171428084373474,
+            "test_eager_debug_warn_and_get_source_chain": 0.1837904244661331,
+            "test_warn_with_proxyhandler_string": 0.30863499641418457,
+            "test_eager_callable_self_reference": 0.2852073460817337
+        },
+        "avg_dan_score_before": 0.430338,
+        "avg_dan_score_after": 0.305663
+    }
+}

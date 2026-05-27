@@ -1,0 +1,18 @@
+fatal: Cannot fast-forward to multiple branches.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/data/users/eliassam/Thesis/llm_readability/llm-test-readability/src/main.py", line 120, in <module>
+    vectorstores = index_manager.build()
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users/eliassam/Thesis/llm_readability/llm-test-readability/src/util/rag/index_manager.py", line 26, in build
+    self.vectorstores = build_indexes_for_repos(self.repos)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users/eliassam/Thesis/llm_readability/llm-test-readability/src/util/rag/rag_pipeline.py", line 203, in build_indexes_for_repos
+    repo_root = ensure_repo_local(spec)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users/eliassam/Thesis/llm_readability/llm-test-readability/src/util/rag/rag_pipeline.py", line 51, in ensure_repo_local
+    subprocess.check_call(["git", "-C", repo_root, "pull", "--ff-only"])
+  File "/data/users/eliassam/miniforge3/lib/python3.12/subprocess.py", line 415, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['git', '-C', '/data/users/eliassam/Thesis/llm_readability/llm-test-readability/repos/codetiming', 'pull', '--ff-only']' returned non-zero exit status 128.

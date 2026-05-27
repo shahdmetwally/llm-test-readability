@@ -1,0 +1,74 @@
+{
+    "module": "codetiming_timer.py",
+    "timestamp": "2026-03-13T13:53:59.293806",
+    "llm_info": {
+        "model": "mini",
+        "version": "functions",
+        "temperature": 0.2,
+        "prompt_style": "base"
+    },
+    "run_number": 1,
+    "test_summary": {
+        "Original Test Results": "{'total': 11, 'pass': 3, 'fail': 7, 'error': 0}",
+        "Refactored Test Results": "{'total': 10, 'pass': 4, 'fail': 5, 'error': 0}",
+        "total_tests_before": 11,
+        "total_tests_after": 10
+    },
+    "coverage": {
+        "before_refactoring": 69.92,
+        "after_refactoring": 63.56
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "pass",
+            "test_case_1": "fail",
+            "test_case_2": "pass",
+            "test_case_3": "fail",
+            "test_case_4": "fail",
+            "test_case_5": "pass",
+            "test_case_6": "fail",
+            "test_case_7": "fail",
+            "test_case_8": "fail",
+            "test_case_9": "fail"
+        },
+        "after_refactoring": {
+            "test_timer_error_can_be_instantiated": "pass",
+            "test_timer_context_enter_exit_and_start_sequence": "fail",
+            "test_timer_context_manager_enter_exit_behavior": "pass",
+            "test_timer_exit_can_be_invoked_without_arguments": "fail",
+            "test_start_timer_with_no_logger_then_call_enter_on_setitem_result": "fail",
+            "test_timer_context_and_method_sequence": "pass",
+            "test_timer_context_and_initial_text_interactions": "pass",
+            "test_timer_with_none_logger_calls_and_none_method_usage": "fail",
+            "test_timer_start_with_values_from_another_timer": "fail"
+        },
+        "dan_score_before": {
+            "test_case_0": 0.7556875944137573,
+            "test_case_1": 0.4087132140994072,
+            "test_case_2": 0.415790319442749,
+            "test_case_3": 0.3198978006839752,
+            "test_case_4": 0.20976607501506805,
+            "test_case_5": 0.2288596745460264,
+            "test_case_6": 0.23542607225039425,
+            "test_case_7": 0.1934603601694107,
+            "test_case_8": 0.31953396565384334,
+            "test_case_9": 0.36531470715999603
+        },
+        "dan_score_after": {
+            "test_timer_error_can_be_instantiated": 0.4286712110042572,
+            "test_timer_context_enter_exit_and_start_sequence": 0.27075763046741486,
+            "test_timer_context_manager_enter_exit_behavior": 0.27342845996220905,
+            "test_timer_exit_can_be_invoked_without_arguments": 0.2774764895439148,
+            "test_start_timer_with_no_logger_then_call_enter_on_setitem_result": 0.2105933129787445,
+            "test_timer_context_and_method_sequence": 0.15962192247952184,
+            "test_timer_context_and_initial_text_interactions": 0.6303918957710266,
+            "test_timer_with_none_logger_calls_and_none_method_usage": 0.23369451984763145,
+            "test_timer_start_with_values_from_another_timer": 0.2631159855259789
+        },
+        "avg_dan_score_before": 0.345245,
+        "avg_dan_score_after": 0.305306
+    },
+    "diff_metrics": {
+        "dan_score_diff": 0.039939
+    }
+}

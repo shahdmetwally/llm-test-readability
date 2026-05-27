@@ -1,0 +1,55 @@
+<unknown>:24: SyntaxWarning: invalid escape sequence '\['
+<unknown>:25: SyntaxWarning: invalid escape sequence '\['
+<unknown>:26: SyntaxWarning: invalid escape sequence '\('
+<unknown>:27: SyntaxWarning: invalid escape sequence '\('
+<unknown>:28: SyntaxWarning: invalid escape sequence '\e'
+2026-05-19 13:55:08,498 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:55:23,117 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:55:25,058 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:55:43,047 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:55:48,306 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:56:04,000 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:56:05,925 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:56:23,147 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:56:24,995 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:56:45,297 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:56:48,534 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:57:08,849 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:57:12,277 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:57:34,019 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:57:38,350 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:57:59,059 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:58:05,574 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:58:24,922 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:58:28,313 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:58:45,945 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:58:48,227 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:59:17,277 - INFO - HTTP Request: POST https://anast.ita.chalmers.se:4100/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:59:26,161 - INFO - Loading model: microsoft/codebert-base-mlm
+/data/users/eliassam/miniforge3/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Some weights of the model checkpoint at microsoft/codebert-base-mlm were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+2026-05-19 13:59:40,169 - INFO - Processed __main__.dot: Score=0.7027 (1 paths)
+2026-05-19 13:59:40,249 - INFO - Processed test_case_0.dot: Score=0.7557 (1 paths)
+2026-05-19 13:59:40,744 - INFO - Processed test_case_1.dot: Score=0.4087 (4 paths)
+2026-05-19 13:59:40,874 - INFO - Processed test_case_2.dot: Score=0.4158 (2 paths)
+2026-05-19 13:59:41,099 - INFO - Processed test_case_3.dot: Score=0.3199 (1 paths)
+2026-05-19 13:59:41,330 - INFO - Processed test_case_4.dot: Score=0.2098 (2 paths)
+2026-05-19 13:59:44,454 - INFO - Processed test_case_5.dot: Score=0.2289 (31 paths)
+2026-05-19 13:59:47,471 - INFO - Processed test_case_6.dot: Score=0.2354 (34 paths)
+2026-05-19 13:59:48,112 - INFO - Processed test_case_7.dot: Score=0.1935 (8 paths)
+2026-05-19 13:59:48,828 - INFO - Processed test_case_8.dot: Score=0.3195 (9 paths)
+2026-05-19 13:59:49,091 - INFO - Processed test_case_9.dot: Score=0.3653 (4 paths)
+2026-05-19 13:59:49,176 - INFO - Processed __main__.dot: Score=0.6514 (1 paths)
+2026-05-19 13:59:49,300 - INFO - Processed test_timer_error_can_be_instantiated.dot: Score=0.4760 (1 paths)
+2026-05-19 13:59:49,637 - INFO - Processed test_timer_raises_error_when_started_while_already_running.dot: Score=0.4083 (4 paths)
+2026-05-19 13:59:49,784 - INFO - Processed test_timer_context_manager_enter_and_exit.dot: Score=0.3654 (2 paths)
+2026-05-19 13:59:49,936 - INFO - Processed test_timer_exit_without_start_raises_error.dot: Score=0.3319 (2 paths)
+2026-05-19 13:59:50,291 - INFO - Processed test_timer_start_with_none_logger_returns_none.dot: Score=0.2097 (4 paths)
+2026-05-19 13:59:53,490 - INFO - Processed test_timer_context_manager_with_various_configurations.dot: Score=0.2635 (31 paths)
+2026-05-19 13:59:57,551 - INFO - Processed test_timer_context_manager_with_repr_as_initial_text.dot: Score=0.1715 (34 paths)
+2026-05-19 13:59:57,941 - INFO - Processed test_timer_start_stop_with_no_logger_then_setitem_and_repr_on_result.dot: Score=0.1659 (4 paths)
+2026-05-19 13:59:58,897 - INFO - Processed test_timer_start_with_nested_timer_references.dot: Score=0.1858 (9 paths)
+2026-05-19 13:59:59,223 - INFO - Processed test_timer_start_stop_then_enter_and_copy.dot: Score=0.3038 (4 paths)

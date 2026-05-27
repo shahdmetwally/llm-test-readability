@@ -1,0 +1,66 @@
+{
+    "module": "helpers.py",
+    "timestamp": "2026-05-21T04:07:22.090916",
+    "llm_info": {
+        "model": "deepseek-coder",
+        "version": "functions",
+        "temperature": 1.0,
+        "prompt_style": "base"
+    },
+    "run_number": 3,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": -3,
+        "diff_failing_tests": 3,
+        "diff_coverage": -34.18,
+        "dan_score_diff": 0.095405
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 7, 'pass': 4, 'fail': 2, 'error': 0}",
+        "Refactored Test Results": "{'total': 7, 'pass': 1, 'fail': 5, 'error': 0}",
+        "total_tests_before": 7,
+        "total_tests_after": 7
+    },
+    "coverage": {
+        "before_refactoring": 45.45,
+        "after_refactoring": 11.27
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "pass",
+            "test_case_1": "pass",
+            "test_case_2": "pass",
+            "test_case_3": "fail",
+            "test_case_4": "pass",
+            "test_case_5": "fail"
+        },
+        "after_refactoring": {
+            "test_module_0_purge_call_returns_none": "fail",
+            "test_import_interceptor_repopulate_modules_by_filename": "fail",
+            "test_module_0_purge_call_returns_none_1": "fail",
+            "test_eager_and_debug_feature": "fail",
+            "test_proxy_handler_warn": "pass",
+            "test_calling_eager_function_1": "fail"
+        },
+        "dan_score_before": {
+            "__main__": 0.641155481338501,
+            "test_case_0": 0.4384838342666626,
+            "test_case_1": 0.5822873711585999,
+            "test_case_2": 0.3548617362976074,
+            "test_case_3": 0.2686479926109314,
+            "test_case_4": 0.5192355513572693,
+            "test_case_5": 0.4185090512037277
+        },
+        "dan_score_after": {
+            "__main__": 0.7242715954780579,
+            "test_module_0_purge_call_returns_none": 0.27745556831359863,
+            "test_import_interceptor_repopulate_modules_by_filename": 0.2540684834122658,
+            "test_module_0_purge_call_returns_none_1": 0.28818947076797485,
+            "test_eager_and_debug_feature": 0.26931947767734526,
+            "test_proxy_handler_warn": 0.4072292149066925,
+            "test_calling_eager_function_1": 0.3348080813884735
+        },
+        "avg_dan_score_before": 0.460454,
+        "avg_dan_score_after": 0.365049
+    }
+}

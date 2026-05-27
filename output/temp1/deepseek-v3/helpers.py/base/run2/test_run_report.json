@@ -1,0 +1,66 @@
+{
+    "module": "helpers.py",
+    "timestamp": "2026-05-21T23:47:47.841582",
+    "llm_info": {
+        "model": "deepseek-v3",
+        "version": "functions",
+        "temperature": 1.0,
+        "prompt_style": "base"
+    },
+    "run_number": 2,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": -2,
+        "diff_failing_tests": 2,
+        "diff_coverage": -20.0,
+        "dan_score_diff": 0.031482
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 7, 'pass': 4, 'fail': 2, 'error': 0}",
+        "Refactored Test Results": "{'total': 7, 'pass': 2, 'fail': 4, 'error': 0}",
+        "total_tests_before": 7,
+        "total_tests_after": 7
+    },
+    "coverage": {
+        "before_refactoring": 45.45,
+        "after_refactoring": 25.45
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "pass",
+            "test_case_1": "pass",
+            "test_case_2": "pass",
+            "test_case_3": "fail",
+            "test_case_4": "pass",
+            "test_case_5": "fail"
+        },
+        "after_refactoring": {
+            "test_purge_result_can_be_debugged": "fail",
+            "test_variables_generator_initialization": "pass",
+            "test_variables_generator_is_eagerly_evaluated": "pass",
+            "test_eager_debug_warn_source_operations_with_variables_generator": "fail",
+            "test_warn_proxy_handler_message": "fail",
+            "test_eager_callable_accepts_start_parameter": "fail"
+        },
+        "dan_score_before": {
+            "__main__": 0.641155481338501,
+            "test_case_0": 0.4384838342666626,
+            "test_case_1": 0.5822873711585999,
+            "test_case_2": 0.3548617362976074,
+            "test_case_3": 0.2686479926109314,
+            "test_case_4": 0.5192355513572693,
+            "test_case_5": 0.4185090512037277
+        },
+        "dan_score_after": {
+            "__main__": 0.5884165167808533,
+            "test_purge_result_can_be_debugged": 0.4730912446975708,
+            "test_variables_generator_initialization": 0.6255911588668823,
+            "test_variables_generator_is_eagerly_evaluated": 0.3852580189704895,
+            "test_eager_debug_warn_source_operations_with_variables_generator": 0.20702862739562988,
+            "test_warn_proxy_handler_message": 0.41928786039352417,
+            "test_eager_callable_accepts_start_parameter": 0.30412745475769043
+        },
+        "avg_dan_score_before": 0.460454,
+        "avg_dan_score_after": 0.428972
+    }
+}

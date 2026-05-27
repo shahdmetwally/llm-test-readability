@@ -1,0 +1,109 @@
+{
+    "module": "maybe.py",
+    "timestamp": "2026-03-11T20:54:40.929399",
+    "llm_info": {
+        "model": "deepseek-coder",
+        "version": "functions",
+        "temperature": 0.2,
+        "prompt_style": "combined"
+    },
+    "run_number": 3,
+    "diff_metrics": {
+        "diff_total_tests": -5,
+        "diff_passing_tests": -2,
+        "diff_failing_tests": -3,
+        "diff_coverage": -30.54,
+        "dan_score_diff": 0.006854
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 21, 'pass': 3, 'fail': 17, 'error': 0}",
+        "Refactored Test Results": "{'total': 16, 'pass': 1, 'fail': 14, 'error': 0}",
+        "total_tests_before": 21,
+        "total_tests_after": 16
+    },
+    "coverage": {
+        "before_refactoring": 52.85,
+        "after_refactoring": 22.31
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "pass",
+            "test_case_1": "pass",
+            "test_case_2": "fail",
+            "test_case_3": "pass",
+            "test_case_4": "fail",
+            "test_case_5": "fail",
+            "test_case_6": "fail",
+            "test_case_7": "fail",
+            "test_case_8": "fail",
+            "test_case_9": "fail",
+            "test_case_10": "fail",
+            "test_case_11": "fail",
+            "test_case_12": "fail",
+            "test_case_13": "fail",
+            "test_case_14": "fail",
+            "test_case_15": "fail",
+            "test_case_16": "fail",
+            "test_case_17": "fail",
+            "test_case_18": "fail",
+            "test_case_19": "fail"
+        },
+        "after_refactoring": {
+            "test_maybe_class_initialization": "fail",
+            "test_maybe_instance_with_none_values": "fail",
+            "test_maybe_class_functionality": "fail",
+            "test_maybe_eq_set": "pass",
+            "test_maybe_class_and_methods": "fail",
+            "test_maybe_map_method": "fail",
+            "test_maybe_class_behavior": "fail",
+            "test_maybe_class_functionality_2": "fail",
+            "test_maybe_class_ap_method_behavior": "fail",
+            "test_maybe_class_behavior_2": "fail",
+            "test_maybe_filter_and_to_lazy": "fail",
+            "test_maybe_class_functionality_3": "fail",
+            "test_maybe_to_try_and_box": "fail",
+            "test_maybe_class_methods": "fail",
+            "test_maybe_class_functionality_4": "fail"
+        },
+        "dan_score_before": {
+            "test_case_0": 0.39177650213241577,
+            "test_case_1": 0.4033203423023224,
+            "test_case_2": 0.16177101790905,
+            "test_case_3": 0.3068503811955452,
+            "test_case_4": 0.2873412221670151,
+            "test_case_5": 0.4323251048723857,
+            "test_case_6": 0.27006437877813977,
+            "test_case_7": 0.1338642304273028,
+            "test_case_8": 0.4910967747370402,
+            "test_case_9": 0.20555652429660162,
+            "test_case_10": 0.20941989620526633,
+            "test_case_11": 0.18392598256468773,
+            "test_case_12": 0.16452998185859008,
+            "test_case_13": 0.1918022960424423,
+            "test_case_14": 0.17900435047017205,
+            "test_case_15": 0.2980077415704727,
+            "test_case_16": 0.16629311311990022,
+            "test_case_17": 0.10251285761594772,
+            "test_case_18": 0.2135451493354944,
+            "test_case_19": 0.2928418070077896
+        },
+        "dan_score_after": {
+            "test_maybe_class_initialization": 0.30479303002357483,
+            "test_maybe_instance_with_none_values": 0.3971485197544098,
+            "test_maybe_class_functionality": 0.10856573328375817,
+            "test_maybe_eq_set": 0.3212165832519531,
+            "test_maybe_class_and_methods": 0.3058337539434433,
+            "test_maybe_map_method": 0.2982487380504608,
+            "test_maybe_class_behavior": 0.22649543980757395,
+            "test_maybe_class_functionality_2": 0.20622915774583817,
+            "test_maybe_class_ap_method_behavior": 0.3508421579996745,
+            "test_maybe_class_behavior_2": 0.12042817652225495,
+            "test_maybe_filter_and_to_lazy": 0.2026657983660698,
+            "test_maybe_to_try_and_box": 0.2778766453266144,
+            "test_maybe_class_methods": 0.11223092555999756,
+            "test_maybe_class_functionality_3": 0.2315554842352867
+        },
+        "avg_dan_score_before": 0.254292,
+        "avg_dan_score_after": 0.247438
+    }
+}

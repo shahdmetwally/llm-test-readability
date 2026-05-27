@@ -1,0 +1,60 @@
+{
+    "module": "base.py",
+    "timestamp": "2026-03-25T23:24:23.045277",
+    "llm_info": {
+        "model": "deepseek-v3",
+        "version": "functions",
+        "temperature": 0.2,
+        "prompt_style": "combined"
+    },
+    "run_number": 2,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": 0,
+        "diff_failing_tests": 0,
+        "diff_coverage": -3.97,
+        "dan_score_diff": 0.004405
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 6, 'pass': 2, 'fail': 3, 'error': 0}",
+        "Refactored Test Results": "{'total': 6, 'pass': 2, 'fail': 3, 'error': 0}",
+        "total_tests_before": 6,
+        "total_tests_after": 6
+    },
+    "coverage": {
+        "before_refactoring": 36.7,
+        "after_refactoring": 32.73
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "pass",
+            "test_case_1": "fail",
+            "test_case_2": "fail",
+            "test_case_3": "fail",
+            "test_case_4": "pass"
+        },
+        "after_refactoring": {
+            "test_base_node_transformer_instantiation_with_none": "pass",
+            "test_visit_import_from_with_matmult_and_base_import_rewrite": "fail",
+            "test_visit_import_from_with_none_and_matmult_nodes": "fail",
+            "test_visit_import_from_with_complex_arguments": "fail",
+            "test_visit_import_from_with_complex_string_mapping": "pass"
+        },
+        "dan_score_before": {
+            "test_case_0": 0.6931780576705933,
+            "test_case_1": 0.3087288985649745,
+            "test_case_2": 0.23895881644317082,
+            "test_case_3": 0.2257987062136332,
+            "test_case_4": 0.2019755057990551
+        },
+        "dan_score_after": {
+            "test_base_node_transformer_instantiation_with_none": 0.44447603821754456,
+            "test_visit_import_from_with_matmult_and_base_import_rewrite": 0.3407679498195648,
+            "test_visit_import_from_with_none_and_matmult_nodes": 0.2845902144908905,
+            "test_visit_import_from_with_complex_arguments": 0.34273530046145123,
+            "test_visit_import_from_with_complex_string_mapping": 0.23404547572135925
+        },
+        "avg_dan_score_before": 0.333728,
+        "avg_dan_score_after": 0.329323
+    }
+}

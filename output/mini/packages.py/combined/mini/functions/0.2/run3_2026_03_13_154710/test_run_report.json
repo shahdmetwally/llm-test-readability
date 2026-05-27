@@ -1,0 +1,40 @@
+{
+    "module": "packages.py",
+    "timestamp": "2026-03-13T15:48:01.680336",
+    "llm_info": {
+        "model": "mini",
+        "version": "functions",
+        "temperature": 0.2,
+        "prompt_style": "combined"
+    },
+    "run_number": 3,
+    "test_summary": {
+        "Original Test Results": "{'total': 2, 'pass': 0, 'fail': 1, 'error': 0}",
+        "Refactored Test Results": "{'total': 2, 'pass': 0, 'fail': 1, 'error': 0}",
+        "total_tests_before": 2,
+        "total_tests_after": 2
+    },
+    "coverage": {
+        "before_refactoring": 33.33,
+        "after_refactoring": 20.0
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "fail"
+        },
+        "after_refactoring": {
+            "test_versionpart_instantiation_does_not_raise": "fail"
+        },
+        "dan_score_before": {
+            "test_case_0": 0.9319877624511719
+        },
+        "dan_score_after": {
+            "test_versionpart_instantiation_does_not_raise": 0.3524708151817322
+        },
+        "avg_dan_score_before": 0.931988,
+        "avg_dan_score_after": 0.352471
+    },
+    "diff_metrics": {
+        "dan_score_diff": 0.579517
+    }
+}

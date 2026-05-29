@@ -24,4 +24,3 @@ def test_timer_start_stops_correctly():
 
 # Rest of the test cases are omitted for brevity, replace "module_0" with "maybe" and "module_1" with "helpers".
 
-</final_code>

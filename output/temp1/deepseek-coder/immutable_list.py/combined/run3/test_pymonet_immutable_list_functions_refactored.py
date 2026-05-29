@@ -45,4 +45,3 @@ def test_timer_initialization_and_correctness():
     # Check if timer is not started yet
     assert not timer_instance.is_started
 
-```

@@ -1,7 +1,4 @@
-` tags:
 
-<final_code>
-```python
 import pytest
 import validation as valid
 import helpers as b
@@ -29,5 +26,3 @@ def test_timer_starts_and_stops():
     # If timer failed, convert to Maybe
     failure_as_maybe = is_timer_failure.to_maybe()
     assert failure_as_maybe.is_nothing(), "Converting a failed timer to Maybe should return Nothing."
-
-...

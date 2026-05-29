@@ -48,4 +48,3 @@ def test_timer_start_and_stop_correctly_v2():
     assert time_after_start >= start_time
     assert time_after_stop is None
     assert stop_time >= time_after_start
-```

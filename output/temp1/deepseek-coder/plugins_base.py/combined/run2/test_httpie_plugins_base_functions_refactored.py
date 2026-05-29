@@ -1,4 +1,3 @@
-```python
 import httpie.plugins.base as httpie_plugins
 
 def test_formatter_plugin_instance_creation():

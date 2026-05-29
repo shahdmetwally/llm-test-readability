@@ -1,8 +1,6 @@
-<imports>
 import pytest
 import pyutils.moduleutils.maybe as m
 import typing as t
-</imports>
 
 class TestSomething:
     def test_maybe_instance_can_be_created_correctly(self):
@@ -37,4 +35,3 @@ class TestSomething:
     def test_Maybe_filter_lazy_map(self):
         assert m.Maybe(1).filter(lambda _: True) == m.Just(1)
 
-</final_code>

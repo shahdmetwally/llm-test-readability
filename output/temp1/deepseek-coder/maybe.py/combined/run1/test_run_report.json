@@ -11,7 +11,9 @@
     "diff_metrics": {
         "diff_total_tests": -20,
         "diff_passing_tests": -3,
-        "diff_failing_tests": -17
+        "diff_failing_tests": -17,
+        "diff_coverage": -32.85,
+        "dan_score_diff": -0.149472
     },
     "test_summary": {
         "Original Test Results": "{'total': 21, 'pass': 3, 'fail': 17, 'error': 0}",
@@ -21,7 +23,7 @@
     },
     "coverage": {
         "before_refactoring": 52.85,
-        "after_refactoring": "N/A"
+        "after_refactoring": 20.0
     },
     "test_results": {
         "before_refactoring": {
@@ -70,7 +72,12 @@
             "test_case_18": 0.2135451493354944,
             "test_case_19": 0.2928418070077896
         },
-        "dan_score_after": null,
-        "avg_dan_score_before": 0.283572
+        "dan_score_after": {
+            "__main__": 0.6504584550857544,
+            "test_retry_if_none_decorator_retries_when_function_is_none": 0.24768824875354767,
+            "test_timer_start_stops_correctly": 0.4009850521882375
+        },
+        "avg_dan_score_before": 0.283572,
+        "avg_dan_score_after": 0.433044
     }
 }

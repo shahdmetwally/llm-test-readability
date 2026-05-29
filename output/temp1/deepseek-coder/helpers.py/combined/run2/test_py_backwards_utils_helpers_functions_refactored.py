@@ -55,4 +55,3 @@ def test_timer_can_measure_time_spent():
     timer_instance = regex.eager(timer_interval)
     none_arg = None
     timer_instance.__call__(timer_instance, timer_instance, module=none_arg, start=timer_instance)
-```

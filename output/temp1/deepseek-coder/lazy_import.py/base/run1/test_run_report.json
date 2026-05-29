@@ -11,7 +11,9 @@
     "diff_metrics": {
         "diff_total_tests": -22,
         "diff_passing_tests": -2,
-        "diff_failing_tests": -20
+        "diff_failing_tests": -20,
+        "diff_coverage": null,
+        "dan_score_diff": null
     },
     "test_summary": {
         "Original Test Results": "{'total': 23, 'pass': 2, 'fail': 20, 'error': 0}",
@@ -75,6 +77,7 @@
             "test_case_21": 0.39924274881680805
         },
         "dan_score_after": null,
-        "avg_dan_score_before": 0.433679
+        "avg_dan_score_before": 0.433679,
+        "avg_dan_score_after": null
     }
 }

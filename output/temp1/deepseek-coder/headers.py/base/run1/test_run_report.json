@@ -12,7 +12,8 @@
         "diff_total_tests": -1,
         "diff_passing_tests": -1,
         "diff_failing_tests": 0,
-        "dan_score_diff": 0.121051
+        "dan_score_diff": 0.121051,
+        "diff_coverage": null
     },
     "test_summary": {
         "Original Test Results": "{'total': 2, 'pass': 1, 'fail': 0, 'error': 0}",

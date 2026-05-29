@@ -1,4 +1,4 @@
-<final_code>
+
 import pytest
 import maybe as maybe_module
 import typing as typing_module
@@ -275,15 +275,3 @@ def test_maybe_conversions_to_lazy_either_try():
     # Chain a conversion on the try result
     try_from_tuple_maybe.to_lazy()
 
-def test_maybe_to_try_to_box_pessimistic_conversion():
-    """Verify that a Maybe instance with is_success=False can be converted to a Try and then to a Box."""
-    # Create a Maybe with a value and success flag set to False (pessimistic case)
-    input_value = True
-    is_success = False
-    maybe_instance = maybe_module.Maybe(input_value, is_success)
-
-    # Convert Maybe to a Try monad
-    try_result = maybe_instance.to_try()
-
-    # Convert Try
-# (Truncated by extractor)

@@ -9,19 +9,21 @@
     },
     "run_number": 1,
     "diff_metrics": {
-        "diff_total_tests": 0,
+        "diff_total_tests": -3,
         "diff_passing_tests": 0,
-        "diff_failing_tests": 0
+        "diff_failing_tests": -3,
+        "diff_coverage": -3.14,
+        "dan_score_diff": 0.152903
     },
     "test_summary": {
-        "Original Test Results": "{'total': 24, 'pass': 1, 'fail': 22, 'error': 0}",
-        "Refactored Test Results": "{'total': 24, 'pass': 1, 'fail': 22, 'error': 0}",
-        "total_tests_before": 24,
-        "total_tests_after": 24
+        "Original Test Results": "{'total': 23, 'pass': 1, 'fail': 22, 'error': 0}",
+        "Refactored Test Results": "{'total': 20, 'pass': 1, 'fail': 19, 'error': 0}",
+        "total_tests_before": 23,
+        "total_tests_after": 20
     },
     "coverage": {
         "before_refactoring": 73.76,
-        "after_refactoring": "N/A"
+        "after_refactoring": 70.62
     },
     "test_results": {
         "before_refactoring": {
@@ -69,38 +71,58 @@
             "test_immutable_list_str_and_find_with_false_init": "fail",
             "test_immutable_list_unshift_and_find_with_false_initial_values": "fail",
             "test_immutable_list_unshift_append_and_find": "fail",
-            "test_immutable_list_append_increases_length_and_find_on_self": "fail",
-            "test_immutable_list_chained_operations_with_nested_references": "fail",
-            "test_immutable_list_operations_with_nested_unshift_and_reduce": "fail",
-            "test_immutable_list_reduce_on_list_with_head_and_is_empty_true": "fail"
+            "test_immutable_list_append_increases_length_and_find_on_self": "fail"
         },
         "dan_score_before": {
-            "__main__": 0.8213996887207031,
-            "test_case_0": 0.262114155292511,
-            "test_case_1": 0.35447705123159623,
-            "test_case_2": 0.5199766159057617,
-            "test_case_3": 0.4165620654821396,
-            "test_case_4": 0.3706347495317459,
-            "test_case_5": 0.626615047454834,
-            "test_case_6": 0.6387080550193787,
-            "test_case_7": 0.2638825438916683,
-            "test_case_8": 0.2760280470053355,
-            "test_case_9": 0.3516835442611149,
-            "test_case_10": 0.7147250175476074,
-            "test_case_11": 0.5871997773647308,
-            "test_case_12": 0.5386866927146912,
+            "__main__": 0.821399986743927,
+            "test_case_0": 0.2621141940355301,
+            "test_case_1": 0.35447701811790466,
+            "test_case_2": 0.5199766953786215,
+            "test_case_3": 0.4165618121623993,
+            "test_case_4": 0.3706347793340683,
+            "test_case_5": 0.6266151368618011,
+            "test_case_6": 0.6387077867984772,
+            "test_case_7": 0.26388246193528175,
+            "test_case_8": 0.27602804203828174,
+            "test_case_9": 0.3516834293093,
+            "test_case_10": 0.7147251963615417,
+            "test_case_11": 0.5871999263763428,
+            "test_case_12": 0.5386866331100464,
             "test_case_13": 0.6897377371788025,
-            "test_case_14": 0.5443341434001923,
+            "test_case_14": 0.5443344513575236,
             "test_case_15": 0.6536412835121155,
-            "test_case_16": 0.6411187648773193,
-            "test_case_17": 0.6047840118408203,
-            "test_case_18": 0.3376389183104038,
-            "test_case_19": 0.4666820665200551,
-            "test_case_20": 0.3442548598561968,
-            "test_case_21": 0.3126395598053932,
-            "test_case_22": 0.544120691716671
+            "test_case_16": 0.6411193013191223,
+            "test_case_17": 0.6047839224338531,
+            "test_case_18": 0.33763880655169487,
+            "test_case_19": 0.4666820267836253,
+            "test_case_20": 0.34425487582172665,
+            "test_case_21": 0.3126396253705025,
+            "test_case_22": 0.5441207215189934
         },
-        "dan_score_after": null,
-        "avg_dan_score_before": 0.495069
+        "dan_score_after": {
+            "__main__": 0.6984705328941345,
+            "test_empty_immutable_list_basic_operations": 0.261468680202961,
+            "test_immutable_list_basic_operations_on_empty_list": 0.22060398095183903,
+            "test_immutable_list_append_and_find_with_truthy_value": 0.3081824282805125,
+            "test_add_none_to_empty_immutable_list": 0.48421618342399597,
+            "test_immutable_list_find_on_self_with_empty_list_as_is_empty": 0.20750024169683456,
+            "test_immutable_list_len_and_find_with_false": 0.2654687911272049,
+            "test_immutable_list_find_with_converted_list": 0.34009790420532227,
+            "test_find_on_empty_list_and_append_self_then_convert_to_list": 0.22967182844877243,
+            "test_immutable_list_map_with_non_empty_flag_and_repeated_to_list": 0.24721782406171164,
+            "test_immutable_list_unshift_and_map_with_none_values": 0.28932455607822966,
+            "test_filter_on_empty_immutable_list": 0.4602985978126526,
+            "test_add_empty_lists_and_filter_by_length": 0.2714153230190277,
+            "test_find_on_empty_immutable_list_returns_empty_result": 0.4817218780517578,
+            "test_immutable_list_find_with_false_value": 0.38725921511650085,
+            "test_immutable_list_reduce_and_find_with_false_defaults": 0.2518198837836583,
+            "test_immutable_list_default_constructor": 0.4842403829097748,
+            "test_immutable_list_str_and_find_with_false_init": 0.28464069962501526,
+            "test_immutable_list_unshift_and_find_with_false_initial_values": 0.27820684015750885,
+            "test_immutable_list_unshift_append_and_find": 0.2769605591893196,
+            "test_immutable_list_append_increases_length_and_find_on_self": 0.4566906193892161
+        },
+        "avg_dan_score_before": 0.495069,
+        "avg_dan_score_after": 0.342166
     }
 }

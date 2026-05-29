@@ -369,7 +369,3 @@ def test_maybe_monad_operations_with_none_and_bytes_values():
     validation_result3 = bind_result.to_validation()
     try_result.ap(negative_int)
 
-def test_maybe_operations_sequence_with_conversion_and_map():
-    """Test that Maybe operations (equality, to_either, to_lazy, to_validation) 
-    and map
-# (Truncated by extractor)

@@ -335,12 +335,3 @@ def test_validation_equality_and_maybe_with_none_key_and_bytes_value():
     # Call bind with raw_bytes as the binding function argument
     validation_with_bytes.bind(raw_bytes)
 
-def test_validation_eq_then_to_box_with_mismatched_types():
-    """
-    Test that comparing two Validation instances with swapped/mismatched
-    value and metadata types, then calling to_box() on the result, executes
-    without error and preserves the expected call chain behaviour.
-    """
-    # Arbitrary byte sequence used as a value in one Validation and metadata in another
-    raw_bytes = b"\xcc\xf7\x0e\x04\xc8Y\xc1 N\xbb\xa6\x85\x
-# (Truncated by extractor)

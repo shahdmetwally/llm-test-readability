@@ -323,25 +323,3 @@ def test_immutable_list_append_increases_length_and_find_on_self():
     # Call find with the original list as the search target
     original_list.find(original_list)
 
-def test_immutable_list_chained_operations_with_nested_references():
-    """
-    Test chaining multiple ImmutableList operations where the list itself
-    is used as an element and argument, verifying that append, reduce,
-    equality check, unshift, str conversion, construction with is_empty,
-    and find all execute without error in sequence.
-    """
-    # Create an empty ImmutableList as the base structure
-    empty_list = immutable_list.ImmutableList()
-
-    # Append the list to itself, producing a new list containing itself as an element
-    list_with_self = empty_list.append(empty_list)
-
-    # Reduce using the self-containing list as both the initial value and the function
-    reduced_result = empty_list.reduce(list_with_self, list_with_self)
-
-    # Check equality between the self-containing list and the original empty list
-    are_equal = list_with_self.__eq__(empty_list)
-
-    # Prepend the self-containing list to itself via unshift
-    unshifted_list = list_with_self.unshift(list_with_self
-# (Truncated by extractor)

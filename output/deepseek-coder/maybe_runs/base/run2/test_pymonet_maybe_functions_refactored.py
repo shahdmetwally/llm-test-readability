@@ -1,184 +1,234 @@
 import maybe as maybe
-import typing as typing
+import typing as types
 
-def test_get_user_by_id():
-    user = User(id=1, name='John Doe')
-    db.session.add(user)
-    db.session.commit()
-
-    response = client.get('/users/1')
-    assert response.status_code == 200
-    assert response.json == {'id': 1, 'name': 'John Doe'}
-
-def test_get_user_by_id_returns_correct_user():
+def test_maybe_initialization_with_same_bytes():
+    """
+    This test checks the initialization of the Maybe class with the same bytes.
+    """
     # Given
-    user_id = 1
-    expected_user = User(id=user_id, name='John Doe')
+    bytes_data = b"\xf4\xaf\xe2\xc9\xee\xc8\xd67n\x9eK\x0b\x97Y\xb5"
 
     # When
-    actual_user = get_user_by_id(user_id)
+    maybe = maybe.Maybe(bytes_data, bytes_data)
 
     # Then
-    assert actual_user == expected_user
+    assert maybe.is_just()
+    assert maybe.get_value_or_raise() == bytes_data
 
-def test_maybe_class_methods():
+def test_maybe_initialization_with_none():
     """
-    This test case tests the methods of the Maybe class.
+    This test case verifies that the Maybe class can be initialized with None values.
+    """
+    # None type values
+    none_value = None
+
+    # Create a Maybe instance with None values
+    maybe_instance = maybe.Maybe(none_value, none_value)
+
+    # Assert that the Maybe instance is not None
+    assert maybe_instance is not None
+
+def test_maybe_equality_and_transformation():
+    """
+    This test case tests the equality of Maybe objects,
+    transformation of Maybe objects, and the application of functions
+    on Maybe objects.
     """
     # Given
     str_0 = "p4xa>bl^oP"
     maybe_0 = maybe.Maybe(str_0, str_0)
 
     # When
-    bool_0 = maybe_0.__eq__(str_0)
-    var_0 = maybe_0.ap(str_0)
-    var_1 = maybe_0.get_or_else(str_0)
-    var_2 = maybe_0.map(var_0)
-    var_3 = maybe_0.filter(var_0)
-    var_4 = maybe_0.map(var_0)
-    var_5 = maybe_0.ap(str_0)
-    bool_1 = var_0.__eq__(var_5)
-    var_6 = var_0.filter(var_1)
-    var_7 = var_5.get_or_else(str_0)
-    maybe_1 = maybe.Maybe(str_0, str_0)
-    var_8 = maybe_1.to_validation()
-    var_9 = maybe_1.bind(var_8)
-    var_10 = var_9.to_either()
+    bool_0 = maybe_0.__eq__(str_0)  # Check equality of Maybe object with a string
+    var_0 = maybe_0.ap(str_0)  # Apply a function to the Maybe object
+    var_1 = maybe_0.get_or_else(str_0)  # Get the value of the Maybe object or a default value
+    var_2 = maybe_0.map(var_0)  # Apply a function to the value of the Maybe object
+    var_3 = maybe_0.filter(var_0)  # Filter the Maybe object based on a function
+    var_4 = maybe_0.map(var_0)  # Apply a function to the value of the Maybe object
+    var_5 = maybe_0.ap(str_0)  # Apply a function to the Maybe object
+    bool_1 = var_0.__eq__(var_5)  # Check equality of two Maybe objects
+    var_6 = var_0.filter(var_1)  # Filter the Maybe object based on a function
+    var_7 = var_5.get_or_else(str_0)  # Get the value of the Maybe object or a default value
+    maybe_1 = maybe.Maybe(str_0, str_0)  # Create a new Maybe object
+    var_8 = maybe_1.to_validation()  # Convert the Maybe object to a Validation object
+    var_9 = maybe_1.bind(var_8)  # Bind the Maybe object to a function
+    var_10 = var_9.to_either()  # Convert the Validation object to an Either object
 
 def test_maybe_equality_with_set():
-    """Test equality of a Maybe object with a set."""
-    # Given
-    bool_0 = False
-    set_0 = {bool_0, bool_0, bool_0, bool_0}
-    none_type_0 = None
-    maybe_0 = maybe.Maybe(none_type_0, none_type_0)
-
-    # When
-    bool_1 = maybe_0.__eq__(set_0)
-
-    # Then
-    assert bool_1 is False
-
-def test_maybe_bind_and_map_methods():
     """
-    Test the Maybe class bind and map methods.
+    This test checks the equality of a Maybe object with a set.
     """
-    # Given
-    bool_0 = True
-    maybe_0 = maybe.Maybe(bool_0, bool_0)
+    # Initialize a boolean value
+    is_empty = False
 
-    # When
-    var_0 = maybe_0.bind(bool_0)
-    var_1 = var_0.map(bool_0)
+    # Create a set with the boolean value
+    set_of_bools = {is_empty, is_empty, is_empty, is_empty}
 
-    # Then
-    tuple_0 = (bool_0, bool_0, bool_0, bool_0)
-    maybe_1 = maybe.Maybe(tuple_0, bool_0)
-    set_0 = set()
-    set_0.to_box()
-
-def test_maybe_map_function():
-    """
-    This test case checks the 'map' function of the 'Maybe' class.
-    It verifies that the 'map' function correctly applies a function to the value of a 'Maybe' object.
-    """
-
-    # Given
+    # Initialize a NoneType value
     none_value = None
-    bool_value = False
-    maybe_object = maybe.Maybe(none_value, bool_value)
+
+    # Create a Maybe object with the NoneType value
+    maybe_object = maybe.Maybe(none_value, none_value)
+
+    # Check if the Maybe object is equal to the set
+    are_equal = maybe_object.__eq__(set_of_bools)
+
+    # Assert that the Maybe object is not equal to the set
+    assert are_equal is False
+
+def test_maybe_bind_and_map_with_same_value():
+    """
+    This test case verifies the behavior of the bind and map methods of the Maybe class.
+    It creates a Maybe instance with a boolean value and then binds and maps the same value.
+    It also tests the behavior of the Maybe class with a tuple and a set.
+    """
+    # Given
+    is_success = True
+    maybe = maybe.Maybe(is_success, is_success)
 
     # When
-    result = maybe_object.map(bool_value)
+    result = maybe.bind(is_success)
+    mapped_result = result.map(is_success)
 
     # Then
-    assert result is None
+    assert mapped_result.value == is_success
 
-def test_maybe_class_initialization_and_binding():
+    # Given
+    values = (is_success, is_success, is_success, is_success)
+    maybe = maybe.Maybe(values, is_success)
+
+    # When
+    result = maybe.bind(values)
+    mapped_result = result.map(values)
+
+    # Then
+    assert mapped_result.value == values
+
+    # Given
+    empty_set = set()
+    maybe = maybe.Maybe(empty_set, is_success)
+
+    # When
+    result = maybe.bind(empty_set)
+    mapped_result = result.map(empty_set)
+
+    # Then
+    assert mapped_result.value == empty_set
+
+def test_maybe_mapping_with_none_and_bool():
     """
-    Test the initialization and binding of the Maybe class.
+    This test case verifies the functionality of the Maybe class's map method.
+    It creates a Maybe instance with a None value and a boolean value,
+    and then calls the map method with the boolean value.
+    """
+
+    # None type value
+    none_value = None
+
+    # Boolean value
+    bool_value = False
+
+    # Create a Maybe instance with None and bool values
+    maybe_instance = maybe.Maybe(none_value, bool_value)
+
+    # Call the map method with the bool value
+    maybe_instance.map(bool_value)
+
+def test_maybe_bind_with_empty_dict():
+    """
+    This test case verifies that the bind method of the Maybe class correctly handles
+    an empty dictionary as an argument.
     """
     # Given
     bool_0 = True
-    maybe_0 = maybe.Maybe(bool_0, bool_0)
-    dict_0 = {}
+    maybe_0 = maybe.Maybe(bool_0, bool_0)  # Maybe instance with two identical values
+    dict_0 = {}  # Empty dictionary
     none_type_0 = None
     bool_1 = False
+    maybe_1 = maybe.Maybe(none_type_0, bool_1)  # Maybe instance with None and False
 
     # When
-    maybe_1 = maybe.Maybe(none_type_0, bool_1)
-    maybe_1.bind(dict_0)
+    maybe_1.bind(dict_0)  # Call bind method with an empty dictionary
 
     # Then
-    assert maybe_0.value == bool_0
+    # The test case asserts that the bind method does not raise an exception
+    # and the Maybe instance remains unchanged
     assert maybe_1.value == none_type_0
+    assert maybe_1.transformed == bool_1
 
-def test_maybe_class_behavior():
+def test_maybe_operations():
     """
-    This test case validates the behavior of the Maybe class.
-    """
-    # Define test inputs
-    bytes_input = b"\x9f\x02Gj\xbbw\xdb\x8b\xe7\xda"
-    none_type_input = None
-    int_input = 0
-    bool_input = True
-
-    # Create instances of Maybe class
-    maybe_0 = maybe.Maybe(bytes_input, none_type_input)
-    maybe_1 = maybe.Maybe(int_input, bool_input)
-
-    # Test methods of Maybe class
-    var_0 = maybe_0.to_box()
-    var_1 = maybe_1.filter(maybe_1)
-    var_2 = maybe_1.to_lazy()
-    var_3 = var_1.ap(maybe_0)
-    var_4 = var_1.filter(var_3)
-    maybe_2 = maybe.Maybe(var_2, var_0)
-    bool_1 = var_2.__eq__(bool_input)
-
-    # Assert expected values
-    assert bool_1 == True
-
-def test_maybe_ap_method():
-    """
-    This test case verifies the functionality of the ap method in the Maybe class.
+    This test case verifies the behavior of Maybe operations.
     """
     # Given
-    input_value = 2862
+    bytes_data = b"\x9f\x02Gj\xbbw\xdb\x8b\xe7\xda"
+    none_type = None
+    maybe_bytes = maybe.Maybe(bytes_data, none_type)
+    box_data = maybe_bytes.to_box()
+
+    int_data = 0
+    bool_data = True
+    maybe_int = maybe.Maybe(int_data, bool_data)
+
+    # When
+    filtered_maybe_int = maybe_int.filter(maybe_int)
+    lazy_data = maybe_int.to_lazy()
+    applied_maybe = filtered_maybe_int.ap(maybe_bytes)
+    filtered_applied_maybe = filtered_maybe_int.filter(applied_maybe)
+
+    # Then
+    maybe_box = maybe.Maybe(lazy_data, box_data)
+    is_equal = lazy_data == bool_data
+
+    assert is_equal
+
+def test_maybe_ap_with_none_and_false():
+    # Given
+    int_value = 2862
     none_value = None
     bool_value = False
     maybe_instance = maybe.Maybe(none_value, bool_value)
 
     # When
-    maybe_instance.ap(input_value)
+    maybe_instance.ap(int_value)
 
     # Then
-    # The test case doesn't have any assertions or expected values, 
-    # so no changes are required here.
+    # The test case doesn't assert anything, so it's hard to say what the expected outcome is.
+    # However, the test case is about calling the `ap` method of the `Maybe` class with a value.
+    # The `ap` method is expected to modify the state of `maybe_instance`.
 
-def test_maybe_class_behavior():
+def test_maybe_filter_and_map():
     """
-    This test case validates the behavior of the Maybe class.
-    It covers various methods such as filter, to_lazy, map etc.
+    Test the filter and map methods of the Maybe class.
     """
-    # Given
-    int_0 = 0
-    bool_0 = True
-    maybe_0 = maybe.Maybe(int_0, bool_0)  # Maybe instance with int_0 and bool_0
+    # Set up test data
+    int_value = 0
+    bool_value = True
+    maybe_instance = maybe.Maybe(int_value, bool_value)
 
-    # When
-    var_0 = maybe_0.filter(maybe_0)  # filter with maybe_0
-    var_1 = maybe_0.to_lazy()  # convert to lazy
-    var_2 = var_0.to_lazy()  # convert to lazy
-    var_3 = var_0.filter(var_2)  # filter with var_2
-    var_4 = var_3.to_try()  # convert to try
-    var_5 = maybe_0.to_lazy()  # convert to lazy
-    var_6 = var_0.map(var_0)  # map with var_0
+    # Apply filter and to_lazy methods
+    filtered_maybe = maybe_instance.filter(maybe_instance)
+    lazy_filtered_maybe = filtered_maybe.to_lazy()
 
-    # Then
-    # assertions to validate the behavior
+    # Apply to_lazy method to the original Maybe instance
+    original_lazy = maybe_instance.to_lazy()
+
+    # Apply filter method to the lazy version of the filtered Maybe instance
+    filtered_lazy_maybe = filtered_maybe.filter(lazy_filtered_maybe)
+
+    # Apply to_try method to the filtered and lazy Maybe instance
+    try_maybe = filtered_lazy_maybe.to_try()
+
+    # Apply to_lazy method to the original Maybe instance
+    original_lazy = maybe_instance.to_lazy()
+
+    # Apply map method to the filtered Maybe instance
+    mapped_maybe = filtered_maybe.map(filtered_maybe)
 
 def test_maybe_filter_and_to_lazy():
+    """
+    Test the Maybe.filter and Maybe.to_lazy methods.
+    """
     # Given
     int_0 = -283
     tuple_0 = (int_0, int_0, int_0)
@@ -190,23 +240,21 @@ def test_maybe_filter_and_to_lazy():
     var_0 = maybe_0.filter(tuple_0)
     var_1 = var_0.to_lazy()
 
-    # Then
     none_type_1 = None
     maybe_1 = maybe.Maybe(none_type_1, none_type_1)
+
+    # Then
     maybe_1.filter(var_1)
 
 def test_maybe_get_or_else_returns_default_value():
-    """
-    Test that the get_or_else method of the Maybe class returns the default value
-    when the Maybe object is empty.
-    """
+    """Test that the get_or_else method of the Maybe class returns the default value when the Maybe object is empty."""
     # Given
     default_value = 2281
-    string_value = "gZ(\\mOcN"
-    dict_value = {string_value: string_value}
-    tuple_value = (string_value, string_value, dict_value, dict_value)
-    bool_value = True
-    maybe = maybe.Maybe(tuple_value, bool_value)
+    key = "gZ(\\mOcN"
+    value = {key: key}
+    data = (key, key, value, value)
+    is_present = True
+    maybe = maybe_0.Maybe(data, is_present)
 
     # When
     result = maybe.get_or_else(default_value)
@@ -214,201 +262,220 @@ def test_maybe_get_or_else_returns_default_value():
     # Then
     assert result == default_value
 
-
-def test_maybe_to_box_returns_box_with_value():
-    """
-    Test that the to_box method of the Maybe class returns a Box object
-    with the value of the Maybe object.
-    """
+def test_maybe_to_box_returns_box_with_same_value():
+    """Test that the to_box method of the Maybe class returns a Box object with the same value."""
     # Given
-    maybe = maybe.Maybe(typing.Generic(), False)
+    generic = module_1.Generic()
+    is_present = False
+    maybe = maybe_0.Maybe(generic, is_present)
 
     # When
     box = maybe.to_box()
 
     # Then
-    assert isinstance(box, typing.Box)
-    assert box.get() == typing.Generic()
-
+    assert box.value == generic
 
 def test_maybe_filter_returns_empty_maybe_when_predicate_is_false():
-    """
-    Test that the filter method of the Maybe class returns an empty Maybe object
-    when the predicate is False.
-    """
+    """Test that the filter method of the Maybe class returns an empty Maybe object when the predicate is false."""
     # Given
-    maybe = maybe.Maybe(typing.Generic(), False)
-    predicate = False
+    default_value = 2281
+    key = "gZ(\\mOcN"
+    value = {key: key}
+    data = (key, key, value, value)
+    is_present = True
+    maybe = maybe_0.Maybe(data, is_present)
+    predicate = maybe.get_or_else(default_value)
 
     # When
     result = maybe.filter(predicate)
 
     # Then
-    assert isinstance(result, maybe.Maybe)
     assert result.is_empty()
 
 def test_maybe_to_validation_and_get_or_else():
     """
-    Test the Maybe class to_validation and get_or_else methods.
+    Test the Maybe class methods: to_validation, get_or_else.
     """
-    # Given
+    # Setup
     bool_0 = True
     none_type_0 = None
-    maybe_0 = maybe.Maybe(none_type_0, bool_0)
+    maybe_0 = maybe.Maybe(bool_0, none_type_0)  # Maybe instance with bool and None
+    var_0 = maybe_0.to_validation()  # Validation instance
 
-    # When
-    var_0 = maybe_0.to_validation()
-
-    # Then
-    float_0 = -286.64
     int_0 = -1784
     tuple_0 = ()
-    maybe_1 = maybe.Maybe(int_0, tuple_0)
+    maybe_1 = maybe.Maybe(int_0, tuple_0)  # Maybe instance with int and tuple
+    var_1 = maybe_1.to_validation()  # Validation instance
+    var_2 = maybe_1.get_or_else(int_0)  # Get the value or else return int_0
 
-    # When
-    var_1 = maybe_1.to_validation()
-
-    # Then
-    var_2 = maybe_1.get_or_else(int_0)
-
-    # When
-    var_3 = maybe_1.to_try()
-
-    # Given
-    maybe_2 = maybe.Maybe(float_0, float_0)
-
-    # When
-    maybe_1.bind(var_3)
+    float_0 = -286.64
+    maybe_2 = maybe.Maybe(float_0, float_0)  # Maybe instance with float and float
+    var_3 = maybe_2.to_try()  # Try instance
 
 def test_maybe_map_and_to_either():
     """
-    Test the Maybe class's map and to_either methods.
+    This test case tests the Maybe.map() and Maybe.to_either() methods.
     """
-    # Given
-    none_type_value = None
-    bool_value = True
-    maybe_with_none = maybe.Maybe(none_type_value, bool_value)
-    set_value = {bool_value}
+    # Create a Maybe instance with None and True
+    none_type_0 = None
+    bool_0 = True
+    maybe_0 = maybe.Maybe(none_type_0, bool_0)
 
-    # When
-    mapped_value = maybe_with_none.map(set_value)
-    int_value = -1095
-    bool_value_2 = True
-    maybe_with_int = maybe.Maybe(int_0, bool_value_2)
+    # Create a set with bool_0
+    set_0 = {bool_0}
 
-    # Then
-    either_value = maybe_with_int.to_either()
+    # Call the map() method on maybe_0 with set_0
+    var_0 = maybe_0.map(set_0)
 
-    # Assert
-    assert mapped_value == {bool_value}
-    assert either_value == typing.Right(int_value)
+    # Create a Maybe instance with -1095 and True
+    int_0 = -1095
+    bool_1 = True
+    maybe_1 = maybe.Maybe(int_0, bool_1)
 
-def test_maybe_conversions():
+    # Call the to_either() method on maybe_1
+    var_1 = maybe_1.to_either()
+
+def test_maybe_conversions_new():
     """
-    Test the conversions of the Maybe class.
+    Test the conversions of the Maybe monad.
     """
-    none_value = None
-    maybe_none = maybe.Maybe(none_value, none_value)
-    tuple_value = (maybe_none,)
-    lazy_value = maybe_none.to_lazy()
-    bool_value = False
-    maybe_tuple_bool = maybe.Maybe(tuple_value, bool_value)
-    either_value_from_maybe_none = maybe_none.to_either()
-    try_value_from_maybe_tuple_bool = maybe_tuple_bool.to_try()
-    either_value_from_maybe_none_again = maybe_none.to_either()
-    either_value_from_maybe_tuple_bool = maybe_tuple_bool.to_either()
-    lazy_value_from_try = try_value_from_maybe_tuple_bool.to_lazy()
+    # Create a Maybe instance with None values
+    none_type_0 = None
+    maybe_0 = maybe.Maybe(none_type_0, none_type_0)
 
-def test_maybe_to_box():
+    # Create a tuple with the Maybe instance
+    tuple_0 = (maybe_0,)
+
+    # Convert the Maybe instance to a lazy computation
+    var_0 = maybe_0.to_lazy()
+
+    # Create a boolean value
+    bool_0 = False
+
+    # Create a Maybe instance with the tuple and boolean
+    maybe_1 = maybe.Maybe(tuple_0, bool_0)
+
+    # Convert the first Maybe instance to an Either
+    var_1 = maybe_0.to_either()
+
+    # Convert the second Maybe instance to a Try
+    var_2 = maybe_1.to_try()
+
+    # Convert the first Maybe instance to an Either
+    var_3 = maybe_0.to_either()
+
+    # Convert the second Maybe instance to an Either
+    var_4 = maybe_1.to_either()
+
+    # Convert the Try to a lazy computation
+    var_2.to_lazy()
+
+def test_maybe_to_try_to_box():
     """
-    Test that the Maybe class correctly converts to Try and then to Box.
+    Test the conversion of Maybe to Try and then to Box.
     """
-    # Given
+    # Setup test data
     bool_0 = True
     bool_1 = False
+
+    # Create a Maybe instance
     maybe_0 = maybe.Maybe(bool_0, bool_1)
 
-    # When
+    # Convert Maybe to Try
     var_0 = maybe_0.to_try()
+
+    # Convert Try to Box
     var_0.to_box()
 
-    # Then
-    assert var_0.is_boxed()
-
-def test_maybe_class_behavior():
-    """
-    This test case verifies the behavior of the Maybe class.
-    """
+def test_maybe_filter_and_get_or_else():
     # Given
     bytes_0 = b"C\xcf\xe7/"
     none_type_0 = None
     bool_0 = True
-    maybe_0 = maybe.Maybe(none_type_0, bool_0)  # Maybe instance with None and True
-
-    # When
-    var_0 = maybe_0.ap(none_type_0)  # Apply function to Maybe instance
-    var_1 = var_0.ap(bytes_0)
-    var_2 = var_1.to_validation()  # Convert to Validation
-    var_3 = maybe_0.filter(var_2)  # Filter Maybe instance with Validation
-    var_4 = var_3.get_or_else(var_3)  # Get or else from Maybe instance
-    var_5 = var_3.to_either()  # Convert to Either
-    var_6 = var_2.to_try()  # Convert to Try
-    bool_1 = var_3.__eq__(var_0)  # Check equality of Maybe instances
-    var_7 = var_4.to_box()  # Convert to Box
-
-    # Then
-    var_6.ap(bytes_0)  # Apply function to Try instance
-
-def test_maybe_class_behavior_2():
-    """
-    Test the behavior of the Maybe class.
-    """
-    # Given
-    bytes_0 = b"\xdbC\xcf\xe7/"
-    none_type_0 = None
-    bool_0 = True
     maybe_0 = maybe.Maybe(none_type_0, bool_0)
-    maybe_1 = maybe.Maybe(none_type_0, bytes_0)
-    int_0 = -3289
 
     # When
     var_0 = maybe_0.ap(none_type_0)
-    var_1 = var_0.ap(bytes_0)
+    var_1 = var_0.to_lazy()
     var_2 = var_1.to_validation()
-    var_3 = maybe_1.get_or_else(maybe_1)
-    var_4 = maybe_1.to_validation()
-    var_5 = maybe_1.bind(var_4)
-    var_6 = maybe_1.to_either()
-    var_7 = maybe_1.ap(maybe_1)
-    bool_1 = var_6.__eq__(var_4)
-    var_8 = var_6.bind(maybe_1)
-    var_9 = maybe_1.to_try()
-    bool_2 = maybe_1.__eq__(var_5)
-    var_10 = var_5.to_validation()
-    var_9.ap(int_0)
+    var_3 = maybe_0.filter(var_2)
+    var_4 = var_3.get_or_else(var_3)
+    var_5 = var_3.to_either()
+    var_6 = var_2.to_try()
+    bool_1 = var_3.__eq__(var_0)
+    var_7 = var_4.to_box()
+    var_6.ap(bytes_0)
 
-    # Then
-    # No assertions needed as the test is purely behavioral.
+def test_maybe_monad_behavior():
+    """
+    This test case validates the behavior of the Maybe monad.
+    """
+    # Given
+    bytes_data = b"\xdbC\xcf\xe7/"
+    none_type_data = None
+    bool_data = True
+    maybe_monad = maybe.Maybe(none_type_data, bool_data)
+
+    # When
+    var_0 = maybe_monad.ap(none_type_data)
+    var_1 = var_0.ap(bytes_data)
+    var_2 = var_1.to_validation()
+    maybe_monad_2 = maybe.Maybe(none_type_data, bytes_data)
+    var_3 = maybe_monad_2.get_or_else(maybe_monad_2)
+    var_4 = maybe_monad_2.to_validation()
+    var_5 = maybe_monad_2.bind(var_4)
+    var_6 = maybe_monad_2.to_either()
+    var_7 = maybe_monad_2.ap(maybe_monad_2)
+    int_data = -3289
+    bool_eq = var_6.__eq__(var_4)
+    var_8 = var_6.bind(maybe_monad_2)
+    var_9 = maybe_monad_2.to_try()
+    bool_eq_2 = maybe_monad_2.__eq__(var_5)
+    var_10 = var_5.to_validation()
+    var_9.ap(int_data)
 
 def test_maybe_equality_and_conversion():
-    """Test equality of Maybe instances and conversion to Either, Lazy, and Validation."""
-    # Given
+    """
+    Test the equality of a Maybe object with a boolean and the conversion of a Maybe object to an Either, Lazy and Validation.
+    """
+    # Initialize a Maybe object with two booleans
+    maybe_0 = maybe.Maybe(False, False)
+
+    # Check if the Maybe object is equal to a boolean
+    bool_1 = maybe_0.__eq__(False)
+
+    # Initialize another Maybe object with two booleans
+    maybe_1 = maybe.Maybe(False, False)
+
+    # Convert the Maybe object to an Either
+    either_0 = maybe_1.to_either()
+
+    # Convert the Maybe object to a Lazy
+    lazy_0 = maybe_1.to_lazy()
+
+    # Convert the Lazy object to a Validation
+    validation_0 = lazy_0.to_validation()
+
+    # Initialize a third Maybe object with two booleans
+    maybe_2 = maybe.Maybe(False, False)
+
+    # Map the Maybe object to a Validation
+    maybe_2.map(validation_0)
+
+def test_maybe_equality_and_validation():
+    """
+    This test case tests the equality of a Maybe object and its validation.
+    """
+    # Initialize a Maybe object with two boolean values
     bool_0 = False
     maybe_0 = maybe.Maybe(bool_0, bool_0)
-    
-    # When
-    bool_1 = maybe_0.__eq__(bool_0)
-    maybe_1 = maybe.Maybe(bool_0, bool_0)
-    var_0 = maybe_1.to_either()
-    var_1 = maybe_1.to_lazy()
-    var_2 = var_1.to_validation()
-    maybe_2 = maybe.Maybe(bool_0, bool_0)
-    
-    # Then
-    maybe_2.map(var_2)
 
-def test_maybe_equality_and_try_validation():
-    """Test equality of Maybe instances and validation of Try instances."""
-    # Given
-    bool_0 = False
-# (Truncated by extractor)
+    # Check if the Maybe object is equal to itself
+    bool_1 = maybe_0.__eq__(maybe_0)
+
+    # Convert the Maybe object to a Try object
+    var_0 = maybe_0.to_try()
+
+    # Validate the Try object
+    var_0.to_validation()
+

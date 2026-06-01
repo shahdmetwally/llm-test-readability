@@ -1,6 +1,6 @@
 {
     "module": "maybe.py",
-    "timestamp": "2026-03-08T18:57:18.477419",
+    "timestamp": "2026-06-01T13:43:53.357960",
     "llm_info": {
         "model": "deepseek-coder",
         "version": "functions",
@@ -9,21 +9,21 @@
     },
     "run_number": 2,
     "diff_metrics": {
-        "diff_total_tests": 0,
+        "diff_total_tests": 2,
         "diff_passing_tests": -1,
-        "diff_failing_tests": 1,
-        "diff_coverage": -5.71,
-        "dan_score_diff": -0.007579
+        "diff_failing_tests": 3,
+        "diff_coverage": -5.46,
+        "dan_score_diff": 0.032452
     },
     "test_summary": {
         "Original Test Results": "{'total': 21, 'pass': 3, 'fail': 17, 'error': 0}",
-        "Refactored Test Results": "{'total': 21, 'pass': 2, 'fail': 18, 'error': 0}",
+        "Refactored Test Results": "{'total': 23, 'pass': 2, 'fail': 20, 'error': 0}",
         "total_tests_before": 21,
-        "total_tests_after": 21
+        "total_tests_after": 23
     },
     "coverage": {
         "before_refactoring": 52.85,
-        "after_refactoring": 47.14
+        "after_refactoring": 47.39
     },
     "test_results": {
         "before_refactoring": {
@@ -49,28 +49,31 @@
             "test_case_19": "fail"
         },
         "after_refactoring": {
-            "test_get_user_by_id": "fail",
-            "test_get_user_by_id_returns_correct_user": "fail",
-            "test_maybe_class_methods": "fail",
+            "test_maybe_initialization_with_same_bytes": "fail",
+            "test_maybe_initialization_with_none": "pass",
+            "test_maybe_equality_and_transformation": "fail",
             "test_maybe_equality_with_set": "pass",
-            "test_maybe_bind_and_map_methods": "fail",
-            "test_maybe_map_function": "fail",
-            "test_maybe_class_initialization_and_binding": "fail",
-            "test_maybe_class_behavior": "fail",
-            "test_maybe_ap_method": "fail",
+            "test_maybe_bind_and_map_with_same_value": "fail",
+            "test_maybe_mapping_with_none_and_bool": "fail",
+            "test_maybe_bind_with_empty_dict": "fail",
+            "test_maybe_operations": "fail",
+            "test_maybe_ap_with_none_and_false": "fail",
+            "test_maybe_filter_and_map": "fail",
             "test_maybe_filter_and_to_lazy": "fail",
-            "test_maybe_get_or_else_returns_default_value": "pass",
-            "test_maybe_to_box_returns_box_with_value": "fail",
+            "test_maybe_get_or_else_returns_default_value": "fail",
+            "test_maybe_to_box_returns_box_with_same_value": "fail",
             "test_maybe_filter_returns_empty_maybe_when_predicate_is_false": "fail",
             "test_maybe_to_validation_and_get_or_else": "fail",
             "test_maybe_map_and_to_either": "fail",
-            "test_maybe_conversions": "fail",
-            "test_maybe_to_box": "fail",
-            "test_maybe_class_behavior_2": "fail",
+            "test_maybe_conversions_new": "fail",
+            "test_maybe_to_try_to_box": "fail",
+            "test_maybe_filter_and_get_or_else": "fail",
+            "test_maybe_monad_behavior": "fail",
             "test_maybe_equality_and_conversion": "fail",
-            "test_maybe_equality_and_try_validation": "fail"
+            "test_maybe_equality_and_validation": "fail"
         },
         "dan_score_before": {
+            "__main__": 0.869159460067749,
             "test_case_0": 0.39177650213241577,
             "test_case_1": 0.4033203423023224,
             "test_case_2": 0.16177101790905,
@@ -93,28 +96,31 @@
             "test_case_19": 0.2928418070077896
         },
         "dan_score_after": {
-            "test_get_user_by_id": 0.27596142888069153,
-            "test_get_user_by_id_returns_correct_user": 0.3414040803909302,
-            "test_maybe_class_methods": 0.1492955307662487,
-            "test_maybe_equality_with_set": 0.25535453855991364,
-            "test_maybe_bind_and_map_methods": 0.22014945447444917,
-            "test_maybe_map_function": 0.3191506564617157,
-            "test_maybe_class_initialization_and_binding": 0.2298241090029478,
-            "test_maybe_class_behavior": 0.15192054398357868,
-            "test_maybe_ap_method": 0.35072293877601624,
-            "test_maybe_filter_and_to_lazy": 0.192510557671388,
-            "test_maybe_get_or_else_returns_default_value": 0.26689313103755313,
-            "test_maybe_to_box_returns_box_with_value": 0.2989967167377472,
-            "test_maybe_filter_returns_empty_maybe_when_predicate_is_false": 0.2953532516956329,
-            "test_maybe_to_validation_and_get_or_else": 0.14593288521556294,
-            "test_maybe_map_and_to_either": 0.20620504234518325,
-            "test_maybe_conversions": 0.15155545580718252,
-            "test_maybe_to_box": 0.3858185261487961,
-            "test_maybe_class_behavior_2": 0.1269593906402588,
-            "test_maybe_equality_and_conversion": 0.3203632625249716,
-            "test_maybe_equality_and_try_validation": 0.5530454516410828
+            "__main__": 0.7417027354240417,
+            "test_maybe_initialization_with_same_bytes": 0.20319925745328268,
+            "test_maybe_initialization_with_none": 0.4447300136089325,
+            "test_maybe_equality_and_transformation": 0.15243422701954842,
+            "test_maybe_equality_with_set": 0.23449216037988663,
+            "test_maybe_bind_and_map_with_same_value": 0.16804203182458877,
+            "test_maybe_mapping_with_none_and_bool": 0.28310011823972064,
+            "test_maybe_bind_with_empty_dict": 0.19518614974286821,
+            "test_maybe_operations": 0.22533399023507772,
+            "test_maybe_ap_with_none_and_false": 0.37295780579249066,
+            "test_maybe_filter_and_map": 0.20362605030337969,
+            "test_maybe_filter_and_to_lazy": 0.18851715823014578,
+            "test_maybe_get_or_else_returns_default_value": 0.35043198863665265,
+            "test_maybe_to_box_returns_box_with_same_value": 0.3194764753182729,
+            "test_maybe_filter_returns_empty_maybe_when_predicate_is_false": 0.27014127042558456,
+            "test_maybe_to_validation_and_get_or_else": 0.14128484576940536,
+            "test_maybe_map_and_to_either": 0.18698312491178512,
+            "test_maybe_conversions_new": 0.17627855638662973,
+            "test_maybe_to_try_to_box": 0.26834821701049805,
+            "test_maybe_filter_and_get_or_else": 0.1537253513932228,
+            "test_maybe_monad_behavior": 0.09544640123844146,
+            "test_maybe_equality_and_conversion": 0.17122342810034752,
+            "test_maybe_equality_and_validation": 0.22909432649612427
         },
-        "avg_dan_score_before": 0.254292,
-        "avg_dan_score_after": 0.261871
+        "avg_dan_score_before": 0.283572,
+        "avg_dan_score_after": 0.25112
     }
 }

@@ -1,5 +1,6 @@
 import os
 import re
+import time
 from .model_lib import Model, NegativeTokenCountError, InsufficientAllowedTokensError, TokenError
 from . import file_handler
 from . import extractor
@@ -58,7 +59,7 @@ class RefactorManager:
         else:
             raise ValueError(f"Unsupported model_name: {model_name}")
 
-        max_new_tokens = 4096
+        max_new_tokens = 8192
         self._system_prompt = system_prompt or Model._SYSTEM_PROMPT
         self._temperature = temperature
         self._directory = directory
@@ -183,14 +184,16 @@ class RefactorManager:
         --------
         str - The model's response.
         """
+        # Sleep for 6 seconds to avoid API rate limits
+        time.sleep(6)
+
         # Only include the system prompt and the latest user prompt in the message history
         messages = [
             {"role": "system", "content": self.system_prompt}
         ]
 
         try:
-            #dynamic_max_tokens False for fix max tokens
-            dynamic_max_tokens = False
+            dynamic_max_tokens = True
             response = self.model.get_response(messages, prompt, dynamic_max_tokens=dynamic_max_tokens)
     
         except NegativeTokenCountError as err:

@@ -1,30 +1,0 @@
-<unknown>:24: SyntaxWarning: invalid escape sequence '\['
-<unknown>:25: SyntaxWarning: invalid escape sequence '\['
-<unknown>:26: SyntaxWarning: invalid escape sequence '\('
-<unknown>:27: SyntaxWarning: invalid escape sequence '\('
-<unknown>:28: SyntaxWarning: invalid escape sequence '\e'
-Unrecognized keys in `rope_scaling` for 'rope_type'='linear': {'type'}
-Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:04<00:28,  4.73s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:09<00:22,  4.58s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:13<00:17,  4.47s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:17<00:13,  4.37s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [00:22<00:08,  4.34s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [00:26<00:04,  4.38s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:29<00:00,  3.99s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:29<00:00,  4.24s/it]
-The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
-/data/users/eliassam/miniforge3/lib/python3.12/site-packages/coverage/control.py:958: CoverageWarning: No data was collected. (no-data-collected); see https://coverage.readthedocs.io/en/7.13.3/messages.html#warning-no-data-collected
-  self._warn("No data was collected.", slug="no-data-collected")
-2026-05-19 13:10:58,544 - INFO - Loading model: microsoft/codebert-base-mlm
-/data/users/eliassam/miniforge3/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
-  warnings.warn(
-Some weights of the model checkpoint at microsoft/codebert-base-mlm were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
-- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-2026-05-19 13:11:00,540 - INFO - Processed __main__.dot: Score=0.6247 (1 paths)
-2026-05-19 13:11:01,538 - INFO - Processed test_case_0.dot: Score=0.5517 (1 paths)
-2026-05-19 13:11:01,918 - INFO - Processed test_case_1.dot: Score=0.2750 (3 paths)
-2026-05-19 13:11:02,003 - INFO - Processed test_case_2.dot: Score=0.2332 (1 paths)
-2026-05-19 13:11:02,066 - INFO - Processed test_case_3.dot: Score=0.3506 (1 paths)
-2026-05-19 13:11:02,124 - INFO - Processed test_case_4.dot: Score=0.4858 (1 paths)
-2026-05-19 13:11:02,869 - INFO - Processed test_case_5.dot: Score=0.1792 (7 paths)
-2026-05-19 13:11:02,991 - INFO - Processed test_case_6.dot: Score=0.1989 (1 paths)
-2026-05-19 13:11:03,082 - INFO - Processed test_case_7.dot: Score=0.2615 (1 paths)
-2026-05-19 13:11:11,262 - INFO - Processed test_case_8.dot: Score=0.1112 (15 paths)
-2026-05-19 13:11:11,521 - INFO - Processed test_case_9.dot: Score=0.1418 (3 paths)
-2026-05-19 13:11:11,595 - INFO - Processed test_case_10.dot: Score=0.2798 (1 paths)
-2026-05-19 13:11:11,664 - INFO - Processed __main__.dot: Score=0.5227 (1 paths)
-2026-05-19 13:11:16,218 - INFO - Processed test_namedtuple_creation_new.dot: Score=0.1283 (45 paths)

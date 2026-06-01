@@ -1,6 +1,6 @@
 {
-    "module": "pymonet.maybe",
-    "timestamp": "2026-05-20T21:16:18.212764",
+    "module": "maybe.py",
+    "timestamp": "2026-05-30T22:54:24.143239",
     "llm_info": {
         "model": "sonnet",
         "version": "functions",
@@ -9,21 +9,20 @@
     },
     "run_number": 2,
     "diff_metrics": {
-        "diff_total_tests": 0,
+        "diff_total_tests": -7,
         "diff_passing_tests": 1,
-        "diff_failing_tests": -1,
-        "diff_coverage": 2.76,
-        "dan_score_diff": 0.006282
+        "diff_failing_tests": -8,
+        "dan_score_diff": -0.031127
     },
     "test_summary": {
         "Original Test Results": "{'total': 21, 'pass': 3, 'fail': 17, 'error': 0}",
-        "Refactored Test Results": "{'total': 21, 'pass': 4, 'fail': 16, 'error': 0}",
+        "Refactored Test Results": "{'total': 14, 'pass': 4, 'fail': 9, 'error': 0}",
         "total_tests_before": 21,
-        "total_tests_after": 21
+        "total_tests_after": 14
     },
     "coverage": {
-        "before_refactoring": 52.85,
-        "after_refactoring": 55.61
+        "before_refactoring": "N/A",
+        "after_refactoring": "N/A"
     },
     "test_results": {
         "before_refactoring": {
@@ -49,69 +48,60 @@
             "test_case_19": "fail"
         },
         "after_refactoring": {
-            "test_maybe_instantiation_with_bytes": "pass",
-            "test_maybe_initialized_with_none_values": "pass",
+            "test_maybe_construction_with_bytes_value": "pass",
+            "test_maybe_initialized_with_two_none_values": "pass",
             "test_maybe_chained_operations_with_string_value": "fail",
-            "test_maybe_eq_returns_false_when_comparing_with_set": "pass",
+            "test_maybe_eq_returns_false_when_compared_to_set": "pass",
             "test_maybe_bind_map_then_invalid_method_on_set": "pass",
             "test_maybe_map_with_none_value_and_false_flag": "fail",
-            "test_maybe_bind_with_empty_dict_on_none_value_maybe": "fail",
-            "test_maybe_filter_and_ap_chaining_with_mixed_types": "fail",
-            "test_maybe_ap_with_none_value_and_false_flag": "fail",
-            "test_maybe_filter_and_lazy_map_chaining": "fail",
-            "test_filter_empty_maybe_with_lazy_converted_result": "fail",
-            "test_maybe_get_or_else_and_filter_with_generic": "fail",
-            "test_maybe_to_validation_and_bind_with_various_types": "fail",
-            "test_maybe_map_with_none_value_and_maybe_to_either_with_int": "fail",
-            "test_maybe_chained_conversions_with_none_and_nested_maybe": "fail",
-            "test_maybe_to_try_then_to_box_with_true_false": "fail",
-            "test_maybe_ap_with_none_propagates_through_lazy_validation_and_either": "fail",
-            "test_maybe_chaining_with_none_value_and_bytes": "fail",
+            "test_maybe_bind_on_instance_with_no_value": "fail",
+            "test_maybe_filter_and_ap_with_mixed_types": "fail",
+            "test_maybe_ap_with_none_and_false_initial_state": "fail",
+            "test_maybe_filter_and_lazy_conversion_chaining": "fail",
+            "test_filter_on_maybe_with_none_value_and_lazy_conversion": "fail",
             "test_maybe_chained_transformations_with_false_values": "fail",
-            "test_maybe_eq_and_chain_to_try_to_validation": "fail"
+            "test_maybe_equality_and_conversion_chain": "fail"
         },
         "dan_score_before": {
-            "__main__": 0.869159460067749,
-            "test_case_0": 0.39177650213241577,
-            "test_case_1": 0.4033203423023224,
-            "test_case_2": 0.16177101790905,
-            "test_case_3": 0.3068503811955452,
-            "test_case_4": 0.2873412221670151,
-            "test_case_5": 0.4323251048723857,
-            "test_case_6": 0.27006437877813977,
-            "test_case_7": 0.1338642304273028,
-            "test_case_8": 0.4910967747370402,
-            "test_case_9": 0.20555652429660162,
-            "test_case_10": 0.20941989620526633,
-            "test_case_11": 0.18392598256468773,
-            "test_case_12": 0.16452998185859008,
-            "test_case_13": 0.1918022960424423,
-            "test_case_14": 0.17900435047017205,
-            "test_case_15": 0.2980077415704727,
-            "test_case_16": 0.16629311311990022,
-            "test_case_17": 0.10251285761594772,
-            "test_case_18": 0.2135451493354944,
-            "test_case_19": 0.2928418070077896
+            "__main__": 0.8691592812538147,
+            "test_case_0": 0.3917776942253113,
+            "test_case_1": 0.4033205211162567,
+            "test_case_2": 0.1617710444331169,
+            "test_case_3": 0.3068503215909004,
+            "test_case_4": 0.2873412072658539,
+            "test_case_5": 0.4323252737522125,
+            "test_case_6": 0.2700643887122472,
+            "test_case_7": 0.13386423278011775,
+            "test_case_8": 0.4910968641440074,
+            "test_case_9": 0.20555658638477325,
+            "test_case_10": 0.2094198390841484,
+            "test_case_11": 0.18392596517999968,
+            "test_case_12": 0.16452997879070394,
+            "test_case_13": 0.19180227369070052,
+            "test_case_14": 0.1790043380525377,
+            "test_case_15": 0.2980078160762787,
+            "test_case_16": 0.166293103992939,
+            "test_case_17": 0.10251285120844841,
+            "test_case_18": 0.21354509775455183,
+            "test_case_19": 0.29284168779850006
         },
         "dan_score_after": {
-            "__main__": 0.6625203490257263,
-            "test_maybe_instantiation_with_bytes": 0.2501305639743805,
-            "test_maybe_initialized_with_none_values": 0.3961252421140671,
-            "test_maybe_chained_operations_with_string_value": 0.11127949789166451,
-            "test_maybe_eq_returns_false_when_comparing_with_set": 0.30586232244968414,
-            "test_maybe_bind_map_then_invalid_method_on_set": 0.20841628015041352,
-            "test_maybe_map_with_none_value_and_false_flag": 0.32490332921346027,
-            "test_maybe_bind_with_empty_dict_on_none_value_maybe": 0.3534279565016429,
-            "test_maybe_filter_and_ap_chaining_with_mixed_types": 0.1027947285849797,
-            "test_maybe_ap_with_none_value_and_false_flag": 0.46281637748082477,
-            "test_maybe_filter_and_lazy_map_chaining": 0.17731445034344992,
-            "test_filter_empty_maybe_with_lazy_converted_result": 0.31658221036195755,
-            "test_maybe_get_or_else_and_filter_with_generic": 0.21070632492673808,
-            "test_maybe_to_validation_and_bind_with_various_types": 0.14650014305815978,
-            "test_maybe_map_with_none_value_and_maybe_to_either_with_int": 0.2448792815208435,
-            "test_maybe_chained_conversions_with_none_and_nested_maybe": 0.162385576715072
+            "__main__": 0.6625205278396606,
+            "test_maybe_construction_with_bytes_value": 0.39556884765625,
+            "test_maybe_initialized_with_two_none_values": 0.4752601832151413,
+            "test_maybe_chained_operations_with_string_value": 0.12937581062316894,
+            "test_maybe_eq_returns_false_when_compared_to_set": 0.2999320775270462,
+            "test_maybe_bind_map_then_invalid_method_on_set": 0.29611522108316424,
+            "test_maybe_map_with_none_value_and_false_flag": 0.3494730393091838,
+            "test_maybe_bind_on_instance_with_no_value": 0.31288667519887287,
+            "test_maybe_filter_and_ap_with_mixed_types": 0.13534375887952352,
+            "test_maybe_ap_with_none_and_false_initial_state": 0.31745656331380206,
+            "test_maybe_filter_and_lazy_conversion_chaining": 0.2305424523850282,
+            "test_filter_on_maybe_with_none_value_and_lazy_conversion": 0.20781199846948897,
+            "test_maybe_chained_transformations_with_false_values": 0.2621595355180594,
+            "test_maybe_equality_and_conversion_chain": 0.3313376009464264
         },
         "avg_dan_score_before": 0.283572,
-        "avg_dan_score_after": 0.27729
+        "avg_dan_score_after": 0.314699
     }
 }

@@ -1,37 +1,0 @@
-<unknown>:24: SyntaxWarning: invalid escape sequence '\['
-<unknown>:25: SyntaxWarning: invalid escape sequence '\['
-<unknown>:26: SyntaxWarning: invalid escape sequence '\('
-<unknown>:27: SyntaxWarning: invalid escape sequence '\('
-<unknown>:28: SyntaxWarning: invalid escape sequence '\e'
-Unrecognized keys in `rope_scaling` for 'rope_type'='linear': {'type'}
-Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:42<04:15, 42.50s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [01:22<03:25, 41.16s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [02:02<02:41, 40.38s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [02:44<02:03, 41.27s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [03:25<01:22, 41.17s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [04:07<00:41, 41.44s/it]Loading checkpoint shards: 100%|██████████| 7/7 [04:39<00:00, 38.39s/it]Loading checkpoint shards: 100%|██████████| 7/7 [04:39<00:00, 39.98s/it]
-The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
-2026-05-19 14:18:15,502 - INFO - Loading model: microsoft/codebert-base-mlm
-/data/users/eliassam/miniforge3/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
-  warnings.warn(
-Some weights of the model checkpoint at microsoft/codebert-base-mlm were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
-- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-2026-05-19 14:18:16,716 - INFO - Processed __main__.dot: Score=0.7027 (1 paths)
-2026-05-19 14:18:16,772 - INFO - Processed test_case_0.dot: Score=0.7557 (1 paths)
-2026-05-19 14:18:17,019 - INFO - Processed test_case_1.dot: Score=0.4087 (4 paths)
-2026-05-19 14:18:17,146 - INFO - Processed test_case_2.dot: Score=0.4158 (2 paths)
-2026-05-19 14:18:17,229 - INFO - Processed test_case_3.dot: Score=0.3199 (1 paths)
-2026-05-19 14:18:17,412 - INFO - Processed test_case_4.dot: Score=0.2098 (2 paths)
-2026-05-19 14:18:20,078 - INFO - Processed test_case_5.dot: Score=0.2289 (31 paths)
-2026-05-19 14:18:23,247 - INFO - Processed test_case_6.dot: Score=0.2354 (34 paths)
-2026-05-19 14:18:23,874 - INFO - Processed test_case_7.dot: Score=0.1935 (8 paths)
-2026-05-19 14:18:24,533 - INFO - Processed test_case_8.dot: Score=0.3195 (9 paths)
-2026-05-19 14:18:24,795 - INFO - Processed test_case_9.dot: Score=0.3653 (4 paths)
-2026-05-19 14:18:24,894 - INFO - Processed __main__.dot: Score=0.7832 (1 paths)
-2026-05-19 14:18:25,080 - INFO - Processed test_timer_error_instance_creation.dot: Score=0.3991 (3 paths)
-2026-05-19 14:18:25,408 - INFO - Processed test_timer.dot: Score=0.4454 (6 paths)
-2026-05-19 14:18:25,502 - INFO - Processed test_timer_enters_and_exits.dot: Score=0.2484 (1 paths)
-2026-05-19 14:18:25,571 - INFO - Processed test_timer_is_initialized_with_numpy_nan.dot: Score=0.4346 (1 paths)
-2026-05-19 14:18:25,739 - INFO - Processed test_timer_sets_last_to_stopped_time.dot: Score=0.4553 (3 paths)
-2026-05-19 14:18:26,118 - INFO - Processed test_timer_default_parameter_logging_none_type.dot: Score=0.2100 (4 paths)
-2026-05-19 14:18:26,453 - INFO - Processed test_timer_enter_and_repr_calls.dot: Score=0.3109 (5 paths)
-2026-05-19 14:18:26,506 - INFO - Processed test_repr_method_of_timer.dot: Score=0.4939 (1 paths)
-2026-05-19 14:18:27,569 - INFO - Processed test_timer_start_function_correctly.dot: Score=0.1749 (12 paths)
-2026-05-19 14:18:27,702 - INFO - Processed test_start_stop_time_keeping.dot: Score=0.3371 (2 paths)
-2026-05-19 14:18:27,801 - INFO - Processed test_access_timer_object_in_context_with_custom_logger.dot: Score=0.4198 (1 paths)

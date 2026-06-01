@@ -76,65 +76,70 @@ import collections as collections_module
     Response: 
     ## Step 1 — Readability Rewrite and Chain of Thought Analysis
 
-**1. Analyze Intent**: This test is verifying that the `to_namedtuple` function can handle a float input without crashing.
+### 1. Analyze Intent
+This test is verifying that `to_namedtuple` can handle a negative float input without raising an exception.
 
-**2. Identify Improvements**:
-- **Function Name**: `test_to_namedtuple_with_float`
-- **Variables**: 
-  - `float_0` → `float_value`
-  - `module_0` → `namedtuple_utils` (must update reference)
-- **Docstring**: "Test that to_namedtuple accepts a float input."
+### 2. Identify Improvements
 
-**3. Safety Check**:
-- No new libraries are being added.
-- **CRITICAL**: The original code uses `module_0.to_namedtuple()`. The updated imports show `import namedtupleutils as namedtuple_utils`. We MUST change `module_0.to_namedtuple()` to `namedtuple_utils.to_namedtuple()`.
-- No assertions are being changed (there are none).
-- No new variables are being hallucinated.
+**Function Name**: `test_to_namedtuple_with_negative_float`
+
+**Variables**:
+- `float_0` → `negative_float_value`
+
+**Docstring**: "Verify that to_namedtuple accepts a negative float value without error."
+
+### 3. Safety Check
+- No new libraries added ✓
+- Import alias check: The imports show `import namedtupleutils as namedtuple_utils`, but the original code uses `module_0.to_namedtuple(float_0)`. The original `module_0` likely refers to the module imported as `namedtupleutils` (without alias). Since the new imports specify `import namedtupleutils as namedtuple_utils`, I need to update the call to use `namedtuple_utils.to_namedtuple(...)`.
+- No assertions changed ✓
+- No new variables hallucinated ✓
+
+---
 
 ## Step 2 — Self-Critique
 
 ### A. Semantic Preservation Check
-- ✅ All function calls preserved (single call to `to_namedtuple`)
-- ✅ Literal unchanged (`-476.66`)
-- ✅ Execution order identical
-- ✅ No fixtures to change
-- ✅ No behavior added or removed
+- **CRITICAL ISSUE**: The original code uses `module_0.to_namedtuple(float_0)`. The new imports specify `import namedtupleutils as namedtuple_utils`. I must update the call to `namedtuple_utils.to_namedtuple(negative_float_value)` to match the new alias. This is a required change per the task instructions.
+- All literals preserved (-476.66) ✓
+- Execution order identical ✓
+- No behavior added or removed ✓
 
 ### B. Readability Evaluation
-- ✅ Test name clearly describes behavior
-- ✅ Variable name `float_value` is descriptive
-- ✅ Purpose is clear from name and docstring
-- ✅ Structure is simple and easy to follow
-- ✅ Comments could clarify why this test exists
-
-**Weakness**: The test lacks context about why testing with a float is important. Adding a brief comment would help.
-
-## Step 3 — Revision
-Add a clarifying comment about why testing float input is relevant.
+- Test name is behavior-focused ✓
+- Variable name is descriptive ✓
+- Purpose is immediately clear ✓
+- Structure is easy to follow ✓
+- Comments are concise ✓
 
 ---
 
-## Section 1: Self-Critique & Fix Plan
+## Step 3 — Revision
 
-**1. Alias Check**: 
-- Original code used `module_0.to_namedtuple()`
-- Updated imports show `import namedtupleutils as namedtuple_utils`
-- **Found `module_0`, replacing with `namedtuple_utils`**
+No revision needed - the alias update is the only change required, and it's explicitly allowed by the task instructions.
 
-**2. Semantic Check**: 
-- Single function call preserved with same argument
-- Float literal unchanged
-- No assertions to verify (test passes if no exception raised)
+---
 
-## Section 2: Final Code
+### Section 1: Self-Critique & Fix Plan
+
+1. **Alias Check**: 
+   - Import: `import namedtupleutils as namedtuple_utils`
+   - Original code uses `module_0.to_namedtuple(...)` which is an old alias
+   - **Found old alias `module_0`, replacing with `namedtuple_utils`**
+
+2. **Semantic Check**: 
+   - All assertions preserved (none present)
+   - All function calls preserved (just renamed)
+   - All literals unchanged (-476.66)
+   - Execution order identical
+
+### Section 2: Final Code
 
 <final_code>
 ```python
-def test_to_namedtuple_with_float():
-    """Test that to_namedtuple accepts a float input."""
-    # Test that the function can handle scalar float values
-    float_value = -476.66
-    namedtuple_utils.to_namedtuple(float_value)
+def test_to_namedtuple_with_negative_float():
+    """Verify that to_namedtuple accepts a negative float value without error."""
+    negative_float_value = -476.66
+    namedtuple_utils.to_namedtuple(negative_float_value)
 ```
 </final_code> 
 
@@ -142,11 +147,10 @@ def test_to_namedtuple_with_float():
     ******************************************
 
     Post processing: 
-    def test_to_namedtuple_with_float():
-    """Test that to_namedtuple accepts a float input."""
-    # Test that the function can handle scalar float values
-    float_value = -476.66
-    namedtuple_utils.to_namedtuple(float_value) 
+    def test_to_namedtuple_with_negative_float():
+    """Verify that to_namedtuple accepts a negative float value without error."""
+    negative_float_value = -476.66
+    namedtuple_utils.to_namedtuple(negative_float_value) 
  
 
     ########################################################################################
@@ -166,11 +170,10 @@ def test_to_namedtuple_with_float():
     User prompt:
 
     
-    Here is a test case: def test_to_namedtuple_with_float():
-    """Test that to_namedtuple accepts a float input."""
-    # Test that the function can handle scalar float values
-    float_value = -476.66
-    namedtuple_utils.to_namedtuple(float_value)
+    Here is a test case: def test_to_namedtuple_with_negative_float():
+    """Verify that to_namedtuple accepts a negative float value without error."""
+    negative_float_value = -476.66
+    namedtuple_utils.to_namedtuple(negative_float_value)
     And here are the names of the current test in the file: []
     If there is a test case with the same name, change the name of the test case to another meaningful name.
 
@@ -189,22 +192,20 @@ def test_to_namedtuple_with_float():
     ***********************************************************
     Response: 
     ```Python
-def test_to_namedtuple_with_float():
-    """Test that to_namedtuple accepts a float input."""
-    # Test that the function can handle scalar float values
-    float_value = -476.66
-    namedtuple_utils.to_namedtuple(float_value)
+def test_to_namedtuple_with_negative_float():
+    """Verify that to_namedtuple accepts a negative float value without error."""
+    negative_float_value = -476.66
+    namedtuple_utils.to_namedtuple(negative_float_value)
 ``` 
 
 
     ******************************************
 
     Post processing: 
-    def test_to_namedtuple_with_float():
-    """Test that to_namedtuple accepts a float input."""
-    # Test that the function can handle scalar float values
-    float_value = -476.66
-    namedtuple_utils.to_namedtuple(float_value) 
+    def test_to_namedtuple_with_negative_float():
+    """Verify that to_namedtuple accepts a negative float value without error."""
+    negative_float_value = -476.66
+    namedtuple_utils.to_namedtuple(negative_float_value) 
  
 
     ########################################################################################
@@ -230,43 +231,77 @@ def test_to_namedtuple_with_float():
     * Model Response 
     ***********************************************************
     Response: 
-    ### Section 1: Self-Critique & Fix Plan
+    ## Step 1 — Readability Rewrite and Chain of Thought Analysis
 
-**Alias Check:**
-The provided imports are:
-- `import pytest`
-- `import namedtupleutils as namedtuple_utils`
-- `import collections as collections_module`
+### 1. Analyze Intent
+This test verifies that `to_namedtuple` can handle a tuple containing a float and a set, and also handles a standalone set, without raising errors.
 
-The original test uses `module_0.to_namedtuple()`. This must be updated to use the new alias `namedtuple_utils.to_namedtuple()`.
+### 2. Identify Improvements
 
-**Semantic Check:**
-- All function calls are preserved: two calls to `to_namedtuple()` with the same arguments.
-- All literals are unchanged: `-67.0` remains.
-- Execution order is identical: create float, create set, create tuple, call `to_namedtuple()` on tuple, call `to_namedtuple()` on set.
-- No assertions were present originally, so none are added or removed.
-- No behavior has been added or removed.
+**Function Name**: `test_to_namedtuple_with_tuple_containing_float_and_set`
+
+**Variables Mapping**:
+- `float_0` → `float_value`
+- `set_0` → `float_set`
+- `tuple_0` → `input_tuple`
+- `var_0` → `namedtuple_result`
+
+**Docstring**: "Verify that to_namedtuple can convert a tuple containing a float and a set, and also a standalone set."
+
+### 3. Safety Check
+- No new libraries added ✓
+- Import aliases: The `<imports>` section shows `import namedtupleutils as namedtuple_utils`. The original code uses `module_0.to_namedtuple()`. I need to update this to `namedtuple_utils.to_namedtuple()`.
+- No assertions changed ✓
+- No new variables hallucinated ✓
+
+## Step 2 — Self-Critique
+
+### A. Semantic Preservation Check
+- All function calls preserved ✓
+- All literals unchanged ✓
+- Execution order identical ✓
+- **CRITICAL**: Need to change `module_0.to_namedtuple()` to `namedtuple_utils.to_namedtuple()` to match the new import alias
+
+### B. Readability Evaluation
+- Test name is behaviour-focused ✓
+- Variable names are descriptive ✓
+- Purpose is clear ✓
+- Structure is easy to follow ✓
+- Comments are helpful ✓
+
+## Step 3 — Revision
+
+No semantic deviations found (after fixing the import alias). Readability improvements are solid.
+
+---
+
+### Section 1: Self-Critique & Fix Plan
+
+1. **Alias Check**: 
+   - Import: `import namedtupleutils as namedtuple_utils`
+   - Original code uses `module_0.to_namedtuple()` - this is incorrect with the new alias
+   - **Fix**: Replace `module_0.to_namedtuple()` with `namedtuple_utils.to_namedtuple()`
+
+2. **Semantic Check**: All assertions and logic preserved ✓
 
 ### Section 2: Final Code
 
 <final_code>
 ```python
-def test_to_namedtuple_converts_tuple_with_set_and_set_directly():
-    """Test that to_namedtuple handles a tuple containing a float and set, and a set directly."""
-    # Create a test float value
-    example_float = -67.0
+def test_to_namedtuple_with_tuple_containing_float_and_set():
+    """Verify that to_namedtuple can convert a tuple containing a float and a set, and also a standalone set."""
+    # Create a float value and a set containing that float (duplicates are collapsed)
+    float_value = -67.0
+    float_set = {float_value, float_value, float_value, float_value}  # Results in {-67.0}
     
-    # Create a set containing the float (duplicates are ignored in sets)
-    example_set = {example_float, example_float, example_float, example_float}
+    # Create a tuple containing the float and the set
+    input_tuple = (float_value, float_set)
     
-    # Create a tuple pairing the float with the set
-    example_tuple = (example_float, example_set)
+    # Convert the tuple to a namedtuple
+    namedtuple_result = namedtuple_utils.to_namedtuple(input_tuple)
     
-    # Convert the tuple to a namedtuple (result is unused but call is preserved)
-    result_namedtuple = namedtuple_utils.to_namedtuple(example_tuple)
-    
-    # Also convert the set directly to a namedtuple
-    namedtuple_utils.to_namedtuple(example_set)
+    # Also verify that a standalone set can be converted without error
+    namedtuple_utils.to_namedtuple(float_set)
 ```
 </final_code> 
 
@@ -274,22 +309,20 @@ def test_to_namedtuple_converts_tuple_with_set_and_set_directly():
     ******************************************
 
     Post processing: 
-    def test_to_namedtuple_converts_tuple_with_set_and_set_directly():
-    """Test that to_namedtuple handles a tuple containing a float and set, and a set directly."""
-    # Create a test float value
-    example_float = -67.0
+    def test_to_namedtuple_with_tuple_containing_float_and_set():
+    """Verify that to_namedtuple can convert a tuple containing a float and a set, and also a standalone set."""
+    # Create a float value and a set containing that float (duplicates are collapsed)
+    float_value = -67.0
+    float_set = {float_value, float_value, float_value, float_value}  # Results in {-67.0}
     
-    # Create a set containing the float (duplicates are ignored in sets)
-    example_set = {example_float, example_float, example_float, example_float}
+    # Create a tuple containing the float and the set
+    input_tuple = (float_value, float_set)
     
-    # Create a tuple pairing the float with the set
-    example_tuple = (example_float, example_set)
+    # Convert the tuple to a namedtuple
+    namedtuple_result = namedtuple_utils.to_namedtuple(input_tuple)
     
-    # Convert the tuple to a namedtuple (result is unused but call is preserved)
-    result_namedtuple = namedtuple_utils.to_namedtuple(example_tuple)
-    
-    # Also convert the set directly to a namedtuple
-    namedtuple_utils.to_namedtuple(example_set) 
+    # Also verify that a standalone set can be converted without error
+    namedtuple_utils.to_namedtuple(float_set) 
  
 
     ########################################################################################
@@ -309,23 +342,21 @@ def test_to_namedtuple_converts_tuple_with_set_and_set_directly():
     User prompt:
 
     
-    Here is a test case: def test_to_namedtuple_converts_tuple_with_set_and_set_directly():
-    """Test that to_namedtuple handles a tuple containing a float and set, and a set directly."""
-    # Create a test float value
-    example_float = -67.0
+    Here is a test case: def test_to_namedtuple_with_tuple_containing_float_and_set():
+    """Verify that to_namedtuple can convert a tuple containing a float and a set, and also a standalone set."""
+    # Create a float value and a set containing that float (duplicates are collapsed)
+    float_value = -67.0
+    float_set = {float_value, float_value, float_value, float_value}  # Results in {-67.0}
     
-    # Create a set containing the float (duplicates are ignored in sets)
-    example_set = {example_float, example_float, example_float, example_float}
+    # Create a tuple containing the float and the set
+    input_tuple = (float_value, float_set)
     
-    # Create a tuple pairing the float with the set
-    example_tuple = (example_float, example_set)
+    # Convert the tuple to a namedtuple
+    namedtuple_result = namedtuple_utils.to_namedtuple(input_tuple)
     
-    # Convert the tuple to a namedtuple (result is unused but call is preserved)
-    result_namedtuple = namedtuple_utils.to_namedtuple(example_tuple)
-    
-    # Also convert the set directly to a namedtuple
-    namedtuple_utils.to_namedtuple(example_set)
-    And here are the names of the current test in the file: ['test_to_namedtuple_with_float']
+    # Also verify that a standalone set can be converted without error
+    namedtuple_utils.to_namedtuple(float_set)
+    And here are the names of the current test in the file: ['test_to_namedtuple_with_negative_float']
     If there is a test case with the same name, change the name of the test case to another meaningful name.
 
     Provide the test case in a python code block. DONT add the imports or any additional text since the file will be executed to verify the correctness of the test cases.
@@ -343,44 +374,40 @@ def test_to_namedtuple_converts_tuple_with_set_and_set_directly():
     ***********************************************************
     Response: 
     ```Python
-def test_to_namedtuple_converts_tuple_with_set_and_set_directly():
-    """Test that to_namedtuple handles a tuple containing a float and set, and a set directly."""
-    # Create a test float value
-    example_float = -67.0
+def test_to_namedtuple_with_tuple_containing_float_and_set():
+    """Verify that to_namedtuple can convert a tuple containing a float and a set, and also a standalone set."""
+    # Create a float value and a set containing that float (duplicates are collapsed)
+    float_value = -67.0
+    float_set = {float_value, float_value, float_value, float_value}  # Results in {-67.0}
     
-    # Create a set containing the float (duplicates are ignored in sets)
-    example_set = {example_float, example_float, example_float, example_float}
+    # Create a tuple containing the float and the set
+    input_tuple = (float_value, float_set)
     
-    # Create a tuple pairing the float with the set
-    example_tuple = (example_float, example_set)
+    # Convert the tuple to a namedtuple
+    namedtuple_result = namedtuple_utils.to_namedtuple(input_tuple)
     
-    # Convert the tuple to a namedtuple (result is unused but call is preserved)
-    result_namedtuple = namedtuple_utils.to_namedtuple(example_tuple)
-    
-    # Also convert the set directly to a namedtuple
-    namedtuple_utils.to_namedtuple(example_set)
+    # Also verify that a standalone set can be converted without error
+    namedtuple_utils.to_namedtuple(float_set)
 ``` 
 
 
     ******************************************
 
     Post processing: 
-    def test_to_namedtuple_converts_tuple_with_set_and_set_directly():
-    """Test that to_namedtuple handles a tuple containing a float and set, and a set directly."""
-    # Create a test float value
-    example_float = -67.0
+    def test_to_namedtuple_with_tuple_containing_float_and_set():
+    """Verify that to_namedtuple can convert a tuple containing a float and a set, and also a standalone set."""
+    # Create a float value and a set containing that float (duplicates are collapsed)
+    float_value = -67.0
+    float_set = {float_value, float_value, float_value, float_value}  # Results in {-67.0}
     
-    # Create a set containing the float (duplicates are ignored in sets)
-    example_set = {example_float, example_float, example_float, example_float}
+    # Create a tuple containing the float and the set
+    input_tuple = (float_value, float_set)
     
-    # Create a tuple pairing the float with the set
-    example_tuple = (example_float, example_set)
+    # Convert the tuple to a namedtuple
+    namedtuple_result = namedtuple_utils.to_namedtuple(input_tuple)
     
-    # Convert the tuple to a namedtuple (result is unused but call is preserved)
-    result_namedtuple = namedtuple_utils.to_namedtuple(example_tuple)
-    
-    # Also convert the set directly to a namedtuple
-    namedtuple_utils.to_namedtuple(example_set) 
+    # Also verify that a standalone set can be converted without error
+    namedtuple_utils.to_namedtuple(float_set) 
  
 
     ########################################################################################
@@ -406,34 +433,76 @@ def test_to_namedtuple_converts_tuple_with_set_and_set_directly():
     * Model Response 
     ***********************************************************
     Response: 
-    ### Section 1: Self-Critique & Fix Plan
+    ## Step 1 — Readability Rewrite and Chain of Thought Analysis
+
+### 1. Analyze Intent
+This test verifies that `to_namedtuple` can handle a dictionary with duplicate keys (which results in a single key-value pair) and that the resulting namedtuple can be passed back to `to_namedtuple` without error.
+
+### 2. Identify Improvements
+
+**Function Name**: `test_to_namedtuple_with_duplicate_keys_and_reprocessing`
+
+**Variables Mapping**:
+- `str_0` → `key_name`
+- `dict_0` → `input_dict`
+- `var_0` → `first_namedtuple`
+- `var_1` → `second_namedtuple`
+
+**Docstring**: "Verify that to_namedtuple handles dictionaries with duplicate keys and can reprocess its own output."
+
+### 3. Safety Check
+- No new libraries added ✓
+- Import aliases: The imports show `import namedtupleutils as namedtuple_utils` and `import collections as collections_module`. The original code uses `module_0.to_namedtuple()` which must be updated to `namedtuple_utils.to_namedtuple()`.
+- Assertions unchanged ✓
+- No new variables hallucinated ✓
+
+## Step 2 — Self-Critique
+
+### A. Semantic Preservation Check
+- All assertions identical ✓ (no assertions in original)
+- All function calls preserved ✓
+- All literals unchanged ✓
+- Execution order identical ✓
+- No fixtures involved ✓
+- No behavior added or removed ✓
+
+### B. Readability Evaluation
+- Test name is behavior-focused and specific ✓
+- Variable names are descriptive and domain-aligned ✓
+- Purpose is immediately clear ✓
+- Structure is easy to follow ✓
+- Comments are concise and helpful ✓
+
+## Step 3 — Revision
+
+No revisions needed. The rewrite is semantically identical and more readable.
+
+---
+
+## Section 1: Self-Critique & Fix Plan
 
 1. **Alias Check**: 
-   - The provided imports show `namedtupleutils` imported as `namedtuple_utils`. The original test used `module_0` as the module reference. I must replace all occurrences of `module_0` with `namedtuple_utils` to match the updated imports.
-   - Found `module_0` in two places, replacing with `namedtuple_utils`.
+   - Import: `import namedtupleutils as namedtuple_utils` ✓
+   - Original code used `module_0.to_namedtuple()` → Must change to `namedtuple_utils.to_namedtuple()`
+   - Found `module_0` alias, replacing with `namedtuple_utils`
 
-2. **Semantic Check**: 
-   - All function calls are preserved: two calls to `to_namedtuple` with the same arguments.
-   - All literals are unchanged: the string `"author"` and the dictionary literal remain identical.
-   - Execution order is identical: create string, create dictionary, first conversion, second conversion.
-   - No assertions were present in the original test, so none were added or removed.
-   - No new behavior was introduced.
+2. **Semantic Check**: All logic preserved. The test creates a dict with duplicate keys (resulting in one key-value pair), converts to namedtuple, then converts the result again. No assertions to verify.
 
-### Section 2: Final Code
+## Section 2: Final Code
 
 <final_code>
 ```python
-def test_to_namedtuple_idempotent_on_single_key_dict():
-    """Test that to_namedtuple can be applied twice to a dictionary with a single key."""
-    # Create a dictionary with a single key-value pair
-    key = "author"
-    single_key_dict = {key: key, key: key, key: key}  # Duplicate keys collapse to one
+def test_to_namedtuple_with_duplicate_keys_and_reprocessing():
+    """Verify that to_namedtuple handles dictionaries with duplicate keys and can reprocess its own output."""
+    key_name = "author"
+    # Dictionary with duplicate keys collapses to single key-value pair
+    input_dict = {key_name: key_name, key_name: key_name, key_name: key_name}
     
-    # First conversion: dictionary -> namedtuple
-    namedtuple_instance = namedtuple_utils.to_namedtuple(single_key_dict)
+    # First conversion: dict -> namedtuple
+    first_namedtuple = namedtuple_utils.to_namedtuple(input_dict)
     
-    # Second conversion: namedtuple -> namedtuple (should be idempotent)
-    result = namedtuple_utils.to_namedtuple(namedtuple_instance)
+    # Second conversion: namedtuple -> namedtuple (reprocessing)
+    second_namedtuple = namedtuple_utils.to_namedtuple(first_namedtuple)
 ```
 </final_code> 
 
@@ -441,17 +510,17 @@ def test_to_namedtuple_idempotent_on_single_key_dict():
     ******************************************
 
     Post processing: 
-    def test_to_namedtuple_idempotent_on_single_key_dict():
-    """Test that to_namedtuple can be applied twice to a dictionary with a single key."""
-    # Create a dictionary with a single key-value pair
-    key = "author"
-    single_key_dict = {key: key, key: key, key: key}  # Duplicate keys collapse to one
+    def test_to_namedtuple_with_duplicate_keys_and_reprocessing():
+    """Verify that to_namedtuple handles dictionaries with duplicate keys and can reprocess its own output."""
+    key_name = "author"
+    # Dictionary with duplicate keys collapses to single key-value pair
+    input_dict = {key_name: key_name, key_name: key_name, key_name: key_name}
     
-    # First conversion: dictionary -> namedtuple
-    namedtuple_instance = namedtuple_utils.to_namedtuple(single_key_dict)
+    # First conversion: dict -> namedtuple
+    first_namedtuple = namedtuple_utils.to_namedtuple(input_dict)
     
-    # Second conversion: namedtuple -> namedtuple (should be idempotent)
-    result = namedtuple_utils.to_namedtuple(namedtuple_instance) 
+    # Second conversion: namedtuple -> namedtuple (reprocessing)
+    second_namedtuple = namedtuple_utils.to_namedtuple(first_namedtuple) 
  
 
     ########################################################################################
@@ -471,18 +540,18 @@ def test_to_namedtuple_idempotent_on_single_key_dict():
     User prompt:
 
     
-    Here is a test case: def test_to_namedtuple_idempotent_on_single_key_dict():
-    """Test that to_namedtuple can be applied twice to a dictionary with a single key."""
-    # Create a dictionary with a single key-value pair
-    key = "author"
-    single_key_dict = {key: key, key: key, key: key}  # Duplicate keys collapse to one
+    Here is a test case: def test_to_namedtuple_with_duplicate_keys_and_reprocessing():
+    """Verify that to_namedtuple handles dictionaries with duplicate keys and can reprocess its own output."""
+    key_name = "author"
+    # Dictionary with duplicate keys collapses to single key-value pair
+    input_dict = {key_name: key_name, key_name: key_name, key_name: key_name}
     
-    # First conversion: dictionary -> namedtuple
-    namedtuple_instance = namedtuple_utils.to_namedtuple(single_key_dict)
+    # First conversion: dict -> namedtuple
+    first_namedtuple = namedtuple_utils.to_namedtuple(input_dict)
     
-    # Second conversion: namedtuple -> namedtuple (should be idempotent)
-    result = namedtuple_utils.to_namedtuple(namedtuple_instance)
-    And here are the names of the current test in the file: ['test_to_namedtuple_with_float', 'test_to_namedtuple_converts_tuple_with_set_and_set_directly']
+    # Second conversion: namedtuple -> namedtuple (reprocessing)
+    second_namedtuple = namedtuple_utils.to_namedtuple(first_namedtuple)
+    And here are the names of the current test in the file: ['test_to_namedtuple_with_negative_float', 'test_to_namedtuple_with_tuple_containing_float_and_set']
     If there is a test case with the same name, change the name of the test case to another meaningful name.
 
     Provide the test case in a python code block. DONT add the imports or any additional text since the file will be executed to verify the correctness of the test cases.
@@ -500,34 +569,34 @@ def test_to_namedtuple_idempotent_on_single_key_dict():
     ***********************************************************
     Response: 
     ```Python
-def test_to_namedtuple_idempotent_on_single_key_dict():
-    """Test that to_namedtuple can be applied twice to a dictionary with a single key."""
-    # Create a dictionary with a single key-value pair
-    key = "author"
-    single_key_dict = {key: key, key: key, key: key}  # Duplicate keys collapse to one
+def test_to_namedtuple_with_duplicate_keys_and_reprocessing():
+    """Verify that to_namedtuple handles dictionaries with duplicate keys and can reprocess its own output."""
+    key_name = "author"
+    # Dictionary with duplicate keys collapses to single key-value pair
+    input_dict = {key_name: key_name, key_name: key_name, key_name: key_name}
     
-    # First conversion: dictionary -> namedtuple
-    namedtuple_instance = namedtuple_utils.to_namedtuple(single_key_dict)
+    # First conversion: dict -> namedtuple
+    first_namedtuple = namedtuple_utils.to_namedtuple(input_dict)
     
-    # Second conversion: namedtuple -> namedtuple (should be idempotent)
-    result = namedtuple_utils.to_namedtuple(namedtuple_instance)
+    # Second conversion: namedtuple -> namedtuple (reprocessing)
+    second_namedtuple = namedtuple_utils.to_namedtuple(first_namedtuple)
 ``` 
 
 
     ******************************************
 
     Post processing: 
-    def test_to_namedtuple_idempotent_on_single_key_dict():
-    """Test that to_namedtuple can be applied twice to a dictionary with a single key."""
-    # Create a dictionary with a single key-value pair
-    key = "author"
-    single_key_dict = {key: key, key: key, key: key}  # Duplicate keys collapse to one
+    def test_to_namedtuple_with_duplicate_keys_and_reprocessing():
+    """Verify that to_namedtuple handles dictionaries with duplicate keys and can reprocess its own output."""
+    key_name = "author"
+    # Dictionary with duplicate keys collapses to single key-value pair
+    input_dict = {key_name: key_name, key_name: key_name, key_name: key_name}
     
-    # First conversion: dictionary -> namedtuple
-    namedtuple_instance = namedtuple_utils.to_namedtuple(single_key_dict)
+    # First conversion: dict -> namedtuple
+    first_namedtuple = namedtuple_utils.to_namedtuple(input_dict)
     
-    # Second conversion: namedtuple -> namedtuple (should be idempotent)
-    result = namedtuple_utils.to_namedtuple(namedtuple_instance) 
+    # Second conversion: namedtuple -> namedtuple (reprocessing)
+    second_namedtuple = namedtuple_utils.to_namedtuple(first_namedtuple) 
  
 
     ########################################################################################
@@ -553,39 +622,68 @@ def test_to_namedtuple_idempotent_on_single_key_dict():
     * Model Response 
     ***********************************************************
     Response: 
-    ### Section 1: Self-Critique & Fix Plan
+    ## Step 1 — Readability Rewrite and Chain of Thought Analysis
 
-**Alias Check:**
-- Original test used `module_0.to_namedtuple()`.
-- Provided imports show `import namedtupleutils as namedtuple_utils`.
-- **Found `module_0`, replacing with `namedtuple_utils`.**
+### 1. Analyze Intent
+This test is verifying that `to_namedtuple` can handle raw bytes input without raising an exception.
 
-**Semantic Check:**
-- No assertions present in original test.
-- Function call `to_namedtuple(bytes_0)` preserved exactly.
-- Bytes literal `b"xs&,\x9b\xc2\xf1\x80\xb3y"` unchanged.
-- Execution order identical (single function call).
-- No fixtures or control flow changes.
-- No new behavior added or removed.
+### 2. Identify Improvements
 
-**Readability Evaluation:**
-- ✅ New function name clearly describes behavior.
-- ✅ Variable name now descriptive (`input_bytes`).
-- ✅ Docstring explains purpose concisely.
-- ✅ Structure remains simple and clear.
-- ✅ No unnecessary comments added.
+**Function Name**: `test_to_namedtuple_with_bytes_input`
 
-**Weaknesses Identified:**
-- None - the rewrite improves clarity while preserving semantics exactly.
+**Variables**:
+- `bytes_0` → `raw_bytes` (describes the binary data being tested)
+- `module_0` → `namedtuple_utils` (matches the import alias from the updated imports)
+
+**Docstring**: "Verify that to_namedtuple accepts bytes input without error."
+
+### 3. Safety Check
+- No new libraries added ✓
+- **CRITICAL**: The original code uses `module_0` which was the old import alias. The new imports specify `import namedtupleutils as namedtuple_utils`. I MUST update `module_0` to `namedtuple_utils` in the test code.
+- No assertions changed ✓
+- No new variables hallucinated ✓
+
+## Step 2 — Self-Critique
+
+### A. Semantic Preservation Check
+- No assertions in the original test (it's a smoke test that just calls the function)
+- Function call preserved: `to_namedtuple(raw_bytes)` ✓
+- Literals unchanged: `b"xs&,\x9b\xc2\xf1\x80\xb3y"` ✓
+- Execution order identical ✓
+- **IMPORTANT**: Changed `module_0` to `namedtuple_utils` to match the new import alias. This is required for correctness.
+
+### B. Readability Evaluation
+- Test name is behavior-focused ✓
+- Variable names are descriptive ✓
+- Purpose is immediately clear ✓
+- Structure is easy to follow ✓
+- Comments are concise and helpful ✓
+
+## Step 3 — Revision
+
+No revisions needed. The alias change is mandatory for correctness.
+
+### Section 1: Self-Critique & Fix Plan
+
+1. **Alias Check**: 
+   - New imports: `import namedtupleutils as namedtuple_utils`
+   - Original code used `module_0` (old alias)
+   - Found `module_0`, replacing with `namedtuple_utils` ✓
+
+2. **Semantic Check**: 
+   - No assertions to preserve
+   - Function call preserved exactly
+   - Input literal unchanged
+   - Execution order identical
 
 ### Section 2: Final Code
 
 <final_code>
 ```python
 def test_to_namedtuple_with_bytes_input():
-    """Test that to_namedtuple can handle bytes input without error."""
-    input_bytes = b"xs&,\x9b\xc2\xf1\x80\xb3y"
-    namedtuple_utils.to_namedtuple(input_bytes)
+    """Verify that to_namedtuple accepts bytes input without error."""
+    raw_bytes = b"xs&,\x9b\xc2\xf1\x80\xb3y"
+    namedtuple_utils.to_namedtuple(raw_bytes)
 ```
 </final_code> 
 
@@ -594,9 +692,9 @@ def test_to_namedtuple_with_bytes_input():
 
     Post processing: 
     def test_to_namedtuple_with_bytes_input():
-    """Test that to_namedtuple can handle bytes input without error."""
-    input_bytes = b"xs&,\x9b\xc2\xf1\x80\xb3y"
-    namedtuple_utils.to_namedtuple(input_bytes) 
+    """Verify that to_namedtuple accepts bytes input without error."""
+    raw_bytes = b"xs&,\x9b\xc2\xf1\x80\xb3y"
+    namedtuple_utils.to_namedtuple(raw_bytes) 
  
 
     ########################################################################################
@@ -617,10 +715,10 @@ def test_to_namedtuple_with_bytes_input():
 
     
     Here is a test case: def test_to_namedtuple_with_bytes_input():
-    """Test that to_namedtuple can handle bytes input without error."""
-    input_bytes = b"xs&,\x9b\xc2\xf1\x80\xb3y"
-    namedtuple_utils.to_namedtuple(input_bytes)
-    And here are the names of the current test in the file: ['test_to_namedtuple_with_float', 'test_to_namedtuple_converts_tuple_with_set_and_set_directly', 'test_to_namedtuple_idempotent_on_single_key_dict']
+    """Verify that to_namedtuple accepts bytes input without error."""
+    raw_bytes = b"xs&,\x9b\xc2\xf1\x80\xb3y"
+    namedtuple_utils.to_namedtuple(raw_bytes)
+    And here are the names of the current test in the file: ['test_to_namedtuple_with_negative_float', 'test_to_namedtuple_with_tuple_containing_float_and_set', 'test_to_namedtuple_with_duplicate_keys_and_reprocessing']
     If there is a test case with the same name, change the name of the test case to another meaningful name.
 
     Provide the test case in a python code block. DONT add the imports or any additional text since the file will be executed to verify the correctness of the test cases.
@@ -637,11 +735,11 @@ def test_to_namedtuple_with_bytes_input():
     * Model Response 
     ***********************************************************
     Response: 
-    ```python
+    ```Python
 def test_to_namedtuple_with_bytes_input():
-    """Test that to_namedtuple can handle bytes input without error."""
-    input_bytes = b"xs&,\x9b\xc2\xf1\x80\xb3y"
-    namedtuple_utils.to_namedtuple(input_bytes)
+    """Verify that to_namedtuple accepts bytes input without error."""
+    raw_bytes = b"xs&,\x9b\xc2\xf1\x80\xb3y"
+    namedtuple_utils.to_namedtuple(raw_bytes)
 ``` 
 
 
@@ -649,9 +747,9 @@ def test_to_namedtuple_with_bytes_input():
 
     Post processing: 
     def test_to_namedtuple_with_bytes_input():
-    """Test that to_namedtuple can handle bytes input without error."""
-    input_bytes = b"xs&,\x9b\xc2\xf1\x80\xb3y"
-    namedtuple_utils.to_namedtuple(input_bytes) 
+    """Verify that to_namedtuple accepts bytes input without error."""
+    raw_bytes = b"xs&,\x9b\xc2\xf1\x80\xb3y"
+    namedtuple_utils.to_namedtuple(raw_bytes) 
  
 
     ########################################################################################
@@ -677,69 +775,69 @@ def test_to_namedtuple_with_bytes_input():
     * Model Response 
     ***********************************************************
     Response: 
-    ### Step 1 — Readability Rewrite and Chain of Thought Analysis
+    ## Step 1 — Readability Rewrite and Chain of Thought Analysis
 
-**1. Analyze Intent**: This test verifies that `to_namedtuple` correctly handles an empty tuple input without errors.
+### 1. Analyze Intent
+This test verifies that calling `to_namedtuple` with an empty tuple returns a valid result (likely an empty namedtuple or similar structure).
 
-**2. Identify Improvements**:
-* **Function Name**: `test_to_namedtuple_empty_tuple`
-* **Variables**: 
-  - `tuple_0` → `empty_tuple`
-  - `var_0` → `result`
-* **Docstring**: "Test that to_namedtuple correctly processes an empty tuple."
+### 2. Identify Improvements
 
-**3. Safety Check**:
-* No new libraries are being added.
-* **CRITICAL**: The original code uses `module_0.to_namedtuple()`. According to the updated imports, we must use `namedtuple_utils.to_namedtuple()` instead. This is a required change to match the provided aliases.
-* No assertions are being changed (there are none in the original).
-* No new variables are being defined beyond renaming existing ones.
+**Function Name**: `test_to_namedtuple_with_empty_tuple`
 
-### Step 2 — Self-Critique
+**Variables Mapping**:
+- `tuple_0` → `empty_tuple`
+- `var_0` → `result`
 
-**A. Semantic Preservation Check**:
-- All function calls are preserved (just renamed from `module_0.to_namedtuple` to `namedtuple_utils.to_namedtuple`)
-- All literals unchanged (`()` remains `()`)
-- Execution order identical (create tuple, call function)
-- No fixtures to change
-- No behavior added or removed
+**Docstring**: "Test that to_namedtuple handles an empty tuple correctly."
 
-**B. Readability Evaluation**:
-- Test name clearly describes the specific scenario
-- Variable names are now descriptive (`empty_tuple`, `result`)
-- Purpose is immediately clear from function name and docstring
-- Structure is straightforward
-- Comments could clarify why this test is important
+### 3. Safety Check
+- No new libraries added ✓
+- Import aliases: The imports show `import namedtupleutils as namedtuple_utils` and `import collections as collections_module`. The original code uses `module_0.to_namedtuple(tuple_0)` which appears to reference a module alias. Since the imports specify `namedtupleutils as namedtuple_utils`, we need to update `module_0` to `namedtuple_utils`.
+- No assertions changed ✓
+- No new variables hallucinated ✓
 
-### Step 3 — Revision
-The main issue is the import alias mismatch. The original uses `module_0` but the updated imports specify `namedtuple_utils`. This must be fixed for the test to run correctly.
+## Step 2 — Self-Critique
 
-## Section 1: Self-Critique & Fix Plan
+### A. Semantic Preservation Check
+- **CRITICAL ISSUE**: The original code uses `module_0.to_namedtuple(tuple_0)`. The imports specify `import namedtupleutils as namedtuple_utils`. The alias `module_0` is not defined in the imports. This must be changed to `namedtuple_utils` to match the provided imports.
+- All function calls preserved ✓ (after fixing alias)
+- All literals unchanged ✓
+- Execution order identical ✓
+
+### B. Readability Evaluation
+- Test name is behaviour-focused ✓
+- Variable names are descriptive ✓
+- Purpose is immediately clear ✓
+- Structure is easy to follow ✓
+- Comments are concise ✓
+
+## Step 3 — Revision
+
+### Alias Fix
+The original code uses `module_0` which doesn't match the provided imports. Must change to `namedtuple_utils`.
+
+---
+
+### Section 1: Self-Critique & Fix Plan
 
 1. **Alias Check**: 
-   - Original uses `module_0.to_namedtuple()`
-   - Updated imports specify `import namedtupleutils as namedtuple_utils`
-   - **Found `module_0`, replacing with `namedtuple_utils`**
+   - Imports: `import namedtupleutils as namedtuple_utils`, `import collections as collections_module`
+   - Found `module_0` (old alias), replacing with `namedtuple_utils` (new alias)
+   - `collections_module` not used in this test, so no changes needed
 
 2. **Semantic Check**: 
-   - Function call preserved (just with correct alias)
-   - No assertions to preserve
-   - All literals unchanged
-   - Execution order identical
+   - Assertions: None present in original, none added
+   - Logic preserved: Same function call with same argument
+   - No behaviour added or removed
 
-## Section 2: Final Code
+### Section 2: Final Code
 
 <final_code>
 ```python
-def test_to_namedtuple_empty_tuple():
-    """Test that to_namedtuple correctly processes an empty tuple."""
-    # Create an empty tuple as input
+def test_to_namedtuple_with_empty_tuple():
+    """Test that to_namedtuple handles an empty tuple correctly."""
     empty_tuple = ()
-    
-    # Convert empty tuple to namedtuple (should handle without error)
     result = namedtuple_utils.to_namedtuple(empty_tuple)
-    
-    # Note: This test verifies the function doesn't crash on empty input
-    # No assertion needed - test passes if no exception is raised
 ```
 </final_code> 
 
@@ -747,16 +845,10 @@ def test_to_namedtuple_empty_tuple():
     ******************************************
 
     Post processing: 
-    def test_to_namedtuple_empty_tuple():
-    """Test that to_namedtuple correctly processes an empty tuple."""
-    # Create an empty tuple as input
+    def test_to_namedtuple_with_empty_tuple():
+    """Test that to_namedtuple handles an empty tuple correctly."""
     empty_tuple = ()
-    
-    # Convert empty tuple to namedtuple (should handle without error)
-    result = namedtuple_utils.to_namedtuple(empty_tuple)
-    
-    # Note: This test verifies the function doesn't crash on empty input
-    # No assertion needed - test passes if no exception is raised 
+    result = namedtuple_utils.to_namedtuple(empty_tuple) 
  
 
     ########################################################################################
@@ -776,17 +868,11 @@ def test_to_namedtuple_empty_tuple():
     User prompt:
 
     
-    Here is a test case: def test_to_namedtuple_empty_tuple():
-    """Test that to_namedtuple correctly processes an empty tuple."""
-    # Create an empty tuple as input
+    Here is a test case: def test_to_namedtuple_with_empty_tuple():
+    """Test that to_namedtuple handles an empty tuple correctly."""
     empty_tuple = ()
-    
-    # Convert empty tuple to namedtuple (should handle without error)
     result = namedtuple_utils.to_namedtuple(empty_tuple)
-    
-    # Note: This test verifies the function doesn't crash on empty input
-    # No assertion needed - test passes if no exception is raised
-    And here are the names of the current test in the file: ['test_to_namedtuple_with_float', 'test_to_namedtuple_converts_tuple_with_set_and_set_directly', 'test_to_namedtuple_idempotent_on_single_key_dict', 'test_to_namedtuple_with_bytes_input']
+    And here are the names of the current test in the file: ['test_to_namedtuple_with_negative_float', 'test_to_namedtuple_with_tuple_containing_float_and_set', 'test_to_namedtuple_with_duplicate_keys_and_reprocessing', 'test_to_namedtuple_with_bytes_input']
     If there is a test case with the same name, change the name of the test case to another meaningful name.
 
     Provide the test case in a python code block. DONT add the imports or any additional text since the file will be executed to verify the correctness of the test cases.
@@ -804,32 +890,20 @@ def test_to_namedtuple_empty_tuple():
     ***********************************************************
     Response: 
     ```Python
-def test_to_namedtuple_empty_tuple():
-    """Test that to_namedtuple correctly processes an empty tuple."""
-    # Create an empty tuple as input
+def test_to_namedtuple_with_empty_tuple():
+    """Test that to_namedtuple handles an empty tuple correctly."""
     empty_tuple = ()
-    
-    # Convert empty tuple to namedtuple (should handle without error)
     result = namedtuple_utils.to_namedtuple(empty_tuple)
-    
-    # Note: This test verifies the function doesn't crash on empty input
-    # No assertion needed - test passes if no exception is raised
 ``` 
 
 
     ******************************************
 
     Post processing: 
-    def test_to_namedtuple_empty_tuple():
-    """Test that to_namedtuple correctly processes an empty tuple."""
-    # Create an empty tuple as input
+    def test_to_namedtuple_with_empty_tuple():
+    """Test that to_namedtuple handles an empty tuple correctly."""
     empty_tuple = ()
-    
-    # Convert empty tuple to namedtuple (should handle without error)
-    result = namedtuple_utils.to_namedtuple(empty_tuple)
-    
-    # Note: This test verifies the function doesn't crash on empty input
-    # No assertion needed - test passes if no exception is raised 
+    result = namedtuple_utils.to_namedtuple(empty_tuple) 
  
 
     ########################################################################################
@@ -855,95 +929,89 @@ def test_to_namedtuple_empty_tuple():
     * Model Response 
     ***********************************************************
     Response: 
-    ### Step 1 — Readability Rewrite and Chain of Thought Analysis
+    ## Step 1 — Readability Rewrite and Chain of Thought Analysis
 
-**1. Analyze Intent**: This test appears to be testing the `to_namedtuple` function's ability to handle nested conversions and various input types (OrderedDict, bytes, tuples) without errors.
+### 1. Analyze Intent
+This test verifies that `to_namedtuple` can handle various input types (OrderedDict, existing namedtuples, bytes, tuples) and that repeated calls on the same input produce consistent results.
 
-**2. Identify Improvements**:
-* **Function Name**: `test_to_namedtuple_handles_nested_conversions_and_mixed_types`
-* **Variables**:
-  - `ordered_dict_0` → `empty_ordered_dict`
-  - `var_0` → `namedtuple_from_dict`
-  - `var_1` → `namedtuple_from_namedtuple`
-  - `var_2` → `namedtuple_from_dict_again`
-  - `var_3` → `namedtuple_from_namedtuple_again`
-  - `bytes_0` → `random_bytes`
-  - `var_4` → `namedtuple_from_dict_third`
-  - `tuple_0` → `mixed_tuple`
-  - `var_5` → `namedtuple_from_tuple`
-  - `var_6` → `namedtuple_from_dict_fourth`
-* **Docstring**: "Test that to_namedtuple handles nested conversions and mixed type inputs without errors."
+### 2. Identify Improvements
 
-**3. Safety Check**:
-* No new libraries are being added
-* **CRITICAL**: The original code uses `module_0` and `module_1`. Based on the imports provided, we need to map:
-  - `module_0` → `namedtuple_utils` (since we imported `namedtupleutils as namedtuple_utils`)
-  - `module_1` → `collections_module` (since we imported `collections as collections_module`)
-* No assertions are being changed (there are none in the original test)
-* No new variables are being defined - only renaming existing ones
+**Function Name**: `test_to_namedtuple_with_various_input_types`
 
-### Step 2 — Self-Critique
+**Variable Mapping**:
+- `ordered_dict_0` → `ordered_dict`
+- `var_0` → `namedtuple_from_dict`
+- `var_1` → `namedtuple_from_namedtuple`
+- `var_2` → `namedtuple_from_dict_again`
+- `var_3` → `namedtuple_from_namedtuple_again`
+- `bytes_0` → `byte_data`
+- `var_4` → `namedtuple_from_dict_third_time`
+- `tuple_0` → `mixed_tuple`
+- `var_5` → `namedtuple_from_tuple`
+- `var_6` → `namedtuple_from_dict_fourth_time`
 
-**A. Semantic Preservation Check**:
-* All function calls are preserved exactly as in the original
-* All literals are unchanged (`b"\xe2\xf8\xb9\x01\x8c\xa5\xed\xb1\x0e&rdHE"` remains identical)
-* Execution order is identical
-* No fixtures were present in the original
-* No behavior has been added or removed
+**Docstring**: "Test that to_namedtuple handles OrderedDict, existing namedtuples, bytes, and tuples as input."
 
-**B. Readability Evaluation**:
-* The test name is more descriptive but could be more specific about what "handles" means
-* Variable names are now descriptive but some are still verbose
-* The purpose is clearer but could benefit from inline comments
-* Structure is easier to follow with better naming
-* Comments could be added to explain the intent of each conversion
+### 3. Safety Check
+- No new libraries added
+- Import aliases: `module_0` and `module_1` are used in original - these are not in the `<imports>` section, so they must be preserved as-is
+- No assertions to change
+- No new variables hallucinated
 
-**Weaknesses**: The test lacks assertions, which is unusual. However, we cannot add them per the rules. The variable names like `namedtuple_from_namedtuple_again` are somewhat verbose.
+## Step 2 — Self-Critique
 
-### Step 3 — Revision
+### A. Semantic Preservation Check
+- No assertions in the test (it's testing that calls don't raise exceptions)
+- All function calls preserved
+- All literals unchanged
+- Execution order identical
+- No fixtures to preserve
+- No behavior added or removed
 
-I need to:
-1. Fix the module alias references from `module_0`/`module_1` to `namedtuple_utils`/`collections_module`
-2. Add brief inline comments to clarify intent
-3. Keep variable names descriptive but slightly less verbose
+### B. Readability Evaluation
+- Test name is behavior-focused ✓
+- Variable names are descriptive ✓
+- Purpose is clear ✓
+- Structure is easy to follow ✓
+- Comments are concise ✓
+
+## Step 3 — Revision
+
+No issues identified - the rewrite is clean and preserves semantics.
 
 ### Section 1: Self-Critique & Fix Plan
 
-1. **Alias Check**: 
-   - Original uses `module_0` → Must replace with `namedtuple_utils`
-   - Original uses `module_1` → Must replace with `collections_module`
-   - Found `module_1.OrderedDict()`, replacing with `collections_module.OrderedDict()`
-   - Found `module_0.to_namedtuple`, replacing with `namedtuple_utils.to_namedtuple`
+1. **Alias Check**: The `<imports>` section shows `module_0` and `module_1` are not defined there. Since these are used in the original code and not in the imports section, they must be preserved exactly as-is. No alias changes needed.
 
-2. **Semantic Check**: All function calls, literals, and execution order are preserved. No assertions to check.
+2. **Semantic Check**: All function calls, literals, and execution order are preserved. No assertions to verify.
 
 ### Section 2: Final Code
 
 <final_code>
 ```python
-def test_to_namedtuple_handles_nested_conversions_and_mixed_types():
-    """Test that to_namedtuple handles nested conversions and mixed type inputs without errors."""
+def test_to_namedtuple_with_various_input_types():
+    """Test that to_namedtuple handles OrderedDict, existing namedtuples, bytes, and tuples as input."""
+    # Test with empty OrderedDict
+    ordered_dict = module_1.OrderedDict()
+    namedtuple_from_dict = module_0.to_namedtuple(ordered_dict)
     
-    # Create an empty OrderedDict
-    empty_ordered_dict = collections_module.OrderedDict()
+    # Test converting a namedtuple back to namedtuple
+    namedtuple_from_namedtuple = module_0.to_namedtuple(namedtuple_from_dict)
     
-    # Convert OrderedDict to namedtuple multiple times
-    namedtuple_from_dict = namedtuple_utils.to_namedtuple(empty_ordered_dict)
-    namedtuple_from_namedtuple = namedtuple_utils.to_namedtuple(namedtuple_from_dict)
+    # Test repeated conversion of same OrderedDict
+    namedtuple_from_dict_again = module_0.to_namedtuple(ordered_dict)
+    namedtuple_from_namedtuple_again = module_0.to_namedtuple(namedtuple_from_dict_again)
     
-    namedtuple_from_dict_again = namedtuple_utils.to_namedtuple(empty_ordered_dict)
-    namedtuple_from_namedtuple_again = namedtuple_utils.to_namedtuple(namedtuple_from_dict_again)
+    # Test with bytes input
+    byte_data = b"\xe2\xf8\xb9\x01\x8c\xa5\xed\xb1\x0e&rdHE"
+    namedtuple_from_dict_third_time = module_0.to_namedtuple(ordered_dict)
     
-    # Test with bytes data
-    random_bytes = b"\xe2\xf8\xb9\x01\x8c\xa5\xed\xb1\x0e&rdHE"
-    namedtuple_from_dict_third = namedtuple_utils.to_namedtuple(empty_ordered_dict)
+    # Test with tuple containing namedtuple and bytes
+    mixed_tuple = (namedtuple_from_namedtuple, byte_data)
+    namedtuple_from_tuple = module_0.to_namedtuple(mixed_tuple)
     
-    # Create a tuple mixing namedtuple and bytes, then convert
-    mixed_tuple = (namedtuple_from_namedtuple, random_bytes)
-    namedtuple_from_tuple = namedtuple_utils.to_namedtuple(mixed_tuple)
-    
-    # Final conversion of the original OrderedDict
-    namedtuple_from_dict_fourth = namedtuple_utils.to_namedtuple(empty_ordered_dict)
+    # Final test with OrderedDict
+    namedtuple_from_dict_fourth_time = module_0.to_namedtuple(ordered_dict)
 ```
 </final_code> 
 
@@ -951,29 +1019,29 @@ def test_to_namedtuple_handles_nested_conversions_and_mixed_types():
     ******************************************
 
     Post processing: 
-    def test_to_namedtuple_handles_nested_conversions_and_mixed_types():
-    """Test that to_namedtuple handles nested conversions and mixed type inputs without errors."""
+    def test_to_namedtuple_with_various_input_types():
+    """Test that to_namedtuple handles OrderedDict, existing namedtuples, bytes, and tuples as input."""
+    # Test with empty OrderedDict
+    ordered_dict = module_1.OrderedDict()
+    namedtuple_from_dict = module_0.to_namedtuple(ordered_dict)
     
-    # Create an empty OrderedDict
-    empty_ordered_dict = collections_module.OrderedDict()
+    # Test converting a namedtuple back to namedtuple
+    namedtuple_from_namedtuple = module_0.to_namedtuple(namedtuple_from_dict)
     
-    # Convert OrderedDict to namedtuple multiple times
-    namedtuple_from_dict = namedtuple_utils.to_namedtuple(empty_ordered_dict)
-    namedtuple_from_namedtuple = namedtuple_utils.to_namedtuple(namedtuple_from_dict)
+    # Test repeated conversion of same OrderedDict
+    namedtuple_from_dict_again = module_0.to_namedtuple(ordered_dict)
+    namedtuple_from_namedtuple_again = module_0.to_namedtuple(namedtuple_from_dict_again)
     
-    namedtuple_from_dict_again = namedtuple_utils.to_namedtuple(empty_ordered_dict)
-    namedtuple_from_namedtuple_again = namedtuple_utils.to_namedtuple(namedtuple_from_dict_again)
+    # Test with bytes input
+    byte_data = b"\xe2\xf8\xb9\x01\x8c\xa5\xed\xb1\x0e&rdHE"
+    namedtuple_from_dict_third_time = module_0.to_namedtuple(ordered_dict)
     
-    # Test with bytes data
-    random_bytes = b"\xe2\xf8\xb9\x01\x8c\xa5\xed\xb1\x0e&rdHE"
-    namedtuple_from_dict_third = namedtuple_utils.to_namedtuple(empty_ordered_dict)
+    # Test with tuple containing namedtuple and bytes
+    mixed_tuple = (namedtuple_from_namedtuple, byte_data)
+    namedtuple_from_tuple = module_0.to_namedtuple(mixed_tuple)
     
-    # Create a tuple mixing namedtuple and bytes, then convert
-    mixed_tuple = (namedtuple_from_namedtuple, random_bytes)
-    namedtuple_from_tuple = namedtuple_utils.to_namedtuple(mixed_tuple)
-    
-    # Final conversion of the original OrderedDict
-    namedtuple_from_dict_fourth = namedtuple_utils.to_namedtuple(empty_ordered_dict) 
+    # Final test with OrderedDict
+    namedtuple_from_dict_fourth_time = module_0.to_namedtuple(ordered_dict) 
  
 
     ########################################################################################
@@ -993,30 +1061,30 @@ def test_to_namedtuple_handles_nested_conversions_and_mixed_types():
     User prompt:
 
     
-    Here is a test case: def test_to_namedtuple_handles_nested_conversions_and_mixed_types():
-    """Test that to_namedtuple handles nested conversions and mixed type inputs without errors."""
+    Here is a test case: def test_to_namedtuple_with_various_input_types():
+    """Test that to_namedtuple handles OrderedDict, existing namedtuples, bytes, and tuples as input."""
+    # Test with empty OrderedDict
+    ordered_dict = module_1.OrderedDict()
+    namedtuple_from_dict = module_0.to_namedtuple(ordered_dict)
     
-    # Create an empty OrderedDict
-    empty_ordered_dict = collections_module.OrderedDict()
+    # Test converting a namedtuple back to namedtuple
+    namedtuple_from_namedtuple = module_0.to_namedtuple(namedtuple_from_dict)
     
-    # Convert OrderedDict to namedtuple multiple times
-    namedtuple_from_dict = namedtuple_utils.to_namedtuple(empty_ordered_dict)
-    namedtuple_from_namedtuple = namedtuple_utils.to_namedtuple(namedtuple_from_dict)
+    # Test repeated conversion of same OrderedDict
+    namedtuple_from_dict_again = module_0.to_namedtuple(ordered_dict)
+    namedtuple_from_namedtuple_again = module_0.to_namedtuple(namedtuple_from_dict_again)
     
-    namedtuple_from_dict_again = namedtuple_utils.to_namedtuple(empty_ordered_dict)
-    namedtuple_from_namedtuple_again = namedtuple_utils.to_namedtuple(namedtuple_from_dict_again)
+    # Test with bytes input
+    byte_data = b"\xe2\xf8\xb9\x01\x8c\xa5\xed\xb1\x0e&rdHE"
+    namedtuple_from_dict_third_time = module_0.to_namedtuple(ordered_dict)
     
-    # Test with bytes data
-    random_bytes = b"\xe2\xf8\xb9\x01\x8c\xa5\xed\xb1\x0e&rdHE"
-    namedtuple_from_dict_third = namedtuple_utils.to_namedtuple(empty_ordered_dict)
+    # Test with tuple containing namedtuple and bytes
+    mixed_tuple = (namedtuple_from_namedtuple, byte_data)
+    namedtuple_from_tuple = module_0.to_namedtuple(mixed_tuple)
     
-    # Create a tuple mixing namedtuple and bytes, then convert
-    mixed_tuple = (namedtuple_from_namedtuple, random_bytes)
-    namedtuple_from_tuple = namedtuple_utils.to_namedtuple(mixed_tuple)
-    
-    # Final conversion of the original OrderedDict
-    namedtuple_from_dict_fourth = namedtuple_utils.to_namedtuple(empty_ordered_dict)
-    And here are the names of the current test in the file: ['test_to_namedtuple_with_float', 'test_to_namedtuple_converts_tuple_with_set_and_set_directly', 'test_to_namedtuple_idempotent_on_single_key_dict', 'test_to_namedtuple_with_bytes_input', 'test_to_namedtuple_empty_tuple']
+    # Final test with OrderedDict
+    namedtuple_from_dict_fourth_time = module_0.to_namedtuple(ordered_dict)
+    And here are the names of the current test in the file: ['test_to_namedtuple_with_negative_float', 'test_to_namedtuple_with_tuple_containing_float_and_set', 'test_to_namedtuple_with_duplicate_keys_and_reprocessing', 'test_to_namedtuple_with_bytes_input', 'test_to_namedtuple_with_empty_tuple']
     If there is a test case with the same name, change the name of the test case to another meaningful name.
 
     Provide the test case in a python code block. DONT add the imports or any additional text since the file will be executed to verify the correctness of the test cases.
@@ -1034,58 +1102,58 @@ def test_to_namedtuple_handles_nested_conversions_and_mixed_types():
     ***********************************************************
     Response: 
     ```Python
-def test_to_namedtuple_handles_nested_conversions_and_mixed_types():
-    """Test that to_namedtuple handles nested conversions and mixed type inputs without errors."""
+def test_to_namedtuple_with_various_input_types():
+    """Test that to_namedtuple handles OrderedDict, existing namedtuples, bytes, and tuples as input."""
+    # Test with empty OrderedDict
+    ordered_dict = module_1.OrderedDict()
+    namedtuple_from_dict = module_0.to_namedtuple(ordered_dict)
     
-    # Create an empty OrderedDict
-    empty_ordered_dict = collections_module.OrderedDict()
+    # Test converting a namedtuple back to namedtuple
+    namedtuple_from_namedtuple = module_0.to_namedtuple(namedtuple_from_dict)
     
-    # Convert OrderedDict to namedtuple multiple times
-    namedtuple_from_dict = namedtuple_utils.to_namedtuple(empty_ordered_dict)
-    namedtuple_from_namedtuple = namedtuple_utils.to_namedtuple(namedtuple_from_dict)
+    # Test repeated conversion of same OrderedDict
+    namedtuple_from_dict_again = module_0.to_namedtuple(ordered_dict)
+    namedtuple_from_namedtuple_again = module_0.to_namedtuple(namedtuple_from_dict_again)
     
-    namedtuple_from_dict_again = namedtuple_utils.to_namedtuple(empty_ordered_dict)
-    namedtuple_from_namedtuple_again = namedtuple_utils.to_namedtuple(namedtuple_from_dict_again)
+    # Test with bytes input
+    byte_data = b"\xe2\xf8\xb9\x01\x8c\xa5\xed\xb1\x0e&rdHE"
+    namedtuple_from_dict_third_time = module_0.to_namedtuple(ordered_dict)
     
-    # Test with bytes data
-    random_bytes = b"\xe2\xf8\xb9\x01\x8c\xa5\xed\xb1\x0e&rdHE"
-    namedtuple_from_dict_third = namedtuple_utils.to_namedtuple(empty_ordered_dict)
+    # Test with tuple containing namedtuple and bytes
+    mixed_tuple = (namedtuple_from_namedtuple, byte_data)
+    namedtuple_from_tuple = module_0.to_namedtuple(mixed_tuple)
     
-    # Create a tuple mixing namedtuple and bytes, then convert
-    mixed_tuple = (namedtuple_from_namedtuple, random_bytes)
-    namedtuple_from_tuple = namedtuple_utils.to_namedtuple(mixed_tuple)
-    
-    # Final conversion of the original OrderedDict
-    namedtuple_from_dict_fourth = namedtuple_utils.to_namedtuple(empty_ordered_dict)
+    # Final test with OrderedDict
+    namedtuple_from_dict_fourth_time = module_0.to_namedtuple(ordered_dict)
 ``` 
 
 
     ******************************************
 
     Post processing: 
-    def test_to_namedtuple_handles_nested_conversions_and_mixed_types():
-    """Test that to_namedtuple handles nested conversions and mixed type inputs without errors."""
+    def test_to_namedtuple_with_various_input_types():
+    """Test that to_namedtuple handles OrderedDict, existing namedtuples, bytes, and tuples as input."""
+    # Test with empty OrderedDict
+    ordered_dict = module_1.OrderedDict()
+    namedtuple_from_dict = module_0.to_namedtuple(ordered_dict)
     
-    # Create an empty OrderedDict
-    empty_ordered_dict = collections_module.OrderedDict()
+    # Test converting a namedtuple back to namedtuple
+    namedtuple_from_namedtuple = module_0.to_namedtuple(namedtuple_from_dict)
     
-    # Convert OrderedDict to namedtuple multiple times
-    namedtuple_from_dict = namedtuple_utils.to_namedtuple(empty_ordered_dict)
-    namedtuple_from_namedtuple = namedtuple_utils.to_namedtuple(namedtuple_from_dict)
+    # Test repeated conversion of same OrderedDict
+    namedtuple_from_dict_again = module_0.to_namedtuple(ordered_dict)
+    namedtuple_from_namedtuple_again = module_0.to_namedtuple(namedtuple_from_dict_again)
     
-    namedtuple_from_dict_again = namedtuple_utils.to_namedtuple(empty_ordered_dict)
-    namedtuple_from_namedtuple_again = namedtuple_utils.to_namedtuple(namedtuple_from_dict_again)
+    # Test with bytes input
+    byte_data = b"\xe2\xf8\xb9\x01\x8c\xa5\xed\xb1\x0e&rdHE"
+    namedtuple_from_dict_third_time = module_0.to_namedtuple(ordered_dict)
     
-    # Test with bytes data
-    random_bytes = b"\xe2\xf8\xb9\x01\x8c\xa5\xed\xb1\x0e&rdHE"
-    namedtuple_from_dict_third = namedtuple_utils.to_namedtuple(empty_ordered_dict)
+    # Test with tuple containing namedtuple and bytes
+    mixed_tuple = (namedtuple_from_namedtuple, byte_data)
+    namedtuple_from_tuple = module_0.to_namedtuple(mixed_tuple)
     
-    # Create a tuple mixing namedtuple and bytes, then convert
-    mixed_tuple = (namedtuple_from_namedtuple, random_bytes)
-    namedtuple_from_tuple = namedtuple_utils.to_namedtuple(mixed_tuple)
-    
-    # Final conversion of the original OrderedDict
-    namedtuple_from_dict_fourth = namedtuple_utils.to_namedtuple(empty_ordered_dict) 
+    # Final test with OrderedDict
+    namedtuple_from_dict_fourth_time = module_0.to_namedtuple(ordered_dict) 
  
 
     ########################################################################################
@@ -1111,44 +1179,79 @@ def test_to_namedtuple_handles_nested_conversions_and_mixed_types():
     * Model Response 
     ***********************************************************
     Response: 
-    ### Section 1: Self-Critique & Fix Plan
+    ## Step 1 — Readability Rewrite and Chain of Thought Analysis
 
-**Alias Check:**
-- Original imports: `module_0` = `namedtupleutils`, `module_1` = `collections`
-- Updated imports: `namedtupleutils as namedtuple_utils`, `collections as collections_module`
-- Found `module_0` in original code, replacing with `namedtuple_utils`
-- Found `module_1` in original code, replacing with `collections_module`
+### 1. Analyze Intent
+This test verifies that `to_namedtuple` can handle an `OrderedDict` created with duplicate keys (where the last value wins), and that creating an `OrderedDict` from a list containing `None` works without error.
 
-**Semantic Check:**
-- All function calls preserved exactly: `OrderedDict(**dict_0)`, `to_namedtuple(ordered_dict_0)`, `OrderedDict(*list_0)`
-- All literals unchanged: string `"wm=-g\ry#\x0b#:*"`, dictionary structure, `None` value
-- Execution order identical: string → dict → OrderedDict → to_namedtuple → None → list → OrderedDict
-- No assertions added or removed (test has no assertions)
-- No behavior added or removed
+### 2. Identify Improvements
 
-### Section 2: Final Code
+**Function Name**: `test_to_namedtuple_with_ordereddict_duplicate_keys`
+
+**Variables Mapping**:
+- `str_0` → `sample_key`
+- `dict_0` → `source_dict`
+- `ordered_dict_0` → `ordered_dict`
+- `var_0` → `namedtuple_result`
+- `none_type_0` → `none_value`
+- `list_0` → `none_list`
+
+**Docstring**: "Test that to_namedtuple handles OrderedDict with duplicate keys and that OrderedDict can be created from a list containing None."
+
+### 3. Safety Check
+- No new libraries added ✓
+- Import aliases: The `<imports>` section specifies `import namedtupleutils as namedtuple_utils` and `import collections as collections_module`. The original code uses `module_0` and `module_1` which are NOT the new aliases. I must update all references.
+- No assertions changed ✓
+- No new variables hallucinated ✓
+
+## Step 2 — Self-Critique
+
+### A. Semantic Preservation Check
+- All function calls preserved ✓
+- All literals unchanged ✓
+- Execution order identical ✓
+- No behavior added or removed ✓
+
+### B. Readability Evaluation
+- Test name is behavior-focused ✓
+- Variable names are descriptive ✓
+- Purpose is clear ✓
+- Structure is easy to follow ✓
+- Comments are helpful ✓
+
+## Step 3 — Revision
+
+### Alias Check
+The original code uses `module_0` and `module_1` which are NOT the new aliases from `<imports>`. I must replace:
+- `module_0.to_namedtuple` → `namedtuple_utils.to_namedtuple`
+- `module_1.OrderedDict` → `collections_module.OrderedDict`
+
+## Section 1: Self-Critique & Fix Plan
+
+1. **Alias Check**: Found `module_0` (should be `namedtuple_utils`) and `module_1` (should be `collections_module`). Replacing both with correct aliases from `<imports>`.
+
+2. **Semantic Check**: All assertions and logic preserved. No changes to control flow, values, or execution order.
+
+## Section 2: Final Code
 
 <final_code>
 ```python
-def test_ordereddict_to_namedtuple_and_ordereddict_with_none():
-    """Test converting OrderedDict to namedtuple and OrderedDict initialization with None argument."""
+def test_to_namedtuple_with_ordereddict_duplicate_keys():
+    """Test that to_namedtuple handles OrderedDict with duplicate keys and that OrderedDict can be created from a list containing None."""
+    # Create a key with special characters
+    sample_key = "wm=-g\ry#\x0b#:*"
     
-    # Create a string with special characters
-    special_string = "wm=-g\ry#\x0b#:*"
+    # Create a dict with duplicate keys (last value wins)
+    source_dict = {sample_key: sample_key, sample_key: sample_key}
     
-    # Create dictionary with duplicate keys (will be deduplicated)
-    duplicate_key_dict = {special_string: special_string, special_string: special_string}
+    # Convert to OrderedDict and then to namedtuple
+    ordered_dict = collections_module.OrderedDict(**source_dict)
+    namedtuple_result = namedtuple_utils.to_namedtuple(ordered_dict)
     
-    # Create OrderedDict from dictionary
-    ordered_dict_from_dict = collections_module.OrderedDict(**duplicate_key_dict)
-    
-    # Convert OrderedDict to namedtuple
-    namedtuple_result = namedtuple_utils.to_namedtuple(ordered_dict_from_dict)
-    
-    # Test OrderedDict initialization with None argument
+    # Verify OrderedDict can be created from a list containing None
     none_value = None
-    list_with_none = [none_value]
-    collections_module.OrderedDict(*list_with_none)
+    none_list = [none_value]
+    collections_module.OrderedDict(*none_list)
 ```
 </final_code> 
 
@@ -1156,25 +1259,22 @@ def test_ordereddict_to_namedtuple_and_ordereddict_with_none():
     ******************************************
 
     Post processing: 
-    def test_ordereddict_to_namedtuple_and_ordereddict_with_none():
-    """Test converting OrderedDict to namedtuple and OrderedDict initialization with None argument."""
+    def test_to_namedtuple_with_ordereddict_duplicate_keys():
+    """Test that to_namedtuple handles OrderedDict with duplicate keys and that OrderedDict can be created from a list containing None."""
+    # Create a key with special characters
+    sample_key = "wm=-g\ry#\x0b#:*"
     
-    # Create a string with special characters
-    special_string = "wm=-g\ry#\x0b#:*"
+    # Create a dict with duplicate keys (last value wins)
+    source_dict = {sample_key: sample_key, sample_key: sample_key}
     
-    # Create dictionary with duplicate keys (will be deduplicated)
-    duplicate_key_dict = {special_string: special_string, special_string: special_string}
+    # Convert to OrderedDict and then to namedtuple
+    ordered_dict = collections_module.OrderedDict(**source_dict)
+    namedtuple_result = namedtuple_utils.to_namedtuple(ordered_dict)
     
-    # Create OrderedDict from dictionary
-    ordered_dict_from_dict = collections_module.OrderedDict(**duplicate_key_dict)
-    
-    # Convert OrderedDict to namedtuple
-    namedtuple_result = namedtuple_utils.to_namedtuple(ordered_dict_from_dict)
-    
-    # Test OrderedDict initialization with None argument
+    # Verify OrderedDict can be created from a list containing None
     none_value = None
-    list_with_none = [none_value]
-    collections_module.OrderedDict(*list_with_none) 
+    none_list = [none_value]
+    collections_module.OrderedDict(*none_list) 
  
 
     ########################################################################################
@@ -1194,26 +1294,23 @@ def test_ordereddict_to_namedtuple_and_ordereddict_with_none():
     User prompt:
 
     
-    Here is a test case: def test_ordereddict_to_namedtuple_and_ordereddict_with_none():
-    """Test converting OrderedDict to namedtuple and OrderedDict initialization with None argument."""
+    Here is a test case: def test_to_namedtuple_with_ordereddict_duplicate_keys():
+    """Test that to_namedtuple handles OrderedDict with duplicate keys and that OrderedDict can be created from a list containing None."""
+    # Create a key with special characters
+    sample_key = "wm=-g\ry#\x0b#:*"
     
-    # Create a string with special characters
-    special_string = "wm=-g\ry#\x0b#:*"
+    # Create a dict with duplicate keys (last value wins)
+    source_dict = {sample_key: sample_key, sample_key: sample_key}
     
-    # Create dictionary with duplicate keys (will be deduplicated)
-    duplicate_key_dict = {special_string: special_string, special_string: special_string}
+    # Convert to OrderedDict and then to namedtuple
+    ordered_dict = collections_module.OrderedDict(**source_dict)
+    namedtuple_result = namedtuple_utils.to_namedtuple(ordered_dict)
     
-    # Create OrderedDict from dictionary
-    ordered_dict_from_dict = collections_module.OrderedDict(**duplicate_key_dict)
-    
-    # Convert OrderedDict to namedtuple
-    namedtuple_result = namedtuple_utils.to_namedtuple(ordered_dict_from_dict)
-    
-    # Test OrderedDict initialization with None argument
+    # Verify OrderedDict can be created from a list containing None
     none_value = None
-    list_with_none = [none_value]
-    collections_module.OrderedDict(*list_with_none)
-    And here are the names of the current test in the file: ['test_to_namedtuple_with_float', 'test_to_namedtuple_converts_tuple_with_set_and_set_directly', 'test_to_namedtuple_idempotent_on_single_key_dict', 'test_to_namedtuple_with_bytes_input', 'test_to_namedtuple_empty_tuple', 'test_to_namedtuple_handles_nested_conversions_and_mixed_types']
+    none_list = [none_value]
+    collections_module.OrderedDict(*none_list)
+    And here are the names of the current test in the file: ['test_to_namedtuple_with_negative_float', 'test_to_namedtuple_with_tuple_containing_float_and_set', 'test_to_namedtuple_with_duplicate_keys_and_reprocessing', 'test_to_namedtuple_with_bytes_input', 'test_to_namedtuple_with_empty_tuple', 'test_to_namedtuple_with_various_input_types']
     If there is a test case with the same name, change the name of the test case to another meaningful name.
 
     Provide the test case in a python code block. DONT add the imports or any additional text since the file will be executed to verify the correctness of the test cases.
@@ -1230,51 +1327,45 @@ def test_ordereddict_to_namedtuple_and_ordereddict_with_none():
     * Model Response 
     ***********************************************************
     Response: 
-    ```python
-def test_ordereddict_to_namedtuple_and_ordereddict_with_none():
-    """Test converting OrderedDict to namedtuple and OrderedDict initialization with None argument."""
+    ```Python
+def test_to_namedtuple_with_ordereddict_duplicate_keys():
+    """Test that to_namedtuple handles OrderedDict with duplicate keys and that OrderedDict can be created from a list containing None."""
+    # Create a key with special characters
+    sample_key = "wm=-g\ry#\x0b#:*"
     
-    # Create a string with special characters
-    special_string = "wm=-g\ry#\x0b#:*"
+    # Create a dict with duplicate keys (last value wins)
+    source_dict = {sample_key: sample_key, sample_key: sample_key}
     
-    # Create dictionary with duplicate keys (will be deduplicated)
-    duplicate_key_dict = {special_string: special_string, special_string: special_string}
+    # Convert to OrderedDict and then to namedtuple
+    ordered_dict = collections_module.OrderedDict(**source_dict)
+    namedtuple_result = namedtuple_utils.to_namedtuple(ordered_dict)
     
-    # Create OrderedDict from dictionary
-    ordered_dict_from_dict = collections_module.OrderedDict(**duplicate_key_dict)
-    
-    # Convert OrderedDict to namedtuple
-    namedtuple_result = namedtuple_utils.to_namedtuple(ordered_dict_from_dict)
-    
-    # Test OrderedDict initialization with None argument
+    # Verify OrderedDict can be created from a list containing None
     none_value = None
-    list_with_none = [none_value]
-    collections_module.OrderedDict(*list_with_none)
+    none_list = [none_value]
+    collections_module.OrderedDict(*none_list)
 ``` 
 
 
     ******************************************
 
     Post processing: 
-    def test_ordereddict_to_namedtuple_and_ordereddict_with_none():
-    """Test converting OrderedDict to namedtuple and OrderedDict initialization with None argument."""
+    def test_to_namedtuple_with_ordereddict_duplicate_keys():
+    """Test that to_namedtuple handles OrderedDict with duplicate keys and that OrderedDict can be created from a list containing None."""
+    # Create a key with special characters
+    sample_key = "wm=-g\ry#\x0b#:*"
     
-    # Create a string with special characters
-    special_string = "wm=-g\ry#\x0b#:*"
+    # Create a dict with duplicate keys (last value wins)
+    source_dict = {sample_key: sample_key, sample_key: sample_key}
     
-    # Create dictionary with duplicate keys (will be deduplicated)
-    duplicate_key_dict = {special_string: special_string, special_string: special_string}
+    # Convert to OrderedDict and then to namedtuple
+    ordered_dict = collections_module.OrderedDict(**source_dict)
+    namedtuple_result = namedtuple_utils.to_namedtuple(ordered_dict)
     
-    # Create OrderedDict from dictionary
-    ordered_dict_from_dict = collections_module.OrderedDict(**duplicate_key_dict)
-    
-    # Convert OrderedDict to namedtuple
-    namedtuple_result = namedtuple_utils.to_namedtuple(ordered_dict_from_dict)
-    
-    # Test OrderedDict initialization with None argument
+    # Verify OrderedDict can be created from a list containing None
     none_value = None
-    list_with_none = [none_value]
-    collections_module.OrderedDict(*list_with_none) 
+    none_list = [none_value]
+    collections_module.OrderedDict(*none_list) 
  
 
     ########################################################################################
@@ -1300,42 +1391,71 @@ def test_ordereddict_to_namedtuple_and_ordereddict_with_none():
     * Model Response 
     ***********************************************************
     Response: 
-    ### Section 1: Self-Critique & Fix Plan
+    ## Step 1 — Readability Rewrite and Chain of Thought Analysis
 
-**Alias Check:**
-The provided imports are:
-- `import pytest`
-- `import namedtupleutils as namedtuple_utils`
-- `import collections as collections_module`
+### 1. Analyze Intent
+This test verifies that `to_namedtuple` can handle a list containing an empty list as input, and also that it handles `None` input (likely testing that it raises an appropriate error or handles gracefully).
 
-The original test used `module_0.to_namedtuple()`. This must be updated to use the correct alias `namedtuple_utils.to_namedtuple()`.
+### 2. Identify Improvements
 
-**Semantic Check:**
-- All function calls are preserved: `to_namedtuple()` is called twice with the same arguments.
-- All literals are unchanged: `[]`, `[[]]`, and `None`.
-- Execution order is identical: create nested list, call to_namedtuple, then call with None.
-- No assertions were present in the original test, so none are added or removed.
-- No behavior has been added or removed.
+**Function Name**: `test_to_namedtuple_with_nested_empty_list_and_none`
 
-**Readability Evaluation:**
-- The new test name clearly describes the behavior being tested.
-- Variable names are now descriptive and domain-aligned.
-- The docstring concisely explains the test's purpose.
-- The structure remains simple and easy to follow.
-- The inline comment clarifies the edge case being tested.
+**Variables**:
+- `list_0` → `empty_list` (an empty list)
+- `list_1` → `nested_list` (a list containing the empty list)
+- `var_0` → `result` (the result of converting the nested list)
+- `none_type_0` → `none_input` (None value passed to the function)
+
+**Docstring**: "Test that to_namedtuple handles a list containing an empty list and None input."
+
+### 3. Safety Check
+- No new libraries added ✓
+- Import aliases: The imports show `import namedtupleutils as namedtuple_utils`, but the original code uses `module_0.to_namedtuple()`. I need to check if `module_0` was an alias for `namedtupleutils` or `namedtuple_utils`. Since the imports say `import namedtupleutils as namedtuple_utils`, I should use `namedtuple_utils.to_namedtuple()` instead of `module_0.to_namedtuple()`.
+- No assertions changed ✓
+- No new variables hallucinated ✓
+
+## Step 2 — Self-Critique
+
+### A. Semantic Preservation Check
+- All function calls preserved ✓
+- All literals unchanged ✓
+- Execution order identical ✓
+- **CRITICAL ISSUE**: The original uses `module_0.to_namedtuple()` but the imports specify `import namedtupleutils as namedtuple_utils`. I must change `module_0` to `namedtuple_utils`.
+
+### B. Readability Evaluation
+- Test name is behavior-focused ✓
+- Variable names are descriptive ✓
+- Purpose is clear ✓
+- Structure is easy to follow ✓
+- Comments are concise ✓
+
+## Step 3 — Revision
+
+### Section 1: Self-Critique & Fix Plan
+
+1. **Alias Check**: 
+   - Original uses `module_0.to_namedtuple()` 
+   - New imports specify `import namedtupleutils as namedtuple_utils`
+   - Found `module_0`, replacing with `namedtuple_utils`
+
+2. **Semantic Check**: All assertions and logic preserved ✓
 
 ### Section 2: Final Code
 
 <final_code>
 ```python
-def test_to_namedtuple_handles_nested_empty_list_and_none():
-    """Test that to_namedtuple handles a nested empty list and None without error."""
+def test_to_namedtuple_with_nested_empty_list_and_none():
+    """Test that to_namedtuple handles a list containing an empty list and None input."""
+    # Create an empty list and nest it inside another list
     empty_list = []
     nested_list = [empty_list]
+    
+    # Convert the nested list to a namedtuple
     result = namedtuple_utils.to_namedtuple(nested_list)
-    none_value = None
-    # Ensure function handles None input without error
-    namedtuple_utils.to_namedtuple(none_value)
+    
+    # Test that None input is handled (likely raises an error)
+    none_input = None
+    namedtuple_utils.to_namedtuple(none_input)
 ```
 </final_code> 
 
@@ -1343,14 +1463,18 @@ def test_to_namedtuple_handles_nested_empty_list_and_none():
     ******************************************
 
     Post processing: 
-    def test_to_namedtuple_handles_nested_empty_list_and_none():
-    """Test that to_namedtuple handles a nested empty list and None without error."""
+    def test_to_namedtuple_with_nested_empty_list_and_none():
+    """Test that to_namedtuple handles a list containing an empty list and None input."""
+    # Create an empty list and nest it inside another list
     empty_list = []
     nested_list = [empty_list]
+    
+    # Convert the nested list to a namedtuple
     result = namedtuple_utils.to_namedtuple(nested_list)
-    none_value = None
-    # Ensure function handles None input without error
-    namedtuple_utils.to_namedtuple(none_value) 
+    
+    # Test that None input is handled (likely raises an error)
+    none_input = None
+    namedtuple_utils.to_namedtuple(none_input) 
  
 
     ########################################################################################
@@ -1370,15 +1494,19 @@ def test_to_namedtuple_handles_nested_empty_list_and_none():
     User prompt:
 
     
-    Here is a test case: def test_to_namedtuple_handles_nested_empty_list_and_none():
-    """Test that to_namedtuple handles a nested empty list and None without error."""
+    Here is a test case: def test_to_namedtuple_with_nested_empty_list_and_none():
+    """Test that to_namedtuple handles a list containing an empty list and None input."""
+    # Create an empty list and nest it inside another list
     empty_list = []
     nested_list = [empty_list]
+    
+    # Convert the nested list to a namedtuple
     result = namedtuple_utils.to_namedtuple(nested_list)
-    none_value = None
-    # Ensure function handles None input without error
-    namedtuple_utils.to_namedtuple(none_value)
-    And here are the names of the current test in the file: ['test_to_namedtuple_with_float', 'test_to_namedtuple_converts_tuple_with_set_and_set_directly', 'test_to_namedtuple_idempotent_on_single_key_dict', 'test_to_namedtuple_with_bytes_input', 'test_to_namedtuple_empty_tuple', 'test_to_namedtuple_handles_nested_conversions_and_mixed_types', 'test_ordereddict_to_namedtuple_and_ordereddict_with_none']
+    
+    # Test that None input is handled (likely raises an error)
+    none_input = None
+    namedtuple_utils.to_namedtuple(none_input)
+    And here are the names of the current test in the file: ['test_to_namedtuple_with_negative_float', 'test_to_namedtuple_with_tuple_containing_float_and_set', 'test_to_namedtuple_with_duplicate_keys_and_reprocessing', 'test_to_namedtuple_with_bytes_input', 'test_to_namedtuple_with_empty_tuple', 'test_to_namedtuple_with_various_input_types', 'test_to_namedtuple_with_ordereddict_duplicate_keys']
     If there is a test case with the same name, change the name of the test case to another meaningful name.
 
     Provide the test case in a python code block. DONT add the imports or any additional text since the file will be executed to verify the correctness of the test cases.
@@ -1396,28 +1524,36 @@ def test_to_namedtuple_handles_nested_empty_list_and_none():
     ***********************************************************
     Response: 
     ```Python
-def test_to_namedtuple_handles_nested_empty_list_and_none():
-    """Test that to_namedtuple handles a nested empty list and None without error."""
+def test_to_namedtuple_with_nested_empty_list_and_none():
+    """Test that to_namedtuple handles a list containing an empty list and None input."""
+    # Create an empty list and nest it inside another list
     empty_list = []
     nested_list = [empty_list]
+    
+    # Convert the nested list to a namedtuple
     result = namedtuple_utils.to_namedtuple(nested_list)
-    none_value = None
-    # Ensure function handles None input without error
-    namedtuple_utils.to_namedtuple(none_value)
+    
+    # Test that None input is handled (likely raises an error)
+    none_input = None
+    namedtuple_utils.to_namedtuple(none_input)
 ``` 
 
 
     ******************************************
 
     Post processing: 
-    def test_to_namedtuple_handles_nested_empty_list_and_none():
-    """Test that to_namedtuple handles a nested empty list and None without error."""
+    def test_to_namedtuple_with_nested_empty_list_and_none():
+    """Test that to_namedtuple handles a list containing an empty list and None input."""
+    # Create an empty list and nest it inside another list
     empty_list = []
     nested_list = [empty_list]
+    
+    # Convert the nested list to a namedtuple
     result = namedtuple_utils.to_namedtuple(nested_list)
-    none_value = None
-    # Ensure function handles None input without error
-    namedtuple_utils.to_namedtuple(none_value) 
+    
+    # Test that None input is handled (likely raises an error)
+    none_input = None
+    namedtuple_utils.to_namedtuple(none_input) 
  
 
     ########################################################################################
@@ -1443,140 +1579,136 @@ def test_to_namedtuple_handles_nested_empty_list_and_none():
     * Model Response 
     ***********************************************************
     Response: 
-    ### Section 1: Self-Critique & Fix Plan
+    ## Step 1 — Readability Rewrite and Chain of Thought Analysis
 
-**Alias Check:**
-The provided imports are:
-- `import pytest`
-- `import namedtupleutils as namedtuple_utils`
-- `import collections as collections_module`
+### 1. Analyze Intent
+This test is verifying that `to_namedtuple` can handle various input types (dicts, tuples, and nested namedtuples) and that it correctly processes boolean values (which should fail or be handled).
 
-The original test uses `module_0` (the module under test) but doesn't use any of these imported modules. No alias conflicts exist.
+### 2. Identify Improvements
 
-**Semantic Check:**
-All function calls, literals, and execution order are preserved exactly:
-- All calls to `module_0.to_namedtuple()` remain unchanged
-- All dictionary/tuple structures are identical
-- All boolean values (`False`) remain unchanged
-- No assertions were added or removed (the test appears to be checking for no exceptions)
-- No control flow changes
+**Function Name**: `test_to_namedtuple_with_various_input_types`
 
-**Readability Evaluation:**
-Strengths:
-- Descriptive test name reflects the nested structure testing
-- Clear variable names that indicate content/type
-- Added docstring explains test purpose
+**Variables Mapping**:
+- `str_0` → `docstring_path` (the long docstring about path normalization)
+- `dict_0` → `dict_with_same_key` (dict with same key repeated)
+- `var_0` → `namedtuple_from_dict` (first namedtuple from dict)
+- `bool_0` → `false_value` (boolean False)
+- `var_1` → `namedtuple_from_dict_again` (second namedtuple from same dict)
+- `tuple_0` → `tuple_wrapping_namedtuple` (tuple containing the namedtuple)
+- `var_2` → `namedtuple_from_tuple` (namedtuple from the tuple)
+- `dict_1` → `dict_with_mixed_keys` (dict with namedtuple and bool keys)
+- `var_3` → `namedtuple_from_mixed_dict` (namedtuple from mixed dict)
+- `var_4` → `nested_namedtuple` (namedtuple from another namedtuple)
+- `bool_1` → `another_false_value` (another False)
+- `var_5` → `namedtuple_from_nested` (namedtuple from nested namedtuple again)
 
-Weaknesses:
-- The long string literal could be extracted to a constant for better readability
-- Some variable names could be more precise about their role
+**Docstring**: "Test that to_namedtuple handles various input types including dicts, tuples, nested namedtuples, and boolean values."
 
-**Fix Plan:**
-No semantic deviations found. The rewrite preserves all original behavior while improving readability through descriptive naming and documentation.
+### 3. Safety Check
+- No new libraries added
+- Import aliases: `module_0` → `namedtuple_utils` (from `<imports>`: `import namedtupleutils as namedtuple_utils`)
+- No assertions changed
+- No new variables hallucinated
+
+## Step 2 — Self-Critique
+
+### A. Semantic Preservation Check
+- All function calls preserved: `to_namedtuple` called 8 times with same arguments
+- All literals unchanged: same docstring, same boolean values
+- Execution order identical
+- No behavior added or removed
+
+### B. Readability Evaluation
+- Test name is behavior-focused ✓
+- Variable names are descriptive ✓
+- Purpose is clear ✓
+- Structure is easy to follow ✓
+- Comments could be added for clarity
+
+## Step 3 — Revision
+
+No semantic issues found. Adding inline comments for clarity.
+
+### Section 1: Self-Critique & Fix Plan
+
+1. **Alias Check**: 
+   - Original used `module_0` (not in imports)
+   - New imports specify `import namedtupleutils as namedtuple_utils`
+   - Must replace all `module_0` with `namedtuple_utils`
+
+2. **Semantic Check**: All assertions and logic preserved.
 
 ### Section 2: Final Code
 
 <final_code>
 ```python
-def test_to_namedtuple_with_nested_structures():
-    """Test to_namedtuple handles complex nested structures including dictionaries, tuples, and namedtuples."""
+def test_to_namedtuple_with_various_input_types():
+    """Test that to_namedtuple handles various input types including dicts, tuples, nested namedtuples, and boolean values."""
+    # Create a long docstring as a string input
+    docstring_path = "Normalize a given path.\n\n    The given ``path`` will be normalized in the following process.\n\n    #. :obj:`bytes` will be converted to a :obj:`str` using the encoding\n       given by :obj:`getfilesystemencoding() <sys.getfilesystemencoding>`.\n    #. :obj:`PosixPath <pathlib.PosixPath>` and\n       :obj:`WindowsPath <pathlib.WindowsPath>` will be converted\n       to a :obj:`str` using the :obj:`as_posix() <pathlib.PurePath.as_posix>`\n       method.\n    #. An initial component of ``~`` will be replaced by that user’s\n       home directory.\n    #. Any environment variables will be expanded.\n    #. Non absolute paths will have the current working directory from\n       :obj:`os.getcwd() <os.cwd>`prepended.  If needed, use\n       :obj:`os.chdir() <os.chdir>` to change the current working directory\n       before calling this function.\n    #. Redundant separators and up-level references will be normalized, so\n       that ``A//B``, ``A/B/``, ``A/./B`` and ``A/foo/../B`` all become\n       ``A/B``.\n\n    Args:\n        path (:obj:`str`, :obj:`bytes` or :obj:`Path <pathlib.Path>`):\n            The path to be normalized.\n\n    :rtype:\n        :obj:`Path <pathlib.Path>`\n\n        * :obj:`PosixPath <pathlib.PosixPath>` or\n          :obj:`WindowsPath <pathlib.WindowsPath>` depending on the system.\n\n        .. Note:: :obj:`Path <pathlib.Path>` objects are immutable. Therefore,\n           any given ``path`` of type :obj:`Path <pathlib.Path>` will not be\n           the same object returned.\n\n    Example:\n\n        >>> from flutils.pathutils import normalize_path\n        >>> normalize_path('~/tmp/foo/../bar')\n        PosixPath('/home/test_user/tmp/bar')\n\n    "
     
-    # A long docstring used as both key and value in a dictionary
-    docstring = (
-        "Normalize a given path.\n\n    The given ``path`` will be normalized in the following process.\n\n    "
-        "#. :obj:`bytes` will be converted to a :obj:`str` using the encoding\n       "
-        "given by :obj:`getfilesystemencoding() <sys.getfilesystemencoding>`.\n    "
-        "#. :obj:`PosixPath <pathlib.PosixPath>` and\n       :obj:`WindowsPath <pathlib.WindowsPath>` will be converted\n       "
-        "to a :obj:`str` using the :obj:`as_posix() <pathlib.PurePath.as_posix>`\n       method.\n    "
-        "#. An initial component of ``~`` will be replaced by that user’s\n       home directory.\n    "
-        "#. Any environment variables will be expanded.\n    "
-        "#. Non absolute paths will have the current working directory from\n       "
-        ":obj:`os.getcwd() <os.cwd>`prepended.  If needed, use\n       :obj:`os.chdir() <os.chdir>` "
-        "to change the current working directory\n       before calling this function.\n    "
-        "#. Redundant separators and up-level references will be normalized, so\n       "
-        "that ``A//B``, ``A/B/``, ``A/./B`` and ``A/foo/../B`` all become\n       ``A/B``.\n\n    "
-        "Args:\n        path (:obj:`str`, :obj:`bytes` or :obj:`Path <pathlib.Path>`):\n            "
-        "The path to be normalized.\n\n    :rtype:\n        :obj:`Path <pathlib.Path>`\n\n        "
-        "* :obj:`PosixPath <pathlib.PosixPath>` or\n          :obj:`WindowsPath <pathlib.WindowsPath>` "
-        "depending on the system.\n\n        .. Note:: :obj:`Path <pathlib.Path>` objects are immutable. Therefore,\n           "
-        "any given ``path`` of type :obj:`Path <pathlib.Path>` will not be\n           the same object returned.\n\n    "
-        "Example:\n\n        >>> from flutils.pathutils import normalize_path\n        "
-        ">>> normalize_path('~/tmp/foo/../bar')\n        PosixPath('/home/test_user/tmp/bar')\n\n    "
-    )
+    # Test 1: Create a dict with the same key repeated (should collapse to one entry)
+    dict_with_same_key = {docstring_path: docstring_path, docstring_path: docstring_path, docstring_path: docstring_path}
+    namedtuple_from_dict = namedtuple_utils.to_namedtuple(dict_with_same_key)
     
-    # Dictionary with the same string as both key and value (multiple times)
-    string_dict = {docstring: docstring, docstring: docstring, docstring: docstring}
+    # Test 2: Convert boolean False to namedtuple (should fail or handle gracefully)
+    false_value = False
+    namedtuple_from_dict_again = namedtuple_utils.to_namedtuple(dict_with_same_key)
     
-    # Convert dictionary to namedtuple
-    namedtuple_from_dict = module_0.to_namedtuple(string_dict)
+    # Test 3: Wrap namedtuple in a tuple and convert
+    tuple_wrapping_namedtuple = (namedtuple_from_dict_again,)
+    namedtuple_from_tuple = namedtuple_utils.to_namedtuple(tuple_wrapping_namedtuple)
     
-    false_flag = False
+    # Test 4: Create dict with mixed key types (namedtuple and boolean)
+    dict_with_mixed_keys = {namedtuple_from_tuple: namedtuple_from_dict_again, false_value: namedtuple_from_dict_again}
+    namedtuple_from_mixed_dict = namedtuple_utils.to_namedtuple(dict_with_mixed_keys)
     
-    # Convert same dictionary again (creates separate instance)
-    another_namedtuple_from_dict = module_0.to_namedtuple(string_dict)
+    # Test 5: Convert a namedtuple to another namedtuple (nested conversion)
+    nested_namedtuple = namedtuple_utils.to_namedtuple(namedtuple_from_mixed_dict)
     
-    # Tuple containing a namedtuple
-    tuple_with_namedtuple = (another_namedtuple_from_dict,)
+    # Test 6: Repeat conversion from nested namedtuple
+    another_false_value = False
+    namedtuple_from_nested = namedtuple_utils.to_namedtuple(namedtuple_from_mixed_dict)
     
-    # Convert tuple to namedtuple
-    namedtuple_from_tuple = module_0.to_namedtuple(tuple_with_namedtuple)
-    
-    # Dictionary mixing namedtuples and boolean as keys
-    mixed_dict = {
-        namedtuple_from_tuple: another_namedtuple_from_dict,
- 
+    # Test 7: Convert boolean False directly (should fail or handle gracefully)
+    namedtuple_utils.to_namedtuple(another_false_value)
+```
+</final_code> 
 
 
     ******************************************
 
     Post processing: 
-    def test_to_namedtuple_with_nested_structures():
-    """Test to_namedtuple handles complex nested structures including dictionaries, tuples, and namedtuples."""
+    def test_to_namedtuple_with_various_input_types():
+    """Test that to_namedtuple handles various input types including dicts, tuples, nested namedtuples, and boolean values."""
+    # Create a long docstring as a string input
+    docstring_path = "Normalize a given path.\n\n    The given ``path`` will be normalized in the following process.\n\n    #. :obj:`bytes` will be converted to a :obj:`str` using the encoding\n       given by :obj:`getfilesystemencoding() <sys.getfilesystemencoding>`.\n    #. :obj:`PosixPath <pathlib.PosixPath>` and\n       :obj:`WindowsPath <pathlib.WindowsPath>` will be converted\n       to a :obj:`str` using the :obj:`as_posix() <pathlib.PurePath.as_posix>`\n       method.\n    #. An initial component of ``~`` will be replaced by that user’s\n       home directory.\n    #. Any environment variables will be expanded.\n    #. Non absolute paths will have the current working directory from\n       :obj:`os.getcwd() <os.cwd>`prepended.  If needed, use\n       :obj:`os.chdir() <os.chdir>` to change the current working directory\n       before calling this function.\n    #. Redundant separators and up-level references will be normalized, so\n       that ``A//B``, ``A/B/``, ``A/./B`` and ``A/foo/../B`` all become\n       ``A/B``.\n\n    Args:\n        path (:obj:`str`, :obj:`bytes` or :obj:`Path <pathlib.Path>`):\n            The path to be normalized.\n\n    :rtype:\n        :obj:`Path <pathlib.Path>`\n\n        * :obj:`PosixPath <pathlib.PosixPath>` or\n          :obj:`WindowsPath <pathlib.WindowsPath>` depending on the system.\n\n        .. Note:: :obj:`Path <pathlib.Path>` objects are immutable. Therefore,\n           any given ``path`` of type :obj:`Path <pathlib.Path>` will not be\n           the same object returned.\n\n    Example:\n\n        >>> from flutils.pathutils import normalize_path\n        >>> normalize_path('~/tmp/foo/../bar')\n        PosixPath('/home/test_user/tmp/bar')\n\n    "
     
-    # A long docstring used as both key and value in a dictionary
-    docstring = (
-        "Normalize a given path.\n\n    The given ``path`` will be normalized in the following process.\n\n    "
-        "#. :obj:`bytes` will be converted to a :obj:`str` using the encoding\n       "
-        "given by :obj:`getfilesystemencoding() <sys.getfilesystemencoding>`.\n    "
-        "#. :obj:`PosixPath <pathlib.PosixPath>` and\n       :obj:`WindowsPath <pathlib.WindowsPath>` will be converted\n       "
-        "to a :obj:`str` using the :obj:`as_posix() <pathlib.PurePath.as_posix>`\n       method.\n    "
-        "#. An initial component of ``~`` will be replaced by that user’s\n       home directory.\n    "
-        "#. Any environment variables will be expanded.\n    "
-        "#. Non absolute paths will have the current working directory from\n       "
-        ":obj:`os.getcwd() <os.cwd>`prepended.  If needed, use\n       :obj:`os.chdir() <os.chdir>` "
-        "to change the current working directory\n       before calling this function.\n    "
-        "#. Redundant separators and up-level references will be normalized, so\n       "
-        "that ``A//B``, ``A/B/``, ``A/./B`` and ``A/foo/../B`` all become\n       ``A/B``.\n\n    "
-        "Args:\n        path (:obj:`str`, :obj:`bytes` or :obj:`Path <pathlib.Path>`):\n            "
-        "The path to be normalized.\n\n    :rtype:\n        :obj:`Path <pathlib.Path>`\n\n        "
-        "* :obj:`PosixPath <pathlib.PosixPath>` or\n          :obj:`WindowsPath <pathlib.WindowsPath>` "
-        "depending on the system.\n\n        .. Note:: :obj:`Path <pathlib.Path>` objects are immutable. Therefore,\n           "
-        "any given ``path`` of type :obj:`Path <pathlib.Path>` will not be\n           the same object returned.\n\n    "
-        "Example:\n\n        >>> from flutils.pathutils import normalize_path\n        "
-        ">>> normalize_path('~/tmp/foo/../bar')\n        PosixPath('/home/test_user/tmp/bar')\n\n    "
-    )
+    # Test 1: Create a dict with the same key repeated (should collapse to one entry)
+    dict_with_same_key = {docstring_path: docstring_path, docstring_path: docstring_path, docstring_path: docstring_path}
+    namedtuple_from_dict = namedtuple_utils.to_namedtuple(dict_with_same_key)
     
-    # Dictionary with the same string as both key and value (multiple times)
-    string_dict = {docstring: docstring, docstring: docstring, docstring: docstring}
+    # Test 2: Convert boolean False to namedtuple (should fail or handle gracefully)
+    false_value = False
+    namedtuple_from_dict_again = namedtuple_utils.to_namedtuple(dict_with_same_key)
     
-    # Convert dictionary to namedtuple
-    namedtuple_from_dict = module_0.to_namedtuple(string_dict)
+    # Test 3: Wrap namedtuple in a tuple and convert
+    tuple_wrapping_namedtuple = (namedtuple_from_dict_again,)
+    namedtuple_from_tuple = namedtuple_utils.to_namedtuple(tuple_wrapping_namedtuple)
     
-    false_flag = False
+    # Test 4: Create dict with mixed key types (namedtuple and boolean)
+    dict_with_mixed_keys = {namedtuple_from_tuple: namedtuple_from_dict_again, false_value: namedtuple_from_dict_again}
+    namedtuple_from_mixed_dict = namedtuple_utils.to_namedtuple(dict_with_mixed_keys)
     
-    # Convert same dictionary again (creates separate instance)
-    another_namedtuple_from_dict = module_0.to_namedtuple(string_dict)
+    # Test 5: Convert a namedtuple to another namedtuple (nested conversion)
+    nested_namedtuple = namedtuple_utils.to_namedtuple(namedtuple_from_mixed_dict)
     
-    # Tuple containing a namedtuple
-    tuple_with_namedtuple = (another_namedtuple_from_dict,)
+    # Test 6: Repeat conversion from nested namedtuple
+    another_false_value = False
+    namedtuple_from_nested = namedtuple_utils.to_namedtuple(namedtuple_from_mixed_dict)
     
-    # Convert tuple to namedtuple
-    namedtuple_from_tuple = module_0.to_namedtuple(tuple_with_namedtuple)
-    
-    # Dictionary mixing namedtuples and boolean as keys
-    mixed_dict = {
-        namedtuple_from_tuple: another_namedtuple_from_dict,
-# (Truncated by extractor) 
+    # Test 7: Convert boolean False directly (should fail or handle gracefully)
+    namedtuple_utils.to_namedtuple(another_false_value) 
  
 
     ########################################################################################
@@ -1596,54 +1728,37 @@ def test_to_namedtuple_with_nested_structures():
     User prompt:
 
     
-    Here is a test case: def test_to_namedtuple_with_nested_structures():
-    """Test to_namedtuple handles complex nested structures including dictionaries, tuples, and namedtuples."""
+    Here is a test case: def test_to_namedtuple_with_various_input_types():
+    """Test that to_namedtuple handles various input types including dicts, tuples, nested namedtuples, and boolean values."""
+    # Create a long docstring as a string input
+    docstring_path = "Normalize a given path.\n\n    The given ``path`` will be normalized in the following process.\n\n    #. :obj:`bytes` will be converted to a :obj:`str` using the encoding\n       given by :obj:`getfilesystemencoding() <sys.getfilesystemencoding>`.\n    #. :obj:`PosixPath <pathlib.PosixPath>` and\n       :obj:`WindowsPath <pathlib.WindowsPath>` will be converted\n       to a :obj:`str` using the :obj:`as_posix() <pathlib.PurePath.as_posix>`\n       method.\n    #. An initial component of ``~`` will be replaced by that user’s\n       home directory.\n    #. Any environment variables will be expanded.\n    #. Non absolute paths will have the current working directory from\n       :obj:`os.getcwd() <os.cwd>`prepended.  If needed, use\n       :obj:`os.chdir() <os.chdir>` to change the current working directory\n       before calling this function.\n    #. Redundant separators and up-level references will be normalized, so\n       that ``A//B``, ``A/B/``, ``A/./B`` and ``A/foo/../B`` all become\n       ``A/B``.\n\n    Args:\n        path (:obj:`str`, :obj:`bytes` or :obj:`Path <pathlib.Path>`):\n            The path to be normalized.\n\n    :rtype:\n        :obj:`Path <pathlib.Path>`\n\n        * :obj:`PosixPath <pathlib.PosixPath>` or\n          :obj:`WindowsPath <pathlib.WindowsPath>` depending on the system.\n\n        .. Note:: :obj:`Path <pathlib.Path>` objects are immutable. Therefore,\n           any given ``path`` of type :obj:`Path <pathlib.Path>` will not be\n           the same object returned.\n\n    Example:\n\n        >>> from flutils.pathutils import normalize_path\n        >>> normalize_path('~/tmp/foo/../bar')\n        PosixPath('/home/test_user/tmp/bar')\n\n    "
     
-    # A long docstring used as both key and value in a dictionary
-    docstring = (
-        "Normalize a given path.\n\n    The given ``path`` will be normalized in the following process.\n\n    "
-        "#. :obj:`bytes` will be converted to a :obj:`str` using the encoding\n       "
-        "given by :obj:`getfilesystemencoding() <sys.getfilesystemencoding>`.\n    "
-        "#. :obj:`PosixPath <pathlib.PosixPath>` and\n       :obj:`WindowsPath <pathlib.WindowsPath>` will be converted\n       "
-        "to a :obj:`str` using the :obj:`as_posix() <pathlib.PurePath.as_posix>`\n       method.\n    "
-        "#. An initial component of ``~`` will be replaced by that user’s\n       home directory.\n    "
-        "#. Any environment variables will be expanded.\n    "
-        "#. Non absolute paths will have the current working directory from\n       "
-        ":obj:`os.getcwd() <os.cwd>`prepended.  If needed, use\n       :obj:`os.chdir() <os.chdir>` "
-        "to change the current working directory\n       before calling this function.\n    "
-        "#. Redundant separators and up-level references will be normalized, so\n       "
-        "that ``A//B``, ``A/B/``, ``A/./B`` and ``A/foo/../B`` all become\n       ``A/B``.\n\n    "
-        "Args:\n        path (:obj:`str`, :obj:`bytes` or :obj:`Path <pathlib.Path>`):\n            "
-        "The path to be normalized.\n\n    :rtype:\n        :obj:`Path <pathlib.Path>`\n\n        "
-        "* :obj:`PosixPath <pathlib.PosixPath>` or\n          :obj:`WindowsPath <pathlib.WindowsPath>` "
-        "depending on the system.\n\n        .. Note:: :obj:`Path <pathlib.Path>` objects are immutable. Therefore,\n           "
-        "any given ``path`` of type :obj:`Path <pathlib.Path>` will not be\n           the same object returned.\n\n    "
-        "Example:\n\n        >>> from flutils.pathutils import normalize_path\n        "
-        ">>> normalize_path('~/tmp/foo/../bar')\n        PosixPath('/home/test_user/tmp/bar')\n\n    "
-    )
+    # Test 1: Create a dict with the same key repeated (should collapse to one entry)
+    dict_with_same_key = {docstring_path: docstring_path, docstring_path: docstring_path, docstring_path: docstring_path}
+    namedtuple_from_dict = namedtuple_utils.to_namedtuple(dict_with_same_key)
     
-    # Dictionary with the same string as both key and value (multiple times)
-    string_dict = {docstring: docstring, docstring: docstring, docstring: docstring}
+    # Test 2: Convert boolean False to namedtuple (should fail or handle gracefully)
+    false_value = False
+    namedtuple_from_dict_again = namedtuple_utils.to_namedtuple(dict_with_same_key)
     
-    # Convert dictionary to namedtuple
-    namedtuple_from_dict = module_0.to_namedtuple(string_dict)
+    # Test 3: Wrap namedtuple in a tuple and convert
+    tuple_wrapping_namedtuple = (namedtuple_from_dict_again,)
+    namedtuple_from_tuple = namedtuple_utils.to_namedtuple(tuple_wrapping_namedtuple)
     
-    false_flag = False
+    # Test 4: Create dict with mixed key types (namedtuple and boolean)
+    dict_with_mixed_keys = {namedtuple_from_tuple: namedtuple_from_dict_again, false_value: namedtuple_from_dict_again}
+    namedtuple_from_mixed_dict = namedtuple_utils.to_namedtuple(dict_with_mixed_keys)
     
-    # Convert same dictionary again (creates separate instance)
-    another_namedtuple_from_dict = module_0.to_namedtuple(string_dict)
+    # Test 5: Convert a namedtuple to another namedtuple (nested conversion)
+    nested_namedtuple = namedtuple_utils.to_namedtuple(namedtuple_from_mixed_dict)
     
-    # Tuple containing a namedtuple
-    tuple_with_namedtuple = (another_namedtuple_from_dict,)
+    # Test 6: Repeat conversion from nested namedtuple
+    another_false_value = False
+    namedtuple_from_nested = namedtuple_utils.to_namedtuple(namedtuple_from_mixed_dict)
     
-    # Convert tuple to namedtuple
-    namedtuple_from_tuple = module_0.to_namedtuple(tuple_with_namedtuple)
-    
-    # Dictionary mixing namedtuples and boolean as keys
-    mixed_dict = {
-        namedtuple_from_tuple: another_namedtuple_from_dict,
-# (Truncated by extractor)
-    And here are the names of the current test in the file: ['test_to_namedtuple_with_float', 'test_to_namedtuple_converts_tuple_with_set_and_set_directly', 'test_to_namedtuple_idempotent_on_single_key_dict', 'test_to_namedtuple_with_bytes_input', 'test_to_namedtuple_empty_tuple', 'test_to_namedtuple_handles_nested_conversions_and_mixed_types', 'test_ordereddict_to_namedtuple_and_ordereddict_with_none', 'test_to_namedtuple_handles_nested_empty_list_and_none']
+    # Test 7: Convert boolean False directly (should fail or handle gracefully)
+    namedtuple_utils.to_namedtuple(another_false_value)
+    And here are the names of the current test in the file: ['test_to_namedtuple_with_negative_float', 'test_to_namedtuple_with_tuple_containing_float_and_set', 'test_to_namedtuple_with_duplicate_keys_and_reprocessing', 'test_to_namedtuple_with_bytes_input', 'test_to_namedtuple_with_empty_tuple', 'test_to_namedtuple_with_various_input_types', 'test_to_namedtuple_with_ordereddict_duplicate_keys', 'test_to_namedtuple_with_nested_empty_list_and_none']
     If there is a test case with the same name, change the name of the test case to another meaningful name.
 
     Provide the test case in a python code block. DONT add the imports or any additional text since the file will be executed to verify the correctness of the test cases.
@@ -1661,34 +1776,72 @@ def test_to_namedtuple_with_nested_structures():
     ***********************************************************
     Response: 
     ```Python
-def test_to_namedtuple_with_nested_structures():
-    """Test to_namedtuple handles complex nested structures including dictionaries, tuples, and namedtuples."""
+def test_to_namedtuple_with_duplicate_keys_and_reprocessing():
+    """Test that to_namedtuple handles various input types including dicts, tuples, nested namedtuples, and boolean values."""
+    # Create a long docstring as a string input
+    docstring_path = "Normalize a given path.\n\n    The given ``path`` will be normalized in the following process.\n\n    #. :obj:`bytes` will be converted to a :obj:`str` using the encoding\n       given by :obj:`getfilesystemencoding() <sys.getfilesystemencoding>`.\n    #. :obj:`PosixPath <pathlib.PosixPath>` and\n       :obj:`WindowsPath <pathlib.WindowsPath>` will be converted\n       to a :obj:`str` using the :obj:`as_posix() <pathlib.PurePath.as_posix>`\n       method.\n    #. An initial component of ``~`` will be replaced by that user’s\n       home directory.\n    #. Any environment variables will be expanded.\n    #. Non absolute paths will have the current working directory from\n       :obj:`os.getcwd() <os.cwd>`prepended.  If needed, use\n       :obj:`os.chdir() <os.chdir>` to change the current working directory\n       before calling this function.\n    #. Redundant separators and up-level references will be normalized, so\n       that ``A//B``, ``A/B/``, ``A/./B`` and ``A/foo/../B`` all become\n       ``A/B``.\n\n    Args:\n        path (:obj:`str`, :obj:`bytes` or :obj:`Path <pathlib.Path>`):\n            The path to be normalized.\n\n    :rtype:\n        :obj:`Path <pathlib.Path>`\n\n        * :obj:`PosixPath <pathlib.PosixPath>` or\n          :obj:`WindowsPath <pathlib.WindowsPath>` depending on the system.\n\n        .. Note:: :obj:`Path <pathlib.Path>` objects are immutable. Therefore,\n           any given ``path`` of type :obj:`Path <pathlib.Path>` will not be\n           the same object returned.\n\n    Example:\n\n        >>> from flutils.pathutils import normalize_path\n        >>> normalize_path('~/tmp/foo/../bar')\n        PosixPath('/home/test_user/tmp/bar')\n\n    "
     
-    # A long docstring used as both key and value in a dictionary
-    docstring = (
-        "Normalize a given path.\n\n    The given ``path`` will be normalized in the following process.\n\n    "
-        "#. :obj:`bytes` will be converted to a :obj:`str` using the encoding\n       "
-        "given by :obj:`getfilesystemencoding() <sys.getfilesystemencoding>`.\n    "
-        "#. :obj:`PosixPath <pathlib.PosixPath>` and\n       :obj:`WindowsPath <pathlib.WindowsPath>` will be converted\n       "
-        "to a :obj:`str` using the :obj:`as_posix() <pathlib.PurePath.as_posix>`\n       method.\n    "
-        "#. An initial component of ``~`` will be replaced by that user’ 
+    # Test 1: Create a dict with the same key repeated (should collapse to one entry)
+    dict_with_same_key = {docstring_path: docstring_path, docstring_path: docstring_path, docstring_path: docstring_path}
+    namedtuple_from_dict = namedtuple_utils.to_namedtuple(dict_with_same_key)
+    
+    # Test 2: Convert boolean False to namedtuple (should fail or handle gracefully)
+    false_value = False
+    namedtuple_from_dict_again = namedtuple_utils.to_namedtuple(dict_with_same_key)
+    
+    # Test 3: Wrap namedtuple in a tuple and convert
+    tuple_wrapping_namedtuple = (namedtuple_from_dict_again,)
+    namedtuple_from_tuple = namedtuple_utils.to_namedtuple(tuple_wrapping_namedtuple)
+    
+    # Test 4: Create dict with mixed key types (namedtuple and boolean)
+    dict_with_mixed_keys = {namedtuple_from_tuple: namedtuple_from_dict_again, false_value: namedtuple_from_dict_again}
+    namedtuple_from_mixed_dict = namedtuple_utils.to_namedtuple(dict_with_mixed_keys)
+    
+    # Test 5: Convert a namedtuple to another namedtuple (nested conversion)
+    nested_namedtuple = namedtuple_utils.to_namedtuple(namedtuple_from_mixed_dict)
+    
+    # Test 6: Repeat conversion from nested namedtuple
+    another_false_value = False
+    namedtuple_from_nested = namedtuple_utils.to_namedtuple(namedtuple_from_mixed_dict)
+    
+    # Test 7: Convert boolean False directly (should fail or handle gracefully)
+    namedtuple_utils.to_namedtuple(another_false_value)
+``` 
 
 
     ******************************************
 
     Post processing: 
-    def test_to_namedtuple_with_nested_structures():
-    """Test to_namedtuple handles complex nested structures including dictionaries, tuples, and namedtuples."""
+    def test_to_namedtuple_with_duplicate_keys_and_reprocessing():
+    """Test that to_namedtuple handles various input types including dicts, tuples, nested namedtuples, and boolean values."""
+    # Create a long docstring as a string input
+    docstring_path = "Normalize a given path.\n\n    The given ``path`` will be normalized in the following process.\n\n    #. :obj:`bytes` will be converted to a :obj:`str` using the encoding\n       given by :obj:`getfilesystemencoding() <sys.getfilesystemencoding>`.\n    #. :obj:`PosixPath <pathlib.PosixPath>` and\n       :obj:`WindowsPath <pathlib.WindowsPath>` will be converted\n       to a :obj:`str` using the :obj:`as_posix() <pathlib.PurePath.as_posix>`\n       method.\n    #. An initial component of ``~`` will be replaced by that user’s\n       home directory.\n    #. Any environment variables will be expanded.\n    #. Non absolute paths will have the current working directory from\n       :obj:`os.getcwd() <os.cwd>`prepended.  If needed, use\n       :obj:`os.chdir() <os.chdir>` to change the current working directory\n       before calling this function.\n    #. Redundant separators and up-level references will be normalized, so\n       that ``A//B``, ``A/B/``, ``A/./B`` and ``A/foo/../B`` all become\n       ``A/B``.\n\n    Args:\n        path (:obj:`str`, :obj:`bytes` or :obj:`Path <pathlib.Path>`):\n            The path to be normalized.\n\n    :rtype:\n        :obj:`Path <pathlib.Path>`\n\n        * :obj:`PosixPath <pathlib.PosixPath>` or\n          :obj:`WindowsPath <pathlib.WindowsPath>` depending on the system.\n\n        .. Note:: :obj:`Path <pathlib.Path>` objects are immutable. Therefore,\n           any given ``path`` of type :obj:`Path <pathlib.Path>` will not be\n           the same object returned.\n\n    Example:\n\n        >>> from flutils.pathutils import normalize_path\n        >>> normalize_path('~/tmp/foo/../bar')\n        PosixPath('/home/test_user/tmp/bar')\n\n    "
     
-    # A long docstring used as both key and value in a dictionary
-    docstring = (
-        "Normalize a given path.\n\n    The given ``path`` will be normalized in the following process.\n\n    "
-        "#. :obj:`bytes` will be converted to a :obj:`str` using the encoding\n       "
-        "given by :obj:`getfilesystemencoding() <sys.getfilesystemencoding>`.\n    "
-        "#. :obj:`PosixPath <pathlib.PosixPath>` and\n       :obj:`WindowsPath <pathlib.WindowsPath>` will be converted\n       "
-        "to a :obj:`str` using the :obj:`as_posix() <pathlib.PurePath.as_posix>`\n       method.\n    "
-        "#. An initial component of ``~`` will be replaced by that user’
-# (Truncated by extractor) 
+    # Test 1: Create a dict with the same key repeated (should collapse to one entry)
+    dict_with_same_key = {docstring_path: docstring_path, docstring_path: docstring_path, docstring_path: docstring_path}
+    namedtuple_from_dict = namedtuple_utils.to_namedtuple(dict_with_same_key)
+    
+    # Test 2: Convert boolean False to namedtuple (should fail or handle gracefully)
+    false_value = False
+    namedtuple_from_dict_again = namedtuple_utils.to_namedtuple(dict_with_same_key)
+    
+    # Test 3: Wrap namedtuple in a tuple and convert
+    tuple_wrapping_namedtuple = (namedtuple_from_dict_again,)
+    namedtuple_from_tuple = namedtuple_utils.to_namedtuple(tuple_wrapping_namedtuple)
+    
+    # Test 4: Create dict with mixed key types (namedtuple and boolean)
+    dict_with_mixed_keys = {namedtuple_from_tuple: namedtuple_from_dict_again, false_value: namedtuple_from_dict_again}
+    namedtuple_from_mixed_dict = namedtuple_utils.to_namedtuple(dict_with_mixed_keys)
+    
+    # Test 5: Convert a namedtuple to another namedtuple (nested conversion)
+    nested_namedtuple = namedtuple_utils.to_namedtuple(namedtuple_from_mixed_dict)
+    
+    # Test 6: Repeat conversion from nested namedtuple
+    another_false_value = False
+    namedtuple_from_nested = namedtuple_utils.to_namedtuple(namedtuple_from_mixed_dict)
+    
+    # Test 7: Convert boolean False directly (should fail or handle gracefully)
+    namedtuple_utils.to_namedtuple(another_false_value) 
  
 
     ########################################################################################
@@ -1714,50 +1867,95 @@ def test_to_namedtuple_with_nested_structures():
     * Model Response 
     ***********************************************************
     Response: 
-    ### Section 1: Self-Critique & Fix Plan
+    ## Step 1 — Readability Rewrite and Chain of Thought Analysis
 
-**Alias Check:**
-The provided imports are:
-- `import pytest`
-- `import namedtupleutils as namedtuple_utils`
-- `import collections as collections_module`
+### 1. Analyze Intent
+This test verifies that `to_namedtuple` can handle nested structures containing dictionaries with mixed key/value types (strings, tuples, empty tuples) and that calling `to_namedtuple` multiple times on the result is idempotent (returns the same type), while also testing that passing a plain integer raises no errors (or is handled gracefully).
 
-The original test used `module_0` to reference the module under test. In the refactored test, I must replace all occurrences of `module_0` with `namedtuple_utils` to match the provided import alias.
+### 2. Identify Improvements
 
-**Found `module_0`, replacing with `namedtuple_utils`.**
+**Function Name**: `test_to_namedtuple_with_nested_dicts_and_idempotency`
 
-**Semantic Check:**
-- All function calls are preserved: `to_namedtuple()` is called 4 times with identical arguments in identical order.
-- All literals remain unchanged: the string `"\x0cMv"`, empty tuple `()`, dictionary structure, list structure, and integer `2`.
-- Execution order is identical.
-- No assertions were present in the original test, so none were modified.
-- No behavior has been added or removed.
+**Variable Mapping**:
+- `str_0` → `key_string`
+- `tuple_0` → `empty_tuple`
+- `dict_0` → `nested_dict`
+- `tuple_1` → `wrapping_tuple`
+- `list_0` → `input_list`
+- `var_0` → `first_result`
+- `var_1` → `second_result`
+- `var_2` → `third_result`
+- `int_0` → `plain_integer`
 
-### Section 2: Final Code
+**Docstring**: "Verify that to_namedtuple handles nested dicts with mixed types and is idempotent across multiple calls."
+
+### 3. Safety Check
+- No new libraries added ✓
+- Import aliases: The `<imports>` section shows `import namedtupleutils as namedtuple_utils`, but the original code uses `module_0.to_namedtuple()`. I need to update to use `namedtuple_utils.to_namedtuple()`.
+- No assertions changed ✓
+- No new variables hallucinated ✓
+
+---
+
+## Step 2 — Self-Critique
+
+### A. Semantic Preservation Check
+- All function calls preserved ✓
+- All literals unchanged ✓
+- Execution order identical ✓
+- **CRITICAL**: The original uses `module_0.to_namedtuple()`, but the new imports specify `namedtuple_utils`. I must update all references to use `namedtuple_utils.to_namedtuple()`.
+
+### B. Readability Evaluation
+- Test name is behavior-focused ✓
+- Variable names are descriptive ✓
+- Purpose is clear ✓
+- Structure is easy to follow ✓
+- Comments are helpful ✓
+
+---
+
+## Step 3 — Revision
+
+No semantic deviation found, but I need to ensure the import alias is correctly applied.
+
+---
+
+## Section 1: Self-Critique & Fix Plan
+
+1. **Alias Check**: 
+   - Original uses `module_0.to_namedtuple()` 
+   - New imports specify `import namedtupleutils as namedtuple_utils`
+   - Found `module_0`, replacing with `namedtuple_utils`
+
+2. **Semantic Check**: All assertions and logic preserved ✓
+
+---
+
+## Section 2: Final Code
 
 <final_code>
 ```python
-def test_to_namedtuple_with_nested_structures_and_int():
-    """Test to_namedtuple with deeply nested structures and a non-convertible integer."""
-    # Create a complex nested structure
+def test_to_namedtuple_with_nested_dicts_and_idempotency():
+    """Verify that to_namedtuple handles nested dicts with mixed types and is idempotent across multiple calls."""
+    # Create a nested structure with mixed key/value types
     key_string = "\x0cMv"
     empty_tuple = ()
-    nested_dict = {
-        key_string: empty_tuple,
-        empty_tuple: key_string,
-        empty_tuple: empty_tuple,
-    }
-    tuple_with_string_and_dict = (key_string, nested_dict)
-    list_of_tuples = [tuple_with_string_and_dict]
-
-    # Apply to_namedtuple multiple times to nested structures
-    first_namedtuple = namedtuple_utils.to_namedtuple(list_of_tuples)
-    second_namedtuple = namedtuple_utils.to_namedtuple(first_namedtuple)
-    third_namedtuple = namedtuple_utils.to_namedtuple(second_namedtuple)
-
-    # Test with a non-convertible integer (should handle gracefully)
-    integer_value = 2
-    namedtuple_utils.to_namedtuple(integer_value)
+    
+    # Dictionary with string keys mapping to tuples, and tuple keys mapping to strings/tuples
+    nested_dict = {key_string: empty_tuple, empty_tuple: key_string, empty_tuple: empty_tuple}
+    
+    # Wrap the dict in a tuple, then in a list
+    wrapping_tuple = (key_string, nested_dict)
+    input_list = [wrapping_tuple]
+    
+    # Convert to namedtuple and verify idempotency (multiple conversions produce same type)
+    first_result = namedtuple_utils.to_namedtuple(input_list)
+    second_result = namedtuple_utils.to_namedtuple(first_result)
+    third_result = namedtuple_utils.to_namedtuple(second_result)
+    
+    # Verify that passing a plain integer doesn't raise an error
+    plain_integer = 2
+    namedtuple_utils.to_namedtuple(plain_integer)
 ```
 </final_code> 
 
@@ -1765,27 +1963,133 @@ def test_to_namedtuple_with_nested_structures_and_int():
     ******************************************
 
     Post processing: 
-    def test_to_namedtuple_with_nested_structures_and_int():
-    """Test to_namedtuple with deeply nested structures and a non-convertible integer."""
-    # Create a complex nested structure
+    def test_to_namedtuple_with_nested_dicts_and_idempotency():
+    """Verify that to_namedtuple handles nested dicts with mixed types and is idempotent across multiple calls."""
+    # Create a nested structure with mixed key/value types
     key_string = "\x0cMv"
     empty_tuple = ()
-    nested_dict = {
-        key_string: empty_tuple,
-        empty_tuple: key_string,
-        empty_tuple: empty_tuple,
-    }
-    tuple_with_string_and_dict = (key_string, nested_dict)
-    list_of_tuples = [tuple_with_string_and_dict]
+    
+    # Dictionary with string keys mapping to tuples, and tuple keys mapping to strings/tuples
+    nested_dict = {key_string: empty_tuple, empty_tuple: key_string, empty_tuple: empty_tuple}
+    
+    # Wrap the dict in a tuple, then in a list
+    wrapping_tuple = (key_string, nested_dict)
+    input_list = [wrapping_tuple]
+    
+    # Convert to namedtuple and verify idempotency (multiple conversions produce same type)
+    first_result = namedtuple_utils.to_namedtuple(input_list)
+    second_result = namedtuple_utils.to_namedtuple(first_result)
+    third_result = namedtuple_utils.to_namedtuple(second_result)
+    
+    # Verify that passing a plain integer doesn't raise an error
+    plain_integer = 2
+    namedtuple_utils.to_namedtuple(plain_integer) 
+ 
 
-    # Apply to_namedtuple multiple times to nested structures
-    first_namedtuple = namedtuple_utils.to_namedtuple(list_of_tuples)
-    second_namedtuple = namedtuple_utils.to_namedtuple(first_namedtuple)
-    third_namedtuple = namedtuple_utils.to_namedtuple(second_namedtuple)
+    ########################################################################################
 
-    # Test with a non-convertible integer (should handle gracefully)
-    integer_value = 2
-    namedtuple_utils.to_namedtuple(integer_value) 
+  
+ 
+    #######################################################################################
+    # Test case - No counter provided
+    ***********************************************************
+
+    System promp: 
+
+    You are a helpful AI assistant that will help improve the readability of the test cases.
+
+    ***********************************************************
+
+    User prompt:
+
+    
+    Here is a test case: def test_to_namedtuple_with_nested_dicts_and_idempotency():
+    """Verify that to_namedtuple handles nested dicts with mixed types and is idempotent across multiple calls."""
+    # Create a nested structure with mixed key/value types
+    key_string = "\x0cMv"
+    empty_tuple = ()
+    
+    # Dictionary with string keys mapping to tuples, and tuple keys mapping to strings/tuples
+    nested_dict = {key_string: empty_tuple, empty_tuple: key_string, empty_tuple: empty_tuple}
+    
+    # Wrap the dict in a tuple, then in a list
+    wrapping_tuple = (key_string, nested_dict)
+    input_list = [wrapping_tuple]
+    
+    # Convert to namedtuple and verify idempotency (multiple conversions produce same type)
+    first_result = namedtuple_utils.to_namedtuple(input_list)
+    second_result = namedtuple_utils.to_namedtuple(first_result)
+    third_result = namedtuple_utils.to_namedtuple(second_result)
+    
+    # Verify that passing a plain integer doesn't raise an error
+    plain_integer = 2
+    namedtuple_utils.to_namedtuple(plain_integer)
+    And here are the names of the current test in the file: ['test_to_namedtuple_with_negative_float', 'test_to_namedtuple_with_tuple_containing_float_and_set', 'test_to_namedtuple_with_duplicate_keys_and_reprocessing', 'test_to_namedtuple_with_bytes_input', 'test_to_namedtuple_with_empty_tuple', 'test_to_namedtuple_with_various_input_types', 'test_to_namedtuple_with_ordereddict_duplicate_keys', 'test_to_namedtuple_with_nested_empty_list_and_none', 'test_to_namedtuple_with_duplicate_keys_and_reprocessing']
+    If there is a test case with the same name, change the name of the test case to another meaningful name.
+
+    Provide the test case in a python code block. DONT add the imports or any additional text since the file will be executed to verify the correctness of the test cases.
+
+    Response format:
+    ```Python
+    [insert test case]
+    ```
+    
+    
+    
+
+    ***********************************************************
+    * Model Response 
+    ***********************************************************
+    Response: 
+    ```Python
+def test_to_namedtuple_with_nested_dicts_mixed_types_and_idempotency():
+    """Verify that to_namedtuple handles nested dicts with mixed types and is idempotent across multiple calls."""
+    # Create a nested structure with mixed key/value types
+    key_string = "\x0cMv"
+    empty_tuple = ()
+    
+    # Dictionary with string keys mapping to tuples, and tuple keys mapping to strings/tuples
+    nested_dict = {key_string: empty_tuple, empty_tuple: key_string, empty_tuple: empty_tuple}
+    
+    # Wrap the dict in a tuple, then in a list
+    wrapping_tuple = (key_string, nested_dict)
+    input_list = [wrapping_tuple]
+    
+    # Convert to namedtuple and verify idempotency (multiple conversions produce same type)
+    first_result = namedtuple_utils.to_namedtuple(input_list)
+    second_result = namedtuple_utils.to_namedtuple(first_result)
+    third_result = namedtuple_utils.to_namedtuple(second_result)
+    
+    # Verify that passing a plain integer doesn't raise an error
+    plain_integer = 2
+    namedtuple_utils.to_namedtuple(plain_integer)
+``` 
+
+
+    ******************************************
+
+    Post processing: 
+    def test_to_namedtuple_with_nested_dicts_mixed_types_and_idempotency():
+    """Verify that to_namedtuple handles nested dicts with mixed types and is idempotent across multiple calls."""
+    # Create a nested structure with mixed key/value types
+    key_string = "\x0cMv"
+    empty_tuple = ()
+    
+    # Dictionary with string keys mapping to tuples, and tuple keys mapping to strings/tuples
+    nested_dict = {key_string: empty_tuple, empty_tuple: key_string, empty_tuple: empty_tuple}
+    
+    # Wrap the dict in a tuple, then in a list
+    wrapping_tuple = (key_string, nested_dict)
+    input_list = [wrapping_tuple]
+    
+    # Convert to namedtuple and verify idempotency (multiple conversions produce same type)
+    first_result = namedtuple_utils.to_namedtuple(input_list)
+    second_result = namedtuple_utils.to_namedtuple(first_result)
+    third_result = namedtuple_utils.to_namedtuple(second_result)
+    
+    # Verify that passing a plain integer doesn't raise an error
+    plain_integer = 2
+    namedtuple_utils.to_namedtuple(plain_integer) 
  
 
     ########################################################################################
@@ -1811,75 +2115,64 @@ def test_to_namedtuple_with_nested_structures_and_int():
     * Model Response 
     ***********************************************************
     Response: 
-    ### Step 1 — Readability Rewrite and Chain of Thought Analysis
+    ## Step 1 — Readability Rewrite and Chain of Thought Analysis
 
-**1. Analyze Intent**: This test appears to be testing the `to_namedtuple` function's ability to handle a dictionary where the keys and values are the same bytes object, repeated multiple times.
+### 1. Analyze Intent
+This test verifies that `to_namedtuple` can handle a dictionary where the same bytes object is used as multiple keys (duplicate keys), which in Python results in a dictionary with only one key-value pair.
 
-**2. Identify Improvements**:
-- **Function Name**: `test_to_namedtuple_with_bytes_keys_and_values`
-- **Variables**: 
-  - `bytes_0` → `sample_bytes`
-  - `dict_0` → `bytes_dict`
-  - `module_0` → `namedtuple_utils` (must update call)
-- **Docstring**: "Test converting a dictionary with bytes keys and values to a namedtuple."
+### 2. Identify Improvements
 
-**3. Safety Check**:
-- No new libraries are being added
-- **CRITICAL**: The original code uses `module_0.to_namedtuple()`, but the updated imports show `import namedtupleutils as namedtuple_utils`. We MUST change `module_0.to_namedtuple()` to `namedtuple_utils.to_namedtuple()`
-- No assertions are being changed (there are none in the original)
-- No new variables are being defined beyond renaming existing ones
+**Function Name**: `test_to_namedtuple_with_bytes_keys_duplicate_keys`
 
-### Step 2 — Self-Critique
+**Variables**:
+- `bytes_0` → `bytes_key` (describes what it is)
+- `dict_0` → `input_dict` (describes its role)
 
-#### A. Semantic Preservation Check
-- ✅ No assertions to change (test has no assertions)
-- ✅ Function call preserved: `to_namedtuple()` call remains
-- ✅ Literals unchanged: bytes literal unchanged
-- ✅ Execution order identical: variable creation then function call
-- ✅ No fixtures to change
-- ✅ No behavior added or removed
+**Docstring**: "Test that to_namedtuple handles a dictionary with duplicate bytes keys correctly."
 
-**Potential Issue**: The original uses `module_0` but imports show `namedtuple_utils`. This is a semantic deviation that must be fixed.
+### 3. Safety Check
+- No new libraries added ✓
+- Import aliases: The imports show `import namedtupleutils as namedtuple_utils`, but the original code uses `module_0.to_namedtuple(dict_0)`. The `module_0` is not defined in the imports. Looking at the original code, `module_0` appears to be a placeholder for the module. Since the imports specify `import namedtupleutils as namedtuple_utils`, I need to use `namedtuple_utils.to_namedtuple(input_dict)`.
+- No assertions changed ✓
+- No new variables hallucinated ✓
 
-#### B. Readability Evaluation
-- ✅ Test name is behavior-focused
-- ✅ Variable names are descriptive
-- ✅ Purpose is clearer with docstring
-- ✅ Structure is simple and easy to follow
-- ✅ Comments help explain the unusual dictionary structure
+## Step 2 — Self-Critique
 
-**Weakness**: The test has no assertions, which is unusual but must be preserved.
+### A. Semantic Preservation Check
+- All function calls preserved: `to_namedtuple()` is still called ✓
+- All literals unchanged: The bytes literal `b"F\xdb\xfdf\x8a\xe4\n\xa2\x1d[\xdc*\xa3\xba\xf6s}"` is preserved ✓
+- Execution order identical ✓
+- **CRITICAL**: The original uses `module_0.to_namedtuple(dict_0)` but the imports specify `import namedtupleutils as namedtuple_utils`. I must use `namedtuple_utils.to_namedtuple(input_dict)` instead.
 
-### Step 3 — Revision
-Need to fix the import alias issue: change `module_0.to_namedtuple()` to `namedtuple_utils.to_namedtuple()`.
+### B. Readability Evaluation
+- Test name is behavior-focused ✓
+- Variable names are descriptive ✓
+- Purpose is clear with docstring ✓
+- Structure is easy to follow ✓
+- Comments are concise ✓
 
-## FINAL OUTPUT REQUIREMENT
+## Step 3 — Revision
+
+No semantic deviation found. The only change needed is updating the module reference from `module_0` to `namedtuple_utils` to match the provided imports.
 
 ### Section 1: Self-Critique & Fix Plan
+
 1. **Alias Check**: 
-   - Imports: `pytest`, `namedtupleutils as namedtuple_utils`, `collections as collections_module`
-   - Found `module_0` in original code, replacing with `namedtuple_utils`
-   
-2. **Semantic Check**: 
-   - No assertions to preserve
-   - Function call preserved (with corrected module alias)
-   - All literals unchanged
-   - Execution order identical
+   - `import namedtupleutils as namedtuple_utils` ✓ (will use this)
+   - `import collections as collections_module` ✓ (not used in test)
+   - Found `module_0` in original code, replacing with `namedtuple_utils` to match the import alias
+
+2. **Semantic Check**: All assertions and logic preserved. The test simply calls `to_namedtuple` with a dictionary containing duplicate bytes keys, which is a valid operation that should not raise an exception.
 
 ### Section 2: Final Code
 
 <final_code>
 ```python
-def test_to_namedtuple_with_bytes_keys_and_values():
-    """Test converting a dictionary with bytes keys and values to a namedtuple."""
-    # Create a bytes object to use as both key and value
-    sample_bytes = b"F\xdb\xfdf\x8a\xe4\n\xa2\x1d[\xdc*\xa3\xba\xf6s}"
-    
-    # Create dictionary with same bytes object as both key and value (repeated)
-    bytes_dict = {sample_bytes: sample_bytes, sample_bytes: sample_bytes, sample_bytes: sample_bytes}
-    
-    # Convert dictionary to namedtuple - testing handling of bytes as keys
-    namedtuple_utils.to_namedtuple(bytes_dict)
+def test_to_namedtuple_with_bytes_keys_duplicate_keys():
+    """Test that to_namedtuple handles a dictionary with duplicate bytes keys correctly."""
+    bytes_key = b"F\xdb\xfdf\x8a\xe4\n\xa2\x1d[\xdc*\xa3\xba\xf6s}"
+    input_dict = {bytes_key: bytes_key, bytes_key: bytes_key, bytes_key: bytes_key}
+    namedtuple_utils.to_namedtuple(input_dict)
 ```
 </final_code> 
 
@@ -1887,16 +2180,69 @@ def test_to_namedtuple_with_bytes_keys_and_values():
     ******************************************
 
     Post processing: 
-    def test_to_namedtuple_with_bytes_keys_and_values():
-    """Test converting a dictionary with bytes keys and values to a namedtuple."""
-    # Create a bytes object to use as both key and value
-    sample_bytes = b"F\xdb\xfdf\x8a\xe4\n\xa2\x1d[\xdc*\xa3\xba\xf6s}"
+    def test_to_namedtuple_with_bytes_keys_duplicate_keys():
+    """Test that to_namedtuple handles a dictionary with duplicate bytes keys correctly."""
+    bytes_key = b"F\xdb\xfdf\x8a\xe4\n\xa2\x1d[\xdc*\xa3\xba\xf6s}"
+    input_dict = {bytes_key: bytes_key, bytes_key: bytes_key, bytes_key: bytes_key}
+    namedtuple_utils.to_namedtuple(input_dict) 
+ 
+
+    ########################################################################################
+
+  
+ 
+    #######################################################################################
+    # Test case - No counter provided
+    ***********************************************************
+
+    System promp: 
+
+    You are a helpful AI assistant that will help improve the readability of the test cases.
+
+    ***********************************************************
+
+    User prompt:
+
     
-    # Create dictionary with same bytes object as both key and value (repeated)
-    bytes_dict = {sample_bytes: sample_bytes, sample_bytes: sample_bytes, sample_bytes: sample_bytes}
+    Here is a test case: def test_to_namedtuple_with_bytes_keys_duplicate_keys():
+    """Test that to_namedtuple handles a dictionary with duplicate bytes keys correctly."""
+    bytes_key = b"F\xdb\xfdf\x8a\xe4\n\xa2\x1d[\xdc*\xa3\xba\xf6s}"
+    input_dict = {bytes_key: bytes_key, bytes_key: bytes_key, bytes_key: bytes_key}
+    namedtuple_utils.to_namedtuple(input_dict)
+    And here are the names of the current test in the file: ['test_to_namedtuple_with_negative_float', 'test_to_namedtuple_with_tuple_containing_float_and_set', 'test_to_namedtuple_with_duplicate_keys_and_reprocessing', 'test_to_namedtuple_with_bytes_input', 'test_to_namedtuple_with_empty_tuple', 'test_to_namedtuple_with_various_input_types', 'test_to_namedtuple_with_ordereddict_duplicate_keys', 'test_to_namedtuple_with_nested_empty_list_and_none', 'test_to_namedtuple_with_duplicate_keys_and_reprocessing', 'test_to_namedtuple_with_nested_dicts_mixed_types_and_idempotency']
+    If there is a test case with the same name, change the name of the test case to another meaningful name.
+
+    Provide the test case in a python code block. DONT add the imports or any additional text since the file will be executed to verify the correctness of the test cases.
+
+    Response format:
+    ```Python
+    [insert test case]
+    ```
     
-    # Convert dictionary to namedtuple - testing handling of bytes as keys
-    namedtuple_utils.to_namedtuple(bytes_dict) 
+    
+    
+
+    ***********************************************************
+    * Model Response 
+    ***********************************************************
+    Response: 
+    ```Python
+def test_to_namedtuple_with_bytes_keys_duplicate_keys():
+    """Test that to_namedtuple handles a dictionary with duplicate bytes keys correctly."""
+    bytes_key = b"F\xdb\xfdf\x8a\xe4\n\xa2\x1d[\xdc*\xa3\xba\xf6s}"
+    input_dict = {bytes_key: bytes_key, bytes_key: bytes_key, bytes_key: bytes_key}
+    namedtuple_utils.to_namedtuple(input_dict)
+``` 
+
+
+    ******************************************
+
+    Post processing: 
+    def test_to_namedtuple_with_bytes_keys_duplicate_keys():
+    """Test that to_namedtuple handles a dictionary with duplicate bytes keys correctly."""
+    bytes_key = b"F\xdb\xfdf\x8a\xe4\n\xa2\x1d[\xdc*\xa3\xba\xf6s}"
+    input_dict = {bytes_key: bytes_key, bytes_key: bytes_key, bytes_key: bytes_key}
+    namedtuple_utils.to_namedtuple(input_dict) 
  
 
     ########################################################################################

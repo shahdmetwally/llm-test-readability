@@ -2,326 +2,479 @@ import pytest
 import maybe as maybe
 import typing as typing
 
-def test_maybe_instantiation_with_bytes_value_and_fallback():
-    """Test that Maybe can be instantiated with a bytes object as both its value and fallback arguments."""
-    # Use an arbitrary bytes object as both the primary value and the fallback
+def test_maybe_instantiation_with_bytes_arguments():
+    """Verify that Maybe can be instantiated with identical bytes values as both constructor arguments."""
+    # Define a raw bytes payload to be used as constructor input
     raw_bytes_value = b"\xf4\xaf\xe2\xc9\xee\xc8\xd67n\x9eK\x0b\x97Y\xb5"
 
-    # Construct Maybe with the same bytes instance for both arguments
+    # Construct a Maybe instance using the same bytes value for both arguments
     maybe_instance = maybe.Maybe(raw_bytes_value, raw_bytes_value)
 
 def test_maybe_instantiation_with_none_values():
-    """Test that Maybe can be instantiated with two None arguments."""
-    # Use None for both arguments to verify the constructor handles absent values
+    """Test that Maybe can be instantiated with two None arguments without error."""
+    # Use None as both arguments to verify the Maybe constructor handles null inputs
     none_value = None
 
-    # Construct a Maybe instance with both values set to None
+    # Instantiate Maybe with two None values
     maybe_instance = maybe.Maybe(none_value, none_value)
 
-def test_maybe_monad_chained_operations_with_equality_and_conversion():
-    """Test that a Maybe instance supports chaining ap, map, filter, bind,
-    to_validation, and to_either operations with equality comparisons."""
+def test_maybe_monad_chained_operations_with_string_value():
+    """Tests that Maybe supports chained monadic operations (ap, map, filter, bind, to_validation, to_either) without error."""
 
-    # Shared string value used as both the wrapped value and the argument
-    test_value = "p4xa>bl^oP"
+    # Seed value used as both the wrapped value and the argument throughout
+    string_value = "p4xa>bl^oP"
 
-    # --- Operations on the first Maybe instance ---
-    maybe_instance = maybe.Maybe(test_value, test_value)
+    # --- Phase 1: Operations on the first Maybe instance ---
 
-    # Equality comparison between the Maybe instance and the raw string
-    eq_result = maybe_instance.__eq__(test_value)
+    # Construct a Maybe container with the string value
+    maybe_instance = maybe.Maybe(string_value, string_value)
 
-    # Apply the raw string as an applicative argument
-    ap_result = maybe_instance.ap(test_value)
+    # Equality check against the raw string
+    eq_result = maybe_instance.__eq__(string_value)
 
-    # Unwrap with a fallback default
-    get_or_else_result = maybe_instance.get_or_else(test_value)
+    # Apply (ap) the Maybe with the raw string; capture result for later use
+    ap_result = maybe_instance.ap(string_value)
 
-    # Map and filter using the ap result as the callable
+    # Unwrap with a fallback string
+    get_or_else_result = maybe_instance.get_or_else(string_value)
+
+    # Map over the Maybe using the ap_result as the function
     map_result_1 = maybe_instance.map(ap_result)
+
+    # Filter the Maybe using ap_result as the predicate
     filter_result_1 = maybe_instance.filter(ap_result)
 
-    # Repeat map and ap to produce additional derived values
+    # Map again (verifies map can be called multiple times)
     map_result_2 = maybe_instance.map(ap_result)
-    ap_result_2 = maybe_instance.ap(test_value)
 
-    # Equality check between the two ap results
+    # Apply a second time to confirm ap is repeatable
+    ap_result_2 = maybe_instance.ap(string_value)
+
+    # Compare the two ap results for equality
     ap_eq_result = ap_result.__eq__(ap_result_2)
 
-    # Further operations on the derived ap and get_or_else results
+    # Filter ap_result using the unwrapped value as the predicate
     filter_result_2 = ap_result.filter(get_or_else_result)
-    get_or_else_result_2 = ap_result_2.get_or_else(test_value)
 
-    # --- Operations on the second Maybe instance ---
-    maybe_instance_2 = maybe.Maybe(test_value, test_value)
+    # Unwrap ap_result_2 with the original string as fallback
+    get_or_else_result_2 = ap_result_2.get_or_else(string_value)
 
-    # Convert to Validation, then bind with the validation result, then to Either
+    # --- Phase 2: Second Maybe instance — validation and either conversion ---
+
+    # Construct a second independent Maybe container
+    maybe_instance_2 = maybe.Maybe(string_value, string_value)
+
+    # Convert the second Maybe to a Validation type
     validation_result = maybe_instance_2.to_validation()
+
+    # Bind the validation result back into the second Maybe
     bind_result = maybe_instance_2.bind(validation_result)
+
+    # Convert the bound result to an Either type
     either_result = bind_result.to_either()
 
-def test_maybe_eq_returns_false_when_comparing_none_maybe_to_false_set():
-    """Test that Maybe(None, None).__eq__ returns a falsy result when compared to a set of False values."""
+def test_maybe_eq_returns_result_when_comparing_none_maybe_to_set():
+    """Test that Maybe.__eq__ produces a result when a None-initialized Maybe is compared to a set containing False."""
 
-    # Build the value and set used for comparison
+    # A set built from repeated False values — deduplication yields {False}
     false_value = False
-    false_set = {false_value, false_value, false_value, false_value}
+    set_with_false = {false_value, false_value, false_value, false_value}
 
-    # Construct a Maybe wrapping two None values
+    # Construct a Maybe instance with both values as None
     none_value = None
-    maybe_with_nones = maybe.Maybe(none_value, none_value)
+    maybe_with_none = maybe.Maybe(none_value, none_value)
 
-    # Compare the Maybe instance against the set of False values
-    eq_result = maybe_with_nones.__eq__(false_set)
+    # Compare the Maybe instance to the set; capture the equality result
+    eq_result = maybe_with_none.__eq__(set_with_false)
 
-def test_maybe_bind_map_chaining_and_invalid_to_box_on_set():
-    """Test that Maybe supports bind/map chaining on bool and tuple values, and that calling to_box() on a plain set raises AttributeError."""
+def test_maybe_bind_map_and_invalid_set_method_raises_attribute_error():
+    """Test that Maybe supports bind/map chaining and that calling .to_box() on a plain set raises AttributeError."""
 
-    # Use a simple True constant as the base value for wrapping and operations
+    # Use a simple True value as input for Maybe construction and chaining
     true_value = True
 
-    # Construct a Maybe wrapping two boolean values, then chain bind and map
-    maybe_bool = maybe.Maybe(true_value, true_value)
-    bound_result = maybe_bool.bind(true_value)
+    # Create a Maybe instance wrapping two True values, then chain bind and map
+    maybe_with_bool = maybe.Maybe(true_value, true_value)
+    bound_result = maybe_with_bool.bind(true_value)
     mapped_result = bound_result.map(true_value)
 
-    # Construct a Maybe wrapping a tuple of booleans as the value
+    # Create a tuple of four True values to use as a Maybe value
     bool_tuple = (true_value, true_value, true_value, true_value)
-    maybe_tuple = maybe.Maybe(bool_tuple, true_value)
 
-    # Attempt to call to_box() on a plain set, which does not support this method
+    # Create a second Maybe instance using the tuple and a True flag
+    maybe_with_tuple = maybe.Maybe(bool_tuple, true_value)
+
+    # Attempt to call .to_box() on a plain set, which has no such method
     empty_set = set()
     with pytest.raises(AttributeError):
         empty_set.to_box()
 
-def test_maybe_map_with_none_value_and_false_flag():
-    """Test that Maybe initialized with None and False allows .map() to be called with a falsy value."""
-    # Set up inputs: an empty (None) value and a False flag
-    empty_value = None
+def test_maybe_map_with_none_value_and_false_does_not_raise():
+    """Test that Maybe constructed with None and False can call map with a falsy value without error."""
+    # Inputs: a None value and a False flag used for both construction and mapping
+    none_value = None
     false_flag = False
 
-    # Construct a Maybe monad wrapping the empty value with the False flag
-    maybe_instance = maybe.Maybe(empty_value, false_flag)
+    # Construct a Maybe instance wrapping a None value with a False flag
+    maybe_instance = maybe.Maybe(none_value, false_flag)
 
-    # Invoke map with a falsy value — should execute without error
+    # Call map with a falsy value; expect no exception to be raised
     maybe_instance.map(false_flag)
 
-def test_maybe_bind_with_none_value_and_false_does_not_raise():
-    """Test that bind on a Maybe constructed with None and False completes without error when called with an empty dict."""
+def test_maybe_bind_with_empty_dict_on_none_value():
+    """Test that bind can be called with an empty dict on a Maybe wrapping None and a falsy is_just flag."""
 
-    true_value = True
+    # Construct a Maybe with a truthy value and truthy is_just flag
+    truthy_value = True
+    maybe_with_true = maybe.Maybe(truthy_value, truthy_value)
 
-    # Construct a Maybe with two truthy values (exercises the constructor path)
-    maybe_with_true = maybe.Maybe(true_value, true_value)
-
+    # Prepare a bind target and a None-based Maybe
     empty_dict = {}
     none_value = None
-    false_value = False
+    falsy_value = False
 
-    # Construct a Maybe where the primary value is None and the fallback is False
-    maybe_with_none = maybe.Maybe(none_value, false_value)
+    # Construct a Maybe wrapping None with a falsy is_just flag
+    maybe_with_none = maybe.Maybe(none_value, falsy_value)
 
-    # Bind with an empty dict — verifies no exception is raised in this scenario
+    # Bind the empty dict to the Maybe wrapping None; verifies no error is raised
     maybe_with_none.bind(empty_dict)
 
 def test_maybe_chained_operations_with_mixed_types():
-    """Test Maybe monad chained operations (to_box, filter, to_lazy, ap, __eq__) across instances with mixed types."""
+    """Tests chaining of Maybe monad operations (to_box, filter, to_lazy, ap) across instances with mixed types including bytes, int, bool, and None."""
 
-    # --- First Maybe: wraps raw bytes with no context ---
-    raw_bytes_value = b"\x9f\x02Gj\xbbw\xdb\x8b\xe7\xda"
-    none_context = None
-    maybe_bytes = maybe.Maybe(raw_bytes_value, none_context)
+    # Construct a Maybe wrapping raw bytes with a None second argument
+    raw_bytes = b"\x9f\x02Gj\xbbw\xdb\x8b\xe7\xda"
+    none_value = None
+    maybe_bytes_none = module_0.Maybe(raw_bytes, none_value)
 
-    # Convert the bytes-based Maybe to a box representation
-    box_from_bytes = maybe_bytes.to_box()
+    # Box the first Maybe instance
+    boxed_bytes_none = maybe_bytes_none.to_box()
 
-    # --- Second Maybe: wraps an integer with a boolean context ---
-    int_value = 0
-    bool_context = True
-    maybe_int = maybe.Maybe(int_value, bool_context)
+    # Construct a second Maybe wrapping an int and a bool
+    zero_int = 0
+    true_bool = True
+    maybe_int_bool = module_0.Maybe(zero_int, true_bool)
 
-    # Filter the int Maybe using itself as the predicate
-    filtered_maybe = maybe_int.filter(maybe_int)
+    # Filter the second Maybe using itself as the predicate
+    filtered_maybe = maybe_int_bool.filter(maybe_int_bool)
 
-    # Convert the int Maybe to a lazy representation
-    lazy_maybe = maybe_int.to_lazy()
+    # Convert the second Maybe to a lazy representation
+    lazy_maybe = maybe_int_bool.to_lazy()
 
-    # Apply the filtered Maybe to the bytes Maybe
-    applied_maybe = filtered_maybe.ap(maybe_bytes)
+    # Apply the filtered Maybe to the first Maybe instance
+    applied_result = filtered_maybe.ap(maybe_bytes_none)
 
-    # Filter the applied result using the applied Maybe itself as predicate
-    filtered_applied = filtered_maybe.filter(applied_maybe)  # result unused but computed
+    # Filter the applied result using the applied result itself
+    filtered_applied = filtered_maybe.filter(applied_result)
 
-    # Construct a new Maybe combining the lazy and box representations
-    maybe_lazy_box = maybe.Maybe(lazy_maybe, box_from_bytes)
+    # Construct a third Maybe using the lazy and boxed representations
+    maybe_lazy_boxed = module_0.Maybe(lazy_maybe, boxed_bytes_none)
 
-    # Check equality of the lazy Maybe against the boolean context
-    eq_result = lazy_maybe.__eq__(bool_context)
+    # Check equality of the lazy Maybe against the bool value
+    eq_result = lazy_maybe.__eq__(true_bool)
 
-def test_maybe_none_false_ap_with_integer_does_not_raise():
-    """Test that calling ap with an integer on a Maybe wrapping None and False does not raise."""
-    # The integer argument to be applied via ap
-    integer_value = 2862
+def test_maybe_ap_with_none_value_and_false_flag_does_not_raise():
+    """Test that calling ap() on a Maybe constructed with None and False does not raise an exception."""
+    # An integer to be passed as the argument to ap()
+    integer_arg = 2862
 
-    # Represents an absent/empty value
+    # Construct a Maybe representing a "nothing" state: no wrapped value, flag set to False
     empty_value = None
+    is_something_flag = False
+    nothing_maybe = maybe.Maybe(empty_value, is_something_flag)
 
-    # Flag indicating this is not a 'Just' value (i.e., Nothing-like)
-    is_just_flag = False
+    # Verify that calling ap() with an integer on a nothing-Maybe completes without error
+    nothing_maybe.ap(integer_arg)
 
-    # Construct a Maybe monad in a Nothing-like state
-    maybe_instance = maybe.Maybe(empty_value, is_just_flag)
-
-    # Apply the integer to the Maybe instance; should not raise
-    maybe_instance.ap(integer_value)
-
-def test_maybe_supports_chained_filter_map_and_conversion_operations():
-    """Tests that a Maybe instance can be chained through filter, to_lazy, map, and to_try operations without errors."""
-    # Set up the initial value and presence flag for the Maybe instance
+def test_maybe_supports_filter_to_lazy_map_and_to_try_chaining():
+    """Tests that a Maybe instance correctly chains filter, to_lazy, map, and to_try operations."""
+    # Set up the initial Maybe with a concrete integer value and a 'present' flag
     initial_value = 0
-    has_value = True
+    is_present = True
+    maybe_instance = maybe.Maybe(initial_value, is_present)
 
-    # Construct the root Maybe object
-    maybe_instance = maybe.Maybe(initial_value, has_value)
-
-    # Filter the Maybe using itself as the predicate
+    # Filter the Maybe using itself as the predicate, then convert to a Lazy
     filtered_maybe = maybe_instance.filter(maybe_instance)
-
-    # Convert the root Maybe to a lazy representation
     lazy_from_maybe = maybe_instance.to_lazy()
 
-    # Convert the filtered Maybe to a lazy representation
+    # Convert the filtered Maybe to a Lazy, then filter again using that Lazy
     lazy_from_filtered = filtered_maybe.to_lazy()
-
-    # Filter the already-filtered Maybe using the lazy version of it
-    filtered_again = filtered_maybe.filter(lazy_from_filtered)
+    double_filtered = filtered_maybe.filter(lazy_from_filtered)
 
     # Convert the doubly-filtered result to a Try
-    try_result = filtered_again.to_try()
+    try_from_double_filtered = double_filtered.to_try()
 
-    # Convert the root Maybe to lazy a second time (independent call)
-    lazy_from_maybe_second = maybe_instance.to_lazy()
+    # Independently convert the original Maybe to Lazy a second time
+    second_lazy_from_maybe = maybe_instance.to_lazy()
 
     # Map the filtered Maybe over itself
-    mapped_result = filtered_maybe.map(filtered_maybe)
+    mapped_maybe = filtered_maybe.map(filtered_maybe)
 
-def test_maybe_filter_with_none_value_and_lazy_chain():
-    """Test that filtering a None-valued Maybe and converting to lazy, then filtering again from a None/None Maybe, completes without error."""
-    # Set up a repeated negative integer used to build the filter argument
-    negative_int = -283
-    filter_tuple = (negative_int, negative_int, negative_int)
+def test_maybe_filter_with_none_value_and_lazy_chaining():
+    """Test that Maybe.filter chains correctly with to_lazy(), and that a Maybe(None, None) can filter using a lazy Maybe result without error."""
 
-    # Create a Maybe wrapping None with a True flag, then apply filter
+    # Set up the filter value and the tuple used as the filter argument
+    filter_value = -283
+    filter_tuple = (filter_value, filter_value, filter_value)
+
+    # Create a Maybe with None as value and True as the has-value flag
     none_value = None
-    bool_flag = True
-    maybe_with_none_and_true = maybe.Maybe(none_value, bool_flag)
+    has_value_flag = True
+    maybe_with_none_and_true = maybe.Maybe(none_value, has_value_flag)
+
+    # Filter the Maybe with the tuple, then convert the result to lazy form
     filtered_maybe = maybe_with_none_and_true.filter(filter_tuple)
+    lazy_filtered_maybe = filtered_maybe.to_lazy()
 
-    # Convert the filtered result to a lazy representation
-    lazy_maybe = filtered_maybe.to_lazy()
-
-    # Create a second Maybe with both arguments as None, then filter using the lazy result
+    # Create a second Maybe with both arguments as None
     none_value_2 = None
-    maybe_with_none_none = maybe.Maybe(none_value_2, none_value_2)
-    maybe_with_none_none.filter(lazy_maybe)
+    maybe_with_none_and_none = maybe.Maybe(none_value_2, none_value_2)
 
-def test_maybe_get_or_else_and_filter_with_generic_value():
-    """Tests get_or_else fallback, to_box invocation, and filter on a Maybe wrapping a Generic instance."""
+    # Filter the second Maybe using the lazy result from the first chain
+    maybe_with_none_and_none.filter(lazy_filtered_maybe)
 
-    # Define a fallback integer used in get_or_else
+def test_maybe_get_or_else_and_filter_with_present_and_absent_values():
+    """Test that Maybe resolves a present value via get_or_else, converts to box, and applies filter on an absent Maybe."""
+
+    # Define a fallback integer and a sample string used to build the wrapped value
     fallback_int = 2281
+    sample_str = "gZ(\\mOcN"
+    sample_dict = {sample_str: sample_str}
 
-    # Build a nested tuple to use as the wrapped value in the first Maybe
-    arbitrary_str = "gZ(\\mOcN"
-    str_keyed_dict = {arbitrary_str: arbitrary_str}
-    nested_tuple_value = (arbitrary_str, arbitrary_str, str_keyed_dict, str_keyed_dict)
+    # Build a tuple to be wrapped in a present Maybe
+    wrapped_tuple = (sample_str, sample_str, sample_dict, sample_dict)
 
-    # Create a Maybe that is flagged as present (True)
-    is_present_true = True
-    maybe_with_tuple = maybe.Maybe(nested_tuple_value, is_present_true)
+    # Create a present Maybe wrapping the tuple
+    is_present = True
+    maybe_with_tuple = maybe.Maybe(wrapped_tuple, is_present)
 
-    # Retrieve the value or fall back to fallback_int
-    get_or_else_result = maybe_with_tuple.get_or_else(fallback_int)
+    # Resolve the value from the present Maybe; should return the wrapped value
+    resolved_value = maybe_with_tuple.get_or_else(fallback_int)
 
-    # Create a Generic instance to use as the value for a second Maybe
+    # Create a Generic instance to use as the value for an absent Maybe
     generic_instance = typing.Generic()
 
-    # Convert the first Maybe to a box
+    # Convert the present Maybe to a box representation
     boxed_maybe = maybe_with_tuple.to_box()
 
-    # Create a second Maybe wrapping the generic instance, flagged as absent (False)
-    is_present_false = False
-    maybe_with_generic = maybe.Maybe(generic_instance, is_present_false)
+    # Create an absent Maybe wrapping the generic instance
+    is_absent = False
+    maybe_with_generic = maybe.Maybe(generic_instance, is_absent)
 
-    # Apply filter to the second Maybe using the result of get_or_else
-    maybe_with_generic.filter(get_or_else_result)
+    # Apply filter on the absent Maybe using the resolved value from the present Maybe
+    maybe_with_generic.filter(resolved_value)
 
-def test_maybe_chained_operations_with_mixed_types():
-    """Test that Maybe objects with mixed types support chained calls to to_validation, get_or_else, to_try, and bind."""
+def test_maybe_monad_conversions_and_chaining():
+    """Test that Maybe supports to_validation, to_try, get_or_else, and bind across diverse value/fallback combinations."""
 
-    # --- First Maybe: wraps a truthy boolean with a None fallback ---
+    # --- First Maybe: truthy value with no fallback ---
     truthy_value = True
-    none_fallback = None
-    maybe_with_bool = maybe.Maybe(truthy_value, none_fallback)
-    validation_from_bool_maybe = maybe_with_bool.to_validation()
+    no_fallback = None
+    maybe_true_with_none_fallback = maybe.Maybe(truthy_value, no_fallback)
 
-    # --- Second Maybe: wraps a negative int with an empty tuple as fallback ---
+    # Convert to Validation monad
+    validation_from_true_maybe = maybe_true_with_none_fallback.to_validation()
+
+    # --- Second Maybe: negative int value with empty tuple as fallback ---
     float_value = -286.64
     negative_int = -1784
     empty_tuple = ()
-    maybe_with_int = maybe.Maybe(negative_int, empty_tuple)
+    maybe_negative_int_with_empty_tuple = maybe.Maybe(negative_int, empty_tuple)
 
-    # Exercise core Maybe operations on the int-wrapped instance
-    validation_from_int_maybe = maybe_with_int.to_validation()
-    get_or_else_result = maybe_with_int.get_or_else(negative_int)
-    try_from_int_maybe = maybe_with_int.to_try()
+    # Convert to Validation monad
+    validation_from_int_maybe = maybe_negative_int_with_empty_tuple.to_validation()
 
-    # --- Third Maybe: wraps a float with a float fallback (constructed but not further used) ---
-    maybe_with_float = maybe.Maybe(float_value, float_value)
+    # Unwrap value, falling back to negative_int if empty
+    unwrapped_or_else_value = maybe_negative_int_with_empty_tuple.get_or_else(negative_int)
 
-    # Bind the Try result back into the int Maybe
-    maybe_with_int.bind(try_from_int_maybe)
+    # Convert to Try monad
+    try_from_int_maybe = maybe_negative_int_with_empty_tuple.to_try()
+
+    # --- Third Maybe: float value with float fallback ---
+    maybe_float_with_float_fallback = maybe.Maybe(float_value, float_value)
+
+    # Bind the Try result into the second Maybe
+    maybe_negative_int_with_empty_tuple.bind(try_from_int_maybe)
 
 def test_maybe_map_with_set_and_to_either_conversion():
-    """Test that Maybe.map() accepts a set argument and that a Maybe with an integer value can be converted to an Either."""
+    """Test that Maybe.map() accepts a set and Maybe.to_either() works on a Maybe wrapping an integer."""
 
-    # Construct a Maybe wrapping None (an empty/absent value)
-    empty_value = None
-    is_some_flag = True
-    empty_maybe = maybe.Maybe(empty_value, is_some_flag)
+    # Construct a Maybe wrapping None with has_value=True
+    none_value = None
+    is_present = True
+    maybe_with_none = maybe.Maybe(none_value, is_present)
 
-    # Call map() on the empty Maybe using a set as the mapping argument
-    mapping_set = {is_some_flag}
-    map_result = empty_maybe.map(mapping_set)
+    # Call map() with a set as the mapping argument
+    mapping_set = {is_present}
+    map_result = maybe_with_none.map(mapping_set)
 
-    # Construct a second Maybe wrapping a concrete integer value
-    integer_value = -1095
-    is_some_flag_2 = True
-    integer_maybe = maybe.Maybe(integer_value, is_some_flag_2)
+    # Construct a second Maybe wrapping a negative integer with has_value=True
+    negative_int_value = -1095
+    is_present_second = True
+    maybe_with_int = maybe.Maybe(negative_int_value, is_present_second)
 
-    # Convert the integer Maybe to an Either type
-    either_result = integer_maybe.to_either()
+    # Convert the Maybe to an Either representation
+    either_result = maybe_with_int.to_either()
 
-def test_maybe_monad_conversions_with_none_and_nested_maybe():
-    """Verify that Maybe instances built from None and nested Maybe values can be converted to lazy, either, and try representations without error."""
+def test_maybe_conversion_methods_to_lazy_either_and_try():
+    """Test that Maybe with None and mixed values correctly supports chained conversions to lazy, either, and try."""
 
-    # Build a Maybe from two None values
+    # Create a Maybe instance where both value and context are None
     none_value = None
     maybe_with_none = maybe.Maybe(none_value, none_value)
 
-    # Wrap the first Maybe inside a tuple to use as a value in a second Maybe
-    nested_maybe_tuple = (maybe_with_none,)
+    # Build a tuple containing the first Maybe, to use as an argument
+    maybe_tuple_arg = (maybe_with_none,)
 
     # Convert the None-based Maybe to a lazy representation
     lazy_from_none_maybe = maybe_with_none.to_lazy()
 
-    # Build a second Maybe using the nested tuple and False
+    # Create a second Maybe using the tuple and a False flag
     false_value = False
-    maybe_with_nested = maybe.Maybe(nested_maybe_tuple, false_value)
+    maybe_with_tuple = maybe.Maybe(maybe_tuple_arg, false_value)
 
     # Convert the None-based Maybe to an either representation (first call)
     either_from_none_maybe_first = maybe_with_none.to_either()
 
-    # Convert the nested Maybe to a try representation
-    try_
-# (Truncated by extractor)
+    # Convert the tuple-based Maybe to a try representation
+    try_from_tuple_maybe = maybe_with_tuple.to_try()
+
+    # Convert the None-based Maybe to an either representation (second call)
+    either_from_none_maybe_second = maybe_with_none.to_either()
+
+    # Convert the tuple-based Maybe to an either representation
+    either_from_tuple_maybe = maybe_with_tuple.to_either()
+
+    # Verify that the try result can itself be converted to a lazy representation
+    try_from_tuple_maybe.to_lazy()
+
+def test_maybe_to_try_then_to_box_succeeds():
+    """Test that a Maybe(True, False) can be chained through to_try() and then to_box() without error."""
+    # Construct a Maybe with a truthy value and a falsy flag
+    is_success = True
+    is_empty = False
+    maybe_instance = maybe.Maybe(is_success, is_empty)
+
+    # Convert the Maybe to a Try, then further convert to a Box
+    try_result = maybe_instance.to_try()
+    try_result.to_box()
+
+def test_maybe_none_true_chained_transformations_and_ap():
+    """Test that Maybe(None, True) correctly chains ap, lazy, validation, filter, get_or_else, either, try, and box transformations."""
+
+    # Input values used throughout the chain
+    raw_bytes_input = b"C\xcf\xe7/"
+    none_value = None
+    bool_flag_true = True
+
+    # Construct a Maybe with None value and True flag
+    maybe_none_true = maybe.Maybe(none_value, bool_flag_true)
+
+    # Apply ap with None, then convert to lazy and validation
+    maybe_after_ap = maybe_none_true.ap(none_value)
+    lazy_from_ap = maybe_after_ap.to_lazy()
+    validation_from_lazy = lazy_from_ap.to_validation()
+
+    # Filter the original maybe using the validation result
+    filtered_maybe = maybe_none_true.filter(validation_from_lazy)
+
+    # Derive further transformed values from the filtered maybe
+    get_or_else_result = filtered_maybe.get_or_else(filtered_maybe)
+    either_from_filtered = filtered_maybe.to_either()
+
+    # Convert validation to a try monad
+    try_from_validation = validation_from_lazy.to_try()
+
+    # Check equality between filtered maybe and the ap result
+    eq_result = filtered_maybe.__eq__(maybe_after_ap)
+
+    # Convert get_or_else result to a box
+    box_from_get_or_else = get_or_else_result.to_box()
+
+    # Apply raw bytes to the try monad
+    try_from_validation.ap(raw_bytes_input)
+
+def test_maybe_monad_chaining_with_none_and_bytes_values():
+    """Tests that Maybe monad chaining operations compose correctly across None and bytes-valued Maybe instances."""
+
+    # Define primitive input values
+    bytes_value = b"\xdbC\xcf\xe7/"
+    none_value = None
+    initial_bool = True
+    negative_int = -3289
+
+    # --- Chain 1: Maybe wrapping None with a True flag ---
+    # Construct a Maybe with no value (None) and a True flag
+    maybe_none_true = maybe.Maybe(none_value, initial_bool)
+
+    # Apply None as a function via ap, then apply bytes_value
+    ap_none_result = maybe_none_true.ap(none_value)
+    ap_bytes_result = ap_none_result.ap(bytes_value)
+
+    # Convert the result of ap-chaining to a Validation
+    validation_from_ap_chain = ap_bytes_result.to_validation()
+
+    # --- Chain 2: Maybe wrapping None with a bytes value ---
+    # Construct a Maybe with no value (None) and bytes as the fallback
+    maybe_none_bytes = maybe.Maybe(none_value, bytes_value)
+
+    # Retrieve the value or fall back to itself
+    get_or_else_result = maybe_none_bytes.get_or_else(maybe_none_bytes)
+
+    # Convert to Validation, then use it as the binding function
+    validation_from_maybe_none_bytes = maybe_none_bytes.to_validation()
+    bind_result = maybe_none_bytes.bind(validation_from_maybe_none_bytes)
+
+    # Convert to Either and apply self via ap
+    either_result = maybe_none_bytes.to_either()
+    ap_self_result = maybe_none_bytes.ap(maybe_none_bytes)
+
+    # Compare Either against the Validation using __eq__
+    either_eq_validation = either_result.__eq__(validation_from_maybe_none_bytes)
+
+    # Bind the Either with the maybe_none_bytes instance
+    either_bind_result = either_result.bind(maybe_none_bytes)
+
+    # Convert maybe_none_bytes to a Try and compare maybe_none_bytes against bind_result
+    try_result = maybe_none_bytes.to_try()
+    maybe_eq_bind = maybe_none_bytes.__eq__(bind_result)
+
+    # Convert bind_result to Validation
+    validation_from_bind = bind_result.to_validation()
+
+    # Apply a negative integer via ap on the Try result
+    try_result.ap(negative_int)
+
+def test_maybe_false_values_chain_conversions_and_map():
+    """Test that Maybe(False, False) supports equality check, chained conversions to Either/Lazy/Validation, and mapping."""
+
+    false_value = False
+
+    # Create a Maybe with both fields set to False and verify equality comparison runs without error
+    maybe_with_false = maybe.Maybe(false_value, false_value)
+    eq_result = maybe_with_false.__eq__(false_value)  # result unused; implicitly tests no exception is raised
+
+    # Create a second Maybe and chain it through to_either → to_lazy → to_validation
+    maybe_for_conversion = maybe.Maybe(false_value, false_value)
+    either_value = maybe_for_conversion.to_either()
+    lazy_value = maybe_for_conversion.to_lazy()
+    validation_value = lazy_value.to_validation()
+
+    # Create a third Maybe and map it using the validation value derived above
+    maybe_for_map = maybe.Maybe(false_value, false_value)
+    maybe_for_map.map(validation_value)
+
+def test_maybe_false_false_equality_and_conversion_chain():
+    """Test that Maybe(False, False) supports self-equality and converts through Try to Validation."""
+
+    # Construct a Maybe instance with both values set to False
+    false_value = False
+    maybe_instance = maybe.Maybe(false_value, false_value)
+
+    # Verify the instance compares equal to itself
+    equality_result = maybe_instance.__eq__(maybe_instance)
+
+    # Convert Maybe to Try, then further to Validation
+    try_instance = maybe_instance.to_try()
+    try_instance.to_validation()
+

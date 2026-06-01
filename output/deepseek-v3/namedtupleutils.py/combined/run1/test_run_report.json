@@ -1,6 +1,6 @@
 {
     "module": "namedtupleutils.py",
-    "timestamp": "2026-03-06T02:07:19.005074",
+    "timestamp": "2026-05-31T00:35:29.646619",
     "llm_info": {
         "model": "deepseek-v3",
         "version": "functions",
@@ -9,20 +9,21 @@
     },
     "run_number": 1,
     "diff_metrics": {
-        "diff_total_tests": -11,
-        "diff_passing_tests": -3,
-        "diff_failing_tests": -8,
-        "dan_score_diff": null
+        "diff_total_tests": -1,
+        "diff_passing_tests": -2,
+        "diff_failing_tests": 1,
+        "diff_coverage": -21.43,
+        "dan_score_diff": 0.028713
     },
     "test_summary": {
         "Original Test Results": "{'total': 12, 'pass': 3, 'fail': 8, 'error': 0}",
-        "Refactored Test Results": "{'total': 1, 'pass': 0, 'fail': 0, 'error': 0}",
+        "Refactored Test Results": "{'total': 11, 'pass': 1, 'fail': 9, 'error': 0}",
         "total_tests_before": 12,
-        "total_tests_after": 1
+        "total_tests_after": 11
     },
     "coverage": {
         "before_refactoring": 78.95,
-        "after_refactoring": "N/A"
+        "after_refactoring": 57.52
     },
     "test_results": {
         "before_refactoring": {
@@ -38,8 +39,20 @@
             "test_case_9": "fail",
             "test_case_10": "fail"
         },
-        "after_refactoring": {},
+        "after_refactoring": {
+            "test_to_namedtuple_with_negative_float": "fail",
+            "test_to_namedtuple_with_tuple_containing_float_and_set": "fail",
+            "test_to_namedtuple_with_duplicate_keys_and_reprocessing": "fail",
+            "test_to_namedtuple_with_bytes_input": "fail",
+            "test_to_namedtuple_with_empty_tuple": "pass",
+            "test_to_namedtuple_with_various_input_types": "fail",
+            "test_to_namedtuple_with_ordereddict_duplicate_keys": "fail",
+            "test_to_namedtuple_with_nested_empty_list_and_none": "fail",
+            "test_to_namedtuple_with_nested_dicts_mixed_types_and_idempotency": "fail",
+            "test_to_namedtuple_with_bytes_keys_duplicate_keys": "fail"
+        },
         "dan_score_before": {
+            "__main__": 0.6246722936630249,
             "test_case_0": 0.5516635179519653,
             "test_case_1": 0.2750009298324585,
             "test_case_2": 0.2332385629415512,
@@ -52,8 +65,20 @@
             "test_case_9": 0.1418453852335612,
             "test_case_10": 0.2797536253929138
         },
-        "dan_score_after": null,
-        "avg_dan_score_before": 0.278972,
-        "avg_dan_score_after": null
+        "dan_score_after": {
+            "__main__": 0.5169023871421814,
+            "test_to_namedtuple_with_negative_float": 0.3397153913974762,
+            "test_to_namedtuple_with_tuple_containing_float_and_set": 0.2998952865600586,
+            "test_to_namedtuple_with_duplicate_keys_and_reprocessing": 0.18425063292185465,
+            "test_to_namedtuple_with_bytes_input": 0.3088356852531433,
+            "test_to_namedtuple_with_empty_tuple": 0.3320172131061554,
+            "test_to_namedtuple_with_various_input_types": 0.25602478853293825,
+            "test_to_namedtuple_with_ordereddict_duplicate_keys": 0.2763536274433136,
+            "test_to_namedtuple_with_nested_empty_list_and_none": 0.21817947924137115,
+            "test_to_namedtuple_with_nested_dicts_mixed_types_and_idempotency": 0.14206386109193167,
+            "test_to_namedtuple_with_bytes_keys_duplicate_keys": 0.1955038607120514
+        },
+        "avg_dan_score_before": 0.30778,
+        "avg_dan_score_after": 0.279067
     }
 }

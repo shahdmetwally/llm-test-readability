@@ -1,37 +1,0 @@
-<unknown>:24: SyntaxWarning: invalid escape sequence '\['
-<unknown>:25: SyntaxWarning: invalid escape sequence '\['
-<unknown>:26: SyntaxWarning: invalid escape sequence '\('
-<unknown>:27: SyntaxWarning: invalid escape sequence '\('
-<unknown>:28: SyntaxWarning: invalid escape sequence '\e'
-Unrecognized keys in `rope_scaling` for 'rope_type'='linear': {'type'}
-Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:33<03:21, 33.65s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [01:09<02:55, 35.06s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [01:45<02:22, 35.54s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [02:21<01:46, 35.61s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [02:53<01:08, 34.40s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [03:43<00:39, 39.68s/it]Loading checkpoint shards: 100%|██████████| 7/7 [04:21<00:00, 39.05s/it]Loading checkpoint shards: 100%|██████████| 7/7 [04:21<00:00, 37.35s/it]
-The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
-2026-05-18 18:01:06,649 - INFO - Loading model: microsoft/codebert-base-mlm
-/data/users/eliassam/miniforge3/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
-  warnings.warn(
-Some weights of the model checkpoint at microsoft/codebert-base-mlm were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
-- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-2026-05-18 18:01:08,846 - INFO - Processed __main__.dot: Score=0.6247 (1 paths)
-2026-05-18 18:01:09,849 - INFO - Processed test_case_0.dot: Score=0.5517 (1 paths)
-2026-05-18 18:01:15,230 - INFO - Processed test_case_1.dot: Score=0.2750 (3 paths)
-2026-05-18 18:01:17,006 - INFO - Processed test_case_2.dot: Score=0.2332 (1 paths)
-2026-05-18 18:01:18,762 - INFO - Processed test_case_3.dot: Score=0.3506 (1 paths)
-2026-05-18 18:01:19,019 - INFO - Processed test_case_4.dot: Score=0.4858 (1 paths)
-2026-05-18 18:01:21,123 - INFO - Processed test_case_5.dot: Score=0.1792 (7 paths)
-2026-05-18 18:01:21,220 - INFO - Processed test_case_6.dot: Score=0.1989 (1 paths)
-2026-05-18 18:01:21,292 - INFO - Processed test_case_7.dot: Score=0.2615 (1 paths)
-2026-05-18 18:01:22,777 - INFO - Processed test_case_8.dot: Score=0.1112 (15 paths)
-2026-05-18 18:01:23,036 - INFO - Processed test_case_9.dot: Score=0.1418 (3 paths)
-2026-05-18 18:01:23,109 - INFO - Processed test_case_10.dot: Score=0.2798 (1 paths)
-2026-05-18 18:01:23,223 - INFO - Processed __main__.dot: Score=0.3979 (1 paths)
-2026-05-18 18:01:24,356 - INFO - Processed test_case_1.dot: Score=0.2577 (17 paths)
-2026-05-18 18:01:24,697 - INFO - Processed test_case_2.dot: Score=0.3010 (6 paths)
-2026-05-18 18:01:24,754 - INFO - Processed test_case_3.dot: Score=0.5374 (1 paths)
-2026-05-18 18:01:24,817 - INFO - Processed test_case_4.dot: Score=0.3977 (1 paths)
-2026-05-18 18:01:24,877 - INFO - Processed test_case_5.dot: Score=0.4049 (1 paths)
-2026-05-18 18:01:24,939 - INFO - Processed test_case_6.dot: Score=0.3427 (1 paths)
-2026-05-18 18:01:27,297 - INFO - Processed test_case_7.dot: Score=0.2455 (38 paths)
-2026-05-18 18:01:27,817 - INFO - Processed test_case_8.dot: Score=0.1983 (7 paths)
-2026-05-18 18:01:28,703 - INFO - Processed test_case_9.dot: Score=0.2314 (12 paths)
-2026-05-18 18:01:29,472 - INFO - Processed test_case_10.dot: Score=0.2522 (11 paths)

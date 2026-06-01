@@ -1,31 +1,0 @@
-<unknown>:24: SyntaxWarning: invalid escape sequence '\['
-<unknown>:25: SyntaxWarning: invalid escape sequence '\['
-<unknown>:26: SyntaxWarning: invalid escape sequence '\('
-<unknown>:27: SyntaxWarning: invalid escape sequence '\('
-<unknown>:28: SyntaxWarning: invalid escape sequence '\e'
-Unrecognized keys in `rope_scaling` for 'rope_type'='linear': {'type'}
-Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:42<04:15, 42.52s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [01:22<03:25, 41.16s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [02:02<02:41, 40.38s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [02:44<02:03, 41.27s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [03:25<01:22, 41.17s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [04:07<00:41, 41.44s/it]Loading checkpoint shards: 100%|██████████| 7/7 [04:39<00:00, 38.39s/it]Loading checkpoint shards: 100%|██████████| 7/7 [04:39<00:00, 39.98s/it]
-The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
-/data/users/eliassam/miniforge3/lib/python3.12/site-packages/coverage/control.py:958: CoverageWarning: No data was collected. (no-data-collected); see https://coverage.readthedocs.io/en/7.13.3/messages.html#warning-no-data-collected
-  self._warn("No data was collected.", slug="no-data-collected")
-/data/users/eliassam/miniforge3/lib/python3.12/site-packages/coverage/control.py:958: CoverageWarning: No data was collected. (no-data-collected); see https://coverage.readthedocs.io/en/7.13.3/messages.html#warning-no-data-collected
-  self._warn("No data was collected.", slug="no-data-collected")
-2026-05-19 14:13:21,445 - INFO - Loading model: microsoft/codebert-base-mlm
-/data/users/eliassam/miniforge3/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
-  warnings.warn(
-Some weights of the model checkpoint at microsoft/codebert-base-mlm were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
-- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-2026-05-19 14:13:22,921 - INFO - Processed __main__.dot: Score=0.7027 (1 paths)
-2026-05-19 14:13:23,573 - INFO - Processed test_case_0.dot: Score=0.7557 (1 paths)
-2026-05-19 14:13:23,810 - INFO - Processed test_case_1.dot: Score=0.4087 (4 paths)
-2026-05-19 14:13:23,925 - INFO - Processed test_case_2.dot: Score=0.4158 (2 paths)
-2026-05-19 14:13:23,999 - INFO - Processed test_case_3.dot: Score=0.3199 (1 paths)
-2026-05-19 14:13:24,173 - INFO - Processed test_case_4.dot: Score=0.2098 (2 paths)
-2026-05-19 14:13:31,480 - INFO - Processed test_case_5.dot: Score=0.2289 (31 paths)
-2026-05-19 14:13:34,216 - INFO - Processed test_case_6.dot: Score=0.2354 (34 paths)
-2026-05-19 14:13:34,696 - INFO - Processed test_case_7.dot: Score=0.1935 (8 paths)
-2026-05-19 14:13:35,197 - INFO - Processed test_case_8.dot: Score=0.3195 (9 paths)
-2026-05-19 14:13:35,397 - INFO - Processed test_case_9.dot: Score=0.3653 (4 paths)
-2026-05-19 14:13:35,406 - ERROR - Failed to parse or build PDG: invalid syntax (<unknown>, line 42)
-2026-05-19 14:13:35,406 - WARNING - No functions found in ./output/deepseek-coder/codetiming_timer.py/base/run3/test_codetiming__timer_functions_refactored.py to generate PDGs for.

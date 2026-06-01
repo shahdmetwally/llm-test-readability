@@ -21,7 +21,7 @@ def get_args():
     ]
     '''
 
-    default_module_path = ["data/pymonet.maybe/maybe.py"]
+    default_module_path = ["data/pymonet.immutable_list/immutable_list.py"]
 
     parser.add_argument(
         '-p', '--paths',
@@ -44,7 +44,7 @@ def get_args():
     ]
     '''
 
-    default_test_path = "data/pymonet.maybe/test_pymonet_maybe.py"
+    default_test_path = "data/pymonet.immutable_list/test_pymonet_immutable_list.py"
 
     parser.add_argument("-tp", "--testpath",
                         dest="testpath",

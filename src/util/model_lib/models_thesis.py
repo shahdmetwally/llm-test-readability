@@ -137,6 +137,9 @@ class Model:
         device = self.model.device
         input_ids = input_ids.to(device)
 
+        if isinstance(input_ids, dict):
+            input_ids = input_ids["input_ids"]
+
         # 3. Calculate max tokens
         total_input_tokens = input_ids.shape[1]
         
@@ -172,6 +175,8 @@ class Model:
         history_copy = copy.deepcopy(history)
         history_copy.append({"role": "user", "content": prompt})
         input_ids = self.tokenizer.apply_chat_template(history_copy, add_generation_prompt=True, return_tensors="pt")
+        if isinstance(input_ids, dict):
+            input_ids = input_ids["input_ids"]
         return input_ids.shape[1]
 
     # ---------------------
@@ -194,9 +199,9 @@ class Model:
 
         m_path_str = str(model_name_or_path).lower()
 
-        # Check if we should use Nvidia API
+        # Check if we should use DeepSeek API
         if "deepseek-v3" in m_path_str:
-            return NvidiaApiModel.load(
+            return DeepSeekApiModel.load(
                 model_name=str(model_name_or_path),
                 temperature=temperature,
                 max_new_tokens=max_new_tokens or 2048,
@@ -298,6 +303,125 @@ class Model:
 
         Model._MODELS[model_name_or_path] = loaded_model
         return loaded_model
+
+# =========================
+# DeepSeek API Model
+# =========================
+class DeepSeekApiModel(Model):
+    def __init__(
+        self,
+        model_name: str,
+        api_key: str,
+        base_url: str = "https://api.deepseek.com",
+        tokenizer: PreTrainedTokenizer | PreTrainedTokenizerFast = None,
+        max_new_tokens: int = 8192,
+        context_window: int = 128000,
+        temperature: float = 1.0,
+    ):
+        super().__init__(
+            model_name=model_name,
+            tokenizer=tokenizer,
+            max_new_tokens=max_new_tokens,
+            context_window=context_window,
+            temperature=temperature
+        )
+        from openai import OpenAI
+        self.client = OpenAI(
+            base_url=base_url, 
+            api_key=api_key,
+            timeout=180.0,
+            max_retries=10
+        )
+
+    @classmethod
+    def load(
+        cls,
+        model_name: str,
+        temperature: float = 1.0,
+        max_new_tokens: int = 8192,
+        context_window: int = 128000
+    ) -> DeepSeekApiModel:
+        api_key = os.getenv("DEEPSEEK_API_KEY")
+        if not api_key:
+            raise ValueError("DEEPSEEK_API_KEY environment variable not set.")
+
+        try:
+            tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/deepseek-coder-33b-instruct", trust_remote_code=True)
+        except Exception:
+            print("Warning: Could not load local tokenizer for DeepSeekApiModel. Token counting may be inaccurate.")
+            tokenizer = None
+
+        instance = cls(
+            model_name=model_name,
+            api_key=api_key,
+            tokenizer=tokenizer,
+            max_new_tokens=max_new_tokens,
+            context_window=context_window,
+            temperature=temperature
+        )
+        Model._MODELS[model_name] = instance
+        return instance
+
+    def get_response(
+        self,
+        history: list[dict[str, str]],
+        prompt: str,
+        *,
+        dynamic_max_tokens: bool = True
+    ) -> str:
+        history.append({"role": "user", "content": prompt})
+
+        print(f"Calling DeepSeek API for model: {self.model_name}...")
+        
+        # Use official deepseek-chat model
+        api_model_name = "deepseek-chat"
+
+        max_retries = 5
+        base_delay = 2
+        
+        for attempt in range(max_retries):
+            try:
+                completion = self.client.chat.completions.create(
+                    model=api_model_name,
+                    messages=history,
+                    temperature=self.temperature,
+                    max_tokens=self.max_new_tokens,
+                    stream=True
+                )
+
+                full_content = ""
+                
+                print(f"Receiving stream (attempt {attempt + 1}): ", end="", flush=True)
+                for chunk in completion:
+                    if not getattr(chunk, "choices", None):
+                        continue
+                    
+                    content = chunk.choices[0].delta.content
+                    if content is not None:
+                        full_content += content
+                        print(content, end="", flush=True)
+                print("\nStream finished.")
+
+                # Store full response in history
+                history.append({"role": "assistant", "content": full_content})
+                return full_content
+
+            except Exception as e:
+                import openai
+                if isinstance(e, (openai.InternalServerError, openai.APITimeoutError, openai.RateLimitError)):
+                    if attempt < max_retries - 1:
+                        delay = (base_delay ** attempt) + random.uniform(0, 1)
+                        print(f"\nAPI Error (attempt {attempt + 1}): {e}. Retrying in {delay:.2f} seconds...")
+                        time.sleep(delay)
+                        continue
+                
+                print(f"\nTerminal API Error: {e}")
+                raise e
+
+    def count_tokens(self, history: list[dict[str, str]], prompt: str) -> int:
+        if self.tokenizer:
+            return super().count_tokens(history, prompt)
+        return len(str(history)) // 3
 
 # =========================
 # Nvidia API Model

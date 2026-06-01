@@ -1,38 +1,0 @@
-<unknown>:24: SyntaxWarning: invalid escape sequence '\['
-<unknown>:25: SyntaxWarning: invalid escape sequence '\['
-<unknown>:26: SyntaxWarning: invalid escape sequence '\('
-<unknown>:27: SyntaxWarning: invalid escape sequence '\('
-<unknown>:28: SyntaxWarning: invalid escape sequence '\e'
-Unrecognized keys in `rope_scaling` for 'rope_type'='linear': {'type'}
-Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:05<00:30,  5.16s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:09<00:24,  4.81s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:14<00:18,  4.59s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:18<00:13,  4.61s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [00:23<00:09,  4.53s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [00:27<00:04,  4.45s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:30<00:00,  4.05s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:30<00:00,  4.37s/it]
-The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
-/data/users/eliassam/miniforge3/lib/python3.12/site-packages/coverage/control.py:958: CoverageWarning: No data was collected. (no-data-collected); see https://coverage.readthedocs.io/en/7.13.3/messages.html#warning-no-data-collected
-  self._warn("No data was collected.", slug="no-data-collected")
-2026-05-19 13:12:11,871 - INFO - Loading model: microsoft/codebert-base-mlm
-/data/users/eliassam/miniforge3/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
-  warnings.warn(
-Some weights of the model checkpoint at microsoft/codebert-base-mlm were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
-- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-2026-05-19 13:12:13,212 - INFO - Processed __main__.dot: Score=0.6247 (1 paths)
-2026-05-19 13:12:13,268 - INFO - Processed test_case_0.dot: Score=0.5517 (1 paths)
-2026-05-19 13:12:13,475 - INFO - Processed test_case_1.dot: Score=0.2750 (3 paths)
-2026-05-19 13:12:13,560 - INFO - Processed test_case_2.dot: Score=0.2332 (1 paths)
-2026-05-19 13:12:13,623 - INFO - Processed test_case_3.dot: Score=0.3506 (1 paths)
-2026-05-19 13:12:13,679 - INFO - Processed test_case_4.dot: Score=0.4858 (1 paths)
-2026-05-19 13:12:14,686 - INFO - Processed test_case_5.dot: Score=0.1792 (7 paths)
-2026-05-19 13:12:14,800 - INFO - Processed test_case_6.dot: Score=0.1989 (1 paths)
-2026-05-19 13:12:14,881 - INFO - Processed test_case_7.dot: Score=0.2615 (1 paths)
-2026-05-19 13:12:17,431 - INFO - Processed test_case_8.dot: Score=0.1112 (15 paths)
-2026-05-19 13:12:17,752 - INFO - Processed test_case_9.dot: Score=0.1418 (3 paths)
-2026-05-19 13:12:17,834 - INFO - Processed test_case_10.dot: Score=0.2798 (1 paths)
-2026-05-19 13:12:17,961 - INFO - Processed __main__.dot: Score=0.4544 (1 paths)
-2026-05-19 13:12:24,555 - INFO - Processed test_namedtuple_creation_new.dot: Score=0.1294 (45 paths)
-2026-05-19 13:12:24,938 - INFO - Processed test_to_namedtuple_converts_int_correctly.dot: Score=0.3525 (5 paths)
-2026-05-19 13:12:25,069 - INFO - Processed test_codetiming_timer_namedtuple_conversion.dot: Score=0.2391 (1 paths)
-2026-05-19 13:12:25,376 - INFO - Processed test_namedtuple_conversion_v2.dot: Score=0.2725 (4 paths)
-2026-05-19 13:12:27,008 - INFO - Processed test_dict_to_namedtuple_conversion.dot: Score=0.1623 (8 paths)
-2026-05-19 13:12:28,827 - INFO - Processed test_namedtuple_add_appends_values_to_namedtuple.dot: Score=0.1754 (20 paths)
-2026-05-19 13:12:29,217 - INFO - Processed test_bytes_to_namedtuple.dot: Score=0.2914 (5 paths)
-2026-05-19 13:12:29,448 - INFO - Processed test_tuple_to_namedtuple_conversion.dot: Score=0.2222 (3 paths)
-2026-05-19 13:12:46,302 - INFO - Processed test_path_utils_normalize_path.dot: Score=0.1137 (50 paths)

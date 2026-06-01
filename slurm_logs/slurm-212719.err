@@ -1,9 +1,0 @@
-<unknown>:24: SyntaxWarning: invalid escape sequence '\['
-<unknown>:25: SyntaxWarning: invalid escape sequence '\['
-<unknown>:26: SyntaxWarning: invalid escape sequence '\('
-<unknown>:27: SyntaxWarning: invalid escape sequence '\('
-<unknown>:28: SyntaxWarning: invalid escape sequence '\e'
-Unrecognized keys in `rope_scaling` for 'rope_type'='linear': {'type'}
-Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:04<00:29,  4.91s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:09<00:22,  4.55s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:13<00:17,  4.42s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:17<00:13,  4.34s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [00:21<00:08,  4.32s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [00:26<00:04,  4.31s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:29<00:00,  3.95s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:29<00:00,  4.21s/it]
-The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
-slurmstepd-neptune: error: *** JOB 212719 ON neptune CANCELLED AT 2026-05-19T13:40:45 ***

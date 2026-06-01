@@ -1,6 +1,6 @@
 {
     "module": "immutable_list.py",
-    "timestamp": "2026-06-01T10:55:58.487883",
+    "timestamp": "2026-06-01T14:16:07.037914",
     "llm_info": {
         "model": "sonnet",
         "version": "functions",
@@ -9,20 +9,21 @@
     },
     "run_number": 2,
     "diff_metrics": {
-        "diff_total_tests": -23,
-        "diff_passing_tests": -1,
-        "diff_failing_tests": -22,
-        "dan_score_diff": -1.039663
+        "diff_total_tests": 0,
+        "diff_passing_tests": 0,
+        "diff_failing_tests": 0,
+        "diff_coverage": -0.36,
+        "dan_score_diff": 0.126638
     },
     "test_summary": {
         "Original Test Results": "{'total': 24, 'pass': 1, 'fail': 22, 'error': 0}",
-        "Refactored Test Results": "{'total': 1, 'pass': 0, 'fail': 0, 'error': 0}",
-        "total_tests_before": 24,
-        "total_tests_after": 1
+        "Refactored Test Results": "{'total': 24, 'pass': 1, 'fail': 22, 'error': 0}",
+        "total_tests_before": 23,
+        "total_tests_after": 23
     },
     "coverage": {
         "before_refactoring": 73.76,
-        "after_refactoring": "N/A"
+        "after_refactoring": 73.4
     },
     "test_results": {
         "before_refactoring": {
@@ -50,7 +51,31 @@
             "test_case_21": "fail",
             "test_case_22": "fail"
         },
-        "after_refactoring": {},
+        "after_refactoring": {
+            "test_immutable_list_basic_operations_on_empty_list": "fail",
+            "test_immutable_list_basic_operations_on_empty_list_eq_concat_find": "fail",
+            "test_immutable_list_append_and_find_with_truthy_value": "fail",
+            "test_add_with_none_on_empty_immutable_list": "fail",
+            "test_immutable_list_find_with_empty_list_as_is_empty_flag": "fail",
+            "test_immutable_list_with_false_value_len_and_find": "fail",
+            "test_immutable_list_find_with_converted_list": "fail",
+            "test_find_on_empty_list_and_append_self_then_convert_to_list": "fail",
+            "test_immutable_list_map_with_non_empty_flag_and_repeated_to_list": "fail",
+            "test_immutable_list_unshift_and_map_with_none_values": "fail",
+            "test_filter_immutable_list_with_itself_when_empty": "fail",
+            "test_add_empty_lists_and_filter_by_length": "fail",
+            "test_find_on_empty_immutable_list_returns_empty_result": "fail",
+            "test_immutable_list_find_with_false_value_and_non_empty_flag": "fail",
+            "test_reduce_on_empty_list_and_find_on_non_empty_list": "fail",
+            "test_immutable_list_default_constructor": "pass",
+            "test_immutable_list_str_and_find_with_false_init": "fail",
+            "test_immutable_list_unshift_and_find_with_false_initial_value": "fail",
+            "test_immutable_list_unshift_append_and_find_with_false": "fail",
+            "test_immutable_list_append_increases_length_and_find_on_non_empty_list": "fail",
+            "test_immutable_list_chained_operations_with_nested_self_references": "fail",
+            "test_immutable_list_unshift_reduce_and_equality_operations": "fail",
+            "test_immutable_list_reduce_with_to_list_result": "fail"
+        },
         "dan_score_before": {
             "__main__": 0.8213996291160583,
             "test_case_0": 0.2621141403913498,
@@ -78,9 +103,32 @@
             "test_case_22": 0.5441207215189934
         },
         "dan_score_after": {
-            "__main__": 1.5347321033477783
+            "__main__": 0.6984705328941345,
+            "test_immutable_list_basic_operations_on_empty_list": 0.31277047246694567,
+            "test_immutable_list_basic_operations_on_empty_list_eq_concat_find": 0.23319503664970398,
+            "test_immutable_list_append_and_find_with_truthy_value": 0.2993759363889694,
+            "test_add_with_none_on_empty_immutable_list": 0.4627596139907837,
+            "test_immutable_list_find_with_empty_list_as_is_empty_flag": 0.31177979707717896,
+            "test_immutable_list_with_false_value_len_and_find": 0.28849175572395325,
+            "test_immutable_list_find_with_converted_list": 0.5066126883029938,
+            "test_find_on_empty_list_and_append_self_then_convert_to_list": 0.22967182844877243,
+            "test_immutable_list_map_with_non_empty_flag_and_repeated_to_list": 0.2664611041545868,
+            "test_immutable_list_unshift_and_map_with_none_values": 0.36261879546301706,
+            "test_filter_immutable_list_with_itself_when_empty": 0.48764121532440186,
+            "test_add_empty_lists_and_filter_by_length": 0.26499245315790176,
+            "test_find_on_empty_immutable_list_returns_empty_result": 0.477710023522377,
+            "test_immutable_list_find_with_false_value_and_non_empty_flag": 0.3375099301338196,
+            "test_reduce_on_empty_list_and_find_on_non_empty_list": 0.32798516750335693,
+            "test_immutable_list_default_constructor": 0.4842403829097748,
+            "test_immutable_list_str_and_find_with_false_init": 0.4934667944908142,
+            "test_immutable_list_unshift_and_find_with_false_initial_value": 0.29857969284057617,
+            "test_immutable_list_unshift_append_and_find_with_false": 0.4466755986213684,
+            "test_immutable_list_append_increases_length_and_find_on_non_empty_list": 0.4408969581127167,
+            "test_immutable_list_chained_operations_with_nested_self_references": 0.23967977506773813,
+            "test_immutable_list_unshift_reduce_and_equality_operations": 0.32575476467609404,
+            "test_immutable_list_reduce_with_to_list_result": 0.24499882012605667
         },
         "avg_dan_score_before": 0.495069,
-        "avg_dan_score_after": 1.534732
+        "avg_dan_score_after": 0.368431
     }
 }

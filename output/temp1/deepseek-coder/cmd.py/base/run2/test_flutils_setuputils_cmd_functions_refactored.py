@@ -1,5 +1,9 @@
-import cmd as cmd_module
+import cmd as pytest_cmd
 
-# *** EXTRACTION FAILED: NO CODE BLOCK FOUND ***
-# The test case provided did not provide a Python code block that could be executed for test. As a result, the improvement cannot be made at this time.
+import pytest_cmd
+
+def test_build_setup_cfg_command_class():
+    no_input = None
+    test_class_instance = pytest_cmd.build_setup_cfg_command_class(no_input)
+    assert isinstance(test_class_instance, pytest_cmd.SetupCfgCommand)
 

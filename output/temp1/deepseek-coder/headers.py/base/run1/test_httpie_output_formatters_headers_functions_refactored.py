@@ -1,17 +1,12 @@
-import headers as header
-import pytest
+import headers as hdrs
 
-def test_init_headers_formatter(module_0):
-    """ 
-    This test verifies the creation of an instance of HeadersFormatter.
+# Test function for HeadersFormatter class
+def test_headers_formatter_creation():
+    """Test if HeadersFormatter object is created properly.""" # Summary comment
 
-    The test utilizes the instance of module_0 to validate the creation of an instance of
-    HeadersFormatter without raising any exception.
-    """
+    # Define a header formatter object
+    header_formatter = hdrs.HeadersFormatter() # Improved clarity with variable name
 
-    # create an instance of HeadersFormatter
-    headers_formatter_instance = module_0.HeadersFormatter()
-
-    # assert that an instance of HeadersFormatter is successfully created without any exception
-    assert isinstance(headers_formatter_instance, module_0.HeadersFormatter)
+    # Ensure assertions does not fail, i.e. correct class is created
+    assert type(header_formatter) == hdrs.HeadersFormatter # Inline comment clarifying intent
 

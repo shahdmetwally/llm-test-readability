@@ -1,6 +1,6 @@
 {
     "module": "helpers.py",
-    "timestamp": "2026-05-21T05:51:17.218138",
+    "timestamp": "2026-06-04T13:13:51.306959",
     "llm_info": {
         "model": "deepseek-coder",
         "version": "functions",
@@ -12,8 +12,8 @@
         "diff_total_tests": -6,
         "diff_passing_tests": -4,
         "diff_failing_tests": -2,
-        "diff_coverage": null,
-        "dan_score_diff": -1.074279
+        "diff_coverage": -25.45,
+        "dan_score_diff": 0.011823
     },
     "test_summary": {
         "Original Test Results": "{'total': 7, 'pass': 4, 'fail': 2, 'error': 0}",
@@ -23,7 +23,7 @@
     },
     "coverage": {
         "before_refactoring": 45.45,
-        "after_refactoring": "N/A"
+        "after_refactoring": 20.0
     },
     "test_results": {
         "before_refactoring": {
@@ -34,7 +34,9 @@
             "test_case_4": "pass",
             "test_case_5": "fail"
         },
-        "after_refactoring": {},
+        "after_refactoring": {
+            "collection_error": true
+        },
         "dan_score_before": {
             "__main__": 0.641155481338501,
             "test_case_0": 0.4384838342666626,
@@ -45,9 +47,15 @@
             "test_case_5": 0.4185090512037277
         },
         "dan_score_after": {
-            "__main__": 1.5347328186035156
+            "__main__": 0.7601863741874695,
+            "test_timer_start_and_stop_correctly": 0.3317399024963379,
+            "test_timer_start_correctly": 0.5396369099617004,
+            "test_timer_behaves_as_expected": 0.3447147533297539,
+            "test_timer_logging": 0.2708474189043045,
+            "test_timer_start_logs_output": 0.44489581882953644,
+            "test_basic_timer_sequence_mod": 0.4483960270881653
         },
         "avg_dan_score_before": 0.460454,
-        "avg_dan_score_after": 1.534733
+        "avg_dan_score_after": 0.448631
     }
 }

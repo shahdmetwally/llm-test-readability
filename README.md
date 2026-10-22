@@ -29,7 +29,7 @@ sbatch run_experiment_claude.slurm
 ```
 
 ## Data
-For our thesis experimentation we utilized Pynguin generated test suites for Python libraries and frameworks. This data was obtained from a previous Master's thesis: Adaptive Parameter Control for Search-Based Unit Test Generation by Erik Blomberg and Henrik Johansson. This data can be found in the /data directory.
+For our experiments we utilized Pynguin generated test suites for Python libraries and frameworks. This data was obtained from a previous thesis and can be found in the /data directory.
 
 ## Results
 The output directory includes the results of the experiments in the following format:

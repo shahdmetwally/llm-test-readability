@@ -34,15 +34,16 @@ For our thesis experimentation we utilized Pynguin generated test suites for Pyt
 ## Results
 The output directory includes the results of the experiments in the following format:
 ```
-output_directory/
-└── {model_name}/
-    └── {module_name}/
-        └── {prompt_strategy}/
-            └── {run_number}/
-                ├── {original_test_file_name}.py
-                ├── {refactored_test_file_name}.py
-                ├── {data_evaluation_metrics}.json
-                └── {data_evaluation_metrics}.csv
+output/
+└── {rag or no_rag}/
+    └── {model_name}/
+        └── {module_name}/
+            └── {prompt_strategy}/
+                └── {run_number}/
+                    ├── {original_test_file_name}.py
+                    ├── {refactored_test_file_name}.py
+                    ├── {data_evaluation_metrics}.json
+                    └── {data_evaluation_metrics}.csv
 ```
 
 ### Data Evaluation Metrics

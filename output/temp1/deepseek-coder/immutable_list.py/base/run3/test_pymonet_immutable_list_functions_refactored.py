@@ -1,1 +1,0 @@
-regular_list = empty_immutable_list.to_list()

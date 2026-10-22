@@ -1,0 +1,199 @@
+import pytest
+
+import namedtupleutils as namedtuple_utils
+import collections as collections_module
+
+def test_to_namedtuple_accepts_float():
+    """Call to_namedtuple with a float value to ensure it handles float inputs without error."""
+    float_value = -476.66  # negative float input used by the original test
+    namedtuple_utils.to_namedtuple(float_value)
+
+def test_to_namedtuple_handles_negative_float_and_set():
+    """Exercise to_namedtuple with a tuple (float, set) and with a set containing duplicate floats."""
+    # negative float value used as the element in both the tuple and the set
+    negative_value = -67.0
+    # set with repeated insertions of the same float (duplicates will be collapsed by set)
+    duplicate_value_set = {negative_value, negative_value, negative_value, negative_value}
+    # tuple combining the float and the set
+    input_tuple = (negative_value, duplicate_value_set)
+
+    # Call to_namedtuple with the tuple input and keep the returned value
+    result = namedtuple_utils.to_namedtuple(input_tuple)
+    # Also call to_namedtuple with the set input (result intentionally unused, mirrors original test)
+    namedtuple_utils.to_namedtuple(duplicate_value_set)
+
+def test_to_namedtuple_idempotent_for_namedtuple_and_dict():
+    """Convert a dict to a namedtuple, then call to_namedtuple on the result again."""
+    # Preserve the original literal inputs: a repeated key/value string.
+    key = "author"
+    mapping = {key: key, key: key, key: key}
+
+    # First: convert the dict to a namedtuple.
+    first_result = namedtuple_utils.to_namedtuple(mapping)
+    # Second: pass the resulting namedtuple back into to_namedtuple (should be safe/idempotent).
+    second_result = namedtuple_utils.to_namedtuple(first_result)
+
+    assert first_result == second_result
+    # Confirm the result has typical namedtuple behavior.
+    assert hasattr(first_result, "_asdict")
+
+def test_to_namedtuple_handles_arbitrary_bytes_input():
+    """Ensure to_namedtuple accepts a raw bytes object containing non-ASCII bytes."""
+    raw_bytes = b"xs&,\x9b\xc2\xf1\x80\xb3y"
+    # Call to_namedtuple with arbitrary bytes; test succeeds if no exception is raised.
+    namedtuple_utils.to_namedtuple(raw_bytes)
+
+def test_to_namedtuple_accepts_empty_tuple():
+    """Ensure to_namedtuple can be called with an empty tuple (should not raise)."""
+    empty_tuple = ()
+    result = namedtuple_utils.to_namedtuple(empty_tuple)
+    # No assertions: the test verifies that the call completes without raising.
+
+def test_to_namedtuple_repeated_conversion_and_tuple_input():
+    """Smoke test: repeatedly convert various inputs to namedtuple to ensure stable behavior."""
+    # Start with an empty OrderedDict instance.
+    empty_ordered = collections_module.OrderedDict()
+
+    # Convert the OrderedDict to a namedtuple-like structure.
+    nt_from_ordered_1 = namedtuple_utils.to_namedtuple(empty_ordered)
+
+    # Convert the result again (idempotence / handling of already-converted objects).
+    nt_from_nt = namedtuple_utils.to_namedtuple(nt_from_ordered_1)
+
+    # Convert the original OrderedDict again (exercise repeated conversions from same source).
+    nt_from_ordered_2 = namedtuple_utils.to_namedtuple(empty_ordered)
+
+    # Convert the previous conversion result again.
+    nt_from_ordered_2_again = namedtuple_utils.to_namedtuple(nt_from_ordered_2)
+
+    # A raw bytes value used as part of a tuple input.
+    raw_bytes = b"\xe2\xf8\xb9\x01\x8c\xa5\xed\xb1\x0e&rdHE"
+
+    # Another conversion from the OrderedDict (keeps call order identical to original).
+    nt_from_ordered_3 = namedtuple_utils.to_namedtuple(empty_ordered)
+
+    # Create a tuple mixing a namedtuple-like object and raw bytes, then convert it.
+    mixed_input = (nt_from_nt, raw_bytes)
+    nt_from_tuple = namedtuple_utils.to_namedtuple(mixed_input)
+
+    # Final conversion from the original OrderedDict (preserve execution sequence).
+    nt_from_ordered_4 = namedtuple_utils.to_namedtuple(empty_ordered)
+
+def test_to_namedtuple_with_ordereddict_and_ordereddict_called_with_none():
+    """Call to_namedtuple with an OrderedDict and then call OrderedDict(None) like the original test."""
+    # A string literal used as both key and value (duplicated key in the literal on purpose).
+    string_value = "wm=-g\ry#\x0b#:*"
+
+    # Create a dict using the string as key/value; duplicate key in literal is intentional.
+    kwargs_dict = {string_value: string_value, string_value: string_value}
+
+    # Construct an OrderedDict using keyword expansion.
+    ordered_dict = collections_module.OrderedDict(**kwargs_dict)
+
+    # Convert the OrderedDict to a namedtuple using the utility under test.
+    namedtuple_result = namedtuple_utils.to_namedtuple(ordered_dict)
+
+    # Prepare a single None element in a list and pass it as a positional argument to OrderedDict.
+    none_value = None
+    args_list = [none_value]
+    collections_module.OrderedDict(*args_list)
+
+def test_to_namedtuple_handles_nested_empty_list_and_none():
+    """Ensure to_namedtuple accepts a nested empty list and None without raising."""
+    # Create an empty list and nest it once.
+    inner_list = []
+    outer_list = [inner_list]
+
+    # Convert the nested list to a namedtuple and keep the result.
+    result = namedtuple_utils.to_namedtuple(outer_list)
+
+    # Also call to_namedtuple with None (call is expected to run without assertion here).
+    none_value = None
+    namedtuple_utils.to_namedtuple(none_value)
+
+def test_to_namedtuple_with_varied_inputs_and_repeated_calls():
+    """Exercise to_namedtuple with strings, dicts, tuples, booleans and nested results.
+
+    This ensures the function can handle different input types and that results
+    can be passed back into to_namedtuple repeatedly.
+    """
+    # A long descriptive string used as both keys and values in an initial mapping.
+    docstring_text = (
+        "Normalize a given path.\n\n"
+        "    The given ``path`` will be normalized in the following process.\n\n"
+        "    #. :obj:`bytes` will be converted to a :obj:`str` using the encoding\n"
+        "       given by :obj:`getfilesystemencoding() <sys.getfilesystemencoding>`.\n"
+        "    #. :obj:`PosixPath <pathlib.PosixPath>` and\n"
+        "       :obj:`WindowsPath <pathlib.WindowsPath>` will be converted\n"
+        "       to a :obj:`str` using the :obj:`as_posix() <pathlib.PurePath.as_posix>`\n"
+        "       method.\n"
+        "    #. An initial component of ``~`` will be replaced by that user’s\n"
+        "       home directory.\n"
+        "    #. Any environment variables will be expanded.\n"
+        "    #. Non absolute paths will have the current working directory from\n"
+        "       :obj:`os.getcwd() <os.cwd>`prepended.  If needed, use\n"
+        "       :obj:`os.chdir() <os.chdir>` to change the current working directory\n"
+        "       before calling this function.\n"
+        "    #. Redundant separators and up-level references will be normalized, so\n"
+        "       that ``A//B``, ``A/B/``, ``A/./B`` and ``A/foo/../B`` all become\n"
+        "       ``A/B``.\n\n"
+        "    Args:\n"
+        "        path (:obj:`str`, :obj:`bytes` or :obj:`Path <pathlib.Path>`):\n"
+        "            The path to be normalized.\n\n"
+        "    :rtype:\n"
+        "        :obj:`Path <pathlib.Path>`\n\n"
+        "        * :obj:`PosixPath <pathlib.PosixPath>` or\n"
+        "          :obj:`WindowsPath <pathlib.WindowsPath>` depending on the system.\n\n"
+        "        .. Note:: :obj:`Path <pathlib.Path>` objects are immutable. Therefore,\n"
+        "           any given ``path`` of type :obj:`Path <pathlib.Path>` will not be\n"
+        "           the same object returned.\n\n"
+        "    Example:\n\n"
+        "        >>> from flutils.pathutils import normalize_path\n"
+        "        >>> normalize_path('~/tmp/foo/../bar')\n"
+        "        PosixPath('/home/test_user/tmp/bar')\n\n"
+    )
+
+    # Create an initial mapping where the same long string is used as key and value.
+    mapping1 = {docstring_text: docstring_text, docstring_text: docstring_text, docstring_text: docstring_text}
+
+    # Convert the mapping to a namedtuple-like result.
+    nt1 = namedtuple_utils.to_namedtuple(mapping1)
+
+    # A flag value used later as a dict key.
+    flag_false = False
+
+    # Convert the same mapping again to get a second namedtuple result.
+    nt2 = namedtuple_utils.to_namedtuple(mapping1)
+
+    # Build a single-item tuple containing the second namedtuple result.
+    single_tuple = (nt2,)
+
+    # Convert that tuple into a namedtuple-like object.
+    nt_from_tuple = namedtuple_utils.to_namedtuple(single_tuple)
+
+    # Create a mapping that uses a namedtuple and a boolean as keys mapping to nt2.
+    mapping2 = {nt_from_tuple: nt2, flag_false: nt2}
+
+    # Convert the new mapping to a namedtuple-like result.
+    nt3 = namedtuple_utils.to_namedtuple(mapping2)
+
+    # Convert that result again to ensure repeated conversions are allowed.
+    nt4 = namedtuple_utils.to_namedtuple(nt3)
+
+    # Another boolean to pass to the function as in the original sequence.
+    another_flag = False
+
+    # Convert nt3 once more (mirrors original repeated invocation).
+    nt5 = namedtuple_utils.to_namedtuple(nt3)
+
+    # Final call with a boolean (result intentionally unused).
+    namedtuple_utils.to_namedtuple(another_flag)
+
+def test_to_namedtuple_handles_bytes_key_duplicates():
+    """Call to_namedtuple with a dict that uses the same bytes key multiple times."""
+    # A bytes value used both as key and value, repeated in the literal to simulate duplicates.
+    data_bytes = b"F\xdb\xfdf\x8a\xe4\n\xa2\x1d[\xdc*\xa3\xba\xf6s}"
+    # Duplicate key entries in the dict literal (duplicates are overwritten at creation).
+    mapping = {data_bytes: data_bytes, data_bytes: data_bytes, data_bytes: data_bytes}
+    namedtuple_utils.to_namedtuple(mapping)
+

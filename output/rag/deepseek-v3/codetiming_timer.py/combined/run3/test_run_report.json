@@ -1,0 +1,82 @@
+{
+    "module": "codetiming_timer.py",
+    "timestamp": "2026-05-21T23:18:25.816984",
+    "llm_info": {
+        "model": "deepseek-v3",
+        "version": "functions",
+        "temperature": 1.0,
+        "prompt_style": "combined"
+    },
+    "run_number": 3,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": -1,
+        "diff_failing_tests": 1,
+        "diff_coverage": -10.38,
+        "dan_score_diff": 0.057246
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 11, 'pass': 3, 'fail': 7, 'error': 0}",
+        "Refactored Test Results": "{'total': 11, 'pass': 2, 'fail': 8, 'error': 0}",
+        "total_tests_before": 11,
+        "total_tests_after": 11
+    },
+    "coverage": {
+        "before_refactoring": 69.92,
+        "after_refactoring": 59.54
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "pass",
+            "test_case_1": "fail",
+            "test_case_2": "pass",
+            "test_case_3": "fail",
+            "test_case_4": "fail",
+            "test_case_5": "pass",
+            "test_case_6": "fail",
+            "test_case_7": "fail",
+            "test_case_8": "fail",
+            "test_case_9": "fail"
+        },
+        "after_refactoring": {
+            "test_timer_error_can_be_instantiated": "pass",
+            "test_timer_context_manager_restart_raises_timer_error": "fail",
+            "test_timer_context_manager_basic_usage": "fail",
+            "test_timer_exit_without_start_raises_error": "fail",
+            "test_timer_no_logger_does_not_interfere_with_operations": "fail",
+            "test_timer_initial_text_with_float_format": "pass",
+            "test_timer_context_manager_and_lifecycle_with_parameters": "fail",
+            "test_timer_exit_with_none_logger_and_dict_operations": "fail",
+            "test_timer_creation_with_various_initial_text_and_logger_combinations": "fail",
+            "test_timer_initial_text_start_stop_and_context_manager": "fail"
+        },
+        "dan_score_before": {
+            "__main__": 0.7026676535606384,
+            "test_case_0": 0.7556875944137573,
+            "test_case_1": 0.4087132140994072,
+            "test_case_2": 0.415790319442749,
+            "test_case_3": 0.3198978006839752,
+            "test_case_4": 0.20976607501506805,
+            "test_case_5": 0.2288596745460264,
+            "test_case_6": 0.23542607225039425,
+            "test_case_7": 0.1934603601694107,
+            "test_case_8": 0.31953396565384334,
+            "test_case_9": 0.36531470715999603
+        },
+        "dan_score_after": {
+            "__main__": 0.6514099836349487,
+            "test_timer_error_can_be_instantiated": 0.4374249279499054,
+            "test_timer_context_manager_restart_raises_timer_error": 0.31606146693229675,
+            "test_timer_context_manager_basic_usage": 0.3519766479730606,
+            "test_timer_exit_without_start_raises_error": 0.3537121117115021,
+            "test_timer_no_logger_does_not_interfere_with_operations": 0.1724858209490776,
+            "test_timer_initial_text_with_float_format": 0.18815138118882332,
+            "test_timer_context_manager_and_lifecycle_with_parameters": 0.17569858230212154,
+            "test_timer_exit_with_none_logger_and_dict_operations": 0.1700919009745121,
+            "test_timer_creation_with_various_initial_text_and_logger_combinations": 0.3493540154563056,
+            "test_timer_initial_text_start_stop_and_context_manager": 0.35903990268707275
+        },
+        "avg_dan_score_before": 0.377738,
+        "avg_dan_score_after": 0.320492
+    }
+}

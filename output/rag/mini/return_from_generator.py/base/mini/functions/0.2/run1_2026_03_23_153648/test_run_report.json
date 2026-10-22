@@ -1,0 +1,44 @@
+{
+    "module": "return_from_generator.py",
+    "timestamp": "2026-03-23T15:37:50.478638",
+    "llm_info": {
+        "model": "mini",
+        "version": "functions",
+        "temperature": 0.2,
+        "prompt_style": "base"
+    },
+    "run_number": 1,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": 0,
+        "diff_failing_tests": 0,
+        "diff_coverage": -10.0,
+        "dan_score_diff": 0.055796
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 2, 'pass': 0, 'fail': 1, 'error': 0}",
+        "Refactored Test Results": "{'total': 2, 'pass': 0, 'fail': 1, 'error': 0}",
+        "total_tests_before": 2,
+        "total_tests_after": 2
+    },
+    "coverage": {
+        "before_refactoring": 50.0,
+        "after_refactoring": 40.0
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "fail"
+        },
+        "after_refactoring": {
+            "test_dump_accepts_none_without_error": "fail"
+        },
+        "dan_score_before": {
+            "test_case_0": 0.5231443643569946
+        },
+        "dan_score_after": {
+            "test_dump_accepts_none_without_error": 0.4673476815223694
+        },
+        "avg_dan_score_before": 0.523144,
+        "avg_dan_score_after": 0.467348
+    }
+}

@@ -1,0 +1,108 @@
+{
+    "module": "maybe.py",
+    "timestamp": "2026-05-30T22:54:24.211435",
+    "llm_info": {
+        "model": "sonnet",
+        "version": "functions",
+        "temperature": 1.0,
+        "prompt_style": "base"
+    },
+    "run_number": 3,
+    "diff_metrics": {
+        "diff_total_tests": -7,
+        "diff_passing_tests": 1,
+        "diff_failing_tests": -8,
+        "diff_coverage": 1.59,
+        "dan_score_diff": -0.023083
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 21, 'pass': 3, 'fail': 17, 'error': 0}",
+        "Refactored Test Results": "{'total': 14, 'pass': 4, 'fail': 9, 'error': 0}",
+        "total_tests_before": 21,
+        "total_tests_after": 14
+    },
+    "coverage": {
+        "before_refactoring": 52.85,
+        "after_refactoring": 54.44
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "pass",
+            "test_case_1": "pass",
+            "test_case_2": "fail",
+            "test_case_3": "pass",
+            "test_case_4": "fail",
+            "test_case_5": "fail",
+            "test_case_6": "fail",
+            "test_case_7": "fail",
+            "test_case_8": "fail",
+            "test_case_9": "fail",
+            "test_case_10": "fail",
+            "test_case_11": "fail",
+            "test_case_12": "fail",
+            "test_case_13": "fail",
+            "test_case_14": "fail",
+            "test_case_15": "fail",
+            "test_case_16": "fail",
+            "test_case_17": "fail",
+            "test_case_18": "fail",
+            "test_case_19": "fail"
+        },
+        "after_refactoring": {
+            "test_maybe_constructed_with_bytes_arguments": "pass",
+            "test_maybe_initialized_with_none_values": "pass",
+            "test_maybe_chained_operations_with_string_value": "fail",
+            "test_maybe_eq_returns_false_when_compared_to_set": "pass",
+            "test_maybe_bind_and_map_with_invalid_set_operation": "pass",
+            "test_maybe_map_with_none_value_and_false_flag": "fail",
+            "test_maybe_bind_on_falsy_maybe_with_empty_dict": "fail",
+            "test_maybe_filter_and_ap_with_mixed_types": "fail",
+            "test_maybe_ap_with_none_value_and_false_flag": "fail",
+            "test_maybe_filter_and_lazy_chaining_with_map": "fail",
+            "test_filter_on_none_valued_maybe_returns_lazy_and_filters_again": "fail",
+            "test_maybe_chained_operations_with_false_values": "fail",
+            "test_maybe_equality_and_chain_to_try_to_validation": "fail"
+        },
+        "dan_score_before": {
+            "__main__": 0.8691592812538147,
+            "test_case_0": 0.3917776942253113,
+            "test_case_1": 0.4033205211162567,
+            "test_case_2": 0.1617710444331169,
+            "test_case_3": 0.3068503215909004,
+            "test_case_4": 0.2873412072658539,
+            "test_case_5": 0.4323252737522125,
+            "test_case_6": 0.2700643887122472,
+            "test_case_7": 0.13386423278011775,
+            "test_case_8": 0.4910968641440074,
+            "test_case_9": 0.20555658638477325,
+            "test_case_10": 0.2094198390841484,
+            "test_case_11": 0.18392596517999968,
+            "test_case_12": 0.16452997879070394,
+            "test_case_13": 0.19180227369070052,
+            "test_case_14": 0.1790043380525377,
+            "test_case_15": 0.2980078160762787,
+            "test_case_16": 0.166293103992939,
+            "test_case_17": 0.10251285120844841,
+            "test_case_18": 0.21354509775455183,
+            "test_case_19": 0.29284168779850006
+        },
+        "dan_score_after": {
+            "__main__": 0.6625205278396606,
+            "test_maybe_constructed_with_bytes_arguments": 0.24609951674938202,
+            "test_maybe_initialized_with_none_values": 0.6008604764938354,
+            "test_maybe_chained_operations_with_string_value": 0.10853319674730301,
+            "test_maybe_eq_returns_false_when_compared_to_set": 0.3258603364229202,
+            "test_maybe_bind_and_map_with_invalid_set_operation": 0.3187484174966812,
+            "test_maybe_map_with_none_value_and_false_flag": 0.3106012245019277,
+            "test_maybe_bind_on_falsy_maybe_with_empty_dict": 0.42107005417346954,
+            "test_maybe_filter_and_ap_with_mixed_types": 0.12528063278449209,
+            "test_maybe_ap_with_none_value_and_false_flag": 0.3054843644301097,
+            "test_maybe_filter_and_lazy_chaining_with_map": 0.2022888995707035,
+            "test_filter_on_none_valued_maybe_returns_lazy_and_filters_again": 0.1845063455402851,
+            "test_maybe_chained_operations_with_false_values": 0.1913753770864927,
+            "test_maybe_equality_and_chain_to_try_to_validation": 0.2899342477321625
+        },
+        "avg_dan_score_before": 0.283572,
+        "avg_dan_score_after": 0.306655
+    }
+}

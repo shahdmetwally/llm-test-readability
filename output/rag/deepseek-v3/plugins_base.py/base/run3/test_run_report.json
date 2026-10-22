@@ -1,0 +1,62 @@
+{
+    "module": "plugins_base.py",
+    "timestamp": "2026-05-21T23:33:33.292577",
+    "llm_info": {
+        "model": "deepseek-v3",
+        "version": "functions",
+        "temperature": 1.0,
+        "prompt_style": "base"
+    },
+    "run_number": 3,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": 0,
+        "diff_failing_tests": 0,
+        "diff_coverage": -3.42,
+        "dan_score_diff": 0.056486
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 6, 'pass': 0, 'fail': 5, 'error': 0}",
+        "Refactored Test Results": "{'total': 6, 'pass': 0, 'fail': 5, 'error': 0}",
+        "total_tests_before": 6,
+        "total_tests_after": 6
+    },
+    "coverage": {
+        "before_refactoring": 68.42,
+        "after_refactoring": 65.0
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "fail",
+            "test_case_1": "fail",
+            "test_case_2": "fail",
+            "test_case_3": "fail",
+            "test_case_4": "fail"
+        },
+        "after_refactoring": {
+            "test_formatter_plugin_instantiation_without_args": "fail",
+            "test_auth_plugin_get_auth_accepts_password_string": "fail",
+            "test_transport_plugin_get_adapter_returns_default_instance": "fail",
+            "test_converter_plugin_with_invalid_bytes_and_transport_plugin_creation": "fail",
+            "test_converter_plugin_convert_with_none_input": "fail"
+        },
+        "dan_score_before": {
+            "__main__": 0.7173104882240295,
+            "test_case_0": 0.9371200799942017,
+            "test_case_1": 0.38626839220523834,
+            "test_case_2": 0.46328005194664,
+            "test_case_3": 0.23319034278392792,
+            "test_case_4": 0.42865827679634094
+        },
+        "dan_score_after": {
+            "__main__": 0.6239796876907349,
+            "test_formatter_plugin_instantiation_without_args": 0.8681308627128601,
+            "test_auth_plugin_get_auth_accepts_password_string": 0.427654504776001,
+            "test_transport_plugin_get_adapter_returns_default_instance": 0.399431437253952,
+            "test_converter_plugin_with_invalid_bytes_and_transport_plugin_creation": 0.15402129292488098,
+            "test_converter_plugin_convert_with_none_input": 0.3536967486143112
+        },
+        "avg_dan_score_before": 0.527638,
+        "avg_dan_score_after": 0.471152
+    }
+}

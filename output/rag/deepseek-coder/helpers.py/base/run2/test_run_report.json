@@ -1,0 +1,74 @@
+{
+    "module": "helpers.py",
+    "timestamp": "2026-05-21T03:53:33.720786",
+    "llm_info": {
+        "model": "deepseek-coder",
+        "version": "functions",
+        "temperature": 1.0,
+        "prompt_style": "base"
+    },
+    "run_number": 2,
+    "diff_metrics": {
+        "diff_total_tests": 4,
+        "diff_passing_tests": -3,
+        "diff_failing_tests": 7,
+        "diff_coverage": -26.93,
+        "dan_score_diff": 0.043648
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 7, 'pass': 4, 'fail': 2, 'error': 0}",
+        "Refactored Test Results": "{'total': 11, 'pass': 1, 'fail': 9, 'error': 0}",
+        "total_tests_before": 7,
+        "total_tests_after": 11
+    },
+    "coverage": {
+        "before_refactoring": 45.45,
+        "after_refactoring": 18.52
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "pass",
+            "test_case_1": "pass",
+            "test_case_2": "pass",
+            "test_case_3": "fail",
+            "test_case_4": "pass",
+            "test_case_5": "fail"
+        },
+        "after_refactoring": {
+            "test_module0_purge_functionality": "pass",
+            "test_generate_variables": "fail",
+            "test_variables_generator_eager": "fail",
+            "test_callable_is_created_with_eager": "fail",
+            "test_none_is_returned_with_debug": "fail",
+            "test_callable_is_created_with_eager_eager": "fail",
+            "test_none_is_returned_with_warn": "fail",
+            "test_source_code_is_obtained": "fail",
+            "test_check_imported_module_proxy_handler": "fail",
+            "test_eager_function_call_with_start_argument": "fail"
+        },
+        "dan_score_before": {
+            "__main__": 0.641155481338501,
+            "test_case_0": 0.4384838342666626,
+            "test_case_1": 0.5822873711585999,
+            "test_case_2": 0.3548617362976074,
+            "test_case_3": 0.2686479926109314,
+            "test_case_4": 0.5192355513572693,
+            "test_case_5": 0.4185090512037277
+        },
+        "dan_score_after": {
+            "__main__": 1.0369958877563477,
+            "test_module0_purge_functionality": 0.48831409215927124,
+            "test_generate_variables": 0.2833062956730525,
+            "test_variables_generator_eager": 0.3761146664619446,
+            "test_callable_is_created_with_eager": 0.30295445024967194,
+            "test_none_is_returned_with_debug": 0.33550041913986206,
+            "test_callable_is_created_with_eager_eager": 0.24825127919514975,
+            "test_none_is_returned_with_warn": 0.35415029525756836,
+            "test_source_code_is_obtained": 0.2842549979686737,
+            "test_check_imported_module_proxy_handler": 0.4749910533428192,
+            "test_eager_function_call_with_start_argument": 0.40003401041030884
+        },
+        "avg_dan_score_before": 0.460454,
+        "avg_dan_score_after": 0.416806
+    }
+}

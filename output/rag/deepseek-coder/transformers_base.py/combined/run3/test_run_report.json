@@ -1,0 +1,55 @@
+{
+    "module": "transformers_base.py",
+    "timestamp": "2026-05-21T04:09:33.219845",
+    "llm_info": {
+        "model": "deepseek-coder",
+        "version": "functions",
+        "temperature": 1.0,
+        "prompt_style": "combined"
+    },
+    "run_number": 3,
+    "diff_metrics": {
+        "diff_total_tests": -5,
+        "diff_passing_tests": -2,
+        "diff_failing_tests": -3,
+        "diff_coverage": -20.57,
+        "dan_score_diff": -0.009298
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 6, 'pass': 2, 'fail': 3, 'error': 0}",
+        "Refactored Test Results": "{'total': 1, 'pass': 0, 'fail': 0, 'error': 0}",
+        "total_tests_before": 6,
+        "total_tests_after": 1
+    },
+    "coverage": {
+        "before_refactoring": 36.7,
+        "after_refactoring": 16.13
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "pass",
+            "test_case_1": "fail",
+            "test_case_2": "fail",
+            "test_case_3": "fail",
+            "test_case_4": "pass"
+        },
+        "after_refactoring": {},
+        "dan_score_before": {
+            "__main__": 0.5496261119842529,
+            "test_case_0": 0.6931780576705933,
+            "test_case_1": 0.30872895816961926,
+            "test_case_2": 0.2389588483742305,
+            "test_case_3": 0.22579866151014963,
+            "test_case_4": 0.20197581127285957
+        },
+        "dan_score_after": {
+            "__main__": 0.37853461503982544,
+            "test_base_node_transformer_initializes_with_none": 0.4939389228820801,
+            "test_matmult_and_importfrom": 0.2758762070110866,
+            "test_import_timer_start_stops_correctly": 0.27643810709317523,
+            "test_timer_handling_correctness": 0.47025827566782635
+        },
+        "avg_dan_score_before": 0.369711,
+        "avg_dan_score_after": 0.379009
+    }
+}

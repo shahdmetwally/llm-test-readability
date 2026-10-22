@@ -1,0 +1,60 @@
+{
+    "module": "base.py",
+    "timestamp": "2026-03-23T14:51:44.079005",
+    "llm_info": {
+        "model": "mini",
+        "version": "functions",
+        "temperature": 0.2,
+        "prompt_style": "base"
+    },
+    "run_number": 3,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": 0,
+        "diff_failing_tests": 0,
+        "diff_coverage": -0.34,
+        "dan_score_diff": 0.057366
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 6, 'pass': 2, 'fail': 3, 'error': 0}",
+        "Refactored Test Results": "{'total': 6, 'pass': 2, 'fail': 3, 'error': 0}",
+        "total_tests_before": 6,
+        "total_tests_after": 6
+    },
+    "coverage": {
+        "before_refactoring": 36.7,
+        "after_refactoring": 36.36
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "pass",
+            "test_case_1": "fail",
+            "test_case_2": "fail",
+            "test_case_3": "fail",
+            "test_case_4": "pass"
+        },
+        "after_refactoring": {
+            "test_base_node_transformer_accepts_none_parent": "pass",
+            "test_base_import_rewrite_visits_importfrom_with_matmult_and_rewriter": "fail",
+            "test_base_importrewrite_visit_importfrom_with_none_and_matmult": "fail",
+            "test_baseimportrewrite_visit_importfrom_with_duplicate_keys": "fail",
+            "test_baseimportrewrite_visit_importfrom_handles_unusual_input": "pass"
+        },
+        "dan_score_before": {
+            "test_case_0": 0.6931780576705933,
+            "test_case_1": 0.30872895816961926,
+            "test_case_2": 0.2389588483742305,
+            "test_case_3": 0.22579866151014963,
+            "test_case_4": 0.20197581127285957
+        },
+        "dan_score_after": {
+            "test_base_node_transformer_accepts_none_parent": 0.38181689381599426,
+            "test_base_import_rewrite_visits_importfrom_with_matmult_and_rewriter": 0.3195534944534302,
+            "test_base_importrewrite_visit_importfrom_with_none_and_matmult": 0.3061581381729671,
+            "test_baseimportrewrite_visit_importfrom_with_duplicate_keys": 0.19165357947349548,
+            "test_baseimportrewrite_visit_importfrom_handles_unusual_input": 0.18262698873877525
+        },
+        "avg_dan_score_before": 0.333728,
+        "avg_dan_score_after": 0.276362
+    }
+}

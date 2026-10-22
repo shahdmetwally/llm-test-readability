@@ -1,0 +1,16 @@
+{
+  "collection_failed": false,
+  "tests": {
+    "test_create_empty_immutable_list": "pass",
+    "test_immutable_list_append_and_find": "pass",
+    "test_immutable_list_add_without_elements": "pass",
+    "test_immutable_list_find_method": "pass",
+    "test_immutable_list_with_bool_find": "pass",
+    "test_should_correctly_find_an_empty_list": "pass",
+    "test_immutable_list_empty": "pass",
+    "test_unshift_and_append_and_map_operations": "pass",
+    "test_filter_method_with_is_empty_false_for_empty_immutable_list": "pass",
+    "test_immutable_list_adding_empty": "fail",
+    "_captured_output": ".........F                                                               [100%]\n=================================== FAILURES ===================================\n_______________________ test_immutable_list_adding_empty _______________________\noutput/temp1/deepseek-coder/immutable_list.py/base/run1/test_pymonet_immutable_list_functions_refactored.py:89: in test_immutable_list_adding_empty\n    found = immutable_list.find(test_value)\nE   NameError: name 'immutable_list' is not defined\n=============================== warnings summary ===============================\n../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273\n  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: anyio\n    self._mark_plugins_for_rewrite(hook)\n\n../../../miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273\n  /data/users/eliassam/miniforge3/lib/python3.12/site-packages/_pytest/config/__init__.py:1273: PytestAssertRewriteWarning: Module already imported so cannot be rewritten: langsmith\n    self._mark_plugins_for_rewrite(hook)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED output/temp1/deepseek-coder/immutable_list.py/base/run1/test_pymonet_immutable_list_functions_refactored.py::test_immutable_list_adding_empty\n1 failed, 9 passed, 2 warnings in 0.14s\n"
+  }
+}

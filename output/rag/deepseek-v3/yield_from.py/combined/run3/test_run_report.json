@@ -1,0 +1,58 @@
+{
+    "module": "yield_from.py",
+    "timestamp": "2026-05-21T23:54:31.836843",
+    "llm_info": {
+        "model": "deepseek-v3",
+        "version": "functions",
+        "temperature": 1.0,
+        "prompt_style": "combined"
+    },
+    "run_number": 3,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": 0,
+        "diff_failing_tests": 0,
+        "diff_coverage": -0.48,
+        "dan_score_diff": 0.018952
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 5, 'pass': 3, 'fail': 1, 'error': 0}",
+        "Refactored Test Results": "{'total': 5, 'pass': 3, 'fail': 1, 'error': 0}",
+        "total_tests_before": 5,
+        "total_tests_after": 5
+    },
+    "coverage": {
+        "before_refactoring": 40.24,
+        "after_refactoring": 39.76
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "fail",
+            "test_case_1": "pass",
+            "test_case_2": "pass",
+            "test_case_3": "pass"
+        },
+        "after_refactoring": {
+            "test_yield_from_transformer_accepts_none_input": "fail",
+            "test_yield_from_transformer_init_with_none": "pass",
+            "test_yield_from_transformer_visit_while_with_none_tree": "pass",
+            "test_visit_while_with_duplicate_keyword_args_and_none_tree": "pass"
+        },
+        "dan_score_before": {
+            "__main__": 0.5017807483673096,
+            "test_case_0": 0.4216117411851883,
+            "test_case_1": 0.5275294184684753,
+            "test_case_2": 0.2692404597997665,
+            "test_case_3": 0.2445650522907575
+        },
+        "dan_score_after": {
+            "__main__": 0.4551944434642792,
+            "test_yield_from_transformer_accepts_none_input": 0.4419599026441574,
+            "test_yield_from_transformer_init_with_none": 0.41631457209587097,
+            "test_yield_from_transformer_visit_while_with_none_tree": 0.20564119517803192,
+            "test_visit_while_with_duplicate_keyword_args_and_none_tree": 0.3508535325527191
+        },
+        "avg_dan_score_before": 0.392945,
+        "avg_dan_score_after": 0.373993
+    }
+}

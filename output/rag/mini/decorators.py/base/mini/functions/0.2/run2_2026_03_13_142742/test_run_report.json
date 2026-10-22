@@ -1,0 +1,48 @@
+{
+    "module": "decorators.py",
+    "timestamp": "2026-03-13T14:29:10.075168",
+    "llm_info": {
+        "model": "mini",
+        "version": "functions",
+        "temperature": 0.2,
+        "prompt_style": "base"
+    },
+    "run_number": 2,
+    "test_summary": {
+        "Original Test Results": "{'total': 4, 'pass': 1, 'fail': 2, 'error': 0}",
+        "Refactored Test Results": "{'total': 4, 'pass': 1, 'fail': 2, 'error': 0}",
+        "total_tests_before": 4,
+        "total_tests_after": 4
+    },
+    "coverage": {
+        "before_refactoring": 44.12,
+        "after_refactoring": 42.86
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "fail",
+            "test_case_1": "fail",
+            "test_case_2": "pass"
+        },
+        "after_refactoring": {
+            "test_cached_property_get_with_none_instance_and_descriptor_owner": "fail",
+            "test_cached_property_descriptor_get_with_arbitrary_object": "fail",
+            "test_cached_property_constructs_from_empty_set": "pass"
+        },
+        "dan_score_before": {
+            "test_case_0": 0.4451535443464915,
+            "test_case_1": 0.45151858031749725,
+            "test_case_2": 0.49378684163093567
+        },
+        "dan_score_after": {
+            "test_cached_property_get_with_none_instance_and_descriptor_owner": 0.2891568144162496,
+            "test_cached_property_descriptor_get_with_arbitrary_object": 0.36713407933712006,
+            "test_cached_property_constructs_from_empty_set": 0.38010308146476746
+        },
+        "avg_dan_score_before": 0.463486,
+        "avg_dan_score_after": 0.345465
+    },
+    "diff_metrics": {
+        "dan_score_diff": 0.118021
+    }
+}

@@ -1,0 +1,82 @@
+{
+    "module": "codetiming_timer.py",
+    "timestamp": "2026-09-28T18:45:13.944250",
+    "llm_info": {
+        "model": "sonnet",
+        "version": "functions",
+        "temperature": 1.0,
+        "prompt_style": "base"
+    },
+    "run_number": 3,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": 4,
+        "diff_failing_tests": -4,
+        "diff_coverage": -2.8,
+        "dan_score_diff": 0.069214
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 11, 'pass': 3, 'fail': 7, 'error': 0}",
+        "Refactored Test Results": "{'total': 11, 'pass': 7, 'fail': 3, 'error': 0}",
+        "total_tests_before": 11,
+        "total_tests_after": 11
+    },
+    "coverage": {
+        "before_refactoring": 69.92,
+        "after_refactoring": 67.12
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "pass",
+            "test_case_1": "fail",
+            "test_case_2": "pass",
+            "test_case_3": "fail",
+            "test_case_4": "fail",
+            "test_case_5": "pass",
+            "test_case_6": "fail",
+            "test_case_7": "fail",
+            "test_case_8": "fail",
+            "test_case_9": "fail"
+        },
+        "after_refactoring": {
+            "test_timer_error_can_be_instantiated": "pass",
+            "test_timer_raises_error_when_started_twice": "pass",
+            "test_timer_context_manager_enter_and_exit": "pass",
+            "test_timer_exit_stops_context_manager": "pass",
+            "test_timer_start_with_none_logger_and_context_manager_enter": "pass",
+            "test_timer_context_manager_with_float_arg_and_repr": "pass",
+            "test_timer_context_manager_with_initial_text_and_float_arg": "fail",
+            "test_timer_start_after_exit_raises_error": "pass",
+            "test_timer_start_with_logger_and_initial_text_from_context_manager": "fail",
+            "test_timer_start_stop_and_context_manager_with_named_timer": "fail"
+        },
+        "dan_score_before": {
+            "__main__": 0.702666,
+            "test_case_0": 0.755686,
+            "test_case_1": 0.408712,
+            "test_case_2": 0.415788,
+            "test_case_3": 0.319897,
+            "test_case_4": 0.209765,
+            "test_case_5": 0.228859,
+            "test_case_6": 0.235425,
+            "test_case_7": 0.19346,
+            "test_case_8": 0.319533,
+            "test_case_9": 0.365313
+        },
+        "dan_score_after": {
+            "__main__": 0.651409,
+            "test_timer_error_can_be_instantiated": 0.452188,
+            "test_timer_raises_error_when_started_twice": 0.270911,
+            "test_timer_context_manager_enter_and_exit": 0.338628,
+            "test_timer_exit_stops_context_manager": 0.388307,
+            "test_timer_start_with_none_logger_and_context_manager_enter": 0.2748,
+            "test_timer_context_manager_with_float_arg_and_repr": 0.134121,
+            "test_timer_context_manager_with_initial_text_and_float_arg": 0.156305,
+            "test_timer_start_after_exit_raises_error": 0.266771,
+            "test_timer_start_with_logger_and_initial_text_from_context_manager": 0.275947,
+            "test_timer_start_stop_and_context_manager_with_named_timer": 0.184362
+        },
+        "avg_dan_score_before": 0.377737,
+        "avg_dan_score_after": 0.308523
+    }
+}

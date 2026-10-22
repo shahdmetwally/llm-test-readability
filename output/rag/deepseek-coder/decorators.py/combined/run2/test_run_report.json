@@ -1,0 +1,54 @@
+{
+    "module": "decorators.py",
+    "timestamp": "2026-05-21T00:26:55.297910",
+    "llm_info": {
+        "model": "deepseek-coder",
+        "version": "functions",
+        "temperature": 1.0,
+        "prompt_style": "combined"
+    },
+    "run_number": 2,
+    "diff_metrics": {
+        "diff_total_tests": 0,
+        "diff_passing_tests": -1,
+        "diff_failing_tests": 1,
+        "diff_coverage": -21.04,
+        "dan_score_diff": 0.129023
+    },
+    "test_summary": {
+        "Original Test Results": "{'total': 4, 'pass': 1, 'fail': 2, 'error': 0}",
+        "Refactored Test Results": "{'total': 4, 'pass': 0, 'fail': 3, 'error': 0}",
+        "total_tests_before": 4,
+        "total_tests_after": 4
+    },
+    "coverage": {
+        "before_refactoring": 44.12,
+        "after_refactoring": 23.08
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "fail",
+            "test_case_1": "fail",
+            "test_case_2": "pass"
+        },
+        "after_refactoring": {
+            "test_add": "fail",
+            "test_cherrypick_module_loading": "fail",
+            "test_cached_property_defined_no_arg": "fail"
+        },
+        "dan_score_before": {
+            "__main__": 0.8382363319396973,
+            "test_case_0": 0.4451535443464915,
+            "test_case_1": 0.45151858031749725,
+            "test_case_2": 0.49378684163093567
+        },
+        "dan_score_after": {
+            "__main__": 0.5265600085258484,
+            "test_add": 0.35735732316970825,
+            "test_cherrypick_module_loading": 0.3412616550922394,
+            "test_cached_property_defined_no_arg": 0.48742495477199554
+        },
+        "avg_dan_score_before": 0.557174,
+        "avg_dan_score_after": 0.428151
+    }
+}

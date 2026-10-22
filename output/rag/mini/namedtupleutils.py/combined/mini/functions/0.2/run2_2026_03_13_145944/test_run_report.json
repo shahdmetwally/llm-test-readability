@@ -1,0 +1,80 @@
+{
+    "module": "namedtupleutils.py",
+    "timestamp": "2026-03-13T15:10:12.431531",
+    "llm_info": {
+        "model": "mini",
+        "version": "functions",
+        "temperature": 0.2,
+        "prompt_style": "combined"
+    },
+    "run_number": 2,
+    "test_summary": {
+        "Original Test Results": "{'total': 12, 'pass': 3, 'fail': 8, 'error': 0}",
+        "Refactored Test Results": "{'total': 12, 'pass': 3, 'fail': 8, 'error': 0}",
+        "total_tests_before": 12,
+        "total_tests_after": 12
+    },
+    "coverage": {
+        "before_refactoring": 78.95,
+        "after_refactoring": 78.43
+    },
+    "test_results": {
+        "before_refactoring": {
+            "test_case_0": "fail",
+            "test_case_1": "fail",
+            "test_case_2": "pass",
+            "test_case_3": "fail",
+            "test_case_4": "pass",
+            "test_case_5": "pass",
+            "test_case_6": "fail",
+            "test_case_7": "fail",
+            "test_case_8": "fail",
+            "test_case_9": "fail",
+            "test_case_10": "fail"
+        },
+        "after_refactoring": {
+            "test_to_namedtuple_handles_negative_float": "fail",
+            "test_to_namedtuple_accepts_tuple_with_set_element": "fail",
+            "test_to_namedtuple_handles_dict_then_namedtuple_input_idempotently": "pass",
+            "test_to_namedtuple_accepts_bytes_input_without_error": "fail",
+            "test_to_namedtuple_with_empty_tuple_returns_namedtuple": "pass",
+            "test_to_namedtuple_handles_various_inputs_idempotently": "pass",
+            "test_to_namedtuple_with_ordered_dict_and_non_identifier_keys": "fail",
+            "test_to_namedtuple_handles_nested_list_and_none": "fail",
+            "test_to_namedtuple_with_various_input_types": "fail",
+            "test_to_namedtuple_handles_nested_structures_and_is_idempotent": "fail",
+            "test_to_namedtuple_accepts_byte_string_keys_and_values": "fail"
+        },
+        "dan_score_before": {
+            "test_case_0": 0.5516640543937683,
+            "test_case_1": 0.27500101427237195,
+            "test_case_2": 0.2332385927438736,
+            "test_case_3": 0.3505854308605194,
+            "test_case_4": 0.4857760965824127,
+            "test_case_5": 0.17917802504130773,
+            "test_case_6": 0.19892653822898865,
+            "test_case_7": 0.2615009546279907,
+            "test_case_8": 0.11122143467267355,
+            "test_case_9": 0.1418453703324,
+            "test_case_10": 0.2797536551952362
+        },
+        "dan_score_after": {
+            "test_to_namedtuple_handles_negative_float": 0.3631100058555603,
+            "test_to_namedtuple_accepts_tuple_with_set_element": 0.28248893717924756,
+            "test_to_namedtuple_handles_dict_then_namedtuple_input_idempotently": 0.38025736808776855,
+            "test_to_namedtuple_accepts_bytes_input_without_error": 0.2575294077396393,
+            "test_to_namedtuple_with_empty_tuple_returns_namedtuple": 0.3051307201385498,
+            "test_to_namedtuple_handles_various_inputs_idempotently": 0.17565310214247024,
+            "test_to_namedtuple_with_ordered_dict_and_non_identifier_keys": 0.2875228822231293,
+            "test_to_namedtuple_handles_nested_list_and_none": 0.302083283662796,
+            "test_to_namedtuple_with_various_input_types": 0.12531939687000382,
+            "test_to_namedtuple_handles_nested_structures_and_is_idempotent": 0.1553459713856379,
+            "test_to_namedtuple_accepts_byte_string_keys_and_values": 0.29381269216537476
+        },
+        "avg_dan_score_before": 0.278972,
+        "avg_dan_score_after": 0.266205
+    },
+    "diff_metrics": {
+        "dan_score_diff": 0.012767
+    }
+}

@@ -12,7 +12,7 @@
         "diff_total_tests": 2,
         "diff_passing_tests": -2,
         "diff_failing_tests": 4,
-        "diff_coverage": -27.02
+        "diff_coverage": -29.55
     },
     "test_summary": {
         "Original Test Results": "{'total': 23, 'pass': 2, 'fail': 20, 'error': 0}",
@@ -21,8 +21,8 @@
         "total_tests_after": 25
     },
     "coverage": {
-        "before_refactoring": 50.34,
-        "after_refactoring": 23.32
+        "before_refactoring": 57.14,
+        "after_refactoring": 27.59
     },
     "test_results": {
         "before_refactoring": {

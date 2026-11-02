@@ -12,7 +12,7 @@
         "diff_total_tests": -20,
         "diff_passing_tests": -7,
         "diff_failing_tests": -13,
-        "diff_coverage": -76.44,
+        "diff_coverage": -63.93,
         "dan_score_diff": 0.053348
     },
     "test_summary": {
@@ -22,8 +22,8 @@
         "total_tests_after": 1
     },
     "coverage": {
-        "before_refactoring": 83.27,
-        "after_refactoring": 6.83
+        "before_refactoring": 96.72,
+        "after_refactoring": 32.79
     },
     "test_results": {
         "before_refactoring": {

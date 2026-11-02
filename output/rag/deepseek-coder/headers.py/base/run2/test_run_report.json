@@ -22,8 +22,8 @@
         "total_tests_after": 2
     },
     "coverage": {
-        "before_refactoring": 23.53,
-        "after_refactoring": 23.53
+        "before_refactoring": 78.57,
+        "after_refactoring": 78.57
     },
     "test_results": {
         "before_refactoring": {

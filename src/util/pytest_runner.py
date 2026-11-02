@@ -9,9 +9,10 @@ from io import StringIO
 BASE_PATH_TO_STRIP = "/cephyr/NOBACKUP/groups/llm-readability/readability"
 
 
-def run_pytest_with_coverage(test_files, output_dir):
+def run_pytest_with_coverage(test_files, output_dir, modules_under_test=None, label=None):
     """
     Run pytest with coverage tracking using coverage.Coverage API directly.
+    Only measures statements in the module under test (excluding test files).
     Returns the coverage percentage as a float or "N/A" if failed.
     """
     try:
@@ -22,31 +23,60 @@ def run_pytest_with_coverage(test_files, output_dir):
         if not test_list:
             return "N/A"
 
-        # Initialize coverage tracking
-        cov = coverage.Coverage()
+        # Identify target module file(s) to include
+        target_files = []
+        if modules_under_test:
+            mod_list = modules_under_test if isinstance(modules_under_test, list) else [modules_under_test]
+            for m in mod_list:
+                if m and os.path.exists(str(m)):
+                    target_files.append(os.path.abspath(str(m)))
+
+        # Also check for copied module in output_dir
+        if output_dir and os.path.exists(output_dir):
+            for f in os.listdir(output_dir):
+                if f.endswith(".py") and not f.startswith("test_") and "_refactored" not in f:
+                    cand = os.path.abspath(os.path.join(output_dir, f))
+                    if cand not in target_files:
+                        target_files.append(cand)
+
+        # Initialize coverage tracking restricted to target module(s)
+        cov_kwargs = {"include": target_files} if target_files else {}
+        cov = coverage.Coverage(**cov_kwargs)
         cov.start()
 
-        # Run pytest programmatically with absolute paths
-        exit_code = pytest.main(test_list)
+        # Run pytest programmatically with absolute paths and disable problematic plugins
+        os.environ["PYTEST_DISABLE_PLUGIN_AUTOLOAD"] = "1"
+        exit_code = pytest.main(test_list + ["-p", "no:langsmith", "-q"])
 
         # Stop and save coverage data
         cov.stop()
         cov.save()
 
-        # Generate report data
+        # Generate report data with label-specific filename to prevent overwriting
+        report_name = f"coverage_{label.lower().replace(' ', '_')}.json" if label else "coverage.json"
+        cov.json_report(outfile=os.path.join(output_dir, report_name))
         cov.json_report(outfile=os.path.join(output_dir, "coverage.json"))
         cov.report(file=open(os.devnull, "w"))  # Silent console report
 
-        # Compute overall coverage percentage
+        # Compute overall coverage percentage for target module(s) only
         total_statements = 0
         total_executed = 0
 
         for filename in cov.get_data().measured_files():
+            abs_fn = os.path.abspath(filename)
+            base_fn = os.path.basename(abs_fn)
+            if "site-packages" in abs_fn or "/software/" in abs_fn or "/prefix/" in abs_fn:
+                continue
+            if base_fn.startswith("test_") or "_refactored" in base_fn:
+                continue
+            if target_files and abs_fn not in target_files:
+                continue
+
             _, statements, missing, _ = cov.analysis(filename)
             total_statements += len(statements)
             total_executed += len(statements) - len(missing)
 
-        return round((total_executed / total_statements) * 100, 2) if total_statements > 0 else "N/A"
+        return round((total_executed / total_statements) * 100, 2) if total_statements > 0 else 0.0
 
     except Exception as e:
         print(f"Coverage collection failed: {e}")
@@ -184,7 +214,7 @@ def run_pytest_and_log_results(test_files, modules_under_test, output_dir, combi
 
     # Coverage per test set
     for label, files in normalized_test_files.items():
-        coverage_summary[label] = run_pytest_with_coverage(files, output_dir)
+        coverage_summary[label] = run_pytest_with_coverage(files, output_dir, modules_under_test=modules_under_test, label=label)
 
     # Build summary and logs
     for label, results in detailed_results.items():

@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.coverage
+.coverage.*
+coverage.json
+coverage_*.json
+.pytest_cache/
+slurm_logs/
+slurm-*.out
+scratch/

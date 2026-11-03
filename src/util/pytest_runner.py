@@ -2,85 +2,124 @@ import pytest
 import os
 import sys
 import re
-import coverage
+import subprocess
 import json
 from io import StringIO
 
 BASE_PATH_TO_STRIP = "/cephyr/NOBACKUP/groups/llm-readability/readability"
 
 
+WORKER_SCRIPT = """
+import os
+os.environ["PYTEST_DISABLE_PLUGIN_AUTOLOAD"] = "1"
+import sys
+import coverage
+import pytest
+
+test_path = sys.argv[1]
+module_path = sys.argv[2]
+run_dir = sys.argv[3]
+extra_target = sys.argv[4] if len(sys.argv) > 4 else None
+
+if run_dir not in sys.path:
+    sys.path.insert(0, run_dir)
+
+candidates = [os.path.realpath(module_path)]
+if extra_target and os.path.exists(extra_target):
+    candidates.append(os.path.realpath(extra_target))
+
+cov = coverage.Coverage(include=candidates)
+cov.start()
+try:
+    ret = pytest.main([test_path, "-p", "no:langsmith", "-q"])
+except Exception:
+    ret = -1
+cov.stop()
+
+measured = [os.path.realpath(m) for m in cov.get_data().measured_files()]
+target = candidates[0]
+for candidate in candidates:
+    if candidate in measured:
+        target = candidate
+        break
+
+try:
+    _, statements, missing, _ = cov.analysis(target)
+    total = len(statements)
+    executed = total - len(missing)
+    percent = round((executed / total) * 100, 2) if total > 0 else 0.0
+except Exception:
+    percent, executed, total = 0.0, 0, 0
+
+print(json.dumps({
+    "percent": percent,
+    "executed": executed,
+    "total": total,
+    "exit_code": int(ret)
+}))
+"""
+
+
 def run_pytest_with_coverage(test_files, output_dir, modules_under_test=None, label=None):
     """
-    Run pytest with coverage tracking using coverage.Coverage API directly.
-    Only measures statements in the module under test (excluding test files).
-    Returns the coverage percentage as a float or "N/A" if failed.
+    Run pytest with the canonical coverage calculation used by
+    recalculate_coverage.py.
     """
-    try:
-        # Normalize input to a list of absolute test file paths
-        test_list = test_files if isinstance(test_files, list) else [test_files]
-        test_list = [os.path.abspath(str(f)) for f in test_list if os.path.exists(str(f))]
-
-        if not test_list:
-            return "N/A"
-
-        # Identify target module file(s) to include
-        target_files = []
-        if modules_under_test:
-            mod_list = modules_under_test if isinstance(modules_under_test, list) else [modules_under_test]
-            for m in mod_list:
-                if m and os.path.exists(str(m)):
-                    target_files.append(os.path.abspath(str(m)))
-
-        # Also check for copied module in output_dir
-        if output_dir and os.path.exists(output_dir):
-            for f in os.listdir(output_dir):
-                if f.endswith(".py") and not f.startswith("test_") and "_refactored" not in f:
-                    cand = os.path.abspath(os.path.join(output_dir, f))
-                    if cand not in target_files:
-                        target_files.append(cand)
-
-        # Initialize coverage tracking restricted to target module(s)
-        cov_kwargs = {"include": target_files} if target_files else {}
-        cov = coverage.Coverage(**cov_kwargs)
-        cov.start()
-
-        # Run pytest programmatically with absolute paths and disable problematic plugins
-        os.environ["PYTEST_DISABLE_PLUGIN_AUTOLOAD"] = "1"
-        exit_code = pytest.main(test_list + ["-p", "no:langsmith", "-q"])
-
-        # Stop and save coverage data
-        cov.stop()
-        cov.save()
-
-        # Generate report data with label-specific filename to prevent overwriting
-        report_name = f"coverage_{label.lower().replace(' ', '_')}.json" if label else "coverage.json"
-        cov.json_report(outfile=os.path.join(output_dir, report_name))
-        cov.json_report(outfile=os.path.join(output_dir, "coverage.json"))
-        cov.report(file=open(os.devnull, "w"))  # Silent console report
-
-        # Compute overall coverage percentage for target module(s) only
-        total_statements = 0
-        total_executed = 0
-
-        for filename in cov.get_data().measured_files():
-            abs_fn = os.path.abspath(filename)
-            base_fn = os.path.basename(abs_fn)
-            if "site-packages" in abs_fn or "/software/" in abs_fn or "/prefix/" in abs_fn:
-                continue
-            if base_fn.startswith("test_") or "_refactored" in base_fn:
-                continue
-            if target_files and abs_fn not in target_files:
-                continue
-
-            _, statements, missing, _ = cov.analysis(filename)
-            total_statements += len(statements)
-            total_executed += len(statements) - len(missing)
-
-        return round((total_executed / total_statements) * 100, 2) if total_statements > 0 else 0.0
-
-    except Exception as e:
-        print(f"Coverage collection failed: {e}")
+    test_list = test_files if isinstance(test_files, list) else [test_files]
+    test_list = [os.path.abspath(str(f)) for f in test_list if os.path.exists(str(f))]
+    if not test_list:
         return "N/A"
+
+    candidates = []
+    if output_dir and os.path.exists(output_dir):
+        for filename in os.listdir(output_dir):
+            if filename.endswith(".py") and not filename.startswith("test_") and "_refactored" not in filename:
+                candidate = os.path.abspath(os.path.join(output_dir, filename))
+                if candidate not in candidates:
+                    candidates.append(candidate)
+
+    if not candidates and modules_under_test:
+        module_list = modules_under_test if isinstance(modules_under_test, list) else [modules_under_test]
+        candidates.extend(
+            os.path.abspath(str(module))
+            for module in module_list
+            if module and os.path.exists(str(module))
+        )
+
+    if not candidates:
+        return "N/A"
+
+    extra_target = None
+    if "plugins_base" in os.path.abspath(output_dir):
+        try:
+            import httpie.plugins.base
+            extra_target = os.path.realpath(httpie.plugins.base.__file__)
+        except ImportError:
+            pass
+
+    run_dir = os.path.abspath(output_dir)
+    args = [sys.executable, "-c", WORKER_SCRIPT, test_list[0], candidates[0], run_dir]
+    if extra_target:
+        args.append(extra_target)
+
+    try:
+        result = subprocess.run(
+            args,
+            capture_output=True,
+            text=True,
+            timeout=30,
+            cwd=run_dir,
+            check=False,
+        )
+        for line in reversed(result.stdout.strip().splitlines()):
+            if line.startswith("{") and line.endswith("}"):
+                return json.loads(line).get("percent", 0.0)
+        if result.stderr:
+            print(f"Coverage collection failed for {test_list[0]}: {result.stderr.strip()[:300]}")
+        return 0.0
+    except subprocess.TimeoutExpired:
+        print(f"Coverage collection timed out for {test_list[0]}")
+        return 0.0
 
 
 def run_pytest_and_collect_results(test_files, modules_under_test):
@@ -201,7 +240,6 @@ def run_pytest_and_log_results(test_files, modules_under_test, output_dir, combi
     os.makedirs(output_dir, exist_ok=True)
     failed_tests = {}
     test_summary = {}
-    coverage_summary = {}
     test_ran_status = {}
 
     # Normalize test file paths
@@ -209,12 +247,15 @@ def run_pytest_and_log_results(test_files, modules_under_test, output_dir, combi
         label: [os.path.abspath(str(f)) for f in (files if isinstance(files, list) else [files])]
         for label, files in (test_files.items() if isinstance(test_files, dict) else [("Tests", test_files)])
     }
+    coverage_summary = {}
 
     detailed_results = run_pytest_and_collect_results(normalized_test_files, modules_under_test)
 
     # Coverage per test set
     for label, files in normalized_test_files.items():
-        coverage_summary[label] = run_pytest_with_coverage(files, output_dir, modules_under_test=modules_under_test, label=label)
+        coverage_summary[label] = run_pytest_with_coverage(
+            files, output_dir, modules_under_test=modules_under_test, label=label
+        )
 
     # Build summary and logs
     for label, results in detailed_results.items():
